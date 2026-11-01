@@ -1,0 +1,3683 @@
+{
+ "ui": {
+  "title": "欧陆古今",
+  "subtitle": "欧洲历史地图 · 前700–2000",
+  "map": "欧洲历史疆域地图"
+ },
+ "eras": [
+  "古希腊",
+  "希腊化时代",
+  "罗马帝国",
+  "中世纪早期",
+  "中世纪盛期",
+  "中世纪晚期",
+  "近代早期",
+  "漫长的19世纪",
+  "20世纪"
+ ],
+ "lanes": {
+  "britain": "英格兰/英国",
+  "france": "法兰西",
+  "spain": "西班牙",
+  "italy": "萨伏依/意大利",
+  "hre": "神圣罗马",
+  "germany": "普鲁士/德国",
+  "austria": "奥地利",
+  "denmark": "丹麦",
+  "sweden": "瑞典",
+  "poland": "波兰",
+  "russia": "俄罗斯",
+  "mongol": "蒙古汗国",
+  "ottoman": "奥斯曼/土耳其",
+  "greek": "希腊",
+  "rome": "罗马",
+  "persia": "波斯",
+  "franks": "法兰克"
+ },
+ "lineages": {
+  "russia": "俄罗斯",
+  "ottoman": "奥斯曼 / 土耳其",
+  "mongol": "蒙古诸汗国",
+  "hre": "神圣罗马帝国",
+  "germany": "普鲁士 / 德国",
+  "austria": "哈布斯堡奥地利",
+  "france": "法兰西",
+  "britain": "英格兰 / 英国",
+  "spain": "卡斯蒂利亚 / 西班牙",
+  "italy": "萨伏依 / 意大利",
+  "poland": "波兰",
+  "sweden": "瑞典",
+  "denmark": "丹麦",
+  "greek": "希腊与希腊化王国",
+  "rome": "罗马 / 拜占庭",
+  "persia": "波斯 / 伊朗",
+  "franks": "法兰克王国"
+ },
+ "notes": {
+  "-700": "这一期原始数据里，欧洲大部分地区画的是考古学文化，不是国家。以色列王国已在前 722 年被亚述所灭，原始数据沿用的“大卫与所罗门王国”这里改称犹大王国，范围偏大。",
+  "-500": "原始数据在这一期没有标出中欧、东欧的民族和文化，这些地方显示为未记载。",
+  "-323": "原始数据在这一期把中欧大部分画成未记载，所以凯尔特人、斯基泰人等民族的范围在相邻几期之间时有时无。",
+  "300": "原始数据把四帝共治下的帝国分成四块，这里合并为一个罗马帝国；帕提亚在 224 年已被萨珊取代，这里按萨珊处理。",
+  "400": "395 年帝国东西分治，所以这一期的“变化”里东罗马帝国“获得”了帝国的东半部，这是分治，不是征服。",
+  "500": "原始数据把威尔士一带的不列颠人标成“西罗马帝国”，这里改称不列颠人诸王国。",
+  "700": "原始数据仍把伊朗画成萨珊帝国（651 年已经灭亡），这里并入倭马亚哈里发国。",
+  "900": "原始数据里仍标为加洛林帝国的中间部分，这里按凡尔登条约（843）后的格局称作中法兰克。",
+  "1783": "原始数据从这一期起把神圣罗马帝国拆成各成员邦来画，所以这一期的“变化”里有一部分是画法改变，不全是领土易手。",
+  "1880": "与 1878 年快照相比，原始数据里没有明显的领土变化。",
+  "1930": "原始数据把这一年的苏联标成了“White Russia”，这里已按苏联处理。",
+  "2000": "与 1994 年快照相比，原始数据里没有明显的领土变化。"
+ },
+ "presets": {
+  "-500--323": "亚历山大东征",
+  "-200--1": "罗马称霸地中海",
+  "400-500": "西罗马灭亡",
+  "700-800": "阿拉伯扩张与查理曼",
+  "1400-1500": "奥斯曼崛起，莫斯科统一罗斯",
+  "1600-1650": "三十年战争前后",
+  "1783-1815": "大革命与拿破仑战争",
+  "1914-1920": "第一次世界大战前后",
+  "1938-1945": "第二次世界大战前后",
+  "1960-1994": "冷战结束前后"
+ },
+ "names": {
+  "_none": "无主 / 未记载地区",
+  "Abbasid Caliphate": "阿拔斯哈里发国",
+  "Abdelouadides": "扎亚尼王朝",
+  "Achaemenid Empire": "阿契美尼德波斯",
+  "Afghanistan": "阿富汗",
+  "Aghlabid Emirate": "阿格拉布王朝",
+  "Akatziri": "阿卡齐里人",
+  "Alamans": "阿勒曼尼人",
+  "Alans": "阿兰人",
+  "Albania": "阿尔巴尼亚",
+  "Algeria": "阿尔及利亚",
+  "Algeria (FR)": "阿尔及利亚（法属）",
+  "Algeria (France)": "阿尔及利亚（法属）",
+  "Algiers": "阿尔及尔",
+  "Almohad Caliphate": "穆瓦希德王朝",
+  "Almoravid dynasty": "穆拉比特王朝",
+  "Angevin Empire": "安茹帝国",
+  "Anglo-Saxons": "盎格鲁-撒克逊人",
+  "Anhalt": "安哈尔特",
+  "Arabia": "阿拉伯",
+  "Arabia (Nejd)": "内志",
+  "Arabian pastoral nomads": "阿拉伯游牧民",
+  "Arabs": "阿拉伯诸部",
+  "Aragón": "阿拉贡",
+  "Arameans": "阿拉米人",
+  "Armenia": "亚美尼亚",
+  "Armorica": "阿莫里卡",
+  "Arran": "阿兰（高加索）",
+  "Artsakh": "阿尔察赫",
+  "Assyria": "亚述",
+  "Astrakhan Khanate": "阿斯特拉罕汗国",
+  "Asturias": "阿斯图里亚斯",
+  "Atropatene": "阿特罗帕特尼",
+  "Aures": "奥雷斯",
+  "Austria": "奥地利",
+  "Austria Hungary": "奥匈帝国",
+  "Austrian Empire": "奥地利帝国",
+  "Austrian Empire|habsburg": "哈布斯堡奥地利",
+  "Austrian Netherlands": "奥属尼德兰",
+  "Austro-Hungarian Empire": "奥匈帝国",
+  "Avars": "阿瓦尔汗国",
+  "Azerbaijan": "阿塞拜疆",
+  "Babylonia": "巴比伦尼亚",
+  "Bactria": "巴克特里亚",
+  "Baden": "巴登",
+  "Baltic tribes": "波罗的诸部",
+  "Balts": "波罗的人",
+  "Barghawata": "巴尔加瓦塔",
+  "Bashkirs": "巴什基尔人",
+  "Basques": "巴斯克人",
+  "Batavian Republic": "巴达维亚共和国",
+  "Bavaria": "巴伐利亚",
+  "Bedouins": "贝都因人",
+  "Belgium": "比利时",
+  "Berber Tribes": "柏柏尔诸部",
+  "Berbers": "柏柏尔人",
+  "Beylik of Aydin": "艾登侯国",
+  "Bithynia": "比提尼亚",
+  "Blue Horde": "蓝帐汗国",
+  "Boihaenum": "马科曼尼王国",
+  "Boii": "波伊人",
+  "Bokhara Khanate": "布哈拉汗国",
+  "Bosnia": "波斯尼亚",
+  "Bosnia and Herzegovina": "波黑",
+  "Bosnia-Herzegovina": "波斯尼亚-黑塞哥维那",
+  "Bosporan Kingdom": "博斯普鲁斯王国",
+  "Bosporian Kingdom": "博斯普鲁斯王国",
+  "Brandenburg": "勃兰登堡",
+  "Britany": "布列塔尼",
+  "British Raj": "英属印度",
+  "Brittonic kingdoms": "不列颠人诸王国",
+  "Broërec": "布罗埃雷克",
+  "Brunswick": "不伦瑞克",
+  "Bulgar Khanate": "保加利亚",
+  "Bulgaria": "保加利亚",
+  "Bulgars": "保加尔人",
+  "Burgandy": "勃艮第",
+  "Burgundians": "勃艮第人",
+  "Buwayhid Emirates": "白益王朝",
+  "Byelarus": "白俄罗斯",
+  "Byzantine Empire": "拜占庭帝国",
+  "Caliphate of Córdoba": "科尔多瓦哈里发国",
+  "Cantia": "肯特",
+  "Cappadocia": "卡帕多西亚",
+  "Carolingian Empire": "加洛林帝国",
+  "Carthage": "迦太基",
+  "Carthaginian Empire": "迦太基",
+  "Castile": "卡斯蒂利亚",
+  "Castilla": "卡斯蒂利亚",
+  "Castille": "卡斯蒂利亚",
+  "Caucasian Alans": "高加索阿兰人",
+  "Caucasian Albania": "高加索阿尔巴尼亚",
+  "Celtiberians": "凯尔特伊比利亚人",
+  "Celtic kingdoms": "凯尔特诸王国",
+  "Celts": "凯尔特人",
+  "central Asian khanates": "中亚诸汗国",
+  "Chagatai Khanate": "察合台汗国",
+  "Chelmia": "扎胡姆列",
+  "Chernoles culture": "切尔诺列斯文化",
+  "Chuds": "楚德人",
+  "Cimerians": "辛梅里安人",
+  "Colchis": "科尔基斯",
+  "Comté de Toulouse": "图卢兹伯国",
+  "Corsica": "科西嘉",
+  "Crete": "克里特",
+  "Crimean Khanate": "克里米亚汗国",
+  "Croatia": "克罗地亚",
+  "Croatian kingdom": "克罗地亚",
+  "Cuman Khanates": "库曼诸汗国",
+  "Cuman-Kipchak confederation": "库曼-钦察联盟",
+  "Cyprus": "塞浦路斯",
+  "Cyraneica (UK Lybia)": "昔兰尼加（英管）",
+  "Cyrenaica": "昔兰尼加",
+  "Czech Republic": "捷克",
+  "Czechoslovakia": "捷克斯洛伐克",
+  "Czechs": "捷克人",
+  "Dacia": "达契亚",
+  "Dacians": "达契亚人",
+  "Danes": "丹麦人",
+  "Danube Bulgars": "多瑙河保加利亚",
+  "Danzig": "但泽自由市",
+  "Dardania": "达尔达尼亚",
+  "Denmark": "丹麦",
+  "Denmark-Norway": "丹麦-挪威",
+  "Derbent": "杰尔宾特",
+  "Dodecanese Islands": "多德卡尼斯群岛",
+  "Duchy of Benevento": "贝内文托公国",
+  "Duchy of Swabia": "士瓦本公国",
+  "Dumnonia": "杜姆诺尼亚",
+  "Dumonii": "杜姆诺尼人",
+  "Durdzuks": "杜尔祖克人",
+  "Dutch Republic": "荷兰共和国",
+  "East Francia": "东法兰克",
+  "East Germany": "东德",
+  "East Getaes": "东约塔人",
+  "East Prussia": "东普鲁士",
+  "Eastern Roman Empire": "东罗马帝国",
+  "Egypt": "埃及",
+  "Elam": "埃兰",
+  "Electoral Hesse": "黑森选侯国",
+  "Emirate of Bin Shal'an": "本·沙兰酋长国",
+  "Emirate of Córdoba": "科尔多瓦埃米尔国",
+  "Emirate of Sicily": "西西里酋长国",
+  "Emirate of the White Sheep Turks": "白羊王朝",
+  "Emirate of Tiflis": "第比利斯酋长国",
+  "Empire of Alexander": "亚历山大帝国",
+  "England": "英格兰",
+  "England and Ireland": "英格兰与爱尔兰",
+  "English territory": "英格兰领地",
+  "Essex": "埃塞克斯",
+  "Estonia": "爱沙尼亚",
+  "Ests": "爱沙尼亚人",
+  "Etrurians": "伊特鲁里亚人",
+  "Fatimid Caliphate": "法蒂玛王朝",
+  "Fezzan (Frech Lybia)": "费赞（法管）",
+  "Finland": "芬兰",
+  "Finnmark": "芬马克",
+  "Finno-Ugric taiga hunter-gatherers": "芬兰-乌戈尔狩猎采集者",
+  "Finns": "芬兰人",
+  "Florence": "佛罗伦萨",
+  "France": "法兰西",
+  "Franche-Comté": "弗朗什-孔泰",
+  "Frankish Kingdom": "法兰克王国",
+  "Franks": "法兰克人",
+  "French West Africa": "法属西非",
+  "Frisians": "弗里斯兰人",
+  "Geats": "约塔人",
+  "Genoa": "热那亚",
+  "Georgia": "格鲁吉亚",
+  "Georgian Kingdom": "格鲁吉亚",
+  "Gepids": "格皮德人",
+  "German Empire": "德意志帝国",
+  "Germanic tribes": "日耳曼诸部",
+  "Germany": "德国",
+  "Germany (France)": "德国·法占区",
+  "Germany (Soviet)": "德国·苏占区",
+  "Germany (UK)": "德国·英占区",
+  "Germany (USA)": "德国·美占区",
+  "Germany|empire": "德意志帝国",
+  "Germany|nazi": "德国（纳粹德国）",
+  "Germany|weimar": "德国（魏玛共和国）",
+  "Ghaznavid Emirate": "伽色尼王朝",
+  "Goghtn": "戈赫特恩",
+  "Golden Horde": "大帐汗国",
+  "Goths": "克里米亚哥特人",
+  "Granada": "格拉纳达",
+  "Grand Duchy of Hesse": "黑森大公国",
+  "Grand Duchy of Moscow": "莫斯科大公国",
+  "Great Moravia": "大摩拉维亚",
+  "Greece": "希腊",
+  "Greek city-states": "希腊城邦",
+  "Greek colonies": "希腊殖民城邦",
+  "Greenland": "格陵兰",
+  "Guanches": "关切人",
+  "Guta": "哥得兰",
+  "Habsburg Austria": "哈布斯堡奥地利",
+  "Habsburg Netherlands": "哈布斯堡尼德兰",
+  "Hafsid Caliphate": "哈夫斯王朝",
+  "Hail": "哈伊勒",
+  "Hallstatt culture": "哈尔施塔特文化",
+  "Hanover": "汉诺威",
+  "Hejaz": "汉志",
+  "Helvetic Republic": "海尔维第共和国",
+  "Heruli": "赫鲁利人",
+  "Holstein": "荷尔斯泰因",
+  "Holy Roman Empire": "神圣罗马帝国",
+  "Hungary": "匈牙利",
+  "Hunnic Empire": "匈人帝国",
+  "Huns": "匈人",
+  "Ibadites": "伊巴德派",
+  "Iceland": "冰岛",
+  "Icelandic Commonwealth": "冰岛联邦",
+  "Idrisid Caliphate": "伊德里斯王朝",
+  "Ilkhanate": "伊儿汗国",
+  "Illyrians": "伊利里亚人",
+  "Imperial Hungary": "匈牙利王国",
+  "India": "印度",
+  "Iran": "伊朗",
+  "Iranian pastoralists": "伊朗游牧民",
+  "Iraq": "伊拉克",
+  "Ireland": "爱尔兰",
+  "Irlanda": "爱尔兰",
+  "Islamic and Hindu states": "伊斯兰与印度教诸国",
+  "Islamic states": "伊斯兰诸国",
+  "Israel": "以色列",
+  "Israel|mandate": "巴勒斯坦（英委任统治）",
+  "Italy": "意大利",
+  "Jordan": "约旦",
+  "Judea": "犹地亚",
+  "Kakheti-Hereti": "卡赫季-赫雷季",
+  "Kalmar Union": "卡尔马联合",
+  "Kara Khitai Khaganate": "西辽",
+  "Karakalpaks": "卡拉卡尔帕克人",
+  "Karasuk culture": "卡拉苏克文化",
+  "Karelians": "卡累利阿人",
+  "Karkhanids": "喀喇汗王朝",
+  "Kazakhstan": "哈萨克斯坦",
+  "Kazan Khanate": "喀山汗国",
+  "Kent": "肯特",
+  "Khanate of the Golden Horde": "金帐汗国",
+  "Khazars": "可萨人",
+  "Khiva Khanate": "希瓦汗国",
+  "Khundzi": "洪兹人",
+  "Khwarazmian Empire": "花剌子模帝国",
+  "Kievan Rus": "基辅罗斯",
+  "Kimek-Kipchak khaganate": "基马克-钦察汗国",
+  "Kingdom of Antigonus": "安提柯王国",
+  "Kingdom of France": "法兰西王国",
+  "Kingdom of Gala": "马西里王国",
+  "Kingdom of Georgia": "格鲁吉亚王国",
+  "Kingdom of Hungary": "匈牙利王国",
+  "Kingdom of Ireland": "爱尔兰王国",
+  "Kingdom of Italy": "意大利王国",
+  "Kingdom of Judah": "犹大王国",
+  "Kingdom of Kassander": "卡山德王国",
+  "Kingdom of Lysimachus": "利西马科斯王国",
+  "Kingdom of Norway": "挪威王国",
+  "Kingdom of Sardinia": "撒丁王国",
+  "Kingdom of Sind": "信德王国",
+  "Kingdom of Syphax": "马塞西里王国",
+  "Kingdom of the Two Sicilies|naples": "那不勒斯王国",
+  "Kryvichs": "克里维奇人",
+  "Kurs": "库尔兰人",
+  "Kushan Empire": "贵霜帝国",
+  "Kuwait": "科威特",
+  "Kwarezm": "花剌子模",
+  "Kyivan Rus": "基辅罗斯",
+  "La Tène culture": "拉坦诺文化",
+  "Latvia": "拉脱维亚",
+  "Lebanon": "黎巴嫩",
+  "Leks": "列兹金人",
+  "León": "莱昂",
+  "Libya": "利比亚",
+  "Libya (IT)": "利比亚（意属）",
+  "Lippe-Detmold": "利珀-代特莫尔德",
+  "Lithuania": "立陶宛",
+  "Lombard duchies": "伦巴第诸公国",
+  "Lombard principalities": "伦巴第王国",
+  "Lombardy": "伦巴第",
+  "Lucca": "卢卡",
+  "Lusatian culture": "卢萨蒂亚文化",
+  "Luxembourg": "卢森堡",
+  "Lübeck": "吕贝克",
+  "Maan": "马因",
+  "Macedon and Hellenic League": "马其顿与希腊同盟",
+  "Macedonia": "马其顿",
+  "Magyars": "匈牙利（马扎尔）",
+  "Mamluke Sultanate": "马穆鲁克苏丹国",
+  "Mandatory Palestine (GB)": "巴勒斯坦（英委任统治）",
+  "Mari": "马里人",
+  "Maskat": "马斯库特",
+  "Mauretania": "毛里塔尼亚",
+  "Mauri": "毛里人",
+  "Mauritania": "毛里塔尼亚",
+  "Mecklenburg-Schwerin": "梅克伦堡-什未林",
+  "Mecklenburg-Strelitz": "梅克伦堡-施特雷利茨",
+  "Mercia": "麦西亚",
+  "Merinides": "马林王朝",
+  "Mesopotamia (GB)": "美索不达米亚（英委任统治）",
+  "Middle Francia": "中法兰克",
+  "Milan": "米兰",
+  "Milano (Austria)": "米兰（奥属）",
+  "Milograd culture": "米洛格勒文化",
+  "minor states": "安纳托利亚诸小国",
+  "Modena": "摩德纳",
+  "Moldova": "摩尔多瓦",
+  "Moldova|moldavia": "摩尔达维亚",
+  "Mongol Empire": "蒙古帝国",
+  "Montenegro": "黑山",
+  "Moravians": "摩拉维亚人",
+  "Mordvinians": "莫尔多瓦人",
+  "Morocco": "摩洛哥",
+  "Morocco (France)": "摩洛哥（法属）",
+  "N. European Bronze Age cultures": "北欧青铜文化",
+  "Nabatean Kingdom": "纳巴泰王国",
+  "Naples": "那不勒斯",
+  "Nassau": "拿骚",
+  "Navarre": "纳瓦拉",
+  "Neo-Hittite states": "新赫梯诸国",
+  "Netherlands": "荷兰",
+  "Neustria": "纽斯特里亚",
+  "Nogai Horde": "诺盖汗国",
+  "Norsemen": "北欧诸部",
+  "Northmen": "北欧诸部",
+  "Northumbria": "诺森布里亚",
+  "Norway": "挪威",
+  "Novgorod": "诺夫哥罗德",
+  "Novgorod-Seversky": "诺夫哥罗德-谢韦尔斯基",
+  "Numidia": "努米底亚",
+  "Odrysian Kingdom": "奥德里西亚王国",
+  "Oghuz": "乌古斯人",
+  "Oghuz Turks": "乌古斯突厥",
+  "Oldenburg": "奥尔登堡",
+  "Ostrogoths": "东哥特人",
+  "Other Rus Principalities": "其他罗斯公国",
+  "Ottoman Empire": "奥斯曼帝国",
+  "Ottoman Sultanate": "奥斯曼苏丹国",
+  "Pakistan": "巴基斯坦",
+  "Palatinate": "普法尔茨",
+  "Paleo-Siberian hunter-gatherers": "古西伯利亚狩猎采集者",
+  "Papal States": "教皇国",
+  "Parma": "帕尔马",
+  "Parthia": "帕提亚（安息）",
+  "Parthian Empire": "帕提亚帝国（安息）",
+  "Pechenegs": "佩切涅格人",
+  "Pergamon": "帕加马",
+  "Permians": "彼尔姆人",
+  "Persia": "波斯",
+  "Peshemegs": "佩切涅格人",
+  "Phrygians": "弗里吉亚",
+  "Picts": "皮克特人",
+  "Poland": "波兰",
+  "Poland-Lithuania": "波兰-立陶宛",
+  "Polanes": "波兰人部落",
+  "Polish–Lithuanian Commonwealth": "波兰立陶宛联邦",
+  "Polyanians": "波利安人",
+  "Pomerania": "波美拉尼亚",
+  "Portugal": "葡萄牙",
+  "Principality of Galicia-Volhynia": "加利西亚-沃里尼亚公国",
+  "Principality of Kyiv": "基辅公国",
+  "Principality of Novgorod": "诺夫哥罗德公国",
+  "Principality of Polotsk": "波洛茨克公国",
+  "Principality of Vladimir-Suzdal": "弗拉基米尔-苏兹达尔公国",
+  "Principality of Wallachia": "瓦拉几亚公国",
+  "Proto-Scythian culture": "原始斯基泰文化",
+  "Proto-Slavs": "原始斯拉夫人",
+  "Prussia": "普鲁士",
+  "Prussians": "古普鲁士人",
+  "Pskov": "普斯科夫",
+  "Ptolemaic Kingdom": "托勒密王国",
+  "Quazaq Khanate": "哈萨克汗国",
+  "Republic of Kraków": "克拉科夫自由市",
+  "Republic of the Seven Zenden": "瓦莱七区",
+  "Republic of Turkey": "土耳其共和国",
+  "Roman Empire": "罗马帝国",
+  "Roman Republic": "罗马共和国",
+  "Romania": "罗马尼亚",
+  "Rus Principalities": "罗斯诸公国",
+  "Rus' Khaganate": "罗斯汗国",
+  "Russia": "俄罗斯",
+  "Russian Empire": "俄罗斯帝国",
+  "Ryazan": "梁赞公国",
+  "Saami": "萨米人",
+  "Saar Protectorate": "萨尔保护领",
+  "Sabines": "萨宾人",
+  "Sabini": "萨宾人",
+  "Sabirs": "萨比尔人",
+  "Safavid Empire": "萨法维王朝",
+  "Saffarids": "萨法尔王朝",
+  "Saharan Nomadic Tribes": "撒哈拉游牧诸部",
+  "Saharan pastoral nomads": "撒哈拉游牧民",
+  "Samanid Empire": "萨曼王朝",
+  "Sami": "萨米人",
+  "Samis": "萨米人",
+  "Samnites": "萨莫奈人",
+  "Sardinia": "撒丁",
+  "Sardinia-Piedmont": "萨伏依-皮埃蒙特",
+  "Sarmates": "萨尔马提亚人",
+  "Sasanian Empire": "萨珊波斯",
+  "Saudi Arabia": "沙特阿拉伯",
+  "Savoy": "萨伏依",
+  "Savoy-Piedmont": "萨伏依-皮埃蒙特",
+  "Saxons": "撒克逊人",
+  "Saxony": "萨克森",
+  "Schleswig": "石勒苏益格",
+  "Scotland": "苏格兰",
+  "Scots": "苏格兰人",
+  "Scythians": "斯基泰人",
+  "Seleucid Kingdom": "塞琉古王国",
+  "Seljuk Caliphate": "罗姆苏丹国",
+  "Seljuk Empire": "塞尔柱帝国",
+  "Serbia": "塞尔维亚",
+  "Severians": "塞维利安人",
+  "Shirvan": "希尔万",
+  "Siberians": "西伯利亚诸族",
+  "Sicily": "西西里",
+  "Sind": "信德",
+  "Skirii": "斯基里人",
+  "Slavic tribes": "斯拉夫诸部",
+  "Slavonic tribes": "斯拉夫诸部",
+  "Slavs": "斯拉夫人",
+  "Slovakia": "斯洛伐克",
+  "Slovenia": "斯洛文尼亚",
+  "South Russia": "南俄（白军）",
+  "Spain": "西班牙",
+  "Spanish Habsburg": "西班牙哈布斯堡",
+  "Spanish Morocco": "西属摩洛哥",
+  "Spanish Sahara": "西属撒哈拉",
+  "state societies and Aramaean kingdoms": "阿拉米诸王国",
+  "Suebi": "苏维汇人",
+  "Suom": "芬兰诸部",
+  "Suomi": "芬兰诸部",
+  "Suren Kingdom": "苏伦王国",
+  "Swabia": "士瓦本",
+  "Sweden": "瑞典",
+  "Sweden–Norway": "瑞典-挪威",
+  "Swedes": "瑞典人",
+  "Swedes and Goths": "瑞典人与约塔人",
+  "Swiss Confederation": "瑞士邦联",
+  "Switzerland": "瑞士",
+  "Syria": "叙利亚",
+  "Syria (France)": "叙利亚（法委任统治）",
+  "Syunik": "休尼克",
+  "Sámi": "萨米人",
+  "Tashir": "塔希尔",
+  "Teutonic Knights": "条顿骑士团",
+  "Thrace": "色雷斯人",
+  "Thule": "图勒人",
+  "Thuringia": "图林根",
+  "Timurid Emirates": "帖木儿诸埃米尔国",
+  "Timurid Empire": "帖木儿帝国",
+  "Touareg": "图阿雷格诸部",
+  "Trebizond": "特拉布宗帝国",
+  "Tripolitana (UK Lybia)": "的黎波里塔尼亚（英管）",
+  "Tripolitania": "的黎波里塔尼亚",
+  "Tsardom of Muscovy": "俄罗斯沙皇国",
+  "Tsardom of Muscovy|early": "莫斯科大公国",
+  "Tuareg Nomadic Tribes": "图阿雷格诸部",
+  "Tuaregs": "图阿雷格人",
+  "Tunis": "突尼斯",
+  "Tunisia": "突尼斯",
+  "Turan": "图兰",
+  "Turingians": "图林根人",
+  "Turkey": "土耳其",
+  "Turkish Cypriot-administered area": "北塞浦路斯（土族区）",
+  "Turkmenistan": "土库曼斯坦",
+  "Tuscany": "托斯卡纳",
+  "UK": "英国",
+  "Ukraine": "乌克兰",
+  "Umayyad Caliphate": "倭马亚哈里发国",
+  "United Kingdom": "英国",
+  "United Kingdom of Great Britain and Ireland": "英国",
+  "United Kingdom of Netherlands": "尼德兰联合王国",
+  "United Kingdom|great-britain": "大不列颠王国",
+  "Urartu": "乌拉尔图",
+  "Urnfield cultures": "骨灰瓮文化",
+  "USA": "美国",
+  "USSR": "苏联",
+  "Uzbekistan": "乌兹别克斯坦",
+  "Vandals": "汪达尔人",
+  "Vasconia": "瓦斯科尼亚",
+  "Venetia": "威尼西亚",
+  "Venice": "威尼斯",
+  "Veps": "维普斯人",
+  "Visigothic Kingdom": "西哥特王国",
+  "Visigoths": "西哥特人",
+  "Volga Bulgars": "伏尔加保加尔",
+  "Warsenis": "瓦尔塞尼斯",
+  "Watassid Morocco": "摩洛哥（瓦塔斯）",
+  "Wattasid Caliphate": "瓦塔斯王朝",
+  "Welsh": "威尔士诸王国",
+  "Wessex": "威塞克斯",
+  "West Francia": "西法兰克",
+  "West Germany": "西德",
+  "West Getaes": "西约塔人",
+  "Western Gokturk Khaganate": "西突厥汗国",
+  "Western Roman Empire": "西罗马帝国",
+  "Western Sahara": "西撒哈拉",
+  "White Horde": "白帐汗国",
+  "White Russia": "白俄罗斯",
+  "Württemberg": "符腾堡",
+  "Yugoslavia": "南斯拉夫",
+  "Zayyanid Caliphate": "扎亚尼王朝"
+ },
+ "short": {
+  "Abbasid Caliphate": "阿拔斯",
+  "Achaemenid Empire": "波斯",
+  "Bosnia-Herzegovina": "波黑",
+  "Brittonic kingdoms": "不列颠人",
+  "Eastern Roman Empire": "东罗马",
+  "Emirate of Córdoba": "科尔多瓦",
+  "Germany (France)": "法占区",
+  "Germany (Soviet)": "苏占区",
+  "Germany (UK)": "英占区",
+  "Germany (USA)": "美占区",
+  "Greek city-states": "希腊",
+  "Holy Roman Empire": "神圣罗马",
+  "Kingdom of Antigonus": "安提柯",
+  "Kingdom of Kassander": "卡山德",
+  "Kingdom of Lysimachus": "利西马科斯",
+  "Macedon and Hellenic League": "马其顿",
+  "Mecklenburg-Strelitz": "施特雷利茨",
+  "Polish–Lithuanian Commonwealth": "波兰立陶宛",
+  "Principality of Galicia-Volhynia": "加利西亚-沃里尼亚",
+  "Principality of Vladimir-Suzdal": "弗拉基米尔-苏兹达尔",
+  "Ptolemaic Kingdom": "托勒密",
+  "Sasanian Empire": "萨珊",
+  "Seleucid Kingdom": "塞琉古",
+  "Umayyad Caliphate": "倭马亚",
+  "Western Roman Empire": "西罗马"
+ },
+ "cities": {
+  "constantinople": "君士坦丁堡",
+  "istanbul": "伊斯坦布尔",
+  "paris": "巴黎",
+  "london": "伦敦",
+  "rome": "罗马",
+  "vienna": "维也纳",
+  "moscow": "莫斯科",
+  "st-petersburg": "圣彼得堡",
+  "petrograd": "彼得格勒",
+  "leningrad": "列宁格勒",
+  "berlin": "柏林",
+  "madrid": "马德里",
+  "lisbon": "里斯本",
+  "warsaw": "华沙",
+  "krakow": "克拉科夫",
+  "prague": "布拉格",
+  "buda": "布达",
+  "budapest": "布达佩斯",
+  "venice": "威尼斯",
+  "athens": "雅典",
+  "kyiv": "基辅",
+  "stockholm": "斯德哥尔摩",
+  "copenhagen": "哥本哈根",
+  "amsterdam": "阿姆斯特丹",
+  "dublin": "都柏林",
+  "cairo": "开罗",
+  "angora": "安哥拉",
+  "ankara": "安卡拉",
+  "smyrna": "士麦那",
+  "izmir": "伊兹密尔",
+  "salonica": "萨洛尼卡",
+  "thessaloniki": "塞萨洛尼基",
+  "konigsberg": "柯尼斯堡",
+  "kaliningrad": "加里宁格勒",
+  "danzig": "但泽",
+  "gdansk": "格但斯克",
+  "tsaritsyn": "察里津",
+  "stalingrad": "斯大林格勒",
+  "volgograd": "伏尔加格勒",
+  "oslo": "奥斯陆",
+  "christiania": "克里斯蒂安尼亚",
+  "pressburg": "普雷斯堡",
+  "bratislava": "布拉迪斯拉发",
+  "belgrade": "贝尔格莱德",
+  "granada": "格拉纳达",
+  "cordoba": "科尔多瓦",
+  "palermo": "巴勒莫",
+  "naples": "那不勒斯",
+  "milan": "米兰",
+  "hamburg": "汉堡",
+  "lubeck": "吕贝克",
+  "novgorod": "诺夫哥罗德",
+  "jerusalem": "耶路撒冷",
+  "baghdad": "巴格达",
+  "tbilisi": "第比利斯",
+  "kazan": "喀山",
+  "algiers": "阿尔及尔",
+  "tunis": "突尼斯",
+  "riga": "里加",
+  "helsinki": "赫尔辛基",
+  "byzantium": "拜占庭",
+  "lutetia": "卢泰西亚",
+  "londinium": "伦蒂尼恩",
+  "vindobona": "文多博纳",
+  "olisipo": "奥利西波",
+  "aquincum": "阿昆库姆",
+  "ancyra": "安库拉",
+  "thessalonica": "帖撒罗尼迦",
+  "singidunum": "辛吉杜努姆",
+  "corduba": "科尔杜巴",
+  "panormus": "帕诺尔莫斯",
+  "neapolis": "尼亚波利斯",
+  "mediolanum": "梅迪奥拉努姆",
+  "carthage": "迦太基",
+  "alexandria": "亚历山大港",
+  "syracuse": "叙拉古",
+  "sparta": "斯巴达",
+  "antioch": "安条克",
+  "babylon": "巴比伦",
+  "persepolis": "波斯波利斯",
+  "ctesiphon": "泰西封",
+  "ravenna": "拉文纳",
+  "massalia": "马萨利亚",
+  "marseille": "马赛",
+  "lugdunum": "卢格杜努姆",
+  "lyon": "里昂",
+  "aachen": "亚琛",
+  "pella": "佩拉",
+  "toletum": "托莱图姆",
+  "toledo": "托莱多"
+ },
+ "rivers": {
+  "Danube": "多瑙河",
+  "Rhine": "莱茵河",
+  "Elbe": "易北河",
+  "Oder": "奥得河",
+  "Vistula": "维斯瓦河",
+  "Dnieper": "第聂伯河",
+  "Dniester": "德涅斯特河",
+  "Don": "顿河",
+  "Volga": "伏尔加河",
+  "Seine": "塞纳河",
+  "Loire": "卢瓦尔河",
+  "Rhône": "罗讷河",
+  "Garonne": "加龙河",
+  "Thames": "泰晤士河",
+  "Po": "波河",
+  "Tagus": "塔霍河",
+  "Ebro": "埃布罗河",
+  "Douro": "杜罗河",
+  "Daugava": "西德维纳河",
+  "Neman": "涅曼河",
+  "Nile": "尼罗河",
+  "Euphrates": "幼发拉底河",
+  "Tigris": "底格里斯河",
+  "Tisza": "蒂萨河",
+  "Northern Dvina": "北德维纳河",
+  "Weser": "威悉河",
+  "Sava": "萨瓦河",
+  "Tiber": "台伯河",
+  "Prut": "普鲁特河",
+  "Marne": "马恩河",
+  "Meuse": "默兹河",
+  "Vltava": "伏尔塔瓦河",
+  "Main": "美因河",
+  "Bug": "布格河",
+  "Guadalquivir": "瓜达尔基维尔河",
+  "Kama": "卡马河",
+  "Oka": "奥卡河",
+  "Kuban": "库班河",
+  "Drava": "德拉瓦河",
+  "Moselle": "摩泽尔河",
+  "Guadiana": "瓜迪亚纳河"
+ },
+ "ranges": {
+  "Alps": "阿尔卑斯山脉",
+  "Ural Mountains": "乌拉尔山脉",
+  "Caucasus": "高加索山脉",
+  "Zagros Mountains": "扎格罗斯山脉",
+  "Atlas Mountains": "阿特拉斯山脉",
+  "Alborz": "厄尔布尔士山脉",
+  "Scandinavian Mountains": "斯堪的纳维亚山脉",
+  "Carpathians": "喀尔巴阡山脉",
+  "Apennines": "亚平宁山脉",
+  "Pyrenees": "比利牛斯山脉",
+  "Pontic Mountains": "本都山脉",
+  "Balkan Mountains": "巴尔干山脉",
+  "Dinaric Alps": "迪纳拉山脉",
+  "Cantabrian Mountains": "坎塔布连山脉",
+  "Sierra Nevada": "内华达山脉",
+  "Sierra Morena": "莫雷纳山脉",
+  "Taurus Mountains": "托罗斯山脉",
+  "Pindus": "品都斯山脉",
+  "Harz": "哈尔茨山",
+  "Vosges": "孚日山脉",
+  "Sudetes": "苏台德山脉",
+  "Ore Mountains": "厄尔士山脉",
+  "Ardennes": "阿登山区",
+  "Jura": "汝拉山脉",
+  "Bohemian Forest": "波希米亚林山",
+  "Grampians": "格兰扁山脉",
+  "Cambrian Mountains": "坎布里亚山脉",
+  "Mount Lebanon": "黎巴嫩山脉"
+ },
+ "events": {
+  "byzantium-founded": [
+   "拜占庭建城",
+   "希腊城邦墨伽拉的移民在博斯普鲁斯海峡边建立拜占庭，也就是后来的君士坦丁堡。"
+  ],
+  "massalia": [
+   "马萨利亚建城",
+   "小亚细亚的福西亚希腊人建立马萨利亚（今马赛），希腊的商业和文化由此进入高卢。"
+  ],
+  "solon": [
+   "梭伦改革",
+   "梭伦废除债务奴役，按财产划分公民等级，为雅典民主奠基。"
+  ],
+  "jerusalem-587": [
+   "耶路撒冷陷落",
+   "新巴比伦王尼布甲尼撒二世攻陷耶路撒冷、焚毁圣殿，犹大人被掳往巴比伦。"
+  ],
+  "cyrus": [
+   "居鲁士建立波斯帝国",
+   "居鲁士二世推翻米底，建立阿契美尼德王朝，二十年内征服小亚细亚与巴比伦。"
+  ],
+  "roman-republic": [
+   "罗马共和国建立",
+   "罗马人驱逐最后一位国王“高傲者”塔克文，此后由每年选出的两位执政官治理。"
+  ],
+  "cleisthenes": [
+   "克利斯提尼改革",
+   "克利斯提尼按地域重组雅典公民、设立五百人议事会，雅典民主制成形。"
+  ],
+  "ionian-revolt": [
+   "伊奥尼亚起义",
+   "小亚细亚的希腊城邦在米利都带领下反抗波斯，雅典出兵支援，希波战争由此开始。"
+  ],
+  "marathon": [
+   "马拉松战役",
+   "雅典重装步兵在马拉松击退大流士一世派来的波斯远征军。"
+  ],
+  "thermopylae": [
+   "温泉关战役",
+   "斯巴达王列奥尼达率三百斯巴达人和盟军死守温泉关，迟滞薛西斯一世的大军。"
+  ],
+  "salamis": [
+   "萨拉米斯海战",
+   "地米斯托克利率希腊舰队在萨拉米斯海峡大败波斯海军，薛西斯撤回亚洲。"
+  ],
+  "delian-league": [
+   "提洛同盟",
+   "爱琴海诸城邦以雅典为首结盟对抗波斯，同盟后来逐渐变成雅典的海上帝国。"
+  ],
+  "parthenon": [
+   "帕特农神庙动工",
+   "伯里克利主持重建雅典卫城，帕特农神庙动工，雅典进入黄金时代。"
+  ],
+  "peloponnesian-war": [
+   "伯罗奔尼撒战争",
+   "以斯巴达为首的伯罗奔尼撒同盟与雅典开战，战争断断续续打了二十七年。"
+  ],
+  "plague-athens": [
+   "雅典大瘟疫",
+   "被围的雅典城中暴发瘟疫，约四分之一人口死亡，伯里克利也死于此疫。"
+  ],
+  "sicilian-expedition": [
+   "西西里远征",
+   "雅典派大军远征叙拉古，两年后全军覆没。"
+  ],
+  "aegospotami": [
+   "羊河战役",
+   "斯巴达将领吕山德在羊河口全歼雅典舰队，次年雅典投降，伯罗奔尼撒战争结束。"
+  ],
+  "socrates": [
+   "苏格拉底之死",
+   "雅典法庭以不敬神、腐蚀青年的罪名判处苏格拉底死刑。"
+  ],
+  "gauls-sack-rome": [
+   "高卢人洗劫罗马",
+   "布伦努斯率领的高卢人在阿里亚河击溃罗马军，随后洗劫罗马城。"
+  ],
+  "plato-academy": [
+   "柏拉图学园",
+   "柏拉图在雅典城外创办学园，亚里士多德后来在这里学习了二十年。"
+  ],
+  "leuctra": [
+   "留克特拉战役",
+   "底比斯的伊巴密浓达以斜线阵击败斯巴达，斯巴达的霸权就此终结。"
+  ],
+  "chaeronea": [
+   "喀罗尼亚战役",
+   "马其顿国王腓力二世击败雅典与底比斯联军，希腊城邦从此受马其顿控制。"
+  ],
+  "alexander-king": [
+   "亚历山大即位",
+   "腓力二世遇刺身亡，二十岁的亚历山大继位为马其顿国王。"
+  ],
+  "granicus": [
+   "格拉尼库斯河战役",
+   "亚历山大渡过赫勒斯滂海峡，在格拉尼库斯河第一次击败波斯军队。"
+  ],
+  "issus": [
+   "伊苏斯战役",
+   "亚历山大击败大流士三世亲率的波斯大军，大流士弃军而逃。"
+  ],
+  "alexandria-founded": [
+   "亚历山大港建城",
+   "亚历山大在尼罗河口建城，这里后来成为希腊化世界的学术中心。"
+  ],
+  "gaugamela": [
+   "高加米拉战役",
+   "亚历山大在底格里斯河畔决定性地击败大流士三世，阿契美尼德帝国崩溃。"
+  ],
+  "alexander-dies": [
+   "亚历山大之死",
+   "亚历山大在巴比伦病逝，年仅三十二岁，部将们随即开始瓜分帝国。"
+  ],
+  "ipsus": [
+   "伊普苏斯战役",
+   "继业者联军击败并杀死安提柯一世，亚历山大帝国的分裂局面就此定型。"
+  ],
+  "library-alexandria": [
+   "亚历山大图书馆",
+   "托勒密王朝在亚历山大港兴建博学园和图书馆，搜罗地中海世界的典籍。"
+  ],
+  "first-punic-war": [
+   "第一次布匿战争",
+   "罗马与迦太基为争夺西西里开战，罗马第一次组建舰队。"
+  ],
+  "hannibal-alps": [
+   "汉尼拔翻越阿尔卑斯山",
+   "迦太基统帅汉尼拔率军队和战象从西班牙出发，翻越阿尔卑斯山进入意大利。"
+  ],
+  "cannae": [
+   "坎尼会战",
+   "汉尼拔两翼包抄，全歼约八万罗马军，这是古代最著名的歼灭战。"
+  ],
+  "syracuse-falls": [
+   "叙拉古陷落",
+   "罗马攻破叙拉古，帮助守城的阿基米德死于乱军之中。"
+  ],
+  "zama": [
+   "扎马战役",
+   "西庇阿在北非击败汉尼拔，迦太基求和，第二次布匿战争结束。"
+  ],
+  "pydna": [
+   "皮德纳战役",
+   "罗马军团击败马其顿方阵，安提柯王朝灭亡，马其顿不久成为罗马行省。"
+  ],
+  "carthage-destroyed": [
+   "迦太基被毁",
+   "第三次布匿战争结束，罗马夷平迦太基；同一年又摧毁了希腊的科林斯。"
+  ],
+  "gracchi": [
+   "格拉古改革",
+   "保民官提比略·格拉古推动土地改革，被元老派打死，罗马共和国进入内乱时期。"
+  ],
+  "spartacus": [
+   "斯巴达克斯起义",
+   "角斗士斯巴达克斯从卡普阿出逃，聚集起数万奴隶，与罗马军队周旋两年。"
+  ],
+  "alesia": [
+   "阿莱西亚之围",
+   "恺撒围困并击败维钦托利领导的高卢联军，高卢从此归属罗马。"
+  ],
+  "rubicon": [
+   "渡过卢比孔河",
+   "恺撒率军越过卢比孔河进入意大利，向庞培和元老院开战。"
+  ],
+  "caesar-killed": [
+   "恺撒遇刺",
+   "终身独裁官恺撒在元老院会议上被布鲁图斯等人刺杀。"
+  ],
+  "actium": [
+   "亚克兴海战",
+   "屋大维击败安东尼和克娄巴特拉，次年吞并托勒密埃及。"
+  ],
+  "augustus": [
+   "屋大维称奥古斯都",
+   "元老院授予屋大维“奥古斯都”称号，罗马由共和国进入帝国时代。"
+  ],
+  "teutoburg": [
+   "条顿堡森林战役",
+   "日耳曼首领阿米尼乌斯伏击并全歼瓦鲁斯的三个罗马军团，罗马从此放弃征服莱茵河以东。"
+  ],
+  "crucifixion": [
+   "耶稣受难",
+   "罗马总督彼拉多在耶路撒冷把耶稣钉死在十字架上，门徒随后开始传教。"
+  ],
+  "britain-invasion": [
+   "罗马征服不列颠",
+   "克劳狄乌斯派军登陆不列颠，此后四十年罗马逐步征服了英格兰和威尔士。"
+  ],
+  "temple-destroyed": [
+   "第二圣殿被毁",
+   "罗马将领提图斯攻陷耶路撒冷，焚毁第二圣殿，犹太战争结束。"
+  ],
+  "vesuvius": [
+   "维苏威火山爆发",
+   "火山灰埋没了庞贝和赫库兰尼姆，老普林尼在救援中丧生。"
+  ],
+  "dacia-conquered": [
+   "图拉真征服达契亚",
+   "罗马吞并达契亚，帝国在图拉真治下达到最大版图。"
+  ],
+  "hadrians-wall": [
+   "哈德良长城",
+   "哈德良下令在不列颠北部修筑横贯全岛的长城，罗马由扩张转向守成。"
+  ],
+  "antonine-plague": [
+   "安东尼瘟疫",
+   "从东方战场归来的军队带回瘟疫，此后十五年里帝国也许死去了一成人口。"
+  ],
+  "caracalla": [
+   "卡拉卡拉敕令",
+   "卡拉卡拉皇帝授予帝国境内所有自由民罗马公民权。"
+  ],
+  "sasanians": [
+   "萨珊王朝建立",
+   "阿尔达希尔一世推翻帕提亚末代国王，建立萨珊波斯，此后四百年是罗马在东方的劲敌。"
+  ],
+  "valerian": [
+   "瓦勒良被俘",
+   "罗马皇帝瓦勒良在埃德萨被萨珊王沙普尔一世俘虏，三世纪危机达到最低谷。"
+  ],
+  "tetrarchy": [
+   "四帝共治",
+   "戴克里先让两位正帝、两位副帝分区治理帝国，自己坐镇尼科米底亚。"
+  ],
+  "milan-edict": [
+   "米兰敕令",
+   "君士坦丁与李锡尼宣布宗教宽容，基督教在帝国境内合法化。"
+  ],
+  "nicaea": [
+   "尼西亚公会议",
+   "君士坦丁召集第一次基督教大公会议，制定《尼西亚信经》。"
+  ],
+  "constantinople-founded": [
+   "君士坦丁堡落成",
+   "君士坦丁把拜占庭重建为新首都，命名为君士坦丁堡。"
+  ],
+  "adrianople": [
+   "阿德里安堡战役",
+   "渡过多瑙河的哥特人击溃罗马军队，皇帝瓦伦斯战死。"
+  ],
+  "thessalonica-edict": [
+   "基督教成为国教",
+   "狄奥多西一世颁布《帖撒罗尼迦敕令》，尼西亚派基督教成为帝国国教。"
+  ],
+  "empire-divided": [
+   "帝国东西分治",
+   "狄奥多西一世死后，两个儿子分治东西两半，罗马帝国此后再未统一。"
+  ],
+  "alaric-sack": [
+   "西哥特人洗劫罗马",
+   "阿拉里克率西哥特人攻入罗马，这是八百年来罗马城第一次落入敌手。"
+  ],
+  "vandals-carthage": [
+   "汪达尔人攻占迦太基",
+   "盖萨里克率汪达尔人攻占迦太基，夺走了西罗马最富庶的行省。"
+  ],
+  "catalaunian": [
+   "卡塔隆平原战役",
+   "罗马将领埃提乌斯与西哥特人联手，在高卢挡住了阿提拉的匈人大军。"
+  ],
+  "chalcedon": [
+   "迦克墩公会议",
+   "公会议确立基督“一个位格、两种本性”的教义，埃及和叙利亚的许多教会因此分离。"
+  ],
+  "fall-of-west": [
+   "西罗马帝国灭亡",
+   "日耳曼将领奥多亚克废黜少年皇帝罗慕路斯·奥古斯都，西罗马帝国终结。"
+  ],
+  "theodoric": [
+   "狄奥多里克统治意大利",
+   "东哥特王狄奥多里克击败奥多亚克，以拉文纳为都统治意大利。"
+  ],
+  "clovis": [
+   "克洛维受洗",
+   "法兰克国王克洛维在兰斯受洗，皈依正统基督教，赢得高卢罗马人的支持。"
+  ],
+  "justinian-code": [
+   "《查士丁尼法典》",
+   "查士丁尼一世下令汇编罗马法，这部法典成为后世欧陆法律的基础。"
+  ],
+  "monte-cassino": [
+   "卡西诺山修道院",
+   "圣本笃创建卡西诺山修道院，他的会规成为西方修道生活的范本。"
+  ],
+  "vandal-war": [
+   "贝利撒留收复北非",
+   "东罗马名将贝利撒留消灭汪达尔王国，查士丁尼开始收复西部失地。"
+  ],
+  "hagia-sophia": [
+   "圣索菲亚大教堂",
+   "查士丁尼重建的圣索菲亚大教堂落成，此后近千年是世界上最大的教堂。"
+  ],
+  "justinian-plague": [
+   "查士丁尼瘟疫",
+   "鼠疫从埃及传到君士坦丁堡，高峰时每天死亡数千人，此后反复流行两百年。"
+  ],
+  "lombards": [
+   "伦巴第人入侵意大利",
+   "伦巴第人越过阿尔卑斯山，夺取了意大利北部和中部的大片土地。"
+  ],
+  "augustine-canterbury": [
+   "奥古斯丁到达坎特伯雷",
+   "教皇格里高利一世派奥古斯丁到肯特传教，英格兰人开始皈依基督教。"
+  ],
+  "yarmuk": [
+   "雅穆克战役",
+   "新兴的阿拉伯穆斯林军队大败东罗马军，叙利亚和巴勒斯坦落入哈里发之手。"
+  ],
+  "ctesiphon-falls": [
+   "泰西封陷落",
+   "阿拉伯军队攻占萨珊首都泰西封，萨珊波斯在十几年内灭亡。"
+  ],
+  "bulgar-state": [
+   "多瑙河保加利亚建国",
+   "阿斯帕鲁赫率保加尔人击败东罗马军，在多瑙河下游建国，获得拜占庭承认。"
+  ],
+  "guadalete": [
+   "穆斯林征服西班牙",
+   "塔里克率军渡过直布罗陀海峡，击败西哥特王罗德里克，伊比利亚大部在几年内易手。"
+  ],
+  "siege-717": [
+   "阿拉伯围攻君士坦丁堡",
+   "倭马亚大军水陆围城一年，被城墙、希腊火和严冬挫败。"
+  ],
+  "tours": [
+   "图尔战役",
+   "法兰克宫相查理·马特在普瓦捷附近击退来自安达卢斯的阿拉伯军队。"
+  ],
+  "abbasids": [
+   "阿拔斯革命",
+   "阿拔斯家族在大扎卜河击败倭马亚王朝，十二年后营建新都巴格达。"
+  ],
+  "pepin": [
+   "丕平称王",
+   "宫相丕平在教皇支持下废黜墨洛温王朝末王，开创加洛林王朝；他献给教皇的土地成为教皇国。"
+  ],
+  "cordoba-emirate": [
+   "科尔多瓦埃米尔国",
+   "倭马亚家族的幸存者阿卜杜·拉赫曼一世逃到西班牙，在科尔多瓦自立。"
+  ],
+  "roncevaux": [
+   "龙塞斯瓦列斯之战",
+   "查理曼远征西班牙的归途中，后卫在比利牛斯山口遭巴斯克人伏击，后来演化成《罗兰之歌》。"
+  ],
+  "lindisfarne": [
+   "林迪斯法恩遇袭",
+   "维京人洗劫英格兰东北的林迪斯法恩修道院，通常被视为维京时代的开端。"
+  ],
+  "charlemagne-crowned": [
+   "查理曼加冕",
+   "教皇利奥三世在圣诞节为查理曼加冕，称他为“罗马人的皇帝”。"
+  ],
+  "verdun-843": [
+   "凡尔登条约",
+   "查理曼的三个孙子瓜分帝国，东、西法兰克大致是后来德国和法国的雏形。"
+  ],
+  "rurik": [
+   "留里克到诺夫哥罗德",
+   "据《往年纪事》，瓦良格人留里克应邀统治诺夫哥罗德，留里克王朝由此开始。"
+  ],
+  "cyril-methodius": [
+   "西里尔与美多德",
+   "拜占庭传教士兄弟来到大摩拉维亚，为斯拉夫语创制文字、翻译经书。"
+  ],
+  "edington": [
+   "埃丁顿战役",
+   "威塞克斯国王阿尔弗雷德击败丹麦大军，英格兰由此分为英格兰人与丹麦法区两半。"
+  ],
+  "oleg-kyiv": [
+   "奥列格定都基辅",
+   "奥列格从诺夫哥罗德南下夺取基辅并定都于此，基辅罗斯形成。"
+  ],
+  "magyar-conquest": [
+   "马扎尔人定居多瑙河平原",
+   "阿尔帕德率马扎尔人越过喀尔巴阡山，定居多瑙河中游平原。"
+  ],
+  "cluny": [
+   "克吕尼修道院",
+   "阿基坦公爵在勃艮第创建克吕尼修道院，这里后来成为教会改革运动的中心。"
+  ],
+  "normandy-911": [
+   "诺曼底的诞生",
+   "西法兰克国王把塞纳河下游封给维京首领罗洛，诺曼底公国由此诞生。"
+  ],
+  "cordoba-caliphate": [
+   "科尔多瓦哈里发国",
+   "阿卜杜·拉赫曼三世自称哈里发，科尔多瓦成为西欧最大、最富庶的城市。"
+  ],
+  "lechfeld": [
+   "莱希费尔德战役",
+   "德意志国王奥托一世在奥格斯堡附近大败马扎尔人，结束了他们对西方的劫掠。"
+  ],
+  "otto-crowned": [
+   "奥托一世加冕",
+   "教皇约翰十二世在罗马为奥托一世加冕，神圣罗马帝国由此开始。"
+  ],
+  "mieszko": [
+   "梅什科一世受洗",
+   "波兰大公梅什科一世受洗，通常被视为波兰国家的诞生。"
+  ],
+  "hugh-capet": [
+   "于格·卡佩称王",
+   "西法兰克贵族推选于格·卡佩为国王，卡佩家族此后统治法国八百年。"
+  ],
+  "rus-baptism": [
+   "罗斯受洗",
+   "基辅大公弗拉基米尔一世皈依东正教并迎娶拜占庭公主，罗斯从此属于东正教世界。"
+  ],
+  "gniezno": [
+   "格涅兹诺大会",
+   "奥托三世到访波兰，承认格涅兹诺大主教区，波兰教会获得独立地位。"
+  ],
+  "stephen-crowned": [
+   "斯蒂芬一世加冕",
+   "匈牙利王国建立，接受拉丁基督教。"
+  ],
+  "kleidion": [
+   "克雷迪昂战役",
+   "拜占庭皇帝巴西尔二世击溃保加利亚军队，数年后吞并保加利亚。"
+  ],
+  "cnut": [
+   "克努特成为英格兰国王",
+   "丹麦王克努特统治英格兰，此后形成横跨北海的帝国。"
+  ],
+  "great-schism": [
+   "东西教会大分裂",
+   "罗马教廷与君士坦丁堡牧首互相绝罚，天主教与东正教分立。"
+  ],
+  "hastings": [
+   "黑斯廷斯战役",
+   "诺曼底公爵威廉击败哈罗德二世，诺曼人征服英格兰。"
+  ],
+  "manzikert": [
+   "曼齐刻尔特战役",
+   "塞尔柱突厥人俘虏拜占庭皇帝，安纳托利亚门户洞开。"
+  ],
+  "canossa": [
+   "卡诺莎之行",
+   "德意志国王亨利四世在雪中向教皇格里高利七世悔罪，叙任权之争的象征。"
+  ],
+  "toledo": [
+   "卡斯蒂利亚攻占托莱多",
+   "收复失地运动的重要转折，托莱多成为翻译阿拉伯学术的中心。"
+  ],
+  "bologna": [
+   "博洛尼亚大学",
+   "按传统年份，这是欧洲最古老的大学。"
+  ],
+  "clermont": [
+   "克莱蒙会议",
+   "教皇乌尔班二世号召第一次十字军东征。"
+  ],
+  "jerusalem-1099": [
+   "十字军攻占耶路撒冷",
+   "第一次十字军建立耶路撒冷王国等十字军国家。"
+  ],
+  "sicily-kingdom": [
+   "西西里王国建立",
+   "诺曼人罗杰二世在巴勒莫加冕，统治南意大利与西西里。"
+  ],
+  "moscow-first": [
+   "莫斯科首见史册",
+   "编年史首次记载莫斯科这座小城。"
+  ],
+  "henry-ii": [
+   "亨利二世即位",
+   "金雀花王朝开始，安茹帝国从苏格兰边境延伸到比利牛斯山。"
+  ],
+  "hattin": [
+   "哈丁战役",
+   "萨拉丁大败十字军，随后收复耶路撒冷。"
+  ],
+  "constantinople-1204": [
+   "第四次十字军攻陷君士坦丁堡",
+   "十字军洗劫君士坦丁堡，建立拉丁帝国，拜占庭一度分裂。"
+  ],
+  "las-navas": [
+   "托洛萨的纳瓦斯战役",
+   "伊比利亚基督教诸国联军大败穆瓦希德王朝。"
+  ],
+  "bouvines": [
+   "布汶战役",
+   "法王腓力二世击败英王与德意志皇帝联军，法国王权大增。"
+  ],
+  "magna-carta": [
+   "《大宪章》",
+   "英格兰贵族迫使约翰王签署，限制王权。"
+  ],
+  "kalka": [
+   "迦勒迦河之战",
+   "蒙古军首次击败罗斯诸公与钦察人联军。"
+  ],
+  "kyiv-1240": [
+   "蒙古攻陷基辅",
+   "拔都西征，罗斯诸公国此后向金帐汗国称臣纳贡。"
+  ],
+  "legnica": [
+   "列格尼察战役",
+   "蒙古军在西里西亚击败波兰与德意志骑士，同年在匈牙利大胜。"
+  ],
+  "ice": [
+   "冰湖之战",
+   "诺夫哥罗德的亚历山大·涅夫斯基击败条顿骑士团。"
+  ],
+  "constantinople-1261": [
+   "拜占庭收复君士坦丁堡",
+   "米海尔八世复国，巴列奥略王朝开始。"
+  ],
+  "marco-polo": [
+   "马可·波罗东行",
+   "威尼斯商人马可·波罗随父叔启程前往元朝。"
+  ],
+  "vespers": [
+   "西西里晚祷",
+   "西西里人起义反抗安茹王朝，岛屿转归阿拉贡。"
+  ],
+  "swiss-charter": [
+   "瑞士三州同盟",
+   "乌里、施维茨、下瓦尔登结盟，瑞士邦联的起源。"
+  ],
+  "acre": [
+   "阿卡陷落",
+   "马穆鲁克攻克阿卡，十字军在黎凡特的最后据点失守。"
+  ],
+  "golden-spurs": [
+   "金马刺战役",
+   "佛兰德市民步兵击败法国重骑兵。"
+  ],
+  "avignon": [
+   "教廷迁往阿维尼翁",
+   "此后近七十年教皇驻于阿维尼翁，史称“阿维尼翁之囚”。"
+  ],
+  "bannockburn": [
+   "班诺克本战役",
+   "罗伯特一世击败英格兰，苏格兰保住独立。"
+  ],
+  "hundred-years": [
+   "百年战争爆发",
+   "英王爱德华三世宣称拥有法国王位，英法断续交战至1453年。"
+  ],
+  "crecy": [
+   "克雷西战役",
+   "英格兰长弓手大败法国骑士。"
+  ],
+  "plague-messina": [
+   "黑死病传入欧洲",
+   "热那亚商船把瘟疫带到墨西拿，随后数年欧洲约三分之一人口死亡。"
+  ],
+  "plague-florence": [
+   "黑死病肆虐佛罗伦萨",
+   "城市人口锐减过半，薄伽丘《十日谈》以此为背景。"
+  ],
+  "plague-paris": [
+   "黑死病抵达巴黎",
+   "瘟疫沿商路北上，法国北部大面积受灾。"
+  ],
+  "plague-england": [
+   "黑死病登陆英格兰",
+   "瘟疫从南部港口传入，次年遍及英格兰。"
+  ],
+  "plague-bergen": [
+   "黑死病抵达卑尔根",
+   "一艘来自英格兰的船把瘟疫带到挪威。"
+  ],
+  "plague-pskov": [
+   "黑死病抵达普斯科夫",
+   "瘟疫经波罗的海传入罗斯西北，次年波及莫斯科。"
+  ],
+  "poitiers": [
+   "普瓦捷战役",
+   "黑太子爱德华大胜，法王约翰二世被俘。"
+  ],
+  "golden-bull": [
+   "《金玺诏书》",
+   "确立七位选帝侯选举德意志国王的制度，沿用四百余年。"
+  ],
+  "hansa": [
+   "汉萨同盟首届大会",
+   "以吕贝克为首的北德意志商业城市结成同盟，控制北海与波罗的海贸易。"
+  ],
+  "western-schism": [
+   "西方教会大分裂",
+   "罗马与阿维尼翁各立教皇，分裂持续到1417年。"
+  ],
+  "kulikovo": [
+   "库利科沃战役",
+   "莫斯科大公德米特里击败金帐汗国军队。"
+  ],
+  "krewo": [
+   "克列沃联合",
+   "立陶宛大公约盖拉与波兰女王雅德维加联姻，两国结成王朝联合。"
+  ],
+  "kosovo-1389": [
+   "科索沃战役",
+   "奥斯曼击败塞尔维亚联军，巴尔干霸权确立。"
+  ],
+  "kalmar": [
+   "卡尔马联合",
+   "丹麦、挪威、瑞典共戴一君。"
+  ],
+  "grunwald": [
+   "格伦瓦尔德战役",
+   "波兰立陶宛联军大败条顿骑士团。"
+  ],
+  "agincourt": [
+   "阿金库尔战役",
+   "英王亨利五世以少胜多，法国北部大片土地落入英格兰之手。"
+  ],
+  "hus": [
+   "胡斯被处火刑",
+   "康斯坦茨公会议处死扬·胡斯，波希米亚随后爆发胡斯战争。"
+  ],
+  "orleans": [
+   "奥尔良解围",
+   "圣女贞德扭转百年战争局势。"
+  ],
+  "printing": [
+   "古腾堡印刷术",
+   "约1450年，活字印刷在美因茨问世，书籍与思想传播速度剧增。"
+  ],
+  "constantinople-1453": [
+   "君士坦丁堡陷落",
+   "奥斯曼苏丹穆罕默德二世攻克君士坦丁堡，拜占庭帝国灭亡。"
+  ],
+  "castillon": [
+   "卡斯蒂永战役",
+   "百年战争结束，英格兰在大陆仅保留加来。"
+  ],
+  "roses": [
+   "玫瑰战争爆发",
+   "兰开斯特与约克两大家族争夺英格兰王位。"
+  ],
+  "isabella-ferdinand": [
+   "伊莎贝拉与斐迪南联姻",
+   "卡斯蒂利亚与阿拉贡走向联合，西班牙雏形出现。"
+  ],
+  "novgorod-1478": [
+   "莫斯科吞并诺夫哥罗德",
+   "伊凡三世把诺夫哥罗德共和国并入莫斯科大公国。"
+  ],
+  "ugra": [
+   "乌格拉河对峙",
+   "大帐汗国军队不战而退，罗斯摆脱蒙古统治。"
+  ],
+  "bosworth": [
+   "博斯沃思战役",
+   "亨利·都铎击败理查三世，都铎王朝建立。"
+  ],
+  "granada-1492": [
+   "格拉纳达陷落",
+   "伊比利亚最后的穆斯林王国投降，收复失地运动完成。"
+  ],
+  "columbus": [
+   "哥伦布出航",
+   "哥伦布船队从帕洛斯启航，横渡大西洋抵达美洲。"
+  ],
+  "tordesillas": [
+   "《托尔德西里亚斯条约》",
+   "西班牙与葡萄牙以经线划分海外势力范围。"
+  ],
+  "da-gama": [
+   "达·伽马抵达印度",
+   "葡萄牙开辟绕过非洲通往印度的海路。"
+  ],
+  "sistine": [
+   "米开朗基罗绘西斯廷天顶",
+   "文艺复兴盛期，罗马取代佛罗伦萨成为艺术中心（1508–1512）。"
+  ],
+  "ninety-five-theses": [
+   "《九十五条论纲》",
+   "马丁·路德在维滕贝格批评赎罪券，宗教改革开始。"
+  ],
+  "charles-v": [
+   "查理五世当选皇帝",
+   "哈布斯堡家族同时统治西班牙、尼德兰、奥地利与南意大利。"
+  ],
+  "magellan": [
+   "麦哲伦船队启航",
+   "首次环球航行（1519–1522）。"
+  ],
+  "worms": [
+   "沃尔姆斯帝国议会",
+   "路德拒绝撤回主张，被宣布为帝国罪犯。"
+  ],
+  "pavia": [
+   "帕维亚战役",
+   "帝国军队大败法军，法王弗朗索瓦一世被俘。"
+  ],
+  "mohacs": [
+   "莫哈奇战役",
+   "匈牙利国王阵亡，王国被奥斯曼与哈布斯堡瓜分。"
+  ],
+  "sack-of-rome": [
+   "罗马之劫",
+   "查理五世的军队哗变洗劫罗马。"
+  ],
+  "vienna-1529": [
+   "第一次维也纳之围",
+   "苏莱曼一世的大军受阻于维也纳城下。"
+  ],
+  "supremacy": [
+   "《至尊法案》",
+   "亨利八世脱离罗马教廷，成为英格兰教会最高首脑。"
+  ],
+  "copernicus": [
+   "哥白尼《天体运行论》",
+   "日心说出版，科学革命的开端。"
+  ],
+  "trent": [
+   "特伦托公会议",
+   "天主教会启动反宗教改革（1545–1563）。"
+  ],
+  "ivan-iv": [
+   "伊凡四世加冕沙皇",
+   "莫斯科大公国改称俄罗斯沙皇国。"
+  ],
+  "kazan-1552": [
+   "攻占喀山",
+   "伊凡四世吞并喀山汗国，俄罗斯打开向东扩张的大门。"
+  ],
+  "augsburg": [
+   "《奥格斯堡和约》",
+   "“教随国定”，路德宗在神圣罗马帝国获得合法地位。"
+  ],
+  "lublin": [
+   "卢布林联合",
+   "波兰与立陶宛合并为波兰立陶宛联邦。"
+  ],
+  "lepanto": [
+   "勒班陀海战",
+   "神圣同盟舰队击败奥斯曼海军。"
+  ],
+  "st-bartholomew": [
+   "圣巴托洛缪大屠杀",
+   "巴黎的胡格诺派新教徒遭大规模屠杀。"
+  ],
+  "union-of-utrecht": [
+   "乌得勒支同盟",
+   "尼德兰北方七省联合反抗西班牙，荷兰共和国由此诞生。"
+  ],
+  "armada": [
+   "无敌舰队覆灭",
+   "西班牙无敌舰队在格拉沃利讷海战后溃散。"
+  ],
+  "nantes": [
+   "《南特敕令》",
+   "亨利四世给予胡格诺派信仰自由，法国宗教战争结束。"
+  ],
+  "union-of-crowns": [
+   "英格兰与苏格兰共主",
+   "苏格兰王詹姆斯六世继承英格兰王位。"
+  ],
+  "galileo": [
+   "伽利略《星际信使》",
+   "伽利略用望远镜发现木星卫星，著作在威尼斯出版。"
+  ],
+  "romanov": [
+   "罗曼诺夫王朝建立",
+   "米哈伊尔·罗曼诺夫当选沙皇，“混乱时期”结束。"
+  ],
+  "defenestration": [
+   "布拉格掷窗事件",
+   "波希米亚新教贵族把皇帝使臣扔出窗外，三十年战争爆发。"
+  ],
+  "magdeburg": [
+   "马格德堡之劫",
+   "帝国军队屠城，三十年战争中最惨烈的一幕。"
+  ],
+  "lutzen": [
+   "吕岑会战",
+   "瑞典获胜，但国王古斯塔夫二世·阿道夫阵亡。"
+  ],
+  "westphalia": [
+   "《威斯特伐利亚和约》",
+   "三十年战争结束，瑞士与荷兰独立获承认，近代主权国家体系奠基。"
+  ],
+  "charles-i": [
+   "查理一世被处决",
+   "英格兰内战后成为共和国。"
+  ],
+  "pereiaslav": [
+   "佩列亚斯拉夫协议",
+   "第聂伯河哥萨克国家归附俄罗斯沙皇。"
+  ],
+  "pyrenees": [
+   "《比利牛斯和约》",
+   "法国取代西班牙成为欧陆最强国家。"
+  ],
+  "vienna-1683": [
+   "第二次维也纳之围",
+   "波兰国王扬三世率援军解围，奥斯曼由盛转衰。"
+  ],
+  "fontainebleau": [
+   "废除《南特敕令》",
+   "路易十四颁布枫丹白露敕令，大批胡格诺派出逃。"
+  ],
+  "principia": [
+   "牛顿《自然哲学的数学原理》",
+   "万有引力与三大运动定律，经典力学奠基。"
+  ],
+  "glorious-revolution": [
+   "光荣革命",
+   "威廉三世与玛丽二世即位，议会权力确立。"
+  ],
+  "karlowitz": [
+   "《卡尔洛维茨条约》",
+   "奥斯曼首次大规模割地，匈牙利大部归奥地利。"
+  ],
+  "st-petersburg": [
+   "圣彼得堡建城",
+   "彼得大帝在涅瓦河口建城，1712年迁都于此。"
+  ],
+  "blenheim": [
+   "布伦海姆战役",
+   "西班牙王位继承战争中，英奥联军大败法巴联军。"
+  ],
+  "acts-of-union": [
+   "英格兰与苏格兰合并",
+   "《联合法令》生效，大不列颠王国成立。"
+  ],
+  "poltava": [
+   "波尔塔瓦战役",
+   "彼得大帝大败瑞典查理十二世，北欧霸权易手。"
+  ],
+  "utrecht": [
+   "《乌得勒支和约》",
+   "西班牙王位继承战争结束，波旁家族入主西班牙。"
+  ],
+  "nystad": [
+   "《尼斯塔德条约》",
+   "大北方战争结束，俄国获得波罗的海出海口，宣布成立俄罗斯帝国。"
+  ],
+  "silesia": [
+   "普鲁士入侵西里西亚",
+   "腓特烈二世出兵，奥地利王位继承战争爆发。"
+  ],
+  "encyclopedie": [
+   "《百科全书》第一卷",
+   "狄德罗与达朗贝尔主编，启蒙运动的标志性著作。"
+  ],
+  "lisbon-earthquake": [
+   "里斯本大地震",
+   "地震与海啸摧毁里斯本，震动整个启蒙时代的思想界。"
+  ],
+  "seven-years": [
+   "七年战争爆发",
+   "普鲁士入侵萨克森，战火遍及欧洲与海外殖民地。"
+  ],
+  "watt": [
+   "瓦特改良蒸汽机",
+   "瓦特获得分离式冷凝器专利，工业革命有了新动力。"
+  ],
+  "partition-1": [
+   "第一次瓜分波兰",
+   "俄、普、奥三国分割波兰立陶宛联邦约三成领土。"
+  ],
+  "kucuk-kaynarca": [
+   "《库楚克-开纳吉和约》",
+   "俄土战争后，克里米亚汗国脱离奥斯曼。"
+  ],
+  "crimea-1783": [
+   "俄国吞并克里米亚",
+   "叶卡捷琳娜二世宣布将克里米亚并入俄罗斯帝国。"
+  ],
+  "bastille": [
+   "攻占巴士底狱",
+   "法国大革命爆发。"
+  ],
+  "louis-xvi": [
+   "路易十六被处决",
+   "法国进入雅各宾派恐怖统治时期。"
+  ],
+  "partition-3": [
+   "第三次瓜分波兰",
+   "波兰立陶宛联邦从地图上消失。"
+  ],
+  "nile": [
+   "尼罗河海战",
+   "纳尔逊在阿布基尔湾摧毁法国舰队，拿破仑被困埃及。"
+  ],
+  "united-kingdom": [
+   "大不列颠及爱尔兰联合王国成立",
+   "爱尔兰议会被撤销，并入联合王国。"
+  ],
+  "napoleon-emperor": [
+   "拿破仑称帝",
+   "法兰西第一帝国建立。"
+  ],
+  "trafalgar": [
+   "特拉法尔加海战",
+   "英国舰队击败法西联合舰队，确立海上霸权。"
+  ],
+  "austerlitz": [
+   "奥斯特里茨战役",
+   "拿破仑击败俄奥联军，“三皇会战”。"
+  ],
+  "hre-dissolved": [
+   "神圣罗马帝国解体",
+   "弗朗茨二世放弃帝号，延续八百余年的帝国终结。"
+  ],
+  "jena": [
+   "耶拿战役",
+   "普鲁士军队被拿破仑击溃。"
+  ],
+  "dos-de-mayo": [
+   "马德里五月二日起义",
+   "西班牙人反抗法国占领，半岛战争开始。"
+  ],
+  "borodino": [
+   "博罗季诺战役",
+   "拿破仑进入莫斯科后被迫撤退，六十万大军几乎覆灭。"
+  ],
+  "leipzig": [
+   "莱比锡会战",
+   "“民族之战”，反法同盟大败拿破仑。"
+  ],
+  "congress-of-vienna": [
+   "维也纳会议",
+   "列强重划欧洲版图，建立均势秩序。"
+  ],
+  "waterloo": [
+   "滑铁卢战役",
+   "拿破仑最终战败，被流放圣赫勒拿岛。"
+  ],
+  "greek-independence": [
+   "希腊独立战争",
+   "伯罗奔尼撒起义反抗奥斯曼统治，1830年希腊独立。"
+  ],
+  "railway": [
+   "第一条公共蒸汽铁路",
+   "斯托克顿-达灵顿铁路通车，铁路时代开始。"
+  ],
+  "belgium": [
+   "比利时独立",
+   "布鲁塞尔起义，比利时脱离尼德兰联合王国。"
+  ],
+  "algeria-1830": [
+   "法国入侵阿尔及利亚",
+   "法国在北非的殖民统治开始。"
+  ],
+  "revolutions-1848": [
+   "1848年革命",
+   "二月革命推翻法国七月王朝，革命浪潮席卷欧洲。"
+  ],
+  "communist-manifesto": [
+   "《共产党宣言》",
+   "马克思与恩格斯在伦敦发表。"
+  ],
+  "sevastopol": [
+   "塞瓦斯托波尔之围",
+   "克里米亚战争中英法奥斯曼联军围攻俄国要塞（1853–1856战争）。"
+  ],
+  "solferino": [
+   "索尔费里诺战役",
+   "法撒联军击败奥地利；战场惨状促成了红十字会的创立。"
+  ],
+  "kingdom-of-italy": [
+   "意大利王国成立",
+   "维克托·伊曼纽尔二世在都灵称意大利国王。"
+  ],
+  "serfdom": [
+   "俄国废除农奴制",
+   "亚历山大二世颁布解放农奴法令。"
+  ],
+  "koniggratz": [
+   "克尼格雷茨战役",
+   "普鲁士击败奥地利，主导德意志统一。"
+  ],
+  "compromise-1867": [
+   "奥匈妥协",
+   "奥地利帝国改组为奥匈二元君主国。"
+  ],
+  "suez": [
+   "苏伊士运河通航",
+   "欧亚航线大大缩短。"
+  ],
+  "sedan": [
+   "色当战役",
+   "拿破仑三世被俘，法兰西第二帝国崩溃。"
+  ],
+  "german-empire": [
+   "德意志帝国成立",
+   "威廉一世在凡尔赛宫镜厅加冕德意志皇帝。"
+  ],
+  "congress-of-berlin": [
+   "柏林会议",
+   "塞尔维亚、黑山、罗马尼亚获得独立，保加利亚自治。"
+  ],
+  "berlin-conference": [
+   "柏林西非会议",
+   "列强制定瓜分非洲的规则（1884–1885）。"
+  ],
+  "russia-1905": [
+   "1905年俄国革命",
+   "“流血星期日”后，沙皇被迫设立国家杜马。"
+  ],
+  "bosnia-annexed": [
+   "奥匈吞并波黑",
+   "波斯尼亚危机加剧了巴尔干的紧张局势。"
+  ],
+  "balkan-war": [
+   "第一次巴尔干战争",
+   "巴尔干同盟击败奥斯曼，奥斯曼几乎丧失全部欧洲领土。"
+  ],
+  "sarajevo": [
+   "萨拉热窝事件",
+   "奥匈皇储斐迪南大公遇刺，引发第一次世界大战。"
+  ],
+  "marne": [
+   "马恩河战役",
+   "法英联军阻止德军推进，西线转入堑壕战。"
+  ],
+  "gallipoli": [
+   "加里波利战役",
+   "协约国登陆达达尼尔海峡失败。"
+  ],
+  "verdun": [
+   "凡尔登战役",
+   "持续近十个月，双方伤亡逾七十万。"
+  ],
+  "october-revolution": [
+   "十月革命",
+   "布尔什维克在彼得格勒夺取政权。"
+  ],
+  "brest-litovsk": [
+   "《布列斯特-立托夫斯克和约》",
+   "苏俄退出一战，割让大片西部领土。"
+  ],
+  "armistice": [
+   "贡比涅停战协定",
+   "11月11日停战，第一次世界大战结束。"
+  ],
+  "versailles": [
+   "《凡尔赛和约》",
+   "德国割地赔款，战后新国家纷纷建立。"
+  ],
+  "trianon": [
+   "《特里亚农条约》",
+   "匈牙利失去约三分之二领土。"
+  ],
+  "march-on-rome": [
+   "进军罗马",
+   "墨索里尼上台，法西斯政权建立。"
+  ],
+  "ussr-founded": [
+   "苏联成立",
+   "苏维埃社会主义共和国联盟成立。"
+  ],
+  "turkey-republic": [
+   "土耳其共和国成立",
+   "凯末尔任总统，定都安卡拉。"
+  ],
+  "hitler": [
+   "希特勒出任总理",
+   "纳粹党掌握德国政权。"
+  ],
+  "spanish-civil-war": [
+   "西班牙内战",
+   "佛朗哥发动叛乱，内战持续至1939年。"
+  ],
+  "anschluss": [
+   "德奥合并",
+   "纳粹德国吞并奥地利。"
+  ],
+  "munich": [
+   "《慕尼黑协定》",
+   "英法绥靖，捷克斯洛伐克被迫割让苏台德地区。"
+  ],
+  "invasion-of-poland": [
+   "德国入侵波兰",
+   "第二次世界大战在欧洲爆发。"
+  ],
+  "dunkirk": [
+   "敦刻尔克大撤退",
+   "英法联军三十余万人撤回英国，法国随后投降。"
+  ],
+  "battle-of-britain": [
+   "不列颠之战",
+   "英国皇家空军顶住了德国空袭。"
+  ],
+  "barbarossa": [
+   "巴巴罗萨行动",
+   "德国入侵苏联，东线战争爆发。"
+  ],
+  "stalingrad": [
+   "斯大林格勒战役",
+   "二战东线转折点（1942–1943）。"
+  ],
+  "el-alamein": [
+   "阿拉曼战役",
+   "英军击败隆美尔，北非战局逆转。"
+  ],
+  "kursk": [
+   "库尔斯克会战",
+   "史上规模最大的坦克战之一，德军在东线失去主动权。"
+  ],
+  "normandy": [
+   "诺曼底登陆",
+   "盟军开辟西线战场。"
+  ],
+  "yalta": [
+   "雅尔塔会议",
+   "美英苏三国规划战后欧洲秩序。"
+  ],
+  "berlin-1945": [
+   "柏林战役",
+   "苏军攻克柏林，德国无条件投降，欧洲战事结束。"
+  ],
+  "marshall-plan": [
+   "马歇尔计划",
+   "美国援助西欧重建。"
+  ],
+  "berlin-blockade": [
+   "柏林封锁",
+   "冷战的第一次重大危机（1948–1949）。"
+  ],
+  "hungary-1956": [
+   "匈牙利革命",
+   "起义被苏军镇压。"
+  ],
+  "treaty-of-rome": [
+   "《罗马条约》",
+   "欧洲经济共同体成立。"
+  ],
+  "berlin-wall-built": [
+   "柏林墙修建",
+   "冷战分裂的象征。"
+  ],
+  "prague-spring": [
+   "布拉格之春",
+   "华约军队入侵捷克斯洛伐克，改革被终止。"
+  ],
+  "carnation-revolution": [
+   "康乃馨革命",
+   "葡萄牙结束独裁统治。"
+  ],
+  "franco-dies": [
+   "佛朗哥去世",
+   "西班牙开始向民主过渡。"
+  ],
+  "solidarity": [
+   "团结工会成立",
+   "格但斯克造船厂罢工催生东欧第一个独立工会。"
+  ],
+  "chernobyl": [
+   "切尔诺贝利核事故",
+   "史上最严重的核电站事故之一。"
+  ],
+  "berlin-wall-falls": [
+   "柏林墙倒塌",
+   "东欧剧变。"
+  ],
+  "reunification": [
+   "两德统一",
+   "10月3日，德国重新统一。"
+  ],
+  "ussr-dissolved": [
+   "苏联解体",
+   "十五个加盟共和国成为独立国家。"
+  ],
+  "yugoslav-wars": [
+   "南斯拉夫解体战争",
+   "斯洛文尼亚与克罗地亚宣布独立，战争随即爆发。"
+  ],
+  "maastricht": [
+   "《马斯特里赫特条约》",
+   "欧洲联盟成立。"
+  ],
+  "velvet-divorce": [
+   "捷克斯洛伐克解体",
+   "捷克与斯洛伐克和平分离。"
+  ],
+  "dayton": [
+   "《代顿协议》",
+   "波黑战争结束。"
+  ],
+  "euro": [
+   "欧元启用",
+   "欧元作为记账货币启用，欧洲央行统一货币政策。"
+  ],
+  "kosovo-war": [
+   "科索沃战争",
+   "北约空袭南斯拉夫联盟。"
+  ]
+ },
+ "stories": {
+  "athens": {
+   "title": "雅典的世纪",
+   "lede": "从抵抗波斯到败给斯巴达，雅典最辉煌的一百年。",
+   "steps": [
+    [
+     "波斯与伊奥尼亚",
+     "前 6 世纪中叶，居鲁士建立的波斯帝国吞并了小亚细亚沿岸的希腊城邦。前 499 年，以米利都为首的伊奥尼亚城邦起兵反抗，雅典派了二十艘船去支援。起义六年后被镇压，米利都被夷平；大流士一世决心惩罚插手的雅典。",
+     {
+      "p": [
+       "伊奥尼亚是小亚细亚西岸一串富庶的希腊城邦，米利都、以弗所等城靠海上贸易兴旺，最早的希腊哲学家泰勒斯就出生在米利都。波斯征服这里之后，在各城扶植亲波斯的僭主，按年征收贡赋。大流士一世在位时，帝国从爱琴海一直延伸到印度河，他还修筑了从萨第斯通往都城苏萨的“御道”。",
+       "起义的导火索是一次失败的远征。前 500 年，米利都的统治者阿里斯塔戈拉斯借波斯兵力攻打纳克索斯岛，四个月未能攻下，他怕受罚，干脆鼓动各城起事。斯巴达拒绝出兵，雅典派出 20 艘船，埃雷特里亚派出 5 艘。前 498 年，起义军攻入萨第斯，城区被大火焚毁。起义随后蔓延到塞浦路斯等地，但雅典人很快撤回，波斯则逐一收复各城。前 494 年，双方舰队在米利都外的拉德岛决战，萨摩斯等城的战船临阵脱逃，起义军大败。米利都随即陷落，男子大多被杀，妇女儿童沦为奴隶，幸存者被迁往波斯湾附近。",
+       "希罗多德说，这 20 艘船是希腊人与波斯人之间一切灾祸的开端。据他记载，大流士得知萨第斯被焚，命一名侍从每天在他用餐时提醒三遍，不要忘记雅典人。前 492 年，大流士的女婿马多尼乌斯率军沿色雷斯海岸西进，舰队却在阿托斯山外遭风暴重创，只得撤回。次年，大流士派使者到希腊各邦索要“土和水”，要求臣服。许多城邦照办，雅典和斯巴达却处死了来使。"
+      ],
+      "facts": [
+       [
+        "起义时间",
+        "前 499—前 493 年"
+       ],
+       [
+        "援军",
+        "雅典 20 艘、埃雷特里亚 5 艘"
+       ],
+       [
+        "米利都陷落",
+        "前 494 年"
+       ]
+      ]
+     }
+    ],
+    [
+     "马拉松",
+     "前 490 年，波斯远征军在雅典东北的马拉松登陆。雅典重装步兵快步冲过平原，以少胜多，据说阵亡 192 人，波斯一方死了六千多。传说中跑回雅典报捷、力竭而死的信使，就是马拉松长跑的由来。",
+     {
+      "p": [
+       "前 490 年夏，大流士派达提斯和阿塔弗涅斯率舰队横渡爱琴海。他们先攻下埃雷特里亚，烧毁神庙、掳走居民，以报萨第斯之仇。随军的被逐雅典老僭主希庇阿斯建议在马拉松登陆：那里海湾开阔，平原适合骑兵，距雅典约 40 公里。现代学者估计波斯军约有 2 万至 2.5 万人。雅典派长跑信使斐迪庇第斯赶往约 240 公里外的斯巴达求援，他第二天就跑到了，但斯巴达人受宗教禁忌所限，要等月圆之后才能出兵。",
+       "约 9000 名雅典重装步兵赶到马拉松，只有小城普拉提亚派来约 1000 人助战。十位将军意见不一，米太亚德力主出战，军事执政官卡利马科斯投下了关键一票。米太亚德有意把中军排得很薄，把兵力集中在两翼。两军相距约 1.5 公里，雅典人一路跑步冲锋。波斯中军一度突破，但希腊两翼得胜后向内合拢，波斯人溃逃上船，雅典人还夺下 7 艘战船。卡利马科斯战死，悲剧诗人埃斯库罗斯的一个兄弟也阵亡了。",
+       "波斯舰队随即绕过苏尼翁角驶向雅典，但雅典军队已急行军赶回城下，波斯人只好返航。2000 名斯巴达援军在战后才赶到，只来得及察看波斯人的尸体。马拉松之战打破了波斯陆军不可战胜的神话。报捷信使力竭而死的故事不见于希罗多德，出自晚得多的作家笔下；1896 年第一届现代奥运会据此设立了马拉松长跑。"
+      ],
+      "facts": [
+       [
+        "希腊兵力",
+        "雅典与普拉提亚约 1 万人"
+       ],
+       [
+        "阵亡（据希罗多德）",
+        "雅典 192 人，波斯 6400 人"
+       ],
+       [
+        "马拉松距雅典",
+        "约 40 公里"
+       ]
+      ]
+     }
+    ],
+    [
+     "温泉关与萨拉米斯",
+     "十年后，薛西斯一世亲率大军水陆并进。斯巴达王列奥尼达在温泉关拖住波斯陆军三天，全部战死；雅典人弃城上船。地米斯托克利把波斯舰队诱进狭窄的萨拉米斯海峡，一天之内大败对手，薛西斯撤回亚洲，次年波斯陆军在普拉提亚战败。",
+     {
+      "p": [
+       "前 486 年大流士去世，儿子薛西斯一世平定埃及的叛乱后精心备战：在赫勒斯滂海峡架起浮桥，在阿托斯半岛开凿运河。希罗多德说他的陆军多达 170 万人，现代学者估计实际在 10 万到 30 万之间。雅典这边，地米斯托克利说服公民大会，把劳里昂新发现的银矿收入用来建造约 200 艘三列桨战船。",
+       "前 480 年夏末，约 7000 名希腊人扼守山海之间的温泉关。波斯人正面强攻两天不下，直到本地人厄菲阿尔特斯带路，从山间小道绕到背后。列奥尼达遣走大部分盟军，自率三百斯巴达人和部分盟军断后。波斯大军随后开进阿提卡，焚毁了雅典卫城。9 月，地米斯托克利派人向薛西斯谎报希腊舰队要连夜逃走，波斯舰队当晚就封锁了海峡出口。次日，三百多艘希腊战船在狭窄水道里迎战，数量占优的波斯舰队施展不开，自相冲撞。薛西斯在岸上眼看着自己的舰队溃败。",
+       "薛西斯带着大部分军队回到亚洲，把精兵留给马多尼乌斯。前 479 年，斯巴达人保萨尼阿斯率希腊联军在普拉提亚大败波斯陆军，马多尼乌斯阵亡。波斯从此再没有入侵希腊本土。萨拉米斯的胜利主要靠雅典舰队，而划桨的多是最穷的公民，他们在城邦政治中的分量随之上升。前 472 年，据说参加过这场海战的埃斯库罗斯上演了悲剧《波斯人》。"
+      ],
+      "facts": [
+       [
+        "温泉关守军",
+        "约 7000 名希腊人"
+       ],
+       [
+        "萨拉米斯希腊战船",
+        "300 多艘，雅典约 180 艘"
+       ],
+       [
+        "普拉提亚战役",
+        "前 479 年"
+       ]
+      ]
+     }
+    ],
+    [
+     "黄金时代",
+     "战后，爱琴海诸邦结成提洛同盟，以雅典为盟主、在提洛岛存放盟金。雅典逐渐把盟友变成属邦，把盟金用来重建卫城。伯里克利主政的三十年里，帕特农神庙动工，埃斯库罗斯、索福克勒斯的悲剧上演，希罗多德写下《历史》。",
+     {
+      "p": [
+       "提洛同盟成立于前 478 年，最初是为了把波斯人赶出爱琴海、解放伊奥尼亚。盟员或出战船，或交盟金，雅典的阿里斯提德为各邦核定的年金总额为 460 塔兰特。大多数小邦宁愿交钱，雅典便用这些钱扩建自己的舰队，盟友们反倒失去了自卫能力。约前 470 年纳克索斯想退盟，被雅典围攻屈服。前 454 年，金库从提洛岛迁到雅典，同盟实际上成了雅典的帝国。",
+       "从前 443 年起，伯里克利几乎年年当选将军，主导雅典政局，直到前 429 年去世。他推动向陪审员发放津贴，让穷人也能参与公共事务；前 451 年又立法规定，只有父母都是雅典人的人才能成为公民。前 447 年，帕特农神庙在卫城上动工，建筑师是伊克提诺斯和卡利克拉特，雕刻由菲狄亚斯主持。神庙主体九年后完工，殿内供奉着菲狄亚斯用黄金和象牙制作的雅典娜神像，高约 12 米。",
+       "据普鲁塔克记载，反对者指责伯里克利拿盟邦的钱把雅典打扮得像个爱虚荣的女人；他回答说，只要雅典保护盟邦不受波斯侵犯，钱怎么花是雅典的事。雅典由此成为希腊世界的文化中心：埃斯库罗斯的《俄瑞斯忒亚》三部曲在前 458 年上演，索福克勒斯写出《安提戈涅》，希罗多德据说曾在这里当众朗读他的著作，年轻的苏格拉底在街头与人辩论。修昔底德后来评论说，雅典名义上是民主政体，实际上由第一公民统治。"
+      ],
+      "facts": [
+       [
+        "提洛同盟成立",
+        "前 478 年"
+       ],
+       [
+        "最初年金",
+        "460 塔兰特"
+       ],
+       [
+        "帕特农神庙主体",
+        "前 447—前 438 年"
+       ]
+      ]
+     }
+    ],
+    [
+     "伯罗奔尼撒战争",
+     "雅典的扩张让斯巴达和科林斯不安。前 431 年，双方开战。斯巴达年年入侵阿提卡，雅典人退守城墙之内，次年城中瘟疫暴发，伯里克利也在其中死去。前 415 年，雅典倾力远征西西里的叙拉古，两年后全军覆没。",
+     {
+      "p": [
+       "雅典插手科林斯与科西拉的冲突，围攻背叛自己的波提狄亚，还禁止麦加拉人进入同盟各港口，科林斯人便催促斯巴达开战。修昔底德认为，真正的原因是斯巴达害怕雅典的力量不断增长。开战时雅典有 300 艘战船，卫城里存着 6000 塔兰特银币。伯里克利的对策是放弃乡村，把居民撤进由长墙连成一体的雅典城和比雷埃夫斯港，靠海路运粮，避免陆上决战。",
+       "前 430 年夏，瘟疫传入拥挤不堪的城中，断断续续流行了几年，约四分之一人口死亡，病因至今不明。修昔底德本人也染病而幸存，留下了详细记录。前 429 年，伯里克利死于此疫。前 421 年双方签订《尼西阿斯和约》，但和平只是表面。前 415 年，亚西比德鼓动远征西西里，雅典派出 134 艘三列桨战船和约 5000 名重装步兵；舰队出发不久，亚西比德被控亵渎神明而召回，他转身投奔了斯巴达。",
+       "斯巴达派吉利波斯赶到叙拉古助守。雅典又增派 73 艘战船，仍然无法破城。前 413 年，雅典舰队在叙拉古大港被击败，陆军撤退途中被分割包围，主将尼西阿斯和德摩斯梯尼被处死，七千多名俘虏被关进采石场，许多人死在那里。同年，斯巴达在阿提卡的德凯利亚长期驻军，据修昔底德说，两万多名奴隶逃离雅典。雅典的盟邦纷纷动摇，波斯也开始出钱支持斯巴达。"
+      ],
+      "facts": [
+       [
+        "开战时雅典",
+        "300 艘战船，6000 塔兰特"
+       ],
+       [
+        "瘟疫死亡",
+        "约四分之一人口"
+       ],
+       [
+        "西西里被俘",
+        "7000 多人"
+       ]
+      ]
+     }
+    ],
+    [
+     "雅典投降",
+     "斯巴达拿波斯的钱造起舰队。前 405 年，吕山德在赫勒斯滂的羊河口偷袭成功，雅典舰队几乎全军覆没。次年雅典投降，拆毁通往港口的长墙。雅典的政治霸权就此结束，但它的哲学刚刚开始：五年后，苏格拉底在这座城里受审。",
+     {
+      "p": [
+       "西西里惨败后，雅典又支撑了九年。从前 407 年起，波斯王子小居鲁士出钱资助斯巴达，让斯巴达舰队能开出更高的工钱，从雅典挖走桨手。雅典也打过胜仗，前 410 年在基齐库斯，前 406 年在阿吉纽西群岛。但后一战之后，由于风暴未能救起落水的士兵，公民大会集体判处得胜的将军死刑，六人被处决。",
+       "前 405 年，吕山德率斯巴达舰队攻占赫勒斯滂海峡边的兰普萨库斯，威胁雅典赖以生存的黑海运粮航线。雅典 180 艘战船赶来，停泊在对岸的羊河口，每天出海挑战，吕山德按兵不动。到第五天，雅典水手照例上岸四散寻找食物，吕山德突然出击，大部分战船还没来得及下水就被俘获，只有将军科农带着约 9 艘船逃脱。据普鲁塔克记载，约 3000 名雅典俘虏被处死。随后斯巴达水陆合围雅典，城中闹起饥荒。",
+       "前 404 年春，雅典投降。科林斯和底比斯主张毁掉雅典，斯巴达以雅典抗击波斯有功为由拒绝。雅典必须交出舰队、只留 12 艘船，召回流亡者，外交上追随斯巴达。斯巴达扶植的“三十僭主”实行恐怖统治，杀害了约 1500 人，次年民主制才得以恢复。前 399 年，苏格拉底被控不敬神、败坏青年，由约 500 名公民组成的陪审团判他死刑，他饮下毒芹汁而死。他的学生柏拉图后来在雅典创办了学园。"
+      ],
+      "facts": [
+       [
+        "羊河口雅典舰队",
+        "180 艘，仅约 9 艘逃脱"
+       ],
+       [
+        "战争历时",
+        "前 431—前 404 年，27 年"
+       ],
+       [
+        "投降后保留战船",
+        "12 艘"
+       ]
+      ]
+     }
+    ]
+   ]
+  },
+  "alexander": {
+   "title": "亚历山大东征",
+   "lede": "十二年里，一位马其顿国王打到了印度河。",
+   "steps": [
+    [
+     "马其顿崛起",
+     "希腊北边的马其顿长期被城邦视为半开化的边地。腓力二世改革军队，用长矛方阵和骑兵配合作战；前 338 年在喀罗尼亚击败雅典和底比斯，成为希腊的主人。两年后他遇刺身亡，二十岁的儿子亚历山大继位——他少年时的老师是亚里士多德。",
+     {
+      "p": [
+       "马其顿王室自称祖先来自希腊的阿尔戈斯，但这个由国王和贵族统治的国家一直被南方城邦看不起。前 359 年腓力二世即位时，马其顿刚被伊利里亚人打败，国王战死。腓力少年时曾在底比斯做人质，见识过当时希腊最好的军队。他给步兵配备长约 5.5 米的萨里沙长矛，排成纵深 16 排的方阵；贵族组成的“伙友骑兵”则负责致命一击。潘盖翁山的金矿让他有钱养常备军、收买对手。",
+       "前 338 年，雅典与底比斯组成联军，在喀罗尼亚迎战马其顿，双方兵力都在 3 万上下。据说腓力在右翼佯装后撤，引诱雅典人冒进；十八岁的亚历山大率领另一翼，率先击溃了底比斯最精锐的“圣队”。据古代记载，雅典阵亡 1000 人、被俘 2000 人。次年，除斯巴达外的希腊城邦在科林斯结成同盟，奉腓力为盟主，并决定对波斯开战，先头部队于前 336 年春渡海进入小亚细亚。",
+       "同年，腓力在旧都埃盖为女儿举行婚礼，在剧场入口被自己的卫士保萨尼阿斯刺死，终年 46 岁。行刺的动机至今众说纷纭，有人怀疑亚历山大的母亲奥林匹娅斯、甚至亚历山大本人也知情。亚历山大从 13 岁起受教于亚里士多德，前后约三年。次年底比斯起兵反抗，他攻破全城，除神庙和诗人品达的故居外夷为平地。"
+      ],
+      "facts": [
+       [
+        "萨里沙长矛",
+        "长约 5.5 米"
+       ],
+       [
+        "腓力二世遇刺",
+        "前 336 年，终年 46 岁"
+       ],
+       [
+        "师从亚里士多德",
+        "13 岁起，约 3 年"
+       ]
+      ]
+     }
+    ],
+    [
+     "渡海",
+     "前 334 年春，亚历山大率近四万人渡过赫勒斯滂海峡。在格拉尼库斯河畔，他亲率骑兵冲过河岸，击溃波斯各行省总督的军队，小亚细亚沿岸的希腊城邦相继归附。",
+     {
+      "p": [
+       "亚历山大把马其顿本土交给老将安提帕特，留下约 1.2 万步兵和 1500 骑兵镇守希腊。他自己带走约 3.2 万步兵和 5000 骑兵，其中有马其顿方阵、伙友骑兵，也有希腊盟军和轻装部队。据普鲁塔克说，出发时国库只剩 70 塔兰特，还欠着 200 塔兰特的债。渡海前后，他专程到特洛伊凭吊，在阿喀琉斯墓前献祭，把这次远征比作一场新的特洛伊战争。",
+       "波斯一方，几位行省总督在泽勒亚开会。为大流士效力的希腊雇佣军将领门农建议坚壁清野、避免决战，总督们不愿焚毁自己的领地，决定在格拉尼库斯河迎敌。前 334 年 5 月，波斯骑兵沿着陡峭的东岸列阵，希腊雇佣步兵排在后面。亚历山大亲率伙友骑兵冲过河去，混战中头盔被砍裂，一名波斯贵族正要从背后举刀砍下，被“黑”克利图斯砍断了手臂。波斯骑兵溃退后，被撇下的希腊雇佣兵遭到包围，几乎全军覆没，约 2000 人被俘，押回马其顿服苦役。",
+       "据阿里安记载，马其顿方面阵亡不过百余人，这个数字可能偏低。亚历山大把 300 套波斯盔甲送往雅典献给雅典娜，题明出自“除斯巴达人以外的希腊人”，把东征包装成全希腊的复仇。此后萨第斯开城投降，以弗所等城赶走亲波斯的寡头，改行民主。他还解散了无力对抗波斯海军的舰队，决定从陆上夺取敌方港口，借此瓦解波斯的海上力量。"
+      ],
+      "facts": [
+       [
+        "渡海兵力",
+        "步兵约 3.2 万，骑兵约 5000"
+       ],
+       [
+        "留守马其顿",
+        "步兵约 1.2 万，骑兵约 1500"
+       ],
+       [
+        "格拉尼库斯河战役",
+        "前 334 年 5 月"
+       ]
+      ]
+     }
+    ],
+    [
+     "伊苏斯",
+     "前 333 年，大流士三世亲率大军在伊苏斯迎战。亚历山大的骑兵直扑波斯王所在的中军，大流士弃军而逃，母亲、妻女都被俘。亚历山大没有追击，而是沿海南下，用七个月攻下推罗，切断波斯舰队的基地。",
+     {
+      "p": [
+       "前 333 年春，亚历山大来到弗里吉亚的戈尔迪乌姆。传说谁能解开城中那个复杂的绳结，谁就能统治亚洲，据说他一剑把它斩断。同年，在爱琴海上组织反攻的门农病死，亚历山大的后方压力大减。大流士三世在巴比伦集结大军，古代作家说有 60 万人，现代学者大多估计不到 10 万。亚历山大在塔尔苏斯病倒，耽搁了一段时间；大流士随后绕到他的背后，切断了马其顿军的退路。",
+       "11 月，两军在伊苏斯湾边狭窄的沿海平原上隔着皮纳鲁斯河对阵，一边是大山，一边是大海，波斯人数多的优势施展不开。亚历山大照例坐镇右翼，伙友骑兵击溃波斯左翼后转向中央，直扑大流士的战车。波斯王掉转车头逃走，大军随之崩溃。亚历山大以王室礼遇对待被俘的王太后、王后和公主。部将帕曼纽还在大马士革缴获了大批波斯王室的财宝。",
+       "推罗城建在离岸不到 1 公里的岛上，城墙高大，自恃难以攻破。亚历山大命人填海筑堤，堤上的攻城塔却被推罗人用火船烧毁。转机来自海上：腓尼基各城和塞浦路斯的国王见波斯大势已去，带着约 200 艘战船投到亚历山大一边。前 332 年夏城破，据阿里安记载，约 8000 人被杀，3 万人被卖为奴。围城期间，大流士写信求和，愿出 1 万塔兰特赎金，割让幼发拉底河以西的全部土地，被亚历山大拒绝。"
+      ],
+      "facts": [
+       [
+        "伊苏斯战役",
+        "前 333 年 11 月"
+       ],
+       [
+        "推罗之围",
+        "前 332 年，约 7 个月"
+       ],
+       [
+        "大流士求和",
+        "赎金 1 万塔兰特"
+       ]
+      ]
+     }
+    ],
+    [
+     "埃及与高加米拉",
+     "埃及不战而降，亚历山大在尼罗河三角洲西侧的海岸上建立亚历山大港。前 331 年，他东渡幼发拉底河和底格里斯河，在高加米拉再次击败大流士。巴比伦、苏萨、波斯波利斯相继打开城门，大流士逃亡途中被部下杀死，阿契美尼德帝国至此灭亡。",
+     {
+      "p": [
+       "拿下推罗后，亚历山大又花两个月攻克加沙。前 332 年底他进入埃及，当地人早已厌恶波斯统治，波斯总督开城投降。埃及人奉他为法老。他还穿越利比亚沙漠，到锡瓦绿洲拜访阿蒙神谕所，祭司称他为“阿蒙之子”。新城的位置在尼罗河三角洲西缘、马雷奥蒂斯湖与大海之间，由建筑师狄诺克拉底规划。它后来成为托勒密王朝的都城，以图书馆和法罗斯灯塔闻名于世。",
+       "前 331 年 10 月 1 日，两军在底格里斯河以东的高加米拉平原决战。大流士特意选了平坦开阔的战场，还命人平整地面，好让 200 辆刀轮战车冲锋。古代作家说波斯军有上百万人，现代估计在 5 万到 10 万之间；亚历山大约有 4.7 万人。他让全军斜向右移，引得波斯左翼骑兵跟着移动，波斯阵线中间随之露出空隙。亚历山大率伙友骑兵排成楔形直插缺口，冲向大流士，大流士再次逃走。",
+       "巴比伦总督开城迎降；在苏萨，亚历山大得到约 5 万塔兰特白银；前 330 年，波斯波利斯的王宫被付之一炬，起因至今众说纷纭。大流士一路东逃，前 330 年夏被巴克特里亚总督贝苏斯等人劫持杀害。亚历山大以王礼安葬了他，并以阿契美尼德王朝的继承人自居。从此，他不再只是希腊人的复仇者，而是要做亚洲之王。"
+      ],
+      "facts": [
+       [
+        "高加米拉战役",
+        "前 331 年 10 月 1 日"
+       ],
+       [
+        "马其顿兵力",
+        "约 4.7 万人"
+       ],
+       [
+        "苏萨所获",
+        "约 5 万塔兰特白银"
+       ]
+      ]
+     }
+    ],
+    [
+     "巴比伦之死",
+     "此后亚历山大继续向东，越过兴都库什山，打到印度河流域，直到士兵拒绝再走。前 323 年，他回到巴比伦，筹划远征阿拉伯半岛时发高烧，十天后去世，年仅三十二岁。临终据说有人问帝国留给谁，他答：“给最强者。”",
+     {
+      "p": [
+       "从前 329 年到前 327 年，亚历山大在巴克特里亚和索格底亚那，即今天的阿富汗北部和中亚南部，与神出鬼没的游击队反复苦战，最后娶了当地贵族之女罗克珊娜。他越来越多地采用波斯宫廷的礼仪和服饰，与马其顿老兵的隔阂日深：前 330 年帕曼纽被处死；前 328 年，他在酒后争吵中亲手刺死了在格拉尼库斯河救过自己性命的克利图斯。",
+       "前 327 年，他再次越过兴都库什山，进入印度。前 326 年，他在希达斯皮斯河（今杰赫勒姆河）击败拥有战象的波鲁斯王，战后仍让波鲁斯统治原来的国土。爱马布塞法洛斯死在这一年，他以马的名字建了一座城。再往东到希发西斯河（今比阿斯河）时，离家已经八年的士兵拒绝前进，亚历山大在帐中闭门三天，最终只好下令回师。归途中，他率部分军队穿越格德罗西亚沙漠，损失惨重。",
+       "前 324 年，他回到苏萨，主持集体婚礼，让约 80 名部将与波斯贵族女子成婚，自己也娶了大流士的女儿。前 323 年 6 月，他在巴比伦去世，死因至今没有定论，疟疾、伤寒和中毒等说法都有。他身后没有成年继承人：儿子亚历山大四世几个月后才出生，同父异母的哥哥阿里达乌斯心智有缺陷。将领们议定由两人共同为王，佩尔狄卡斯摄政，实权其实落在将领们自己手里。"
+      ],
+      "facts": [
+       [
+        "希达斯皮斯河之战",
+        "前 326 年，对阵波鲁斯"
+       ],
+       [
+        "回师之处",
+        "希发西斯河（今比阿斯河）"
+       ],
+       [
+        "去世",
+        "前 323 年 6 月，年仅 32 岁"
+       ]
+      ]
+     }
+    ],
+    [
+     "继业者",
+     "部将们为争夺遗产打了四十多年。前 301 年，塞琉古、利西马科斯与卡山德结成的联军在伊普苏斯击败并杀死最强的安提柯一世，帝国的分裂就此定型：托勒密占埃及，塞琉古占亚洲，马其顿本土另立一国。希腊语和希腊城市从此散布到从尼罗河到中亚的广大土地上。",
+     {
+      "p": [
+       "两王共治很快名存实亡。托勒密把埃及据为己有，还半路截走了亚历山大的遗体，安葬在埃及。摄政佩尔狄卡斯进攻埃及失利，被自己的部下杀死。此后，独眼的安提柯一世和他的儿子“围城者”德米特里乌斯势力最大，一度控制了亚洲大部。亚历山大的母亲、遗孀和儿子先后被杀。从前 306 年起，安提柯父子率先称王，其他将领随即纷纷效仿。",
+       "前 301 年，双方在小亚细亚中部弗里吉亚的伊普苏斯决战。年约八十的安提柯和德米特里乌斯一方，对阵利西马科斯、塞琉古和卡山德派来的军队，每边据说都有七八万人。塞琉古带来了约 400 头战象，他此前把东方领土让给印度孔雀王朝的旃陀罗笈多，换回了大批大象。德米特里乌斯率骑兵击溃对手后追得太远，回程被象群挡住；安提柯的步兵失去掩护，老国王被标枪刺中身亡。德米特里乌斯逃走，后来一度当上马其顿国王。",
+       "胜利者瓜分了安提柯的土地，此后几十年里形成三个主要王国：托勒密王朝统治埃及，直到前 30 年克娄巴特拉去世；塞琉古王朝据有叙利亚、两河流域和伊朗；马其顿则从前 276 年起由安提柯一世的孙子安提柯二世及其后代统治。亚历山大死后的这近三百年被称为“希腊化时代”。通用希腊语从地中海一直通行到中亚；在今天阿富汗北部的阿伊哈努姆，考古学家发掘出了一座带剧场和体育馆的希腊城市。"
+      ],
+      "facts": [
+       [
+        "塞琉古的战象",
+        "约 400 头"
+       ],
+       [
+        "安提柯一世",
+        "战死时约 80 岁"
+       ],
+       [
+        "托勒密王朝",
+        "延续到前 30 年"
+       ]
+      ]
+     }
+    ]
+   ]
+  },
+  "rise-of-rome": {
+   "title": "罗马的崛起",
+   "lede": "一座意大利城邦，用两百多年成为地中海的主人。",
+   "steps": [
+    [
+     "西西里之争",
+     "前 3 世纪初，罗马已经统一意大利半岛，对面西西里岛的西部则在北非的迦太基手中——一个控制着西地中海航路的商业帝国。前 264 年，两国为争夺墨西拿开战。从没打过海战的罗马照着一艘搁浅的迦太基战船仿造舰队，二十三年后赢得战争，拿下西西里。",
+     {
+      "p": [
+       "罗马用了两百多年，靠战争和结盟控制了意大利半岛；前 272 年南部的希腊城市塔兰托投降，统一基本完成。迦太基由来自推罗的腓尼基人建立，位于今天的突尼斯，靠贸易和强大的海军称雄西地中海，控制着西西里西部、撒丁岛和西班牙沿海的一些据点。墨西拿被一伙自称“马麦丁人”的意大利雇佣兵占据，他们受到叙拉古国王希伦二世的威胁，便同时向迦太基和罗马求援。罗马决定出兵。",
+       "罗马陆军很快在西西里站稳脚跟，前 263 年希伦二世倒向罗马。但没有海军，就无法切断迦太基的海上补给。前 261 年前后，罗马造出 100 艘五列桨战船和 20 艘三列桨战船。为弥补航海经验的不足，罗马人在船头装上带铁钩的吊桥“乌鸦”，钩住敌舰后让步兵冲过去肉搏，把海战变成陆战。前 260 年，执政官杜伊利乌斯靠它在米莱取得了罗马的第一场海战胜利。",
+       "战争远比预想的漫长。前 256 年，罗马军登陆北非，次年被迦太基击败，统帅雷古卢斯被俘；罗马舰队还几次在风暴中几乎全军覆没。据波利比乌斯统计，整场战争中罗马损失了约 700 艘战船，迦太基约 500 艘。前 241 年，罗马靠富人出资新建的舰队在埃加迪群岛外大胜，迦太基求和：退出西西里，赔款 3200 塔兰特，10 年内付清。西西里成为罗马第一个海外行省。"
+      ],
+      "facts": [
+       [
+        "首批舰队",
+        "100 艘五列桨、20 艘三列桨"
+       ],
+       [
+        "战船损失",
+        "罗马约 700 艘，迦太基约 500 艘"
+       ],
+       [
+        "迦太基赔款",
+        "3200 塔兰特，10 年付清"
+       ]
+      ]
+     }
+    ],
+    [
+     "汉尼拔",
+     "前 218 年，迦太基统帅汉尼拔从西班牙出发，带着步兵、骑兵和几十头战象翻越阿尔卑斯山，突然出现在意大利北部。前 216 年，他在坎尼以两翼包抄重创约八万罗马大军，据古代史家记载，罗马一方阵亡五万人以上。但罗马的意大利盟邦大多没有倒戈，罗马拒绝求和，汉尼拔在意大利转战十五年，始终没能攻打罗马城。",
+     {
+      "p": [
+       "第一次布匿战争后，迦太基名将哈米尔卡·巴卡转向西班牙，开矿练兵；他的女婿哈斯德鲁巴建立了新迦太基城，即今天的卡塔赫纳。前 221 年，二十五六岁的汉尼拔接掌西班牙的军队。前 219 年，他围攻罗马的盟友萨贡托，八个月后破城，罗马随即宣战。",
+       "前 218 年春，汉尼拔率军北上，翻过比利牛斯山，强渡罗讷河，深秋时节越过阿尔卑斯山，一路饱受严寒、冰雪和山地部落袭击之苦。据波利比乌斯记载，抵达意大利时他只剩约 2 万步兵和 6000 骑兵，37 头战象也大多没能熬过第一个冬天。他在特雷比亚河和特拉西梅诺湖接连获胜。前 216 年 8 月，他在坎尼摆出中间薄、两翼厚的阵形：中军边打边退，两翼的非洲步兵向内合拢，骑兵从背后杀到，罗马军被围得水泄不通。古代记载的罗马阵亡人数从近 5 万到 7 万不等，执政官保卢斯战死；汉尼拔只损失了约 6000 至 8000 人。",
+       "坎尼之后，卡普阿等南意大利城市和西西里的叙拉古倒向迦太基，马其顿的腓力五世也与汉尼拔结盟。但拉丁殖民地和多数盟邦仍然效忠罗马。罗马拒绝赎回战俘，征召新军团，重新采用“拖延者”费边的策略，避免会战，慢慢消耗对手。前 211 年汉尼拔曾兵临罗马城下，那也只是为了引开围攻卡普阿的罗马军，并未真正攻城。"
+      ],
+      "facts": [
+       [
+        "抵达意大利",
+        "步兵约 2 万，骑兵约 6000"
+       ],
+       [
+        "坎尼会战",
+        "前 216 年 8 月"
+       ],
+       [
+        "坎尼罗马阵亡",
+        "古载约 5 万至 7 万人"
+       ]
+      ]
+     }
+    ],
+    [
+     "扎马",
+     "罗马转而进攻迦太基的根据地。西庇阿先夺取西班牙，再渡海登陆北非。前 202 年，被召回国的汉尼拔在扎马战败，迦太基交出舰队和西班牙，从此只是一个小国。地图上，罗马已经占有西班牙东部和南部。",
+     {
+      "p": [
+       "前 211 年，西庇阿的父亲和伯父在西班牙兵败身亡。次年，年仅二十五六岁的西庇阿主动请缨，接掌西班牙战事。前 209 年，他趁潟湖水浅涉水攻城，一天之内拿下迦太基在西班牙的大本营新迦太基。前 207 年，汉尼拔的弟弟哈斯德鲁巴率援军翻越阿尔卑斯山，在意大利的梅陶罗河全军覆没，他的首级被扔进汉尼拔的营地。前 206 年，西庇阿在伊利帕获胜，把迦太基人彻底赶出西班牙。",
+       "前 205 年当选执政官的西庇阿，次年登陆北非，与努米底亚王子马西尼萨结盟，前 203 年接连击败迦太基军。迦太基急召汉尼拔回国。前 202 年秋，两军在扎马附近决战。汉尼拔约有 4 万人和 80 头战象，西庇阿兵力略少，但有马西尼萨的努米底亚骑兵助阵。西庇阿在阵中留出通道，让受惊的战象从中穿过；罗马和努米底亚骑兵赶跑迦太基骑兵后掉头回来，从背后夹击汉尼拔的步兵。据波利比乌斯记载，迦太基阵亡约 2 万人，罗马方面只有约 1500 人。",
+       "前 201 年的和约极为苛刻：迦太基交出西班牙和全部海外领地，交出所有战象，只保留 10 艘战船，50 年内赔款 1 万塔兰特，未经罗马同意不得对外作战。西庇阿因此获得“阿非利加努斯”的称号。前 197 年，罗马在西班牙设立近、远两个行省。汉尼拔几年后被迫流亡，投奔了塞琉古国王安条克三世。"
+      ],
+      "facts": [
+       [
+        "战后赔款",
+        "1 万塔兰特，50 年付清"
+       ],
+       [
+        "迦太基保留战船",
+        "10 艘"
+       ],
+       [
+        "西班牙行省",
+        "前 197 年设立两个"
+       ]
+      ]
+     }
+    ],
+    [
+     "征服东方",
+     "接下来罗马转向希腊化世界。前 168 年，罗马军团在皮德纳击败马其顿方阵，二十年后马其顿成为罗马行省。前 146 年，罗马在同一年里夷平迦太基和希腊的科林斯，迦太基故地成为“阿非利加行省”。地中海周围已经没有能与罗马抗衡的国家。",
+     {
+      "p": [
+       "扎马之战后不到两年，罗马又与马其顿的腓力五世开战，前 197 年在库诺斯克法莱击败了他。前 190 年，罗马又在小亚细亚的马格内西亚大败塞琉古国王安条克三世。腓力之子珀尔修斯即位后重整军备，前 171 年第三次马其顿战争爆发。",
+       "前 168 年 6 月 22 日，执政官埃米利乌斯·保卢斯在皮德纳迎战珀尔修斯。马其顿方阵正面无坚不摧，但推进到起伏的地面时队形出现缝隙，罗马军团以小队钻进空隙，长矛手在近身肉搏中毫无还手之力。据古代记载，马其顿 2 万多人被杀，罗马只损失约 100 人。珀尔修斯被俘，在罗马的凯旋式上游街示众。马其顿先被分成四个共和国，前 148 年一场叛乱被平定后成为罗马行省。",
+       "迦太基商业复苏，到前 151 年已付清赔款；据说老加图每次在元老院发言，都要求毁灭迦太基。前 149 年，罗马以迦太基与马西尼萨开战违约为借口宣战，命令居民弃城迁往离海约 15 公里的内地。迦太基人拒绝，坚守了将近三年。前 146 年春，西庇阿·埃米利阿努斯攻入城中，巷战持续六天，幸存的约 5 万人被卖为奴，城市被焚毁。同年，统帅穆米乌斯镇压了希腊亚该亚同盟，攻陷科林斯，把大批艺术品运回罗马。后世所谓罗马人在迦太基废墟上撒盐，并无古代史料依据。"
+      ],
+      "facts": [
+       [
+        "皮德纳战役",
+        "前 168 年 6 月 22 日"
+       ],
+       [
+        "迦太基之围",
+        "前 149—前 146 年"
+       ],
+       [
+        "迦太基幸存者",
+        "约 5 万人被卖为奴"
+       ]
+      ]
+     }
+    ],
+    [
+     "恺撒",
+     "征服带来财富，也带来内乱：将领们的军队只效忠于主帅。前 58 至前 50 年，恺撒征服了整个高卢，前 52 年在阿莱西亚围困并击败维钦托利。元老院要求他交出兵权，前 49 年他率军渡过卢比孔河，打赢了内战，成为终身独裁官。",
+     {
+      "p": [
+       "海外扩张让元老贵族和富商暴富，使用奴隶的大庄园却让许多小农破产。从前 107 年起，马略招募没有土地的穷人当兵，士兵指望统帅为他们争取退伍后的土地，军队渐渐成了将领的私人力量。前 88 年，苏拉成为第一个率军开进罗马城的将领。前 60 年，恺撒、庞培和克拉苏结成私下同盟，史称“前三头同盟”。恺撒随后获得高卢等地的总督职位和四个军团。",
+       "恺撒先后击败赫尔维蒂人、日耳曼首领阿里奥维斯图斯和北方的比尔及人，还两度登陆不列颠。前 52 年，阿维尔尼人的首领维钦托利联合高卢各部发动大起义，随后退守阿莱西亚山城。恺撒在城外修起两道环形工事：内圈约 16 公里，困住守军；外圈约 21 公里，挡住赶来救援的高卢大军。恺撒自称援军有 25 万人，现代学者认为严重夸大。罗马军最终击退援军，维钦托利出城投降，六年后在恺撒的凯旋式上游街，随即被处死。",
+       "据普鲁塔克说，高卢战争中有上百万人被杀、上百万人沦为奴隶，这是古代作家的估计。前 49 年 1 月，恺撒只带一个军团越过行省与意大利的界河卢比孔河，庞培和多数元老逃往希腊。前 48 年恺撒在法萨卢斯大败庞培，庞培逃到埃及被杀。恺撒推行的儒略历从前 45 年 1 月 1 日起施行，一年 365 天，每四年一闰，沿用了一千六百多年。"
+      ],
+      "facts": [
+       [
+        "阿莱西亚工事",
+        "内圈约 16 公里，外圈约 21 公里"
+       ],
+       [
+        "渡卢比孔河",
+        "前 49 年 1 月，带 1 个军团"
+       ],
+       [
+        "儒略历施行",
+        "前 45 年 1 月 1 日起"
+       ]
+      ]
+     }
+    ],
+    [
+     "从共和到帝国",
+     "前 44 年 3 月 15 日，恺撒在元老院被刺。他的养子屋大维与安东尼先联手、后反目；前 31 年，屋大维在亚克兴海战中击败安东尼和埃及女王克娄巴特拉，次年吞并埃及。前 27 年，元老院授予他“奥古斯都”称号。共和国的形式保留了下来，权力已经集中于一人。到公元纪元开始时，罗马的版图已经环绕整个地中海。",
+     {
+      "p": [
+       "参与刺杀的有六十多人，为首的是布鲁图斯和卡西乌斯。他们以为除掉“暴君”就能恢复共和，结果民情激愤，只好逃离罗马。恺撒在遗嘱中收养了十八岁的甥孙屋大维。前 43 年，屋大维、安东尼和雷必达结成“后三头同盟”，大肆清洗政敌，西塞罗也被杀害。前 42 年，屋大维和安东尼在腓立比击败布鲁图斯和卡西乌斯。此后屋大维掌管西部，安东尼坐镇东方，并与埃及女王克娄巴特拉结为盟友和伴侣。",
+       "两人的关系逐渐破裂，元老院在屋大维推动下对克娄巴特拉宣战。前 31 年 9 月 2 日，两支舰队在希腊西岸的亚克兴海角外交战，屋大维的舰队由阿格里帕指挥。克娄巴特拉率 60 艘船突围南逃，安东尼随后跟去，留下的舰队和陆军很快投降。前 30 年 8 月，屋大维攻入亚历山大港，安东尼和克娄巴特拉先后自杀，托勒密王朝灭亡。埃及由屋大维亲自委派长官治理，成为罗马的粮仓。",
+       "前 27 年 1 月，屋大维宣布“恢复共和”，元老院随即授予他“奥古斯都”（意为“受尊崇的”）称号，并让他继续统辖驻有大部分军团的行省。他自称“第一公民”，元老院和公民大会照常运作，但军队、财政和任命都掌握在他手里。他一直统治到公元 14 年去世。据他自己的记录，前 8 年的人口普查登记了 423.3 万罗马公民。此后约两百年被称为“罗马和平”。"
+      ],
+      "facts": [
+       [
+        "亚克兴海战",
+        "前 31 年 9 月 2 日"
+       ],
+       [
+        "前 8 年公民普查",
+        "423.3 万人"
+       ],
+       [
+        "奥古斯都统治",
+        "前 27 年—公元 14 年"
+       ]
+      ]
+     }
+    ]
+   ]
+  },
+  "fall-of-rome": {
+   "title": "西罗马的衰亡",
+   "lede": "一个世纪里，帝国的西半部变成了一群日耳曼王国。",
+   "steps": [
+    [
+     "阿德里安堡",
+     "376 年，被匈人从草原西逐的哥特人请求渡过多瑙河，进入帝国避难。罗马官员克扣粮食、欺压难民，哥特人起兵。378 年，东部皇帝瓦伦斯在阿德里安堡与他们决战，罗马军大败，皇帝战死。此后哥特人作为一个整体留在了帝国境内。",
+     {
+      "p": [
+       "4 世纪 70 年代，匈人从中亚草原突然闯入黑海北岸，先后打垮了阿兰人和当地的哥特人王国。多瑙河北岸的另一支哥特人无力抵抗，在首领弗里蒂格恩率领下聚到河边，请求入境。东部皇帝瓦伦斯正与波斯交战，急需兵源，便同意接纳，打算让他们为帝国种地、当兵。渡河的人数没有可靠记载，现代估计有数万人，边境官员根本无力安置。",
+       "罗马将领卢皮基努斯等人趁粮荒倒卖口粮，据史家阿米阿努斯记载，饥饿的哥特人甚至拿子女去换狗肉充饥。随后卢皮基努斯在马西安诺堡设宴，企图诱杀哥特首领，弗里蒂格恩脱身后举兵，在色雷斯四处劫掠。378 年夏，瓦伦斯从安条克赶回，他的侄子、西部皇帝格拉提安也率军东来增援。瓦伦斯听信哥特人只有约 1 万人的情报，不等援军，于 8 月 9 日出战。罗马军顶着烈日行军数小时后仓促进攻哥特人的车阵，外出的哥特骑兵恰好赶回，从侧翼杀入。罗马左翼崩溃，步兵被挤成一团，几乎挥不动兵器。",
+       "现代估计罗马军约有 1.5 万到 3 万人，据阿米阿努斯说，约三分之二战死，其中有两名主将和数十名高级军官，瓦伦斯的尸体始终没有找到。阿米阿努斯把这一仗比作罗马惨败于汉尼拔的坎尼会战。东部野战军精锐一日丧尽，帝国再也无力把哥特人赶出境外，只能坐下来谈判。次年 1 月，格拉提安任命出身西班牙的将领狄奥多西为东部皇帝，收拾残局。"
+      ],
+      "facts": [
+       [
+        "战役日期",
+        "378 年 8 月 9 日"
+       ],
+       [
+        "罗马军兵力",
+        "约 1.5 万—3 万（估计）"
+       ],
+       [
+        "罗马军损失",
+        "约三分之二（据阿米阿努斯）"
+       ]
+      ]
+     }
+    ],
+    [
+     "东西分治",
+     "狄奥多西一世与哥特人议和，让他们作为“同盟者”定居巴尔干；380 年，他把尼西亚派基督教定为国教。395 年他去世，两个年幼的儿子分别统治东部和西部。帝国从此再没有统一，东部富庶、城防坚固，西部则越来越依赖日耳曼将领和他们的部众。",
+     {
+      "p": [
+       "狄奥多西一世即位后，花了几年时间与哥特人周旋。382 年双方订约：哥特人在多瑙河以南的巴尔干定居，保留自己的首领和部众，战时作为“同盟者”为帝国出兵。这等于承认帝国境内有了一个自成一体的武装民族。宗教上，他在 380 年颁布《帖撒罗尼迦敕令》，要求臣民信奉尼西亚信经；次年召开君士坦丁堡公会议，把阿里乌派定为异端，此后又陆续禁止异教献祭。",
+       "394 年，狄奥多西在冷河畔击败西部篡位者尤金尼乌斯，哥特同盟军冲在最前，伤亡惨重，其中就有年轻的阿拉里克。395 年 1 月，狄奥多西在米兰病逝。约 17 岁的阿卡狄乌斯坐镇君士坦丁堡，10 岁的霍诺留统治西部，实权落在半汪达尔血统的大将斯提里科手中。东西两廷很快互相猜忌，阿拉里克则率哥特人起事，在两边之间讨价还价。",
+       "到 400 年，两半的命运已经分开。东部坐拥埃及、叙利亚和小亚细亚的赋税，君士坦丁堡三面环水，易守难攻；这一年，东部朝廷还赶走了专权的哥特将领盖纳斯，城中大批哥特人遭到屠杀。西部却要守卫漫长的莱茵河防线，财源远不如东部，只能把防务越来越多地交给斯提里科这样的日耳曼将领。东部还常用黄金和官职把麻烦引向西方，这种差距决定了两半截然不同的结局。"
+      ],
+      "facts": [
+       [
+        "哥特人定居条约",
+        "382 年"
+       ],
+       [
+        "狄奥多西去世",
+        "395 年 1 月，米兰"
+       ],
+       [
+        "两个儿子的年龄",
+        "约 17 岁和 10 岁"
+       ]
+      ]
+     }
+    ],
+    [
+     "罗马陷落",
+     "西哥特首领阿拉里克向西部朝廷索要土地和官职未果，三次兵临罗马城下。410 年 8 月，他攻入城中洗劫三天。这是近八百年来罗马城第一次落入敌手，消息震动整个地中海世界；奥古斯丁为此写下《上帝之城》。大约也在这几年，罗马在不列颠的统治走到了尽头。",
+     {
+      "p": [
+       "阿拉里克自 395 年起事后辗转多年，402 年入侵意大利，被斯提里科在波伦提亚等地击退。西部的麻烦不止于此：按传统说法，406 年的最后一天，汪达尔人、阿兰人和苏维汇人越过莱茵河涌入高卢；不列颠驻军拥立君士坦丁三世称帝，407 年他带着大部分兵力渡海去了高卢。408 年，霍诺留以谋反罪名处死斯提里科，日耳曼士兵的家属遭到屠杀，许多士兵转投阿拉里克。",
+       "失去斯提里科的西部朝廷躲在沼泽环绕的拉文纳，拒不谈判，阿拉里克便转而围困罗马。408 年，城中凑出约 5000 磅黄金和 3 万磅白银作为赎金；409 年，他又扶立一位傀儡皇帝向拉文纳施压，依然无果。410 年 8 月 24 日，哥特人从萨拉里亚门入城，大量财物被掠走，但圣彼得和圣保罗教堂被当作避难所，多数居民得以保命。霍诺留同父异母的妹妹加拉·普拉西提阿也被哥特人掳走。",
+       "上一次有敌军攻入罗马，还是公元前 390 年前后的高卢人。远在伯利恒的哲罗姆写信哀叹，仿佛整个世界都随这座城倒下了；异教徒则指责是抛弃古老神祇招来了灾祸。奥古斯丁从 413 年起动笔写《上帝之城》回应，前后写了十多年。阿拉里克本想渡海去北非，船队遇风暴损毁，他当年就死在意大利南部。至于不列颠，驻军其实早已调走，据记载霍诺留在 410 年复信当地各城市，让他们自行防卫。"
+      ],
+      "facts": [
+       [
+        "入城日期",
+        "410 年 8 月 24 日"
+       ],
+       [
+        "洗劫时长",
+        "3 天"
+       ],
+       [
+        "408 年的赎金",
+        "约 5000 磅黄金、3 万磅白银"
+       ]
+      ]
+     }
+    ],
+    [
+     "匈人与汪达尔人",
+     "汪达尔人从西班牙渡海，439 年攻占迦太基，夺走了西部最重要的粮仓和税源。阿提拉统领的匈人帝国从多瑙河平原向东西两边勒索贡金，451 年大举进攻高卢，被罗马将领埃提乌斯与西哥特人联军挡在卡塔隆平原。两年后阿提拉去世，匈人帝国随即瓦解。",
+     {
+      "p": [
+       "汪达尔人 406 年越过莱茵河，409 年进入西班牙。429 年，国王盖萨里克率全族渡过直布罗陀海峡，据说连同妇孺约 8 万人。430 年他们围攻希波，主教奥古斯丁死于城中。439 年 10 月，盖萨里克撕毁和约，突袭攻占迦太基。北非的谷物和赋税原本供养着罗马城和西部军队，汪达尔人还组建舰队，劫掠西西里和意大利沿海。",
+       "匈人此时已在潘诺尼亚平原扎根。阿提拉 434 年起与兄长布列达共治，约 445 年独揽大权，多次蹂躏巴尔干，447 年后迫使东部朝廷补缴约 6000 磅黄金，此后每年再交 2100 磅。451 年他转向西方，渡过莱茵河，攻陷梅斯，围攻奥尔良。埃提乌斯拼凑起一支联军：西哥特国王狄奥多里克一世亲自出征，阿兰人、法兰克人和勃艮第人也来助战。6 月下旬前后，两军在今法国东北部交战，狄奥多里克一世阵亡，阿提拉退回车阵，随后撤兵。",
+       "双方兵力都没有可靠数字，古代史家所说的 16.5 万人阵亡显然是夸大。阿提拉并未一蹶不振，452 年转攻意大利，摧毁阿奎莱亚，在与教皇利奥一世等使节会面后退兵。453 年他在新婚之夜猝死，诸子争位，约一年后附庸的格皮德人等在内达奥河畔大败匈人。可西部也所剩无几：北非已失，高卢和西班牙大半落入各族之手，454 年，埃提乌斯更被皇帝瓦伦提尼安三世亲手杀死。"
+      ],
+      "facts": [
+       [
+        "迦太基陷落",
+        "439 年 10 月"
+       ],
+       [
+        "东罗马的年贡",
+        "447 年后每年 2100 磅黄金"
+       ],
+       [
+        "阿提拉去世",
+        "453 年"
+       ]
+      ]
+     }
+    ],
+    [
+     "476 年",
+     "此时西部皇帝已是将领们手中的傀儡。476 年，日耳曼将领奥多亚克废黜少年皇帝罗慕路斯·奥古斯都，把皇帝的冠冕送往君士坦丁堡，表示西部不再需要皇帝。当时的人未必觉得这是一个时代的终结，但后世把这一年当作西罗马帝国灭亡、中世纪开始的标志。",
+     {
+      "p": [
+       "455 年，皇帝瓦伦提尼安三世被埃提乌斯的旧部刺杀，狄奥多西家族的男系就此断绝。同年，汪达尔人从海上攻入罗马，洗劫了两个星期。从 455 年到 476 年，西部先后换了九位皇帝，真正掌权的是苏维汇裔将领里西梅尔，他一手扶立又废黜了好几位皇帝。468 年，东西两廷合力派出据说一千多艘船远征北非，在邦角附近被汪达尔人用火船击溃，收复迦太基的最后希望就此破灭。",
+       "475 年，将领欧瑞斯特斯赶走皇帝尤利乌斯·尼波斯，立自己年少的儿子罗慕路斯为帝，人们戏称他为“奥古斯都路斯”，即“小奥古斯都”。驻意大利的日耳曼士兵要求分得三分之一的土地，欧瑞斯特斯不肯，士兵们便推举据说出身斯基里人的奥多亚克为首领。476 年 8 月，奥多亚克在皮亚琴察杀死欧瑞斯特斯，9 月 4 日进入拉文纳废黜罗慕路斯，但饶他一命，给他一笔年金，让他到那不勒斯附近的庄园养老。",
+       "奥多亚克通过罗马元老院向东部皇帝芝诺表示，天下有一位皇帝就够了，他只求以帝国官员的身份治理意大利。芝诺含糊其辞，提醒他们西部还有一位合法皇帝尼波斯，此人在达尔马提亚一直活到 480 年。元老院照常开会，行政和法律照旧运转，当时的人并不觉得天塌了下来。直到 6 世纪初，东部的编年史家马尔切利努斯才明确写道，西部的罗马帝国随着这个奥古斯都路斯一同灭亡了。"
+      ],
+      "facts": [
+       [
+        "废黜日期",
+        "476 年 9 月 4 日"
+       ],
+       [
+        "末期西部皇帝",
+        "455—476 年共 9 位"
+       ],
+       [
+        "罗慕路斯在位",
+        "约 10 个月"
+       ]
+      ]
+     }
+    ],
+    [
+     "新的王国",
+     "到 500 年前后，西部已经分成几个日耳曼王国：东哥特王狄奥多里克在拉文纳统治意大利，西哥特人占据西班牙，汪达尔人占据北非，法兰克王克洛维统一了大部分高卢，并在兰斯受洗皈依正统基督教。罗马的法律、城市和教会在这些王国里延续了下来。",
+     {
+      "p": [
+       "奥多亚克统治意大利十余年，与东部的关系日益紧张。488 年，皇帝芝诺派盘踞巴尔干的东哥特首领狄奥多里克去讨伐他，既打发走身边的隐患，又不必自己出兵。狄奥多里克少年时在君士坦丁堡做过多年人质，熟悉罗马的规矩。他率族人翻越阿尔卑斯山，连战连胜，围困拉文纳两年多后，于 493 年与奥多亚克议和，随后在宴会上亲手杀了他。",
+       "狄奥多里克统治意大利直到 526 年去世，其间哥特人当兵，罗马人照旧做官、种地，元老院继续开会，卡西奥多鲁斯、波爱修斯等罗马贵族为他效力。500 年他亲临罗马，向元老院和民众讲话，拨款修缮城墙和宫殿。此时西哥特王国以图卢兹为都，领有高卢西南部和西班牙大部；勃艮第人占据罗讷河谷；汪达尔人仍据有北非。这些王国的统治者大多信奉被定为异端的阿里乌派，与治下信奉正统基督教的罗马人隔着一道信仰鸿沟。",
+       "克洛维是个例外。他十几岁继承萨利安法兰克人的王位，486 年在苏瓦松击败高卢最后一位罗马统帅西阿格里乌斯，又娶了信奉正统基督教的勃艮第公主克洛蒂尔德。为他施洗的是兰斯主教雷米吉乌斯，时间传统上定在 496 年圣诞节，也有学者认为晚至 508 年前后。信仰相同，高卢的主教和罗马贵族便站到了他这一边。507 年，他在武耶击败西哥特人，夺取高卢西南大部，法兰克王国从此成为西部最持久的继承国。"
+      ],
+      "facts": [
+       [
+        "狄奥多里克在位",
+        "493—526 年"
+       ],
+       [
+        "克洛维受洗",
+        "传统定为 496 年"
+       ],
+       [
+        "武耶战役",
+        "507 年"
+       ]
+      ]
+     }
+    ]
+   ]
+  },
+  "charlemagne": {
+   "title": "查理曼",
+   "lede": "法兰克人重建了一个西方帝国，又在两代人之后把它分成三份。",
+   "steps": [
+    [
+     "图尔",
+     "8 世纪初，阿拉伯军队在几年内征服了西哥特西班牙，越过比利牛斯山进入高卢。732 年，法兰克王国的宫相查理·马特在图尔和普瓦捷之间迎击，阿拉伯统帅战死，军队撤回。此时法兰克国王已有名无实，真正掌权的是查理·马特这样的宫相。",
+     {
+      "p": [
+       "711 年，柏柏尔将领塔里克率军渡过直布罗陀海峡，在瓜达莱特河畔击败西哥特国王罗德里克，西哥特王国几年内便土崩瓦解。伊斯兰军队随后越过比利牛斯山，夺取纳博讷，不断袭扰高卢南部。721 年，阿基坦公爵厄德在图卢兹城下打退过一次进攻；可到了 732 年，安达卢斯总督阿卜杜·拉赫曼在加龙河畔大败厄德，洗劫波尔多，随即挥师北上，目标是图尔富庶的圣马丁修道院。",
+       "走投无路的厄德只好向宿敌查理·马特求援。查理率领以步兵为主的法兰克军南下，在普瓦捷以北截住对手。双方兵力都没有可靠记载，中世纪编年史里动辄数十万的数字远远夸大。据 754 年西班牙的一部编年史描述，法兰克人肩并肩列成密集阵形，像一堵冰墙般纹丝不动，阿拉伯骑兵一次次冲锋都没能打开缺口。阿卜杜·拉赫曼在混战中阵亡，阿拉伯军当夜丢下营帐悄悄撤走。战役日期传统上定为 732 年 10 月，也有学者主张是 733 年。",
+       "后世常说这一仗挽救了基督教欧洲，如今的史家要谨慎得多，认为它更像是挡住了一次大规模劫掠，阿拉伯人在纳博讷的据点一直守到 759 年。但对查理本人来说，此战意义重大：他借机把势力伸进勃艮第和普罗旺斯，“马特”（铁锤）这个绰号也在后世流传开来。737 年墨洛温国王去世后，他干脆不再立王，以宫相身份统治全境，直到 741 年去世。"
+      ],
+      "facts": [
+       [
+        "战役时间",
+        "732 年 10 月（一说 733 年）"
+       ],
+       [
+        "阿拉伯统帅",
+        "阿卜杜·拉赫曼，战死"
+       ],
+       [
+        "查理·马特去世",
+        "741 年"
+       ]
+      ]
+     }
+    ],
+    [
+     "丕平称王",
+     "751 年，查理·马特的儿子丕平在教皇同意下废黜墨洛温王朝的末王，自立为王，开创加洛林王朝。作为回报，他出兵意大利打败伦巴第人，把夺来的拉文纳等地献给教皇——这就是延续一千多年的教皇国的起源。",
+     {
+      "p": [
+       "741 年查理·马特去世，两个儿子卡洛曼和丕平分掌王国，为了名分，他们在 743 年又扶出一位墨洛温王子做国王。747 年卡洛曼出家为修士，丕平独揽大权。可宫相篡位，终究名不正言不顺。于是他派维尔茨堡主教和圣德尼修道院长去罗马请示教皇扎迦利：有实权的人和有名分的人，谁更该称王？据法兰克王室年代记，教皇答复说，掌握实权的人称王更好。",
+       "751 年 11 月前后，法兰克贵族在苏瓦松推举丕平为王，主教们为他行涂油礼，这是法兰克国王第一次像《旧约》中的君王那样受膏。末代国王希尔德里克三世被剃去象征王族身份的长发，送进修道院。754 年，迫于伦巴第人的威胁，教皇斯德望二世亲自翻越阿尔卑斯山，在圣德尼为丕平和他的两个儿子再次涂油，并授予丕平“罗马人的贵族”称号，让他担起保护罗马的责任。",
+       "伦巴第国王艾斯图尔夫 751 年攻占拉文纳，结束了拜占庭在意大利北部的统治，随后又兵逼罗马。丕平在 754 年和 756 年两次出兵，迫使他交出拉文纳及周边城市，并派人把这些城市的钥匙放在圣彼得墓前献给教皇，史称“丕平献土”。教皇国由此诞生，直到 1870 年罗马并入意大利王国才告终结。法兰克王权与罗马教廷的这次结盟，为半个世纪后的加冕埋下了伏笔。"
+      ],
+      "facts": [
+       [
+        "丕平称王",
+        "751 年"
+       ],
+       [
+        "教皇赴法兰克",
+        "754 年"
+       ],
+       [
+        "教皇国存续",
+        "756—1870 年"
+       ]
+      ]
+     }
+    ],
+    [
+     "龙塞斯瓦列斯",
+     "丕平的儿子查理（查理曼）768 年继位，此后几乎年年出征：征服伦巴第王国，与萨克森人打了三十多年仗并强迫他们改信基督教，又消灭了多瑙河上的阿瓦尔汗国。778 年远征西班牙归来时，后卫在比利牛斯山口遭巴斯克人伏击，这件事后来演变成史诗《罗兰之歌》。",
+     {
+      "p": [
+       "768 年丕平去世，查理与弟弟卡洛曼分治王国，三年后卡洛曼病故，查理独掌大权。774 年，他围困帕维亚九个月，迫使伦巴第国王德西德里乌斯投降，自称“伦巴第人的国王”。萨克森战争从 772 年打到 804 年，查理捣毁了萨克森人的圣柱伊尔明苏尔，782 年在费尔登处决了据说 4500 名反叛者。788 年巴伐利亚被并入王国，790 年代对阿瓦尔人的远征则缴获了他们积攒多年的大批财宝。",
+       "778 年的西班牙远征起因于安达卢斯的内讧。巴塞罗那总督等穆斯林地方长官反对科尔多瓦的倭马亚埃米尔，请求查理出兵，许诺献出萨拉戈萨等城市。查理兵分两路越过比利牛斯山，萨拉戈萨却城门紧闭，围攻无果，萨克森人又在后方起兵，他只好撤军，途中拆毁了巴斯克人的潘普洛纳城墙。8 月 15 日，大军穿越龙塞斯瓦列斯山口，埋伏在山林中的巴斯克人从高处突袭后卫和辎重队，将其全歼。",
+       "据查理曼的传记作者艾因哈德记载，阵亡者中有宫廷总管埃吉哈德、宫伯安塞尔姆和布列塔尼边区长官罗兰。三百多年后，这次败仗被写成古法语史诗《罗兰之歌》：巴斯克人变成了撒拉逊人，罗兰成了查理曼的外甥和殉道的英雄。此后查理曼不再图谋深入西班牙，转而在比利牛斯山南麓逐步建立缓冲地带，801 年攻占巴塞罗那，后来的“西班牙边区”就以此为核心。"
+      ],
+      "facts": [
+       [
+        "伏击日期",
+        "778 年 8 月 15 日"
+       ],
+       [
+        "萨克森战争",
+        "772—804 年"
+       ],
+       [
+        "《罗兰之歌》成书",
+        "约 1100 年"
+       ]
+      ]
+     }
+    ],
+    [
+     "罗马人的皇帝",
+     "800 年圣诞节，教皇利奥三世在罗马圣彼得大教堂为查理曼戴上皇冠。西方三百多年来第一次又有了皇帝，他的帝国从易北河延伸到比利牛斯山、从北海延伸到罗马以南。查理曼在亚琛召集学者，抄写古典典籍，后人称之为“加洛林文艺复兴”。",
+     {
+      "p": [
+       "799 年 4 月，罗马的反对派在一次宗教游行中袭击教皇利奥三世，企图挖去他的眼睛、割掉他的舌头。利奥逃到萨克森的帕德博恩，向查理曼求助。800 年 11 月，查理曼来到罗马调查对教皇的指控，12 月 23 日，利奥当众宣誓自证清白。两天后的圣诞弥撒上，查理曼在圣彼得墓前祈祷完毕起身时，利奥把一顶皇冠戴到他头上，在场的罗马人齐声欢呼他为皇帝。",
+       "艾因哈德说，查理曼事后表示，若早知教皇的打算，那天他宁可不进教堂。这番话也许只是谦辞，也可能流露出他不愿让帝位显得出自教皇之手。君士坦丁堡更难接受：当时拜占庭由女皇伊琳娜独自执政，西方人认为皇位实际空缺，拜占庭则把查理曼视为僭越者。双方为此争执多年，直到 812 年，拜占庭才承认他的皇帝称号，但不承认他是“罗马人的”皇帝。",
+       "查理曼晚年常驻亚琛，在那里修建了宫廷礼拜堂。他派遣“钦差”两人一组巡察各地，又统一币制：1 磅白银折合 240 枚银便士，这一体系在英国一直沿用到 1971 年。来自约克的阿尔昆主持宫廷学校，各地修道院用一种新创的工整字体抄书。这种加洛林小写体后来成了现代小写字母的源头，许多古罗马作家的作品，正是靠这一时期的抄本才流传至今。"
+      ],
+      "facts": [
+       [
+        "加冕日期",
+        "800 年 12 月 25 日"
+       ],
+       [
+        "拜占庭承认帝号",
+        "812 年"
+       ],
+       [
+        "新币制",
+        "1 磅白银折 240 枚便士"
+       ]
+      ]
+     }
+    ],
+    [
+     "帝国三分",
+     "查理曼死后，帝国传给儿子虔诚者路易，路易的三个儿子又为继承打了起来。843 年《凡尔登条约》把帝国一分为三：西法兰克、中法兰克和东法兰克。地图上的 900 年快照画出了分裂后的格局。西法兰克后来成为法国，东法兰克成为德意志王国和神圣罗马帝国，中间那一条则成了两国此后千年争夺的地带。",
+     {
+      "p": [
+       "814 年 1 月，查理曼在亚琛去世，唯一在世的儿子路易继承了帝国。路易笃信宗教，一心维护帝国统一：817 年，他规定长子洛泰尔继承帝号和大部分领土，两个弟弟只分得边地。可第二任妻子又给他生了个儿子，即后来的秃头查理。为了给幼子分地，路易一再改动安排，激得年长的儿子们两度起兵，833 年甚至一度废黜了他。",
+       "840 年路易去世，洛泰尔想独占帝国，弟弟日耳曼人路易和秃头查理联手对抗，841 年 6 月在丰特努瓦血战中大败洛泰尔。次年两人在斯特拉斯堡会盟，为了让对方的士兵听懂，一个用早期罗曼语、一个用古高地德语宣誓，其中的罗曼语誓词常被视为最早的法语文献。843 年 8 月，三兄弟在凡尔登签约：秃头查理得西部，日耳曼人路易得莱茵河以东的大片土地，洛泰尔保住皇帝称号，领有从北海经勃艮第直到意大利的狭长中部。",
+       "中法兰克最先解体。洛泰尔死后，领土被三个儿子瓜分，北段以洛泰尔二世得名“洛塔林吉亚”，即后来的洛林，870 年又被东西两国瓜分。胖子查理 884 年曾短暂统一帝国几乎全部领土，887 年他被废后，帝国彻底散架。到 900 年，东法兰克由年仅 6 岁的“孩童路易”继位，西法兰克的王位也一度落到非加洛林家族的巴黎伯爵厄德手中。维京人、马扎尔人和撒拉逊人从三面袭来，地方伯爵和公爵日益坐大。"
+      ],
+      "facts": [
+       [
+        "查理曼去世",
+        "814 年 1 月"
+       ],
+       [
+        "《凡尔登条约》",
+        "843 年 8 月"
+       ],
+       [
+        "帝国最终瓦解",
+        "887 年胖子查理被废"
+       ]
+      ]
+     }
+    ]
+   ]
+  },
+  "plague": {
+   "title": "黑死病",
+   "lede": "一场瘟疫沿着商路，五年里走遍欧洲。",
+   "steps": [
+    [
+     "从黑海到西西里",
+     "1346 年，金帐汗国军队围攻克里米亚的热那亚商站卡法，军中暴发瘟疫。次年 10 月，从黑海返航的热那亚商船停靠西西里的墨西拿，船上已有人发病。瘟疫就此登上欧洲。",
+     {
+      "p": [
+       "这场瘟疫的病原体是鼠疫耶尔森菌，通常由跳蚤从老鼠等啮齿动物传到人身上。2022 年发表的一项古 DNA 研究，在今吉尔吉斯斯坦一处 1338—1339 年的墓地中找到了它的祖先菌株，表明疫情很可能起源于中亚天山一带。此后数年间，它沿着蒙古人控制的商路向西扩散，到 1346 年已到达伏尔加河下游和黑海北岸的金帐汗国。",
+       "金帐汗札尼别的军队当时正在围攻卡法。据意大利公证人德穆西斯记载，蒙古人用投石机把病死者的尸体抛进城内，但他本人并不在场，这一说法只是孤证。可以肯定的是，城中的热那亚商人乘船西逃，经君士坦丁堡把瘟疫带进了地中海。1347 年 10 月初，一支船队驶入墨西拿港，据西西里修士皮亚扎的米凯莱记载，共有 12 艘桨帆船。",
+       "墨西拿人很快把船队赶出港口，却为时已晚。疫情先在城中蔓延，再传到卡塔尼亚和整个西西里，被驱逐的船只则把病带往其他港口。患者腹股沟或腋下的淋巴结肿大，许多人几天内就会死去；病菌侵入肺部后，还能经咳嗽的飞沫直接在人与人之间传播，染上这种类型的人几乎无一幸存。当时的人称之为“大死亡”，“黑死病”这个名字要到几个世纪后才流行开来。"
+      ],
+      "facts": [
+       [
+        "病原体",
+        "鼠疫耶尔森菌"
+       ],
+       [
+        "抵达墨西拿",
+        "1347 年 10 月初"
+       ],
+       [
+        "船队规模",
+        "12 艘桨帆船（据记载）"
+       ]
+      ]
+     }
+    ],
+    [
+     "沿着商路北上",
+     "瘟疫顺着地中海航线进入马赛、热那亚和威尼斯，再沿河流与陆路北上。1348 年春天，佛罗伦萨的人口在几个月里减少了一半左右；夏天，巴黎也没能幸免。薄伽丘《十日谈》里躲到乡间讲故事的十个年轻人，躲的就是这场瘟疫。",
+     {
+      "p": [
+       "1347 年 11 月，瘟疫在马赛登陆，次年 1 月已出现在比萨、热那亚和威尼斯。它从马赛沿罗讷河北上，1348 年初传进教廷所在的阿维尼翁。教皇克雷芒六世留守城中，买下一块地专作墓地；他的御医肖利亚克详细记录了病情，分辨出淋巴结肿大和咳血两种类型。1348 年 7 月和 9 月，克雷芒六世两次发布通谕，宣布犹太人与瘟疫无关，禁止迫害他们，但收效甚微。",
+       "佛罗伦萨是当时欧洲最大的城市之一，人口约 10 万，疫情从 3、4 月间开始，一直持续到夏末。富人纷纷逃往乡间别墅，留下的人成批死去，教堂墓地很快填满，只能挖大坑把尸体层层掩埋。史家乔万尼·维拉尼本人也死于这场瘟疫，他的编年史写到瘟疫将持续到何时，日期处却永远留下了空白。薄伽丘在《十日谈》开篇用大段笔墨描写了城中的惨状。",
+       "与此同时，瘟疫从地中海沿岸向北推进，沿着罗讷河、索恩河和通往北方集市的大道深入法国腹地，夏天到达巴黎，入冬后最为猖獗。据编年史记载，城中的主宫医院一度每天要运出数百具尸体。1348 年 10 月，巴黎大学医学院奉国王腓力六世之命提交报告，把病因归于 1345 年土星、木星和火星相合败坏了空气。这种解释救不了人，人们能做的只有祈祷、逃离和闭门自保。"
+      ],
+      "facts": [
+       [
+        "抵达马赛",
+        "1347 年 11 月"
+       ],
+       [
+        "佛罗伦萨疫前人口",
+        "约 10 万"
+       ],
+       [
+        "巴黎医学院报告",
+        "1348 年 10 月"
+       ]
+      ]
+     }
+    ],
+    [
+     "跨过海峡",
+     "1348 年 6 月前后，瘟疫在英格兰南部港口登陆，年底前到达伦敦。百年战争此时还没有结束，但英法两国 1347 年签下的停战协定，因为瘟疫一再延长。",
+     {
+      "p": [
+       "英法百年战争已经打了十余年。1346 年 8 月，爱德华三世在克雷西大败法军，随后围攻加来近一年，1347 年 8 月迫使其投降。同年 9 月，两国在教皇使节斡旋下签订停战协定，原定只维持到次年 7 月，可瘟疫让双方都无力再战，停战便一延再延，直到 1355 年才重燃战火。1348 年 9 月，爱德华三世的女儿琼在远嫁卡斯蒂利亚途中，死于波尔多的疫情。",
+       "瘟疫多半是随商船从加斯科涅或诺曼底渡海而来的，传统上认为登陆点是多塞特郡的梅尔科姆港，即今天的韦茅斯。它沿着港口和道路扩散，8 月到达布里斯托尔，秋天进入伦敦。城外的东史密斯菲尔德等地新辟了专门的瘟疫墓地，考古学家后来在那里发掘出数以百计的遗骸。1349 年，疫情席卷英格兰全境，又传入威尔士和苏格兰。",
+       "现代学者估计，英格兰人口损失了三成到五成。教士要为垂死者行临终圣事，死亡尤其惨重，1349 年，坎特伯雷大主教的两位继任人选先后死于瘟疫。巴斯和韦尔斯主教甚至发函说，找不到神父时，垂死的人可以向平信徒告解，哪怕是向女人。劳力骤减，工钱随之上涨，国王在 1349 年颁布《劳工条例》，规定工资不得高于疫前水平，雇主与劳工之间的积怨由此埋下。"
+      ],
+      "facts": [
+       [
+        "传统登陆点",
+        "多塞特郡梅尔科姆"
+       ],
+       [
+        "英格兰人口损失",
+        "约 30%—50%（估计）"
+       ],
+       [
+        "《劳工条例》",
+        "1349 年"
+       ]
+      ]
+     }
+    ],
+    [
+     "抵达北欧",
+     "1349 年，一艘从英格兰驶来的船把瘟疫带进挪威的卑尔根，随后传遍斯堪的纳维亚。挪威人口损失极重，有学者认为这是挪威此后长期衰弱、最终在卡尔马联合中沦为配角的原因之一。",
+     {
+      "p": [
+       "1349 年，瘟疫在中欧继续蔓延。德意志各地出现成群结队的鞭笞派，他们在城镇之间游行，当众鞭打自己，祈求上帝息怒；同年 10 月，教皇下令取缔这一运动。更可怕的是对犹太人的屠杀：谣言说他们在井里投毒，从巴塞尔、斯特拉斯堡到美因茨，一个个犹太社区遭到焚掠，此后许多犹太人向东迁往波兰。",
+       "大约在这年夏秋之交，一艘英格兰商船驶入卑尔根，据冰岛编年史记载，瘟疫正是随这艘船上岸的。卑尔根是挪威最大的城市和北方贸易中心，疫情从这里沿海岸和峡湾扩散，很快遍及全国；也有学者认为，奥斯陆一带早在 1348 年秋就已出现疫情。1349 年底到 1350 年，丹麦和瑞典也相继遭殃，国王马格努斯下诏全国斋戒忏悔。孤悬北大西洋的冰岛则因航运中断而幸免，直到 1402 年才第一次遭遇鼠疫。",
+       "挪威的人口损失估计达一半甚至更多，大片农庄被弃置，许多地名从此消失。地租收入锐减，贵族和教会元气大伤，本国商人一蹶不振，汉萨同盟的德意志商人趁势牢牢控制了卑尔根的鱼干贸易。此后鼠疫一再复发，挪威人口长期难以恢复。1380 年起挪威与丹麦共戴一君，1397 年卡尔马联合成立后，权力重心落在丹麦一方，挪威与丹麦的联合一直延续到 1814 年。"
+      ],
+      "facts": [
+       [
+        "抵达卑尔根",
+        "1349 年夏秋之交"
+       ],
+       [
+        "挪威人口损失",
+        "估计一半或更多"
+       ],
+       [
+        "冰岛首次遭疫",
+        "1402 年"
+       ]
+      ]
+     }
+    ],
+    [
+     "五年之后",
+     "1352 年前后，瘟疫经波罗的海传入普斯科夫和诺夫哥罗德，次年到达莫斯科。短短几年里，欧洲约三分之一到一半的人口死去。劳动力骤减让幸存的农民和工匠有了讨价还价的资本，此后几十年，法国扎克雷起义（1358）、英格兰农民起义（1381）相继爆发。",
+     {
+      "p": [
+       "欧洲东北部是瘟疫最后到达的地区。1352 年，普斯科夫暴发疫情，死者甚众。普斯科夫人请诺夫哥罗德大主教瓦西里前来为城市祈福，他在归途中染病去世，疫情随即在诺夫哥罗德蔓延开来。1353 年，莫斯科大公西蒙、他的两个儿子和一个弟弟都死于瘟疫，大公之位落到另一个弟弟伊凡二世手中。",
+       "此时西欧的第一轮疫情早已过去。现代学者估计，1347 年到 1352 年间，欧洲约有三分之一到一半的人死去；疫前欧洲人口约 7500 万到 8000 万，死者约在 2500 万到 4000 万之间。城市和修道院等人群密集的地方往往损失更重，也有少数地区受害较轻。鼠疫此后并未离去，1361 年、1369 年等又多次卷土重来，欧洲人口直到 15 世纪末乃至更晚才恢复到疫前水平。",
+       "劳力短缺改变了领主与农民的关系。西欧许多地方工钱上涨、地租下降，领主们想用法令把工资压回疫前水平，又加征赋税，激起不满。1358 年，法国北部农民在扎克雷起义中攻打城堡，几周内就被贵族镇压；1381 年，英格兰农民因第三次人头税揭竿而起，一度攻入伦敦。起义虽然失败，农奴制在西欧却逐渐瓦解。为了防疫，拉古萨（今杜布罗夫尼克）1377 年规定外来者须先隔离 30 天，后世的检疫制度由此发端。"
+      ],
+      "facts": [
+       [
+        "抵达普斯科夫",
+        "1352 年"
+       ],
+       [
+        "欧洲死亡人数",
+        "约 2500 万至 4000 万（估计）"
+       ],
+       [
+        "拉古萨隔离令",
+        "1377 年，30 天"
+       ]
+      ]
+     }
+    ]
+   ]
+  },
+  "thirty-years": {
+   "title": "三十年战争",
+   "lede": "一场宗教冲突，打成了改写欧洲秩序的大战。",
+   "steps": [
+    [
+     "布拉格的窗户",
+     "1618 年 5 月，波希米亚的新教贵族闯进布拉格城堡，把哈布斯堡皇帝的代表从窗口扔了下去。他们反对的是天主教徒斐迪南对波希米亚的统治。这次抗命很快演变成席卷神圣罗马帝国的战争。地图上的帝国在这份数据里画成一整块，实际上它由数百个诸侯国、教会领地和自由城市组成。",
+     {
+      "p": [
+       "神圣罗马帝国的教派和平，全靠 1555 年的《奥格斯堡和约》维系：诸侯有权决定本地信仰，但加尔文宗不在承认之列。17 世纪初，新教和天主教诸侯分别结成“新教联盟”和“天主教联盟”，彼此戒备。波希米亚的新教徒握有皇帝鲁道夫二世 1609 年颁布的诏书，享有信仰自由；可 1617 年笃信天主教的斐迪南被立为波希米亚国王，此后一座新教教堂被关闭、一座被拆毁，贵族们认定自己的权利正被收回。",
+       "1618 年 5 月 23 日，图尔恩伯爵率一群新教贵族登上城堡，同两名摄政官斯拉瓦塔和马蒂尼茨争吵之后，把两人连同一名秘书推出窗外。三人竟然全都活了下来：天主教一方说是圣母显灵，新教一方则说他们掉进了粪堆。起义者成立了由 30 名督政官组成的临时政府。1619 年皇帝马蒂亚斯去世，斐迪南当选皇帝，称斐迪南二世；几乎同时，波希米亚议会宣布废黜他，另立信奉加尔文宗的普法尔茨选侯腓特烈五世为国王。",
+       "腓特烈五世是新教联盟的首领、英王詹姆斯一世的女婿；斐迪南则背靠西班牙的哈布斯堡亲族和巴伐利亚领导的天主教联盟。一次地方上的抗命，就这样把帝国两大教派阵营和欧洲各王朝的利益缠在了一起。帝国的结构让战火更难扑灭：皇帝之下有七位选帝侯和数百个诸侯国、主教领地与自由城市，各有军队和盘算，谁也无法单独收拾局面。"
+      ],
+      "facts": [
+       [
+        "掷窗日期",
+        "1618 年 5 月 23 日"
+       ],
+       [
+        "被扔出窗外",
+        "2 名摄政官和 1 名秘书"
+       ],
+       [
+        "斐迪南二世当选",
+        "1619 年 8 月"
+       ]
+      ]
+     }
+    ],
+    [
+     "马格德堡之劫",
+     "1620 年白山战役后，波希米亚起义被镇压；丹麦国王克里斯蒂安四世出兵支援新教诸侯，也在 1629 年败退。1631 年，帝国军队攻破新教城市马格德堡，城中大部分居民死于屠杀和大火。这场惨剧让萨克森、勃兰登堡等观望的新教诸侯倒向了瑞典。",
+     {
+      "p": [
+       "1620 年 11 月 8 日，帝国和天主教联盟的军队在布拉格城外的白山很快击溃了波希米亚军队。腓特烈五世仓皇出逃，他只当了一个冬天的国王，被讥为“冬王”。1621 年，27 名起义领袖在布拉格老城广场被处决，新教在波希米亚遭到全面压制；腓特烈的领地普法尔茨也被西班牙和巴伐利亚军队占领，选侯头衔转给了巴伐利亚公爵。",
+       "1625 年，丹麦国王克里斯蒂安四世以保护新教为名出兵北德意志。皇帝起用波希米亚贵族华伦斯坦，由他自筹军费组建数万人的大军。天主教联盟统帅蒂利和华伦斯坦接连获胜，丹麦被迫在 1629 年签订《吕贝克和约》退出战争。同年，斐迪南二世颁布《归还教产敕令》，要求新教诸侯交出 1552 年以来占有的教会土地。马格德堡是大主教区的首府，早已改信新教，首当其冲，于是在 1630 年同瑞典结盟。",
+       "1631 年春，蒂利和帕彭海姆率军围城。瑞典国王古斯塔夫二世·阿道夫想来解围，但勃兰登堡和萨克森两位选侯不肯让瑞典军借道。5 月 20 日，帝国军队破城而入，大火吞没了几乎全城，城中约 2.5 万至 3 万居民中约 2 万人丧生。“马格德堡化”从此成了德语里彻底毁灭的代名词。消息传遍欧洲，新教诸侯再难保持中立：勃兰登堡在瑞典兵临城下时于 6 月结盟，萨克森则在 9 月遭蒂利入侵后与瑞典联手。"
+      ],
+      "facts": [
+       [
+        "白山战役",
+        "1620 年 11 月 8 日"
+       ],
+       [
+        "马格德堡陷落",
+        "1631 年 5 月 20 日"
+       ],
+       [
+        "城中死亡",
+        "约 2 万人"
+       ]
+      ]
+     }
+    ],
+    [
+     "北方雄狮",
+     "瑞典国王古斯塔夫二世·阿道夫 1630 年在波美拉尼亚登陆，次年在布赖滕费尔德大败帝国军，一路打进德意志南部。1632 年吕岑会战，瑞典赢了战斗，国王本人却阵亡。瑞典的战争背后有一个意想不到的出资人：天主教国家法国。",
+     {
+      "p": [
+       "古斯塔夫二世·阿道夫出兵德意志，既为保护新教，更为守住瑞典在波罗的海的地位：华伦斯坦的军队已经打到了波罗的海沿岸。1629 年，法国居间促成瑞典与波兰停战，让瑞典腾出了手。1630 年 7 月，国王率约 1.3 万人登陆。次年 1 月的《贝尔瓦尔德条约》规定：法国每年资助 40 万塔勒，瑞典在德意志维持 3.6 万人的军队，并尊重当地的天主教信仰。",
+       "1631 年 9 月 17 日，瑞典和萨克森联军在莱比锡以北的布赖滕费尔德迎战蒂利。萨克森军一触即溃，瑞典军却凭借灵活的小型方阵和轻便火炮稳住阵脚，反攻得手，帝国军死伤和被俘逾万人，这是新教一方的第一场大胜。古斯塔夫随即挥师西进，在莱茵河畔的美因茨过冬；1632 年春攻入巴伐利亚，蒂利在莱希河之战中伤重身亡，5 月瑞典军开进慕尼黑。皇帝只好重新起用 1630 年被解职的华伦斯坦。",
+       "华伦斯坦挥兵进入萨克森，逼古斯塔夫北上决战。1632 年 11 月 16 日，两军在莱比锡西南的吕岑交锋。浓雾之中，国王亲率骑兵冲锋时与部下走散，中弹坠马身亡，年仅 37 岁。萨克森-魏玛的伯恩哈德接过指挥，守住了战场，华伦斯坦撤往波希米亚。瑞典赢了战斗，却失去了灵魂人物：继位的女儿克里斯蒂娜不满 6 岁，国政和战事由首相奥克森谢纳主持，瑞典越来越依赖法国的钱。"
+      ],
+      "facts": [
+       [
+        "登陆兵力",
+        "1630 年 7 月，约 1.3 万人"
+       ],
+       [
+        "法国资助",
+        "每年 40 万塔勒"
+       ],
+       [
+        "吕岑会战",
+        "1632 年 11 月 16 日"
+       ]
+      ]
+     }
+    ],
+    [
+     "法国下场",
+     "1635 年，法国对西班牙宣战，随后与皇帝开战。红衣主教黎塞留治下的天主教法国，与新教瑞典并肩作战，对手是同样信奉天主教的哈布斯堡家族。到这时，战争的主线已不再是宗教，而是波旁与哈布斯堡两大王朝争夺欧洲霸权。",
+     {
+      "p": [
+       "古斯塔夫死后，形势逆转。1634 年 2 月，华伦斯坦因被怀疑与敌方密谈，遭皇帝解除兵权，随即在埃格尔被部下刺杀。同年 9 月，皇帝之子斐迪南会同西班牙援军在讷德林根大败瑞典军，瑞典军伤亡和被俘逾万人，在德意志南部的势力一扫而空。1635 年 5 月 30 日，皇帝与萨克森签订《布拉格和约》，暂停执行《归还教产敕令》，大多数新教诸侯随后加入，德意志内部的战争眼看就要平息。",
+       "黎塞留不能坐视。法国的南、北、东三面分别是西班牙、西属尼德兰和西属弗朗什-孔泰，哈布斯堡的领土和兵道几乎把法国围在中间；皇帝一旦重新强大，再加上西班牙，对法国就是致命的威胁。1635 年 4 月，法国与瑞典续订同盟；5 月 19 日，法国传令官在布鲁塞尔按中世纪旧礼向西班牙宣战。不久，法国又出钱雇下伯恩哈德的军队，在莱茵河一带直接与帝国军作战。",
+       "法国参战之初并不顺利。1636 年，西班牙军队从尼德兰南下，攻占索姆河畔的科尔比，巴黎一度人心惶惶。但法国逐渐站稳：1638 年，伯恩哈德攻下莱茵河要塞布赖萨赫，切断了西班牙通往尼德兰的兵道；1643 年，昂吉安公爵在罗克鲁瓦大败西班牙步兵。战争从此变成外国军队在德意志土地上的长期消耗。大军就地征粮、以战养战，饥荒和瘟疫接踵而至，死于疾病和饥饿的平民远多于战死的士兵。"
+      ],
+      "facts": [
+       [
+        "讷德林根战役",
+        "1634 年 9 月 6 日"
+       ],
+       [
+        "《布拉格和约》",
+        "1635 年 5 月 30 日"
+       ],
+       [
+        "法国对西班牙宣战",
+        "1635 年 5 月 19 日"
+       ]
+      ]
+     }
+    ],
+    [
+     "威斯特伐利亚和约",
+     "1648 年，交战各方在明斯特和奥斯纳布吕克签署和约。荷兰共和国与瑞士的独立得到承认；帝国内的诸侯获得了自行结盟、处理外交的权利，皇帝的权威被进一步掏空；加尔文宗也和天主教、路德宗一样获得合法地位。据估计，德意志地区整体人口减少约五分之一，部分地区损失过半。",
+     {
+      "p": [
+       "其实早在 1643 年，各方代表就陆续来到威斯特伐利亚，和谈前后进行了约 5 年。因为天主教和新教双方不愿同处一城，会议分在相距约 50 公里的两座城市举行：皇帝在明斯特与法国谈判，在奥斯纳布吕克与瑞典和新教诸侯谈判。谈判桌外，仗还在打。1648 年夏，瑞典军队攻入布拉格的小城区，劫掠了城堡里的珍宝，战争在它开始的地方收了尾。",
+       "1648 年 1 月，西班牙与荷兰先在明斯特签约，正式承认荷兰共和国独立，结束了长达八十年的战争。10 月 24 日，帝国与法国、瑞典的和约正式签署。瑞典得到西波美拉尼亚、维斯马和不来梅、费尔登，另获 500 万塔勒用于遣散军队；法国获得梅斯、图勒、凡尔登三个主教区和哈布斯堡家族在阿尔萨斯的权益；腓特烈五世之子收回莱茵河畔的普法尔茨，并获得新设的第八个选侯席位。诸侯的结盟权附有条件：不得针对皇帝和帝国。",
+       "和约没有带来全面和平，法国和西班牙的战争一直打到 1659 年。但它立下了新的规矩：大小国家坐到同一张会议桌前，用条约划定边界和权利，帝国则越来越像一个松散的诸侯联合体。后人常把它视为近代主权国家体系的起点。代价极其惨重：德意志地区整体人口减少约五分之一，梅克伦堡、波美拉尼亚、符腾堡等地损失尤重，恢复元气用了几代人的时间。"
+      ],
+      "facts": [
+       [
+        "签约日期",
+        "1648 年 10 月 24 日"
+       ],
+       [
+        "瑞典获遣散军费",
+        "500 万塔勒"
+       ],
+       [
+        "德意志人口损失",
+        "约五分之一"
+       ]
+      ]
+     }
+    ],
+    [
+     "新的地图",
+     "这一步换成了 1650 年快照，红色斜线是上一份快照以来易手的土地。瑞典是最大的赢家：和约划给它的西波美拉尼亚只是一小块，更多的是战争期间从丹麦-挪威（1645 年）、波兰立陶宛（1629 年）和俄国（1617 年）手中得到的土地。瑞士脱离帝国也画在了图上。法国得到的梅斯、图勒、凡尔登和阿尔萨斯部分权益，这份数据没有画出来。",
+     {
+      "p": [
+       "瑞典本是人口只有一百多万的北方王国，三十年战争却让它跻身欧洲强国之列。它的扩张早在参战之前就开始了：1617 年的《斯托尔博沃和约》让瑞典从俄国手中取得英格里亚和卡累利阿的一部分，把俄国挡在了波罗的海之外；1629 年的《阿尔特马克停战协定》让瑞典保住了包括里加在内的大部分利沃尼亚。",
+       "1643 年，瑞典突然把军队从德意志调头北上攻打丹麦，战事持续了两年。1645 年的《布勒姆瑟布鲁和约》把哥得兰岛、厄塞尔岛以及挪威的耶姆特兰和海里耶达伦划归瑞典，哈兰也交给瑞典 30 年。三年后，威斯特伐利亚和约又给了它西波美拉尼亚、维斯马和不来梅、费尔登。奥得河、易北河和威悉河三条大河的入海口都落入瑞典的控制，波罗的海几乎成了瑞典的内湖。瑞典国王还以这些领地君主的身份，在帝国议会中拥有了席位。",
+       "其他赢家同样改变了欧洲的版图。瑞士和荷兰的独立得到正式承认；勃兰登堡得到东波美拉尼亚以及哈尔伯施塔特、明登等地，还获得马格德堡的继承权，为日后普鲁士的崛起打下了基础。法国把边界推向莱茵河，并逐步取代西班牙，成为欧洲大陆的头号强国。哈布斯堡皇帝则把重心转回奥地利、波希米亚和匈牙利。在此后的一个半世纪里，帝国再也没能恢复往日的权威。"
+      ],
+      "facts": [
+       [
+        "斯托尔博沃和约",
+        "1617 年，从俄国得英格里亚"
+       ],
+       [
+        "阿尔特马克停战",
+        "1629 年，保有利沃尼亚"
+       ],
+       [
+        "布勒姆瑟布鲁和约",
+        "1645 年，得哥得兰等地"
+       ]
+      ]
+     }
+    ]
+   ]
+  },
+  "napoleon": {
+   "title": "拿破仑时代",
+   "lede": "从巴士底狱到滑铁卢，二十六年重画欧洲。",
+   "steps": [
+    [
+     "攻占巴士底狱",
+     "1789 年 7 月 14 日，巴黎民众攻占象征王权的巴士底狱。财政破产、粮价飞涨，加上启蒙思想的鼓动，让三级会议很快变成一场推翻旧制度的革命。1792 年法国与奥地利、普鲁士开战，同年宣布成立共和国。",
+     {
+      "p": [
+       "革命的导火索是钱。法国先后打了七年战争和美国独立战争，国债越滚越大，到 1780 年代后期，光是还利息就要吃掉王室将近一半的收入。路易十六想向贵族和教士征税，遭到抵制，只好在 1789 年 5 月召开中断了一百七十五年的三级会议。第三等级的代表很快宣布自己才是“国民议会”，并在一座网球场里宣誓：不制定出宪法，绝不解散。",
+       "7 月中旬，国王在巴黎周围调集军队，又罢免了深得人心的财政大臣内克尔，巴黎人认定镇压就要来了。14 日，民众先冲进荣军院抢到枪支，又到巴士底狱找火药。守军开火，激战几个小时后要塞投降，司令官被杀。里面其实只关着 7 名囚犯，但这座阴森的堡垒代表着国王不经审判就能关人的权力，它的陷落成了旧制度崩塌的象征。",
+       "接下来的变化快得惊人：8 月 4 日夜，议会宣布废除封建特权；8 月 26 日通过《人权和公民权宣言》。欧洲的君主们起初幸灾乐祸，后来越看越不安。1792 年 4 月法国向奥地利宣战，普鲁士随即参战；9 月共和国成立，次年 1 月路易十六被送上断头台。为了对付四面来敌，共和国在 1793 年实行全民征兵，建起当时欧洲规模最大的军队，这支军队后来成了拿破仑手中的利器。"
+      ],
+      "facts": [
+       [
+        "三级会议上次召开",
+        "1614 年"
+       ],
+       [
+        "巴士底狱里的囚犯",
+        "7 人"
+       ],
+       [
+        "路易十六被处决",
+        "1793 年 1 月 21 日"
+       ]
+      ]
+     }
+    ],
+    [
+     "远征埃及",
+     "年轻的炮兵军官拿破仑·波拿巴在 1796 年的意大利战役中声名大噪。1798 年他率军远征埃及，想切断英国通往印度的道路，但舰队在阿布基尔湾被纳尔逊全歼。次年他撇下军队返回法国，发动雾月政变，成为第一执政。",
+     {
+      "p": [
+       "拿破仑 1769 年生于科西嘉，就在法国得到这座岛的第二年。他在军校学的是炮兵，1793 年在土伦用炮火逼走英军，二十四岁就当上准将。1796 年他接手衣衫褴褛的意大利方面军，一年之内连败撒丁和奥地利，逼奥地利签下《坎波福尔米奥和约》，把比利时让给法国。回到巴黎时，他已是全国最有名的将军，督政府既倚重他，也忌惮他。",
+       "英国是唯一没被打服的对手，可直接渡海登陆又没有把握，拿破仑于是提出远征埃及：占住通往印度的要道，同时在东方建立法国的势力。1798 年 5 月舰队从土伦出发，途中拿下马耳他，7 月在亚历山大港登陆，金字塔之战击溃了马穆鲁克骑兵。然而 8 月 1 日夜，纳尔逊突袭停泊在阿布基尔湾的法国舰队，13 艘战列舰只逃出 2 艘，三万多法军从此被困在埃及。",
+       "随军的还有 160 多位学者。他们测绘尼罗河谷、研究古迹；1799 年，士兵在罗塞塔挖出一块刻着三种文字的石碑，它后来成了破解古埃及象形文字的钥匙。军事上，远征却越陷越深：进军叙利亚在阿卡城下受挫，军中又闹起瘟疫。1799 年 8 月，拿破仑把军队交给部下，悄悄乘船回国。政变发生在 11 月 9 日，也就是共和历的雾月十八日；五年后的 1804 年 12 月，他在巴黎圣母院加冕为皇帝。"
+      ],
+      "facts": [
+       [
+        "随军学者",
+        "160 多人"
+       ],
+       [
+        "尼罗河海战",
+        "法军 13 艘战列舰只逃出 2 艘"
+       ],
+       [
+        "雾月政变",
+        "1799 年 11 月 9 日"
+       ]
+      ]
+     }
+    ],
+    [
+     "海上与陆上",
+     "1804 年拿破仑加冕称帝。1805 年 10 月，英国舰队在特拉法尔加击溃法西联合舰队，从此牢牢掌握制海权；一个多月后，拿破仑在奥斯特里茨大败俄奥联军。此后十年的格局就此定型：英国称霸海洋，法国称霸大陆。",
+     {
+      "p": [
+       "1802 年英法签订《亚眠和约》，但和平只维持了一年多。拿破仑在布洛涅集结了近二十万大军，准备渡海进攻英国，前提是法国舰队能控制英吉利海峡，哪怕只有几天。1805 年，英国拉上奥地利、俄国和瑞典，组成第三次反法同盟。拿破仑见渡海无望，掉头东进，大军从海峡边一路急行到多瑙河畔，10 月在乌尔姆包围奥军，迫使马克将军率两万多人投降。",
+       "就在乌尔姆投降的第二天，10 月 21 日，纳尔逊率 27 艘战列舰在西班牙特拉法尔加角外迎战 33 艘法国和西班牙战舰。他把舰队排成两列纵队，直插敌阵中段，激战五个小时，联合舰队有 22 艘被俘或沉没，英国一艘未失。纳尔逊本人中弹身亡。此后一百年，没有哪个国家能在海上挑战英国。",
+       "陆上却是另一番景象。12 月 2 日，正好是拿破仑加冕一周年，约 7.3 万法军在摩拉维亚的奥斯特里茨迎战约 8.5 万俄奥联军，俄皇亚历山大一世和奥皇弗朗茨二世都在阵中，史称“三皇会战”。拿破仑故意让出普拉岑高地、示弱于右翼，等联军主力南下包抄，再从中路猛攻高地，把联军拦腰截断。联军损失约 2.7 万人，法军不到 9000 人。三周后奥地利签订《普雷斯堡和约》，割让威尼斯和蒂罗尔，退出战争。"
+      ],
+      "facts": [
+       [
+        "特拉法尔加",
+        "英国 27 艘对法西 33 艘战列舰"
+       ],
+       [
+        "奥斯特里茨兵力",
+        "法军约 7.3 万，联军约 8.5 万"
+       ],
+       [
+        "奥斯特里茨联军损失",
+        "约 2.7 万人"
+       ]
+      ]
+     }
+    ],
+    [
+     "帝国的终结",
+     "1806 年，拿破仑把西南德意志诸邦组成受他保护的莱茵邦联，弗朗茨二世随即放弃神圣罗马皇帝称号，延续八百多年的帝国就此终结。同年秋天，普鲁士在耶拿和奥尔施泰特两战皆败。这份数据在 1800 与 1815 年之间没有快照，所以地图上还看不到这些变化。",
+     {
+      "p": [
+       "奥斯特里茨之后，德意志的旧秩序再也撑不住了。1806 年 7 月，巴伐利亚、符腾堡、巴登等 16 个邦脱离神圣罗马帝国，组成莱茵邦联，奉拿破仑为“保护者”，并为他提供兵员。8 月 6 日，弗朗茨二世宣布放弃神圣罗马皇帝的称号，只保留他两年前自封的奥地利皇帝。从 962 年奥托一世加冕算起，这个帝国存在了 844 年。",
+       "普鲁士在 1805 年保持中立，眼看法国的势力压到家门口，终于在 1806 年秋天宣战。10 月 14 日同一天，拿破仑在耶拿击败普军的一部，达武元帅则在二十多公里外的奥尔施泰特以少胜多，打垮了普军主力。腓特烈大帝留下的军队一天之内土崩瓦解，两周后拿破仑进入柏林。他在那里颁布《柏林敕令》，禁止欧洲大陆与英国通商，这就是“大陆封锁”。",
+       "1807 年，法军在弗里德兰击败俄军，拿破仑与亚历山大一世在涅曼河中央的木筏上会面，随后签订《提尔西特和约》。普鲁士失去大约一半的领土和人口：西部并入新建的威斯特伐利亚王国，从瓜分波兰中得来的土地变成华沙大公国。这是拿破仑权势的顶点，从西班牙到波兰，大陆上的强国不是被他打败，就是成了他的盟友。"
+      ],
+      "facts": [
+       [
+        "莱茵邦联成立时",
+        "16 个邦"
+       ],
+       [
+        "神圣罗马帝国",
+        "962–1806 年"
+       ],
+       [
+        "提尔西特之后的普鲁士",
+        "失去约一半领土和人口"
+       ]
+      ]
+     }
+    ],
+    [
+     "远征俄国",
+     "1812 年 6 月，拿破仑率领约六十万大军渡过涅曼河。俄军一路后撤，9 月在博罗季诺血战后放弃莫斯科。法军进城后，莫斯科燃起大火，沙皇拒不议和。冬季撤退中大军几乎覆灭，最后能战斗的只剩几万人。",
+     {
+      "p": [
+       "大陆封锁伤了英国，也伤了欧洲自己。俄国的粮食和木材要靠英国市场，1810 年底，亚历山大一世向中立国船只开放港口，又对法国货加征关税，等于退出了封锁。与此同时，拿破仑在西班牙陷进一场打不完的游击战，那里牵制了他二三十万军队。他决定用一场决战逼沙皇回到盟约里来。",
+       "1812 年 6 月 24 日，大军渡过涅曼河，兵力约 60 万，其中大约一半是德意志、波兰、意大利等盟国和附庸国的士兵。俄军避而不战，一路后撤，沿途坚壁清野。直到 9 月 7 日，库图佐夫才在莫斯科以西一百多公里的博罗季诺摆开阵势。这一天双方伤亡约 7 万人，是整个拿破仑战争中最血腥的日子之一。俄军随后撤走，9 月 14 日法军进入几乎空无一人的莫斯科。",
+       "当晚城中燃起大火，一连烧了几天，四分之三的城区化为灰烬。拿破仑在克里姆林宫等了五个星期，沙皇始终没有回音。10 月 19 日法军开始撤退，冬天逼近，补给断绝，哥萨克骑兵不停袭扰；11 月底强渡别列津纳河时又损失惨重。跟随拿破仑主力进入俄国的四十多万人，最后狼狈撤出的只有几万。消息传开，普鲁士和奥地利相继倒戈，拿破仑帝国的崩溃从这里开始。"
+      ],
+      "facts": [
+       [
+        "渡过涅曼河",
+        "约 60 万人，其中一半左右来自盟国和附庸国"
+       ],
+       [
+        "博罗季诺",
+        "一天之内双方伤亡约 7 万"
+       ],
+       [
+        "占领莫斯科",
+        "5 个星期"
+       ]
+      ]
+     }
+    ],
+    [
+     "维也纳的新秩序",
+     "1814 年反法同盟攻入巴黎，拿破仑被流放厄尔巴岛；次年他卷土重来，百日后在滑铁卢彻底失败。看 1815 年快照上的红色斜线：俄国 1809 年从瑞典手中夺得芬兰，又在维也纳会议上拿到大部分波兰土地；挪威由丹麦转归瑞典；普鲁士得到萨克森的北半部。此后欧洲近百年没有再爆发席卷全洲的大战。",
+     {
+      "p": [
+       "1813 年 10 月，俄国、普鲁士、奥地利和瑞典的联军在莱比锡与拿破仑决战，双方投入五十多万人，是第一次世界大战之前欧洲规模最大的战役，史称“民族会战”。法军战败，退回莱茵河以西。1814 年 3 月 31 日联军开进巴黎，拿破仑退位，被送到地中海上的厄尔巴岛，波旁王朝的路易十八复位。",
+       "战胜国的君主和大臣随后齐聚维也纳，重新划分欧洲。主角是奥地利的梅特涅、英国的卡斯尔雷和俄皇亚历山大一世，还有代表战败法国、却在各国之间纵横捭阖的塔列朗。会议开到一半，1815 年 3 月，拿破仑从厄尔巴岛潜回法国，一路兵不血刃回到巴黎，史称“百日王朝”。6 月 18 日，他在比利时的滑铁卢迎战威灵顿指挥的英国及盟国军队，傍晚布吕歇尔的普军赶到侧翼，法军全线崩溃。拿破仑再次退位，这次被流放到南大西洋的圣赫勒拿岛，1821 年死在那里。",
+       "维也纳会议在滑铁卢之战九天前签署了最后议定书。它的原则是恢复正统王朝、在大国之间保持均势：神圣罗马帝国没有复活，取而代之的是 39 个邦组成的松散的德意志邦联；荷兰与比利时合并为尼德兰王国，挡在法国北面；普鲁士得到莱茵兰和半个萨克森；奥地利拿回伦巴第和威尼斯；俄国得到大部分波兰土地，成立由沙皇兼任国王的波兰王国。此后五大国定期会商，这套“欧洲协调”压制了各地的民族运动和自由主义运动，但在随后几十年里，大国之间的分歧大多是在会议桌上解决的。"
+      ],
+      "facts": [
+       [
+        "莱比锡会战",
+        "双方五十多万人"
+       ],
+       [
+        "百日王朝",
+        "1815 年 3 月 20 日至 6 月 22 日"
+       ],
+       [
+        "德意志邦联",
+        "39 个成员"
+       ]
+      ]
+     }
+    ]
+   ]
+  },
+  "ww1": {
+   "title": "第一次世界大战",
+   "lede": "一声枪响，四个帝国倒下。",
+   "steps": [
+    [
+     "萨拉热窝的枪声",
+     "1914 年 6 月 28 日，奥匈皇储斐迪南大公在萨拉热窝被塞尔维亚民族主义者普林西普刺杀。奥匈向塞尔维亚宣战，俄国动员支持塞尔维亚，德国向俄、法宣战并借道比利时进攻法国，英国随即参战。一个多月里，同盟体系把整个欧洲拖进了战争。",
+     {
+      "p": [
+       "巴尔干半岛是欧洲最不安定的角落。奥匈帝国 1878 年占领波斯尼亚和黑塞哥维那，1908 年正式吞并，激怒了塞尔维亚，因为那里住着大量塞族人。两次巴尔干战争后，塞尔维亚领土几乎翻了一番，成了维也纳的心腹大患。列强早已分成两大集团：德国、奥匈和意大利组成三国同盟，法国、俄国和英国结成三国协约。",
+       "6 月 28 日，斐迪南大公检阅军事演习后，偕妻子索菲访问萨拉热窝。上午一枚掷向车队的炸弹没有击中；后来车队走错了路，在拉丁桥附近停车倒车，19 岁的普林西普趁机近距离开枪，夫妇二人先后身亡。刺客属于“青年波斯尼亚”组织，武器来自塞尔维亚军官控制的秘密团体“黑手会”。7 月初，德国向奥匈表示无条件支持，即所谓“空白支票”。7 月 23 日，奥匈向塞尔维亚发出限期 48 小时的最后通牒，塞尔维亚接受了大部分条款，但非全部。7 月 28 日，遇刺整整一个月后，奥匈宣战。",
+       "此后的连锁反应只用了一周。俄国 7 月 30 日下令总动员；德国 8 月 1 日对俄宣战，8 月 3 日对法宣战，并按计划开进比利时。英国以 1839 年保证比利时中立的条约为由，于 8 月 4 日对德宣战。意大利以同盟只限防御为由暂不参战。许多人以为战争几个月就会结束，很少有人料到它会打四年多，夺去约 1000 万军人的生命。"
+      ],
+      "facts": [
+       [
+        "刺杀日期",
+        "1914 年 6 月 28 日"
+       ],
+       [
+        "奥匈最后通牒",
+        "7 月 23 日，限 48 小时"
+       ],
+       [
+        "英国对德宣战",
+        "1914 年 8 月 4 日"
+       ]
+      ]
+     }
+    ],
+    [
+     "西线：堑壕",
+     "德军按施里芬计划穿过比利时，想在六周内击败法国。9 月的马恩河战役中，法英联军在巴黎以东挡住了德军。此后双方挖掘的堑壕从北海一直延伸到瑞士边境，三年多里战线几乎没有移动。",
+     {
+      "p": [
+       "德国最怕两线作战。总参谋长施里芬在 1905 年前后拟定的计划，是趁俄国动员缓慢，把主力集中在右翼，经比利时大迂回、包抄巴黎，约 6 周内打垮法国，再掉头对付俄国。8 月 4 日德军攻入比利时，用巨型攻城炮轰开列日要塞，又焚毁了鲁汶的大学图书馆，杀害平民的消息震惊了中立国。法军则按“第十七号计划”冲向阿尔萨斯和洛林，在边境各线的交战中被机枪和火炮成片击倒，仅 8 月 22 日一天就有约 2.7 万人阵亡。",
+       "德军右翼一路逼近巴黎。但德军越打越疲惫，俄军又提前攻入东普鲁士，小毛奇从西线抽调两个军东援。克卢克的第一集团军追击英法联军，转向巴黎以东，暴露了侧翼。9 月上旬，法军总司令霞飞下令全线反攻，巴黎征用出租车，连夜把援兵送上前线。德军被迫后撤到埃纳河一线，就地挖壕固守。施里芬计划就此破产，小毛奇也被解职。",
+       "此后双方都想从北面绕过对方侧翼，你追我赶，一路延伸到海边，史称“奔向大海”。10 月至 11 月的伊普尔战役中，英国远征军的老兵几乎打光，比利时人则打开伊瑟河的水闸，用洪水挡住德军。到 1914 年底，一条长约 700 公里的堑壕线从北海边一直延伸到瑞士边境。铁丝网、机枪和大炮让防守远比进攻容易。"
+      ],
+      "facts": [
+       [
+        "施里芬计划目标",
+        "约 6 周击败法国"
+       ],
+       [
+        "马恩河战役",
+        "1914 年 9 月上旬"
+       ],
+       [
+        "西线堑壕长度",
+        "约 700 公里"
+       ]
+      ]
+     }
+    ],
+    [
+     "两大阵营",
+     "地图上高亮的是同盟国：德国、奥匈、奥斯曼帝国，以及 1915 年加入的保加利亚。对面的协约国有法、英、俄，后来又有意大利、罗马尼亚加入，美国也在 1917 年参战。1916 年的凡尔登战役双方死伤数十万，索姆河战役更超过百万，却都没能打破僵局。",
+     {
+      "p": [
+       "两大阵营是在战争中逐步成形的。1914 年秋，奥斯曼帝国站到德国一边，关闭黑海海峡，切断了俄国与盟友最便捷的海上通道。意大利原属三国同盟，1915 年 5 月在协约国许以奥匈领土后倒向协约国。同年 10 月保加利亚加入同盟国，随即参与攻灭塞尔维亚。同盟国则始终遭英国海军封锁。",
+       "协约国在 1915 年进攻达达尼尔海峡。3 月 18 日英法舰队强行闯峡，三艘战列舰触雷沉没；4 月 25 日，英国、法国、澳大利亚和新西兰部队在加里波利半岛登陆，却被奥斯曼军队压在海滩和山坡上，年轻军官穆斯塔法·凯末尔由此成名。相持 8 个多月后，协约国在 1916 年 1 月全部撤离。倡导此役的海军大臣丘吉尔，早在 1915 年 5 月就已去职。",
+       "1916 年，西线的两场大战把消耗战推到极致。2 月 21 日，德军总参谋长法金汉在凡尔登发起进攻，按他战后的说法，意在迫使法军不断投入兵力，在消耗中流尽鲜血。法军在贝当指挥下死守，靠一条被称为“圣道”的公路输送兵员弹药。战斗持续近 10 个月，双方伤亡合计 70 多万，战线几乎回到原处。7 月 1 日协约国军队在索姆河发动进攻，英军第一天就伤亡约 5.7 万人，其中近 2 万人阵亡；到 11 月战役结束，双方伤亡逾 100 万，协约国最多推进约 10 公里。"
+      ],
+      "facts": [
+       [
+        "凡尔登战役",
+        "近 10 个月，伤亡 70 余万"
+       ],
+       [
+        "索姆河首日",
+        "英军伤亡约 5.7 万人"
+       ],
+       [
+        "加里波利撤军",
+        "1916 年 1 月完成"
+       ]
+      ]
+     }
+    ],
+    [
+     "俄国退出",
+     "战争拖垮了沙皇俄国。1917 年二月革命推翻沙皇，十月革命中布尔什维克夺取政权。1918 年 3 月，苏俄与同盟国签订《布列斯特-立托夫斯克和约》，放弃了对芬兰、波罗的海地区、波兰和乌克兰等大片土地的控制。",
+     {
+      "p": [
+       "战争把俄国的弱点暴露无遗。1914 年的坦嫩贝格战役中，俄军一个集团军几乎全军覆没；1915 年的大撤退又丢掉了整个波兰。沙皇尼古拉二世亲赴前线任总司令，后方交给皇后和她宠信的拉斯普京，朝政一片混乱。到 1917 年初，俄军伤亡和被俘已达数百万，城市缺粮，物价飞涨，士兵成批开小差。",
+       "1917 年 3 月 8 日（俄历 2 月 23 日），彼得格勒的妇女上街要面包，罢工和示威迅速蔓延，奉命镇压的卫戍部队倒向群众。3 月 15 日尼古拉二世退位，统治俄国 300 多年的罗曼诺夫王朝就此终结。临时政府决定继续作战，7 月的攻势却以惨败告终。德国安排流亡瑞士的列宁乘火车回国，他提出“和平、土地、面包”的口号，赢得了厌战的士兵和工人。11 月 7 日（俄历 10 月 25 日），托洛茨基领导的赤卫队和士兵占领彼得格勒各要地，攻入冬宫，推翻了临时政府。",
+       "新政权次日就发布《和平法令》，12 月与同盟国停战。德国开出的条件极为苛刻，谈判一度破裂，德军随即长驱直入。列宁力主接受，1918 年 3 月 3 日双方在布列斯特-立托夫斯克签约。苏俄失去了约四分之一到三分之一的人口、大部分煤矿和大量工业，首都也从彼得格勒迁往更安全的莫斯科。东线战事结束，德国得以把大批部队调往西线，准备最后一搏。"
+      ],
+      "facts": [
+       [
+        "沙皇退位",
+        "1917 年 3 月 15 日"
+       ],
+       [
+        "十月革命",
+        "1917 年 11 月 7 日（公历）"
+       ],
+       [
+        "布列斯特和约",
+        "1918 年 3 月 3 日"
+       ]
+      ]
+     }
+    ],
+    [
+     "停战",
+     "1918 年春，德军在西线发动最后一次大攻势，失败后再也无力支撑。保加利亚、奥斯曼、奥匈相继求和，德国爆发革命，皇帝退位。11 月 11 日，停战协定在贡比涅森林的火车车厢里签署。这场战争造成约一千万军人死亡。",
+     {
+      "p": [
+       "1917 年 2 月，德国恢复无限制潜艇战，加上齐默尔曼电报事件，美国在 4 月对德宣战。德军实际统帅鲁登道夫决定抢在美军大批到来之前，用从东线调回的部队在西线决战。1918 年 3 月 21 日，“米夏埃尔行动”打响，德军以突击队渗透战术撕开英军防线，两周内最多推进约 60 公里，是 1914 年以来西线最大的突破。",
+       "但德军攻势一次比一次乏力，伤亡无法补充，补给也跟不上。协约国由福煦统一指挥，美军每月数十万人抵达法国。7 月第二次马恩河战役后，主动权转到协约国手中。8 月 8 日，英军在亚眠以大批坦克发起进攻，鲁登道夫后来称这一天是德军的“黑暗之日”。随后的“百日攻势”中，协约国突破兴登堡防线，9 月 29 日鲁登道夫要求政府立即寻求停战。",
+       "盟友们先撑不住了：保加利亚 9 月 29 日停战，奥斯曼 10 月 30 日停战，奥匈 11 月 3 日停战。11 月初基尔水兵起义，革命迅速蔓延；11 月 9 日柏林宣布皇帝退位、成立共和国，威廉二世流亡荷兰。停战协定在 11 日清晨签字，上午 11 时枪炮声停歇。德国须撤出占领区和阿尔萨斯-洛林，交出大批武器，舰队交协约国扣留，并废除《布列斯特-立托夫斯克和约》。阵亡军人中，德国约 200 万，法国约 140 万。"
+      ],
+      "facts": [
+       [
+        "春季攻势",
+        "1918 年 3 月 21 日开始"
+       ],
+       [
+        "停战生效",
+        "11 月 11 日上午 11 时"
+       ],
+       [
+        "军人死亡",
+        "约 1000 万"
+       ]
+      ]
+     }
+    ],
+    [
+     "帝国的废墟",
+     "1920 年快照上的红色斜线几乎覆盖了整个中东欧。德意志、奥匈、俄罗斯三个帝国的君主制已经崩溃，奥斯曼帝国也正被战胜国瓜分；波兰、捷克斯洛伐克、南斯拉夫（当时称塞尔维亚人、克罗地亚人和斯洛文尼亚人王国）、波罗的海三国等国家出现在地图上。许多新边界把少数民族留在了别国境内，为二十年后的下一场大战埋下伏笔。",
+     {
+      "p": [
+       "1919 年 1 月，巴黎和会开幕。美国总统威尔逊带着“十四点”原则而来，主张按民族界线划定边界；法国总理克列孟梭一心要削弱德国；英国首相劳合·乔治则另有盘算。1919 年 6 月 28 日，萨拉热窝事件整整五周年那天，德国代表在凡尔赛宫镜厅签下和约。",
+       "德国失去约 13% 的领土和约 10% 的人口：阿尔萨斯-洛林归还法国，波森和西普鲁士大部划给波兰，形成通往波罗的海的“走廊”，但泽成为自由市；萨尔区由国际联盟托管 15 年，莱茵兰非军事化并由协约国占领；陆军不得超过 10 万人，不许拥有空军和潜艇；海外殖民地全部丧失。和约还写入战争责任条款，赔款后来定为 1320 亿金马克。其他战败国另签条约，其中 1920 年 6 月 4 日的《特里亚农条约》让匈牙利失去约三分之二的领土，约 300 万匈牙利人从此生活在国界之外。",
+       "1920 年，苏俄与波罗的海三国分别签约，承认其独立；重建的波兰则与苏俄激战，8 月在华沙城下击退红军。奥斯曼帝国在 1920 年的《色佛尔条约》中被肢解，苏丹制度两年后也被废除。新边界很难与民族分布吻合：捷克斯洛伐克境内有约 300 万德意志人，罗马尼亚得到了大量匈牙利人聚居的特兰西瓦尼亚。这些不满日后都成了纳粹德国等修正主义势力手中的筹码。"
+      ],
+      "facts": [
+       [
+        "《凡尔赛和约》签订",
+        "1919 年 6 月 28 日"
+       ],
+       [
+        "德国陆军上限",
+        "10 万人"
+       ],
+       [
+        "匈牙利领土损失",
+        "约三分之二"
+       ]
+      ]
+     }
+    ]
+   ]
+  },
+  "iron-curtain": {
+   "title": "铁幕的升起与落下",
+   "lede": "四十多年东西分裂，几年之内重画东半个欧洲。",
+   "steps": [
+    [
+     "战后分界",
+     "1945 年 5 月德国投降。红色斜线标出了战后的变化：德国被分成美、英、法、苏四个占领区；苏联的边界向西推进，并入了波罗的海三国、波兰东部和罗马尼亚的比萨拉比亚；波兰整体西移，得到原属德国的东部领土。在苏联支持下，东欧各国的共产党在此后几年里陆续掌握了政权。",
+     {
+      "p": [
+       "1945 年 2 月 4 日至 11 日，美国总统罗斯福、英国首相丘吉尔和苏联领导人斯大林在克里米亚的雅尔塔会晤。三方商定分区占领德国；波兰东部边界大体以“寇松线”为准，作为补偿，波兰将在西面获得德国领土；被解放的欧洲国家将通过自由选举建立政府。",
+       "4 月 16 日，朱可夫和科涅夫指挥的苏军发起柏林战役。4 月 30 日希特勒在地堡中自杀，5 月 2 日柏林守军投降。德国 5 月 7 日在兰斯签署无条件投降书，8 日在柏林再次签署，投降于当日生效。苏军在柏林战役中约有 8 万人阵亡。7 月至 8 月的波茨坦会议确认由四国管制委员会共管德国，柏林同样分区占领；奥得河-尼斯河以东的德国领土交由波兰管理，柯尼斯堡划归苏联，后改名加里宁格勒。",
+       "新边界带来了大规模迁徙：约 1200 万至 1400 万德意志人从波兰、捷克斯洛伐克等地逃离或被驱逐，上百万波兰人也从并入苏联的东部地区迁往西面。在苏联支持下，东欧各国共产党逐步掌权：1946 年至 1948 年间，波兰、罗马尼亚、匈牙利和保加利亚的反对派相继被排挤，1948 年 2 月捷克斯洛伐克共产党全面掌权。1946 年 3 月，丘吉尔在美国富尔顿演说，称从波罗的海的斯德丁到亚得里亚海的的里雅斯特，一道“铁幕”已经降落在欧洲大陆上。"
+      ],
+      "facts": [
+       [
+        "雅尔塔会议",
+        "1945 年 2 月 4 日至 11 日"
+       ],
+       [
+        "德国投降生效",
+        "1945 年 5 月 8 日"
+       ],
+       [
+        "德意志人被逐",
+        "约 1200 万至 1400 万"
+       ]
+      ]
+     }
+    ],
+    [
+     "一座城，两个世界",
+     "1949 年，西部占领区成立联邦德国，苏占区成立民主德国，德国一分为二。柏林位于东德境内，也被分成东西两半。到 1961 年，已有两三百万东德人逃往西方，多数取道柏林。这年 8 月，东德连夜拉起封锁线，随后建成柏林墙。",
+     {
+      "p": [
+       "柏林是冷战的第一个焦点。1948 年 6 月，西方占领区推行货币改革，发行新的德国马克，并推广到西柏林。苏联随即切断了通往西柏林的铁路、公路和水路。美英两国组织空运，从 1948 年 6 月持续到次年 9 月，共飞行约 27.8 万架次，运去约 230 万吨食品、煤炭等物资，养活了 200 多万西柏林人。1949 年 5 月苏联解除封锁。",
+       "两个德国的差距越拉越大。联邦德国经济迅速复苏，民主德国则推行计划经济和农业集体化，1953 年 6 月 17 日的工人抗议也被苏军坦克镇压。两德边界在 1952 年已经封闭，但柏林各占领区之间仍可自由往来，坐上地铁就能到西方。1949 年至 1961 年间，约 270 万人离开民主德国，其中许多是年轻人、医生、工程师和技术工人；仅 1961 年 7 月就有约 3 万人出逃。",
+       "这年 6 月，民主德国领导人乌布利希还在记者会上表示：“没有人打算建造一堵墙。”8 月 13 日凌晨，军警沿东西柏林分界线拉起铁丝网、封闭街道，几天后开始砌筑混凝土墙，民主德国称之为“反法西斯防卫墙”。10 月，美苏坦克在查理检查站对峙约 16 个小时。环绕西柏林的边界墙最终长约 155 公里，到 1989 年至少有 140 人在墙边遇难。"
+      ],
+      "facts": [
+       [
+        "柏林空运",
+        "约 27.8 万架次，230 万吨"
+       ],
+       [
+        "封锁边界",
+        "1961 年 8 月 13 日"
+       ],
+       [
+        "柏林墙全长",
+        "约 155 公里"
+       ]
+      ]
+     }
+    ],
+    [
+     "坦克下的改革",
+     "苏联不允许东欧国家脱离控制。1956 年匈牙利革命被苏军镇压；1968 年，捷克斯洛伐克领导人杜布切克推行“带人性面孔的社会主义”，同年 8 月，华约军队开进布拉格，改革戛然而止。",
+     {
+      "p": [
+       "1953 年斯大林去世。1956 年 2 月，赫鲁晓夫在苏共二十大上作秘密报告，批判斯大林的个人崇拜，东欧随之松动。6 月，波兰波兹南的工人上街抗议；10 月，哥穆尔卡重新出任波兰领导人，苏联最终接受了这一结果。10 月 23 日，布达佩斯的大学生和市民举行示威，要求苏军撤出、举行自由选举，冲突很快演变为全国性的起义。",
+       "改革派纳吉出任总理，宣布实行多党制，并于 11 月 1 日宣布匈牙利退出华沙条约组织、保持中立。11 月 4 日，苏军大举开进布达佩斯，数日内平息了抵抗。约 2500 名匈牙利人死亡，约 20 万人逃往国外。纳吉被捕，1958 年经秘密审判后被处决。西方国家表示同情，但没有出手干预，英法此时正深陷苏伊士运河危机。",
+       "1968 年 1 月，杜布切克出任捷克斯洛伐克共产党第一书记，随后放宽新闻审查，允许公开讨论，社会气氛空前活跃，史称“布拉格之春”。苏联领导人勃列日涅夫多次施压无果。8 月 20 日深夜，苏联、波兰、匈牙利、保加利亚等国的数十万军队越过边境，次日控制布拉格。杜布切克被押往莫斯科签署议定书，1969 年 4 月被胡萨克取代，改革全面撤回。西方把苏联的立场称为“勃列日涅夫主义”，即社会主义阵营的整体利益高于各国主权。罗马尼亚拒绝出兵，阿尔巴尼亚随后退出华约。"
+      ],
+      "facts": [
+       [
+        "匈牙利起义爆发",
+        "1956 年 10 月 23 日"
+       ],
+       [
+        "匈牙利出逃者",
+        "约 20 万人"
+       ],
+       [
+        "华约出兵",
+        "1968 年 8 月 20 日夜"
+       ]
+      ]
+     }
+    ],
+    [
+     "格但斯克的罢工",
+     "1980 年 8 月，格但斯克造船厂的工人罢工，电工瓦文萨领导成立了独立工会“团结工会”，会员很快达到约一千万人。1981 年政府宣布戒严，团结工会转入地下，但没有消失。",
+     {
+      "p": [
+       "波兰工人早有抗争的传统：1956 年的波兹南、1970 年的波罗的海沿岸港口和 1976 年的拉多姆，都曾爆发罢工和骚乱，1970 年的镇压造成数十人死亡。1970 年代，波兰领导人盖莱克大举向西方借债，到 1980 年外债已达 200 多亿美元，商品短缺日益严重。1978 年，克拉科夫大主教沃伊蒂瓦当选教皇，称约翰·保罗二世；他次年回国访问，数百万人参加露天弥撒。",
+       "1980 年 7 月肉价再次上涨，各地罢工此起彼伏。8 月 14 日，格但斯克列宁造船厂的工人为抗议起重机女工瓦伦蒂诺维奇被开除而罢工，此前因参与工人运动被解雇的瓦文萨翻墙进入厂区，成为罢工领袖。罢工迅速扩散到沿海各地，工人们提出 21 条要求，第一条就是成立独立于党的自由工会。8 月 31 日，政府签署《格但斯克协议》，接受了这一要求。9 月，“团结工会”正式成立。",
+       "团结工会的会员约占全国劳动人口的三分之一，是共产党国家中第一个合法的独立工会。苏联在波兰周边举行军演，局势紧张。1981 年 12 月 13 日，波兰领导人雅鲁泽尔斯基将军宣布全国戒严，数千名团结工会成员被拘押，瓦文萨也在其中；1982 年团结工会被正式取缔。但它在地下继续活动，1983 年瓦文萨获得诺贝尔和平奖。到 1989 年，这股力量将重新走上前台。"
+      ],
+      "facts": [
+       [
+        "罢工开始",
+        "1980 年 8 月 14 日"
+       ],
+       [
+        "团结工会会员",
+        "约 1000 万人"
+       ],
+       [
+        "实施戒严",
+        "1981 年 12 月 13 日"
+       ]
+      ]
+     }
+    ],
+    [
+     "1989",
+     "1989 年，苏联领导人戈尔巴乔夫放弃了武力干预东欧的做法。波兰团结工会在 6 月的选举中大胜，匈牙利拆除了与奥地利边境的铁丝网，大批东德人借道出逃。11 月 9 日晚，柏林墙开放，人们涌上墙头。年底前，捷克斯洛伐克、保加利亚、罗马尼亚的政权也相继更迭。",
+     {
+      "p": [
+       "1985 年上台的戈尔巴乔夫面对停滞的经济、沉重的军费和阿富汗战争的消耗，推行“改革”与“公开性”。1988 年 12 月，他在联合国宣布单方面裁军 50 万，并表示各国人民有权选择自己的道路。东欧各国执政党失去了最后的靠山。",
+       "波兰率先突破。圆桌会议后，政府同意举行部分开放的选举。6 月的选举中，团结工会赢得议会下院全部 161 个可竞争席位，以及新设参议院 100 席中的 99 席；8 月，团结工会的马佐维耶茨基出任总理，成为东欧集团第一位非共产党人政府首脑。匈牙利 5 月开始拆除边境铁丝网，9 月对东德人开放边界，数万人经奥地利前往联邦德国。民主德国的抗议随之高涨：10 月 9 日约 7 万人在莱比锡游行，昂纳克 10 月 18 日下台。",
+       "11 月 9 日晚，东德官员沙博夫斯基在记者会上宣布放宽出境规定，被问到何时生效，他误答“立即”。数万东柏林人随即涌向检查站，深夜边防人员被迫放行。此后变化接踵而至：保加利亚领导人日夫科夫 11 月 10 日下台；捷克斯洛伐克 11 月 17 日起爆发“天鹅绒革命”，12 月 29 日哈维尔当选总统；罗马尼亚 12 月爆发流血冲突，约 1100 人死亡，齐奥塞斯库夫妇出逃被捕，12 月 25 日被处决，这是当年唯一以流血收场的政权更迭。"
+      ],
+      "facts": [
+       [
+        "参议院选举",
+        "团结工会获 100 席中的 99 席"
+       ],
+       [
+        "柏林墙开放",
+        "1989 年 11 月 9 日"
+       ],
+       [
+        "罗马尼亚革命死亡",
+        "约 1100 人"
+       ]
+      ]
+     }
+    ],
+    [
+     "新的边界",
+     "1990 年两德统一；1991 年底苏联解体，十五个加盟共和国成为独立国家；南斯拉夫在战火中分裂；1993 年捷克斯洛伐克和平分离。1994 年快照上的红色斜线标出了这些变化：从波罗的海到黑海、高加索，东半个欧洲的政治地图在几年里大幅改写。",
+     {
+      "p": [
+       "德国统一来得比预想的快。1990 年 3 月，民主德国举行首次自由选举，7 月两德实现货币联盟。9 月，两德与美、苏、英、法签订“2+4 条约”：统一后的德国承认奥得河-尼斯河边界，军队不超过 37 万人，苏军在 1994 年底前撤出。10 月 3 日，民主德国加入联邦德国。1994 年 8 月底，最后一批俄罗斯军队离开德国。",
+       "苏联的解体同样迅速。波罗的海三国率先宣布恢复独立；1991 年 8 月，苏联强硬派发动政变失败，各加盟共和国纷纷宣布独立。12 月 8 日，俄罗斯、乌克兰和白俄罗斯领导人签署协议，成立独立国家联合体。12 月 25 日戈尔巴乔夫辞职，次日苏联正式解体。这一年，华约和经互会也先后解散。",
+       "南斯拉夫则在战火中解体。1991 年 6 月 25 日，斯洛文尼亚和克罗地亚宣布独立，斯洛文尼亚经过 10 天战斗即告脱离，克罗地亚的战事一直打到 1995 年。1992 年波斯尼亚和黑塞哥维那宣布独立后，爆发了更惨烈的战争，萨拉热窝被围近四年，到 1995 年战争结束时约 10 万人死亡。捷克斯洛伐克则平静得多：1993 年 1 月 1 日，它未经公投便和平地一分为二。在高加索，亚美尼亚与阿塞拜疆为纳戈尔诺-卡拉巴赫交战多年，1994 年 5 月停火。"
+      ],
+      "facts": [
+       [
+        "两德统一",
+        "1990 年 10 月 3 日"
+       ],
+       [
+        "苏联解体",
+        "1991 年 12 月 26 日"
+       ],
+       [
+        "捷斯分立",
+        "1993 年 1 月 1 日"
+       ]
+      ]
+     }
+    ]
+   ]
+  }
+ },
+ "aliases": {
+  "names": {
+   "Holy Roman Empire": [
+    "神罗"
+   ],
+   "Tsardom of Muscovy": [
+    "沙俄",
+    "沙皇俄国"
+   ],
+   "Russian Empire": [
+    "沙俄",
+    "沙皇俄国"
+   ],
+   "Grand Duchy of Moscow": [
+    "莫斯科公国"
+   ],
+   "USSR": [
+    "苏维埃联盟",
+    "苏维埃社会主义共和国联盟",
+    "苏俄"
+   ],
+   "Byzantine Empire": [
+    "东罗马",
+    "东罗马帝国"
+   ],
+   "Eastern Roman Empire": [
+    "拜占庭"
+   ],
+   "France": [
+    "法国",
+    "法兰西帝国"
+   ],
+   "Kingdom of France": [
+    "法国"
+   ],
+   "United Kingdom": [
+    "大英帝国",
+    "联合王国",
+    "不列颠"
+   ],
+   "United Kingdom|great-britain": [
+    "大英帝国"
+   ],
+   "Ottoman Empire": [
+    "鄂图曼帝国",
+    "奥斯曼土耳其",
+    "土耳其帝国"
+   ],
+   "Ottoman Sultanate": [
+    "鄂图曼帝国",
+    "奥斯曼土耳其"
+   ],
+   "Prussia": [
+    "普鲁士王国"
+   ],
+   "Germany|empire": [
+    "德意志第二帝国",
+    "第二帝国"
+   ],
+   "German Empire": [
+    "德意志第二帝国",
+    "第二帝国"
+   ],
+   "Germany|nazi": [
+    "第三帝国"
+   ],
+   "Venice": [
+    "威尼斯共和国"
+   ],
+   "Genoa": [
+    "热那亚共和国"
+   ],
+   "Dutch Republic": [
+    "尼德兰联省共和国",
+    "联省共和国"
+   ],
+   "Achaemenid Empire": [
+    "波斯帝国",
+    "波斯第一帝国",
+    "阿契美尼德王朝"
+   ],
+   "Sasanian Empire": [
+    "萨珊王朝",
+    "波斯第二帝国"
+   ],
+   "Carolingian Empire": [
+    "查理曼帝国",
+    "法兰克帝国"
+   ],
+   "Umayyad Caliphate": [
+    "阿拉伯帝国",
+    "大食",
+    "伍麦叶王朝"
+   ],
+   "Abbasid Caliphate": [
+    "阿拉伯帝国",
+    "大食"
+   ],
+   "Khanate of the Golden Horde": [
+    "钦察汗国"
+   ],
+   "Hunnic Empire": [
+    "匈奴"
+   ],
+   "Huns": [
+    "匈奴"
+   ],
+   "Papal States": [
+    "教廷",
+    "梵蒂冈"
+   ],
+   "Danes": [
+    "维京人"
+   ]
+  },
+  "lineages": {
+   "russia": [
+    "俄国"
+   ],
+   "france": [
+    "法国"
+   ],
+   "mongol": [
+    "蒙古帝国"
+   ],
+   "austria": [
+    "哈布斯堡王朝",
+    "哈布斯堡帝国"
+   ],
+   "rome": [
+    "古罗马"
+   ],
+   "greek": [
+    "古希腊"
+   ],
+   "franks": [
+    "法兰克帝国"
+   ]
+  },
+  "events": {
+   "sarajevo": [
+    "一战爆发",
+    "第一次世界大战爆发"
+   ],
+   "invasion-of-poland": [
+    "二战爆发",
+    "第二次世界大战爆发"
+   ],
+   "bastille": [
+    "法国大革命"
+   ],
+   "ninety-five-theses": [
+    "宗教改革",
+    "马丁·路德"
+   ],
+   "sistine": [
+    "文艺复兴"
+   ],
+   "clermont": [
+    "十字军东征"
+   ],
+   "jerusalem-1099": [
+    "第一次十字军东征"
+   ],
+   "constantinople-1204": [
+    "第四次十字军东征"
+   ],
+   "hastings": [
+    "诺曼征服"
+   ],
+   "columbus": [
+    "地理大发现",
+    "大航海时代",
+    "发现美洲"
+   ],
+   "watt": [
+    "工业革命"
+   ],
+   "october-revolution": [
+    "俄国革命"
+   ],
+   "lindisfarne": [
+    "维京人"
+   ],
+   "normandy-911": [
+    "维京人"
+   ]
+  },
+  "stories": {
+   "ww1": [
+    "一战"
+   ],
+   "napoleon": [
+    "法国大革命",
+    "拿破仑战争",
+    "拿破仑帝国",
+    "法兰西第一帝国"
+   ],
+   "iron-curtain": [
+    "冷战"
+   ],
+   "plague": [
+    "鼠疫"
+   ]
+  }
+ }
+}

@@ -1,0 +1,4 @@
+.DS_Store
+__pycache__/
+# intermediate files from scripts/make_data.py
+work/

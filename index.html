@@ -1,0 +1,2197 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>欧陆古今</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Spectral:ital,wght@0,400;0,600;1,400&family=ZCOOL+XiaoWei&display=swap">
+<style>
+/* Layout: an atlas sheet — the map fills the sheet, a ledger column on the right, a time ruler across the bottom */
+:root {
+  --paper: #f4f6f7; --panel: #ffffff; --sea: #d5e0e7; --outside: #e6eaec; --grat: #c3d0d8;
+  --land: #f1eee6; --land-empty: #ece8df; --land-people: #e5e2d4; --n0: #e6dcc5; --n1: #d5cbb2; --n2: #dcdcca; --n3: #e3d3c5; --n4: #cfd4cd;
+  --ink: #1c2830; --muted: #56656f; --faint: #8796a0; --rule: #d6dee3; --border-poly: rgba(28, 40, 48, .42);
+  --label: #1f2c35; --halo: rgba(255, 255, 255, .78);
+  --accent: #d6402a; --accent-soft: rgba(214, 64, 42, .13);
+  --chg: #1f2b33; --chg-soft: rgba(31, 43, 51, .08);
+  --era-a: #e8edf0; --era-b: #dde4e9;
+  --river: #5f93b8; --river-label: #4a7899; --mtn: rgba(82, 64, 42, .42); --mtn-label: #76664f;
+  --f-display: "ZCOOL XiaoWei", "Songti SC", "STSong", serif;
+  --f-body: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --f-num: "IBM Plex Sans Condensed", "Arial Narrow", "Noto Sans SC", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #10171c; --panel: #162027; --sea: #0b1318; --outside: #141c21; --grat: #1b2830;
+    --land: #2a3035; --land-empty: #23292d; --land-people: #2b302f; --n0: #3b372e; --n1: #2e2b25; --n2: #353930; --n3: #3d3433; --n4: #30363a;
+    --ink: #e2e9ed; --muted: #9aa9b2; --faint: #6e7e88; --rule: #26323a; --border-poly: rgba(4, 8, 10, .75);
+    --label: #edf2f4; --halo: rgba(8, 12, 15, .72);
+    --accent: #ff6a4d; --accent-soft: rgba(255, 106, 77, .16);
+    --chg: #f3ede2; --chg-soft: rgba(243, 237, 226, .1);
+    --era-a: #19232a; --era-b: #1f2a32;
+    --river: #5383a3; --river-label: #82abc4; --mtn: rgba(228, 214, 190, .26); --mtn-label: #a99b86;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #10171c; --panel: #162027; --sea: #0b1318; --outside: #141c21; --grat: #1b2830;
+  --land: #2a3035; --land-empty: #23292d; --land-people: #2b302f; --n0: #3b372e; --n1: #2e2b25; --n2: #353930; --n3: #3d3433; --n4: #30363a;
+  --ink: #e2e9ed; --muted: #9aa9b2; --faint: #6e7e88; --rule: #26323a; --border-poly: rgba(4, 8, 10, .75);
+  --label: #edf2f4; --halo: rgba(8, 12, 15, .72);
+  --accent: #ff6a4d; --accent-soft: rgba(255, 106, 77, .16);
+  --chg: #f3ede2; --chg-soft: rgba(243, 237, 226, .1);
+  --era-a: #19232a; --era-b: #1f2a32;
+  --river: #5383a3; --river-label: #82abc4; --mtn: rgba(228, 214, 190, .26); --mtn-label: #a99b86;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 14px/1.55 var(--f-body); -webkit-font-smoothing: antialiased; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* the page's built-in text is a placeholder: it stays hidden until the reader's language is filled in */
+html:not(.i18n) [data-i18n]:not(#loading), html:not(.i18n) #lang { visibility: hidden; }
+html:not(.i18n) #q::placeholder { color: transparent; }
+
+.app {
+  height: 100%; display: grid; gap: 10px 14px;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas: "head head" "map side" "time time";
+  padding-block: 10px 8px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+header { grid-area: head; display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; }
+.brand h1 { margin: 0; font: 400 30px/1 var(--f-display); letter-spacing: .08em; }
+.brand p { margin: 4px 0 0; font-size: 12px; color: var(--muted); letter-spacing: .06em; }
+.clock { display: flex; align-items: center; gap: 8px; }
+.yearbox { width: 12.5rem; text-align: center; line-height: 1; }
+.year { font: 600 34px/1 var(--f-num); font-variant-numeric: tabular-nums; letter-spacing: .01em; }
+.year small { font: 400 14px var(--f-body); color: var(--muted); margin-left: 3px; }
+.era { margin-top: 4px; font-size: 12px; color: var(--muted); letter-spacing: .06em; white-space: nowrap; }
+.era b { font: 600 12px var(--f-num); color: var(--ink); letter-spacing: 0; font-variant-numeric: tabular-nums; }
+.era b.lag { color: var(--accent); }
+.btn {
+  height: 34px; min-width: 34px; padding: 0 9px; display: inline-grid; place-items: center;
+  border: 1px solid var(--rule); background: var(--panel); border-radius: 8px; cursor: pointer;
+}
+.btn:hover { border-color: var(--faint); }
+.btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.btn.play { background: var(--ink); color: var(--paper); border-color: var(--ink); min-width: 42px; }
+.btn.play svg { fill: currentColor; stroke: none; }
+.chip {
+  height: 30px; padding: 0 12px; border-radius: 15px; border: 1px solid var(--rule); background: var(--panel);
+  cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted);
+}
+.chip[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); }
+.chip i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.chip .sw-chg { background: repeating-linear-gradient(45deg, var(--chg) 0 1.5px, transparent 1.5px 4.5px); outline: 1px solid var(--chg); }
+.chip .sw-ev { background: var(--ink); transform: rotate(45deg) scale(.75); border-radius: 1px; }
+.chip .sw-modern { border-top: 2px dashed var(--ink); height: 0; border-radius: 0; }
+.chip .sw-phys { height: 7px; border-radius: 0; border-bottom: 2px solid var(--river-label); }
+
+.mapwrap { grid-area: map; position: relative; min-height: 0; border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; background: var(--outside); }
+#map { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
+#map:active { cursor: grabbing; }
+.maphint {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 8px 14px; border-radius: 8px;
+  background: color-mix(in srgb, var(--ink) 82%, transparent); color: var(--paper); font-size: 13px; pointer-events: none; white-space: nowrap;
+}
+.maphint[hidden] { display: none; }
+.sea { fill: var(--sea); }
+.grat { fill: none; stroke: var(--grat); stroke-width: .6px; vector-effect: non-scaling-stroke; }
+.poly { stroke: var(--border-poly); stroke-width: .6px; vector-effect: non-scaling-stroke; stroke-linejoin: round; transition: opacity .25s; }
+.poly.vassal { stroke-dasharray: 3 2; }
+.poly.dim { opacity: .28; }
+.poly.soft { opacity: .45; }
+.poly.sel { stroke: var(--ink); stroke-width: 1.8px; }
+.chg { fill: url(#hatch); stroke: var(--chg); stroke-width: 1px; stroke-opacity: .55; vector-effect: non-scaling-stroke; stroke-linejoin: round; cursor: pointer; }
+.chg.hot { stroke-width: 2.5px; stroke-opacity: 1; }
+.hatch-bg { fill: var(--chg-soft); }
+.hatch-line { stroke: var(--chg); stroke-width: 1; stroke-opacity: .4; }
+.pulse { fill: var(--chg); stroke: none; pointer-events: none; opacity: 0; animation: pulse 2s ease-out; }
+@keyframes pulse { 0% { opacity: .5; } 100% { opacity: 0; } }
+.modern { fill: none; stroke: var(--ink); stroke-width: 1px; stroke-dasharray: 5 3; opacity: .6; vector-effect: non-scaling-stroke; pointer-events: none; }
+.label { fill: var(--label); paint-order: stroke; stroke: var(--halo); stroke-width: 3px; stroke-linejoin: round; text-anchor: middle; dominant-baseline: central; pointer-events: none; font-weight: 500; }
+.label.big { font-weight: 700; letter-spacing: .14em; }
+.label.people { font-weight: 400; font-style: italic; fill: var(--muted); }
+.label.hit { font-weight: 700; }
+.label.dim { opacity: .3; }
+.label.soft { opacity: .55; }
+.river { fill: none; stroke: var(--river); stroke-opacity: .8; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; pointer-events: none; }
+.river.r1 { stroke-width: 1.9px; }
+.river.r2 { stroke-width: 1.6px; }
+.river.r3 { stroke-width: 1.3px; }
+.river.r4 { stroke-width: 1.1px; }
+.river.r5 { stroke-width: 1px; }
+#map:not(.z2) .river.r4, #map:not(.z3) .river.r5 { display: none; }
+.lake { fill: var(--sea); stroke: var(--river); stroke-width: .5px; vector-effect: non-scaling-stroke; pointer-events: none; }
+.range { fill: url(#mtn); stroke: none; pointer-events: none; }
+.phys { transition: opacity .25s; }
+.phys.muted { opacity: .45; }
+.mtn-mark { fill: none; stroke: var(--mtn); stroke-width: 1; stroke-linejoin: round; stroke-linecap: round; }
+.phys-l { font-size: 11px; paint-order: stroke; stroke: var(--halo); stroke-width: 3px; stroke-linejoin: round; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.phys-l.rv { fill: var(--river-label); letter-spacing: .18em; }
+.phys-l.mt { fill: var(--mtn-label); letter-spacing: .32em; }
+.credit a { color: inherit; }
+.city circle { fill: var(--panel); stroke: var(--ink); stroke-width: 1.2px; }
+.city text { font-size: 12px; fill: var(--muted); paint-order: stroke; stroke: var(--halo); stroke-width: 3px; stroke-linejoin: round; pointer-events: none; }
+.city .now { font-size: 11px; fill: var(--faint); }
+.ev { cursor: pointer; }
+.ev path { fill: var(--ink); stroke: var(--panel); stroke-width: 1.5px; }
+.ev.now path { fill: var(--accent); }
+.ev.sel path { fill: var(--accent); stroke: var(--ink); stroke-width: 2px; }
+.ev text { font-size: 12px; fill: var(--ink); font-weight: 500; paint-order: stroke; stroke: var(--halo); stroke-width: 3.5px; stroke-linejoin: round; pointer-events: none; }
+.ev.pop path { animation: pop .55s ease-out; }
+@keyframes pop { from { transform: scale(2.6); opacity: 0; } }
+
+.zoomctl { position: absolute; right: 10px; bottom: 10px; display: flex; flex-direction: column; gap: 6px; }
+.zoomctl .btn { font-size: 18px; line-height: 1; }
+.zoomctl .btn[aria-expanded="true"] { border-color: var(--ink); }
+/* layer switches: a small menu next to the zoom buttons, so the header fits on one line */
+.layers {
+  position: absolute; right: 54px; bottom: 130px; z-index: 6; display: flex; flex-direction: column; gap: 4px; min-width: 150px;
+  padding: 6px; border: 1px solid var(--rule); border-radius: 10px; background: var(--panel); box-shadow: 0 8px 24px rgba(0, 0, 0, .14);
+}
+.layers[hidden] { display: none; }
+.layers .chip { width: 100%; border-color: transparent; border-radius: 7px; padding: 0 10px; }
+.layers .chip:hover { background: color-mix(in srgb, var(--rule) 45%, transparent); }
+.layers .chip[aria-pressed="true"] { border-color: transparent; }
+.layers .chip::after { content: ""; width: 9px; height: 5px; margin: 0 1px 3px auto; border: solid var(--ink); border-width: 0 0 2px 2px; transform: rotate(-45deg); opacity: 0; }
+.layers .chip[aria-pressed="true"]::after { opacity: 1; }
+.tip {
+  position: absolute; left: 0; top: 0; pointer-events: none; max-width: 260px; z-index: 5;
+  padding: 7px 10px; border-radius: 8px; background: var(--panel); border: 1px solid var(--rule);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .14); font-size: 12px; line-height: 1.45;
+}
+.tip b { display: block; font-size: 13px; }
+.tip span { display: block; color: var(--muted); }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); background: var(--outside); }
+
+aside { grid-area: side; min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: 18px; padding: 2px 4px 12px 0; }
+aside h2 { margin: 0 0 4px; font-size: 13px; font-weight: 500; color: var(--ink); display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+aside h2 span { font: 400 12px var(--f-num); color: var(--faint); font-variant-numeric: tabular-nums; }
+aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--muted); }
+.note { margin: 4px 0 6px; font-size: 12px; color: var(--muted); background: var(--accent-soft); border-radius: 6px; padding: 6px 8px; }
+.empty { margin: 6px 0; font-size: 13px; color: var(--muted); }
+.row {
+  width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; text-align: left;
+  background: none; border: 0; border-top: 1px solid var(--rule); padding: 8px 2px; cursor: pointer;
+}
+.row:hover { background: color-mix(in srgb, var(--rule) 45%, transparent); }
+.row b { font-weight: 500; }
+.row small { display: block; color: var(--muted); font-size: 12px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.row.later { opacity: .62; }
+.sw { width: 14px; height: 14px; border-radius: 3px; margin-top: 3px; border: 1px solid var(--border-poly); }
+.yr { font: 500 13px var(--f-num); color: var(--muted); font-variant-numeric: tabular-nums; min-width: 2.6em; padding-top: 1px; }
+.more { font-size: 12px; color: var(--faint); margin: 6px 0 0; }
+
+.card { border: 1px solid var(--rule); background: var(--panel); border-radius: 12px; padding: 12px 14px 14px; }
+.card-top { display: flex; justify-content: space-between; align-items: center; }
+.tag { font-size: 11px; letter-spacing: .1em; color: var(--muted); }
+.x { border: 0; background: none; cursor: pointer; font-size: 18px; color: var(--muted); line-height: 1; padding: 2px 4px; border-radius: 6px; }
+.x:hover { color: var(--ink); }
+.card .cy { font: 600 22px/1.1 var(--f-num); margin-top: 6px; font-variant-numeric: tabular-nums; }
+.card h4 { margin: 4px 0 2px; font: 400 22px/1.3 var(--f-display); letter-spacing: .04em; }
+.card p { margin: 4px 0; font-size: 13px; }
+.card .en { color: var(--faint); font-size: 12px; margin-top: 0; }
+.card .meta { color: var(--muted); }
+.runs { list-style: none; margin: 4px 0 0; padding: 0; font-size: 13px; }
+.runs li { display: flex; justify-content: space-between; gap: 10px; padding: 3px 0; border-top: 1px dotted var(--rule); }
+.runs .yr { min-width: 0; font-size: 12px; }
+.spark { width: 100%; height: auto; display: block; margin: 8px 0 2px; }
+.spark-now { stroke: var(--accent); stroke-width: 1.2; }
+.spark-now.a { stroke: var(--faint); stroke-dasharray: 3 2; }
+#side:focus { outline: none; }
+.spark-t { font: 11px var(--f-body); fill: var(--muted); }
+.link { margin-top: 8px; border: 1px solid var(--rule); background: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+.link:hover { border-color: var(--faint); }
+.link i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.legend svg { width: 12px; height: 12px; overflow: visible; }
+.legend path { fill: var(--ink); }
+.credit, .keys { margin: 8px 0 0; font-size: 11.5px; color: var(--faint); line-height: 1.6; }
+.keys kbd { font: 500 11px var(--f-num); border: 1px solid var(--rule); border-radius: 4px; padding: 0 4px; color: var(--muted); }
+
+.timewrap { grid-area: time; position: relative; }
+/* shows or hides the per-power lanes; it sits in the label column, level with the era bar */
+.lanes-tog {
+  position: absolute; top: 2px; height: 20px; padding: 0 8px; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
+  border: 1px solid var(--rule); border-radius: 10px; background: var(--panel); cursor: pointer; font-size: 11.5px; color: var(--muted);
+}
+.lanes-tog:hover, .lanes-tog[aria-expanded="true"] { color: var(--ink); border-color: var(--faint); }
+.lanes-tog::after { content: ""; width: 5px; height: 5px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); }
+.lanes-tog[aria-expanded="true"]::after { transform: translateY(1px) rotate(-135deg); }
+#tl { display: block; width: 100%; touch-action: none; user-select: none; -webkit-user-select: none; }
+#tl:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.era-r { stroke: var(--paper); stroke-width: 2; }
+.era-t { font-size: 11px; fill: var(--muted); text-anchor: middle; dominant-baseline: central; letter-spacing: .08em; pointer-events: none; }
+.lane-l { font-size: 11px; fill: var(--muted); text-anchor: end; dominant-baseline: central; cursor: pointer; }
+.lane-l:hover, .lane-l.on { fill: var(--ink); font-weight: 700; }
+.lane-b { transition: opacity .2s; pointer-events: none; }
+.lane-b.dim { opacity: .22; }
+.lane-sel { fill: color-mix(in srgb, var(--ink) 7%, transparent); pointer-events: none; }
+.row-l { font-size: 11px; fill: var(--faint); text-anchor: end; dominant-baseline: central; }
+.den { fill: var(--faint); opacity: .55; }
+.ctick { stroke: var(--chg); stroke-width: 1.5; }
+.ctick-d { fill: var(--chg); }
+.snap-span { fill: color-mix(in srgb, var(--ink) 7%, transparent); pointer-events: none; }
+.axis-t { font: 11px var(--f-num); fill: var(--faint); font-variant-numeric: tabular-nums; }
+.axis-l { stroke: var(--rule); }
+.ph-line { stroke: var(--accent); stroke-width: 1.6; pointer-events: none; }
+.ph-knob { fill: var(--accent); stroke: var(--paper); stroke-width: 2; pointer-events: none; }
+.ghost { stroke: var(--muted); stroke-dasharray: 2 3; pointer-events: none; }
+.ghost-t { font: 500 11px var(--f-num); fill: var(--muted); pointer-events: none; }
+
+/* reading layout: a story's full text in a wide column, the map beside it following the step being read */
+.app.reading { grid-template-columns: minmax(0, 1fr) min(600px, 46vw); grid-template-rows: minmax(0, 1fr); grid-template-areas: "map side"; }
+.app.reading header, .app.reading .timewrap { display: none; }
+.app.reading aside { padding: 0; }
+.read-year { display: none; position: absolute; left: 12px; top: 12px; padding: 3px 11px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); font: 600 20px/1.4 var(--f-num); font-variant-numeric: tabular-nums; pointer-events: none; }
+.read-year small { font: 400 13px var(--f-body); color: var(--muted); margin-left: 2px; }
+.app.reading .read-year { display: block; }
+.reader { border: 1px solid var(--rule); border-radius: 12px; background: var(--panel); }
+.rd-bar {
+  position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  padding: 7px 10px 7px 22px; border-bottom: 1px solid var(--rule); border-radius: 12px 12px 0 0;
+  background: color-mix(in srgb, var(--panel) 94%, transparent); font-size: 12.5px; color: var(--muted);
+}
+.rd-bar b { font: 600 13px var(--f-num); color: var(--ink); }
+.rd-head { padding: 26px 30px 10px; }
+.rd-span { font: 500 13px var(--f-num); color: var(--accent); font-variant-numeric: tabular-nums; }
+.rd-head h2 { margin: 4px 0 8px; font: 400 32px/1.25 var(--f-display); letter-spacing: .04em; }
+.rd-head > p { margin: 0; font-size: 15px; color: var(--muted); }
+.rd-toc { list-style: none; margin: 18px 0 0; padding: 0; }
+.rd-toc button { width: 100%; display: flex; gap: 10px; padding: 6px 0; border: 0; border-top: 1px dotted var(--rule); background: none; cursor: pointer; text-align: left; font-size: 14px; color: var(--muted); }
+.rd-toc button:hover, .rd-toc li.on button { color: var(--ink); }
+.rd-toc li.on .yr { color: var(--accent); }
+.rd-step { padding: 30px 30px 12px; border-top: 1px solid var(--rule); scroll-margin-top: 38px; }
+.rd-k { font: 500 13px var(--f-num); color: var(--faint); letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.rd-step.on .rd-k { color: var(--accent); }
+.rd-step h3 { margin: 4px 0 14px; font: 400 26px/1.3 var(--f-display); letter-spacing: .04em; }
+.rd-step p { margin: 0 0 1.05em; font-size: 16.5px; line-height: 1.9; }
+.rd-step .rd-lead { font-weight: 500; }
+.facts { margin: 6px 0 20px; padding: 10px 14px 11px; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; background: var(--accent-soft); }
+.facts dt { margin-bottom: 4px; font-size: 12px; color: var(--muted); letter-spacing: .08em; }
+.facts dd { margin: 3px 0 0; display: flex; justify-content: space-between; gap: 14px; font-size: 13.5px; }
+.facts dd span { color: var(--muted); }
+.facts dd b { font-weight: 500; text-align: right; }
+.rd-end { display: flex; flex-wrap: wrap; gap: 8px; padding: 22px 30px 55vh; border-top: 1px solid var(--rule); }
+.rd-end .btn { padding: 0 14px; font-size: 13px; }
+:root:not([lang|="zh"]) .rd-step p { font-family: "Spectral", Georgia, serif; font-size: 17.5px; line-height: 1.7; }
+:root:not([lang|="zh"]) .rd-step .rd-lead { font-weight: 600; }
+
+.modes { display: inline-flex; padding: 2px; border: 1px solid var(--rule); border-radius: 9px; background: var(--panel); }
+.modes button { height: 28px; padding: 0 14px; border: 0; border-radius: 7px; background: none; cursor: pointer; font-size: 13px; color: var(--muted); }
+.modes button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.stories { display: flex; flex-direction: column; gap: 8px; }
+.chapter {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; text-align: left; cursor: pointer;
+  padding: 10px 12px 11px; border: 1px solid var(--rule); border-radius: 12px; background: var(--panel);
+}
+.chapter:hover { border-color: var(--faint); }
+.chapter .ch-yr { grid-column: 1 / -1; font: 500 12px var(--f-num); color: var(--accent); font-variant-numeric: tabular-nums; }
+.chapter b { font: 400 20px/1.3 var(--f-display); letter-spacing: .04em; }
+.chapter .ch-n { align-self: center; font-size: 12px; color: var(--faint); }
+.chapter small { grid-column: 1 / -1; font-size: 12.5px; color: var(--muted); }
+.story { padding: 12px 14px 14px; border: 1px solid var(--rule); border-radius: 12px; background: var(--panel); }
+.story-top { display: flex; justify-content: space-between; align-items: center; }
+.back { padding: 2px 0; border: 0; background: none; cursor: pointer; font-size: 12px; color: var(--muted); }
+.back:hover { color: var(--ink); }
+.story-ch { margin-top: 8px; font-size: 12px; color: var(--muted); letter-spacing: .06em; }
+.story .cy { margin-top: 4px; font: 600 26px/1.1 var(--f-num); color: var(--accent); font-variant-numeric: tabular-nums; }
+.story h4 { margin: 2px 0 8px; font: 400 24px/1.3 var(--f-display); letter-spacing: .04em; text-wrap: balance; }
+.story p { margin: 0; font-size: 14px; line-height: 1.8; }
+.story .link { margin-top: 10px; }
+.story-dots { display: flex; gap: 6px; margin: 12px 0 8px; }
+.sd { position: relative; width: 24px; height: 18px; padding: 0; border: 0; background: none; cursor: pointer; }
+.sd::after { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 6px; border-radius: 3px; background: var(--rule); }
+.sd.on::after { background: var(--accent); }
+.story-nav { display: flex; justify-content: space-between; gap: 8px; }
+.story-nav .btn { padding: 0 14px; font-size: 13px; }
+.btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.story-band { fill: var(--accent-soft); pointer-events: none; }
+.sdot { fill: var(--panel); stroke: var(--accent); stroke-width: 2; cursor: pointer; }
+.sdot.on { fill: var(--accent); }
+.cmp-div line { stroke: var(--ink); stroke-width: 2; pointer-events: none; }
+.cmp-div .hit { fill: transparent; cursor: ew-resize; }
+.cmp-knob { cursor: ew-resize; }
+.cmp-knob circle { fill: var(--panel); stroke: var(--ink); stroke-width: 1.5; }
+.cmp-knob path { fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cmp-badge { pointer-events: none; }
+.cmp-badge text { font: 600 13px var(--f-num); dominant-baseline: central; font-variant-numeric: tabular-nums; }
+.cmp-badge.a rect { fill: var(--panel); stroke: var(--muted); }
+.cmp-badge.a text { fill: var(--ink); }
+.cmp-badge.b rect { fill: var(--accent); }
+.cmp-badge.b text { fill: #fff; }
+.ph-a-line { stroke: var(--muted); stroke-width: 1.6; stroke-dasharray: 3 2; pointer-events: none; }
+.ph-a-knob { fill: var(--panel); stroke: var(--muted); stroke-width: 2; pointer-events: none; }
+.cmp-steps { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 6px 0 8px; }
+.cmp-step { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+.cmp-step b { font: 600 14px var(--f-num); color: var(--ink); min-width: 2.6em; text-align: center; font-variant-numeric: tabular-nums; }
+.cmp-step .btn { height: 28px; min-width: 28px; padding: 0 6px; }
+.cmp-knob:focus { outline: none; }
+.cmp-knob:focus-visible circle { stroke: var(--accent); stroke-width: 3px; }
+.presets { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px; margin: 4px 0 2px; }
+.preset { text-align: left; padding: 6px 9px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); cursor: pointer; }
+.preset:hover { border-color: var(--faint); }
+.preset.on { border-color: var(--ink); }
+.preset b { display: block; font: 600 13px var(--f-num); font-variant-numeric: tabular-nums; }
+.preset small { display: block; font-size: 12px; color: var(--muted); }
+.delta { font-family: var(--f-num); font-variant-numeric: tabular-nums; }
+
+.search { position: relative; flex: 1 1 160px; max-width: 300px; min-width: 0; }
+.search > svg { position: absolute; left: 10px; top: 9px; width: 16px; height: 16px; fill: none; stroke: var(--faint); stroke-width: 2; stroke-linecap: round; pointer-events: none; }
+.search input {
+  width: 100%; height: 34px; padding: 0 30px 0 32px; border: 1px solid var(--rule); border-radius: 8px;
+  background: var(--panel); color: var(--ink); font: 13px var(--f-body);
+}
+.search input::placeholder { color: var(--faint); }
+.search input:focus { outline: none; border-color: var(--ink); }
+.q-key { position: absolute; right: 8px; top: 8px; font: 500 11px var(--f-num); color: var(--muted); border: 1px solid var(--rule); border-radius: 4px; padding: 0 5px; pointer-events: none; }
+.search input:focus ~ .q-key, .search input:not(:placeholder-shown) ~ .q-key { display: none; }
+#qlist {
+  position: absolute; top: calc(100% + 6px); left: 0; z-index: 20; width: max(100%, 330px); max-width: calc(100vw - 32px);
+  margin: 0; padding: 4px; list-style: none; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, .18);
+}
+#qlist li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1px 10px; padding: 7px 10px; border-radius: 7px; cursor: pointer; }
+#qlist li[aria-selected="true"] { background: color-mix(in srgb, var(--rule) 70%, transparent); }
+#qlist .q-name { font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#qlist mark { background: none; color: var(--accent); font-weight: 700; }
+#qlist .q-type { align-self: center; font-size: 11px; color: var(--muted); letter-spacing: .1em; }
+#qlist .q-sub { grid-column: 1 / -1; font-size: 12px; color: var(--faint); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#qlist .q-empty { display: block; color: var(--muted); cursor: default; font-size: 13px; }
+.ping { fill: none; stroke: var(--accent); stroke-width: 2; pointer-events: none; transform-box: fill-box; transform-origin: center; animation: ping 1.5s ease-out forwards; }
+@keyframes ping { from { transform: scale(.6); opacity: 1; } to { transform: scale(4); opacity: 0; } }
+@media (hover: none) { .q-key { display: none; } }
+
+/* per-language typography: the defaults above are for Chinese; every other language gets a Latin display face and
+   tighter tracking (a language in another script, such as Japanese, would need rules of its own here) */
+:root:not([lang|="zh"]) { --f-display: "Spectral", Georgia, serif; }
+:root:not([lang|="zh"]) .brand h1 { letter-spacing: .01em; }
+:root:not([lang|="zh"]) .label.big { letter-spacing: .05em; }
+:root:not([lang|="zh"]) .phys-l.mt { letter-spacing: .14em; }
+:root:not([lang|="zh"]) .phys-l.rv { letter-spacing: .04em; font-style: italic; }
+:root:not([lang|="zh"]) .era, :root:not([lang|="zh"]) .tag { letter-spacing: .02em; }
+.chip.lang { font-weight: 500; color: var(--ink); margin-left: auto; }
+
+@media (max-width: 860px) {
+  .app.side-first { grid-template-areas: "head" "map" "side" "time"; }
+  .search { order: 5; flex-basis: 100%; max-width: none; }
+  .chip.lang { order: -1; } /* level with the title, top right */
+  .brand { order: -2; }
+  html, body { height: auto; }
+  .app { height: auto; grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "map" "time" "side"; }
+  .mapwrap { height: 54vh; min-height: 300px; }
+  aside { overflow: visible; }
+  .brand h1 { font-size: 26px; }
+  /* reading on a phone: the map stays pinned at the top while the text scrolls underneath */
+  .app.reading { display: block; }
+  .app.reading .mapwrap { position: sticky; top: 0; z-index: 4; height: 42vh; min-height: 220px; }
+  .app.reading aside { margin-top: 10px; }
+  .rd-bar { top: max(42vh, 220px); }
+  .rd-step { scroll-margin-top: calc(max(42vh, 220px) + 44px); padding-inline: 18px; }
+  .rd-head, .rd-end { padding-inline: 18px; }
+  .rd-end { padding-bottom: 45vh; }
+  .year { font-size: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pulse { animation: none; }
+  .ev.pop path { animation: none; }
+  .ping { animation: none; opacity: 0; }
+  .poly, .lane-b { transition: none; }
+}
+</style>
+
+<div class="app">
+  <header>
+    <div class="brand">
+      <h1 data-i18n="title">欧陆古今</h1>
+      <p data-i18n="subtitle">欧洲历史地图 · 前700–2000</p>
+    </div>
+    <div class="modes" role="group" aria-label="模式" data-i18n-attr="aria-label:modes">
+      <button data-mode="explore" aria-pressed="true" data-i18n="mode.explore">探索</button>
+      <button data-mode="story" aria-pressed="false" data-i18n="mode.story">故事</button>
+      <button data-mode="compare" aria-pressed="false" data-i18n="mode.compare">对比</button>
+    </div>
+    <div class="clock">
+      <button class="btn" id="prev" aria-label="上一次边界更新" title="上一次边界更新（←）" data-i18n-attr="aria-label:prev,title:prevHint"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <div class="yearbox"><div class="year"><span id="year">&nbsp;</span><small data-i18n="yearUnit">年</small></div><div class="era" id="era">&nbsp;</div></div>
+      <button class="btn" id="next" aria-label="下一次边界更新" title="下一次边界更新（→）" data-i18n-attr="aria-label:next,title:nextHint"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      <button class="btn play" id="play" aria-label="播放" title="播放（空格）" data-i18n-attr="title:playHint"><svg viewBox="0 0 24 24" id="playicon"><path d="M7 4.5v15l12-7.5z"/></svg></button>
+    </div>
+    <div class="search" role="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      <input id="q" type="search" placeholder="搜索国家、城市、事件" autocomplete="off" spellcheck="false"
+        role="combobox" aria-expanded="false" aria-controls="qlist" aria-autocomplete="list" aria-label="搜索国家、城市、事件和故事"
+        data-i18n-attr="placeholder:search.placeholder,aria-label:search.label">
+      <kbd class="q-key">/</kbd>
+      <ul id="qlist" role="listbox" aria-label="搜索结果" data-i18n-attr="aria-label:search.results" hidden></ul>
+    </div>
+    <button class="chip lang" id="lang" lang="en" title="切换语言" data-i18n-attr="title:lang">English</button>
+  </header>
+
+  <div class="mapwrap" id="mapwrap">
+    <svg id="map" role="img" aria-label="欧洲历史疆域地图" data-i18n-attr="aria-label:map">
+      <defs>
+        <clipPath id="clip-a-land"><rect id="clip-a-land-r"></rect></clipPath>
+        <clipPath id="clip-a-ov"><rect id="clip-a-ov-r"></rect></clipPath>
+        <clipPath id="clip-b-ov"><rect id="clip-b-ov-r"></rect></clipPath>
+        <pattern id="mtn" patternUnits="userSpaceOnUse" width="12" height="12">
+          <path class="mtn-mark" d="M1 5L3.5 1.5L6 5M7 11L9.5 7.5L12 11"></path>
+        </pattern>
+        <pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+          <rect class="hatch-bg" width="6" height="6"></rect>
+          <line class="hatch-line" x1="1" y1="0" x2="1" y2="6"></line>
+        </pattern>
+      </defs>
+    </svg>
+    <div class="zoomctl">
+      <button class="btn" id="layers-btn" aria-expanded="false" aria-controls="layers" aria-label="地图图层" title="地图图层" data-i18n-attr="aria-label:layers,title:layers"><svg viewBox="0 0 24 24"><path d="M12 4l8.5 4.5L12 13 3.5 8.5z"/><path d="M3.5 12.5L12 17l8.5-4.5M3.5 16.5L12 21l8.5-4.5"/></svg></button>
+      <button class="btn" id="zin" aria-label="放大" data-i18n-attr="aria-label:zoomIn">+</button>
+      <button class="btn" id="zout" aria-label="缩小" data-i18n-attr="aria-label:zoomOut">−</button>
+      <button class="btn" id="zreset" aria-label="复位视图" title="复位视图" data-i18n-attr="aria-label:zoomReset,title:zoomReset"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4h4"/></svg></button>
+    </div>
+    <div class="layers" id="layers" role="group" aria-label="地图图层" data-i18n-attr="aria-label:layers" hidden>
+      <button class="chip" id="t-chg" aria-pressed="true"><i class="sw-chg"></i><span data-i18n="layer.chg">本期变化</span></button>
+      <button class="chip" id="t-ev" aria-pressed="true"><i class="sw-ev"></i><span data-i18n="layer.ev">事件</span></button>
+      <button class="chip" id="t-phys" aria-pressed="false"><i class="sw-phys"></i><span data-i18n="layer.phys">山川</span></button>
+      <button class="chip" id="t-modern" aria-pressed="false"><i class="sw-modern"></i><span data-i18n="layer.modern">今日国界</span></button>
+    </div>
+    <div class="read-year" id="read-year"></div>
+    <div class="tip" id="tip" hidden></div>
+    <div class="maphint" id="maphint" hidden data-i18n="twoFinger">用两指移动和缩放地图</div>
+    <div class="loading" id="loading" data-i18n="loading">载入中 · Loading…</div>
+  </div>
+
+  <aside id="side" tabindex="-1"></aside>
+
+  <div class="timewrap" id="timewrap">
+    <button class="lanes-tog" id="lanes-tog" aria-expanded="false" aria-controls="tl"></button>
+    <svg id="tl" role="slider" tabindex="0" aria-label="时间轴" data-i18n-attr="aria-label:timeline"></svg>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+(async function () {
+  const $ = s => document.querySelector(s);
+  const params = new URLSearchParams(location.search);
+  // regions: each one is a folder under regions/ with its region.json, data and locales; ?region=<id> picks one
+  const REGIONS = ["europe"];
+  const RDIR = `regions/${REGIONS.includes(params.get("region")) ? params.get("region") : REGIONS[0]}`;
+  // languages: each one is a locales/<code>.json file (the interface) plus regions/<id>/locales/<code>.json (the content)
+  const LOCALES = { zh: ["中文", "zh-CN"], en: ["English", "en"] }; // code: [native name, BCP 47 tag]
+  const LANG_KEY = "chronica.lang", LANES_KEY = "chronica.lanes";
+  // ?lang=<code> in the address, else the language last picked with the language button, else the first of the
+  // browser's preferred languages that the atlas has (zh-TW counts as zh), else English
+  const known = code => Object.hasOwn(LOCALES, code);
+  function pickLang() {
+    if (known(params.get("lang"))) return params.get("lang");
+    try {
+      const saved = localStorage.getItem(LANG_KEY);
+      if (known(saved)) return saved;
+    } catch (e) { /* storage unavailable */ }
+    for (const l of navigator.languages || [navigator.language || ""]) {
+      const code = String(l).toLowerCase().split("-")[0];
+      if (known(code)) return code;
+    }
+    return "en";
+  }
+  const getJSON = url => fetch(url).then(r => {
+    if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
+    return r.json();
+  });
+  const pData = Promise.all([
+    getJSON(`${RDIR}/region.json`),
+    getJSON(`${RDIR}/borders.json`),
+    getJSON(`${RDIR}/physical.json`).catch(() => null),
+    getJSON(`${RDIR}/events.json`),
+    getJSON(`${RDIR}/stories.json`),
+    getJSON(`${RDIR}/cities.json`),
+  ]);
+  pData.catch(() => {}); // a failure surfaces where it is awaited below
+  // A locale is the interface text with the region's content laid over it, section by section (the region's "ui"
+  // adds its title). A region not yet translated into the language shows its English content.
+  // sections a region may leave out: a missing name falls back to the source's English name, a missing text to its key
+  const SECTIONS = ["types", "lanes", "lineages", "notes", "presets", "names", "short", "cities", "rivers", "ranges", "events", "stories", "aliases"];
+  const complete = loc => { for (const k of SECTIONS) loc[k] = loc[k] || {}; loc.eras = loc.eras || []; return loc; };
+  const regionText = code => getJSON(`${RDIR}/locales/${code}.json`).catch(e => code === "en" ? Promise.reject(e) : regionText("en"));
+  async function loadLocale(code) {
+    const [base, region] = await Promise.all([getJSON(`locales/${code}.json`), regionText(code)]);
+    const out = { ...base };
+    for (const [k, v] of Object.entries(region)) out[k] = base[k] && typeof v === "object" && !Array.isArray(v) ? { ...base[k], ...v } : v;
+    return complete(out);
+  }
+  let LOC = await loadLocale(pickLang()); // the active locale; setLang() swaps it
+
+  // UI text with {name} placeholders; params go in as given, so escape anything that comes from data first
+  const tr = (key, params) => String(LOC.ui[key] ?? key).replace(/\{(\w+)\}/g, (m, k) => params && params[k] != null ? params[k] : "");
+  const srcName = key => String(key).split("|")[0];
+  // display name of a polity key; a missing translation falls back to the source data's (English) name
+  const pname = key => LOC.names[key] ?? LOC.names[srcName(key)] ?? srcName(key);
+  const typeName = type => LOC.types[type] ?? type;
+  const cityLabel = key => LOC.cities[key] ?? key;
+  // static text goes in before the 1.3 MB borders file has arrived, so the page starts in the right language
+  function applyText() {
+    document.documentElement.lang = LOC.meta.lang;
+    document.title = tr("title");
+    document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = tr(el.dataset.i18n); });
+    document.querySelectorAll("[data-i18n-attr]").forEach(el => {
+      for (const pair of el.dataset.i18nAttr.split(",")) {
+        const [attr, key] = pair.split(":");
+        el.setAttribute(attr, tr(key));
+      }
+    });
+    // the language button names the next language in the list
+    const codes = Object.keys(LOCALES), next = codes[(codes.indexOf(LOC.meta.code) + 1) % codes.length], btn = $("#lang");
+    [btn.textContent, btn.lang] = LOCALES[next];
+    btn.dataset.next = next;
+    document.documentElement.classList.add("i18n");
+  }
+  applyText();
+  const [RC, data, phys, eventRows, storyRows, cityRows] = await pData; // RC: the region's region.json
+
+  const YEARS = data.years, LIN = data.lineages, IDENTS = data.idents, CHANGES = data.changes, topo = data.topo;
+  // in year order whatever the file's order: "upcoming" and compare's "between" take the first ones
+  const EVENTS = eventRows.slice().sort((a, b) => a[1] - b[1]).map(([key, year, lat, lon, type], id) => ({ id, key, year, lat, lon, type, title: key, note: "" }));
+  const CITIES = cityRows.map(c => ({ lat: c[0], lon: c[1], rank: c[2], names: c[3] }));
+
+  const TYPES = {
+    war: { sym: d3.symbolDiamond }, treaty: { sym: d3.symbolSquare }, politics: { sym: d3.symbolCircle },
+    faith: { sym: d3.symbolTriangle }, culture: { sym: d3.symbolStar }, plague: { sym: d3.symbolCross },
+  };
+  // years are integers, negative for BC (-500 is 500 BC); there is no year 0
+  const Y0 = YEARS[0], YN = RC.end, START = RC.start;
+  const ERAS = RC.eras.slice(1).map((b, i) => [RC.eras[i], b]); // names: LOC.eras
+  // piecewise-linear time scale: [year, share of the timeline]; sparse early centuries compressed, dense ones stretched
+  const SEG = RC.scale;
+  // lineage colours [light, dark], in the order of the timeline lanes
+  const LANES = Object.keys(RC.lineages);
+  const tone = i => LANES.map(id => `--lin-${id}: ${RC.lineages[id][i]};`).join(" ");
+  document.head.append(Object.assign(document.createElement("style"), { textContent: `:root { ${tone(0)} }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { ${tone(1)} } }
+    :root[data-theme="dark"] { ${tone(1)} }` }));
+  // before denseFrom, fewer events are recorded per century: "recent" events reach back 100 years rather than 25,
+  // and the timeline counts them in half-centuries rather than decades
+  const DENSE = RC.denseFrom ?? -Infinity;
+  const windowAt = y => y < DENSE ? 100 : 25;
+
+  const tf = y => {
+    for (let i = 1; i < SEG.length; i++) {
+      const [y0, t0] = SEG[i - 1], [y1, t1] = SEG[i];
+      if (y <= y1) return t0 + (y - y0) / (y1 - y0) * (t1 - t0);
+    }
+    return 1;
+  };
+  const ty = t => {
+    for (let i = 1; i < SEG.length; i++) {
+      const [y0, t0] = SEG[i - 1], [y1, t1] = SEG[i];
+      if (t <= t1) return y0 + (t - t0) / (t1 - t0) * (y1 - y0);
+    }
+    return YN;
+  };
+  const snapIndexFor = y => { let i = 0; while (i + 1 < YEARS.length && YEARS[i + 1] <= y) i++; return i; };
+  const eraOf = y => {
+    const i = ERAS.findIndex(e => y < e[1]);
+    return LOC.eras[i < 0 ? ERAS.length - 1 : i] ?? "";
+  };
+  // "wan" counts in units of 10,000 (万), as Chinese readers expect; other locales get grouped digits
+  const fmtArea = a => LOC.meta.area === "wan"
+    ? (a >= 1e4 ? `${(a / 1e4).toFixed(a >= 1e6 ? 0 : 1)} 万 km²` : `${Math.round(a / 100) * 100} km²`)
+    : `${new Intl.NumberFormat(LOC.meta.lang, { maximumSignificantDigits: 3 }).format(a)} km²`;
+  const approx = a => tr("approx", { v: fmtArea(a) });
+  // 500 BC is "前500" in Chinese and "500 BC" in English (locale ui.bc)
+  const fy = y => y < 0 ? tr("bc", { y: -y }) : String(y);
+  const fyr = (a, b) => a === b ? fy(a) : `${fy(a)}–${fy(b)}`;
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const hash = s => { let h = 0; for (const ch of s) h = (h * 31 + ch.codePointAt(0)) | 0; return Math.abs(h); };
+  const textW = (s, fs) => { let w = 0; for (const ch of s) w += /[\u2e80-\uffff]/.test(ch) ? 1 : .58; return w * fs; };
+
+  const storedLanes = () => { try { return localStorage.getItem(LANES_KEY) === "1"; } catch (e) { return false; } };
+  // lanes: the timeline's per-power lanes are open; chgAll: the side panel lists all of this snapshot's changes, not just the largest;
+  // reading: a story is open in the reading layout (its full text beside the map)
+  const state = { year: null, t: tf(START), snap: -1, sel: null, show: { chg: true, ev: true, modern: false, phys: false }, playing: false, mode: "explore", story: null, yearA: null, snapA: -1, lanes: storedLanes(), chgAll: false, reading: false };
+  const STORIES = storyRows.map(ch => ({
+    id: ch.id, span: ch.span, title: ch.id, lede: "",
+    steps: ch.steps.map(st => ({ ...st, t: "", b: "", evIds: (st.ev || []).map(k => EVENTS.findIndex(e => e.key === k)).filter(i => i >= 0) })),
+  }));
+  // event and story text come from the active locale
+  function localizeContent() {
+    for (const e of EVENTS) [e.title, e.note] = LOC.events[e.key] || [e.key, ""];
+    for (const c of STORIES) {
+      const tx = LOC.stories[c.id] || {};
+      c.title = tx.title || c.id;
+      c.lede = tx.lede || "";
+      // a step's optional third part is its full text: { p: [paragraphs], facts: [[label, value], …] }
+      c.steps.forEach((st, i) => { [st.t, st.b, st.long] = (tx.steps || [])[i] || ["", ""]; });
+    }
+  }
+  localizeContent();
+  const curStep = () => state.story ? STORIES[state.story.ch].steps[state.story.step] : null;
+  const hasLong = c => c.steps.some(st => st.long);
+
+  // ---------- geometry ----------
+  function fixWinding(f) {
+    const g = f.geometry;
+    if (!g) return f;
+    const fix = rings => d3.geoArea({ type: "Polygon", coordinates: rings }) > 2 * Math.PI ? rings.map(r => r.slice().reverse()) : rings;
+    if (g.type === "Polygon") g.coordinates = fix(g.coordinates);
+    else if (g.type === "MultiPolygon") g.coordinates = g.coordinates.map(fix);
+    return f;
+  }
+  const featCache = new Map(), chgCache = new Map();
+  function polysOf(y) {
+    if (!featCache.has(y)) {
+      const fs = topojson.feature(topo, topo.objects["s" + y]).features.map(fixWinding);
+      colorNeutrals(fs, topojson.neighbors(topo.objects["s" + y].geometries));
+      featCache.set(y, fs);
+    }
+    return featCache.get(y);
+  }
+  // greedy colouring so that neighbouring polities without a lineage colour never share a neutral;
+  // each identity starts from its own preferred tone so colours stay stable from snapshot to snapshot
+  function colorNeutrals(fs, nb) {
+    const order = fs.map((f, i) => i).filter(i => !fs[i].properties.l && !fs[i].properties.p && fs[i].properties.i !== "_none")
+      .sort((a, b) => fs[b].properties.a - fs[a].properties.a);
+    for (const i of order) {
+      const used = new Set(nb[i].map(j => fs[j].properties._n).filter(c => c != null));
+      const pref = hash(fs[i].properties.i) % 5;
+      let c = pref;
+      for (let t = 1; t < 5 && used.has(c); t++) c = (pref + t) % 5;
+      fs[i].properties._n = c;
+    }
+  }
+  function changesOf(y) {
+    if (!chgCache.has(y)) {
+      const o = topo.objects["d" + y], list = CHANGES[y] || [];
+      chgCache.set(y, o ? topojson.feature(topo, o).features.map(f => {
+        Object.assign(f.properties, list[f.properties.k]);
+        return fixWinding(f);
+      }) : []);
+    }
+    return chgCache.get(y);
+  }
+  // the map window [[west, south], [east, north]], which the data is clipped to: the sea is drawn over it, with its
+  // edges in 1° steps so they curve with the projection
+  const [[WW, WS], [WE, WN]] = RC.window;
+  const edge = (a, b) => [...d3.range(a, b, a < b ? 1 : -1), b];
+  const EXTENT = fixWinding({ type: "Feature", geometry: { type: "Polygon", coordinates: [[
+    ...edge(WW, WE).map(x => [x, WS]), ...edge(WS, WN).slice(1).map(y => [WE, y]),
+    ...edge(WE, WW).slice(1).map(x => [x, WN]), ...edge(WN, WS).slice(1).map(y => [WW, y])]] } });
+  const GRAT = d3.geoGraticule().extent([[WW, WS], [WE + .01, WN + .01]]).step([10, 10])();
+  const MODERN = topojson.mesh(topo, topo.objects["s" + YEARS[YEARS.length - 1]], (a, b) => a !== b);
+  // the opening view: the smallest view that holds these points (for Europe: Lisbon to Moscow, Crete to central Sweden)
+  const FOCUS = { type: "MultiPoint", coordinates: RC.focus };
+
+  // ---------- map ----------
+  const mapEl = $("#mapwrap"), svg = d3.select("#map"), tip = $("#tip");
+  const gRoot = svg.append("g");
+  const seaPath = gRoot.append("path").attr("class", "sea");
+  const gratPath = gRoot.append("path").attr("class", "grat");
+  const gLand = gRoot.append("g");
+  const gLandA = gRoot.append("g").attr("clip-path", "url(#clip-a-land)").style("display", "none");
+  const gPhys = gRoot.append("g").attr("class", "phys").style("display", state.show.phys ? null : "none");
+  const rangePath = gPhys.append("path").attr("class", "range");
+  const gRivers = gPhys.append("g");
+  const lakePath = gPhys.append("path").attr("class", "lake");
+  const gChg = gRoot.append("g");
+  const gPulse = gRoot.append("g");
+  const modernPath = gRoot.append("path").attr("class", "modern");
+  const gOver = svg.append("g");
+  const gPhysLabels = gOver.append("g"), gCities = gOver.append("g"), gLabels = gOver.append("g");
+  const gLabelsA = gOver.append("g").attr("clip-path", "url(#clip-a-ov)").style("display", "none");
+  const gEvents = gOver.append("g"), gCmp = gOver.append("g").style("display", "none");
+  const hatch = d3.select("#hatch");
+
+  // region.json "projection": a d3-geo projection name and its settings, e.g. { "type": "ConicConformal", "rotate": … }
+  const { type: projType, ...projSet } = RC.projection;
+  const proj = d3["geo" + projType]();
+  for (const [k, v] of Object.entries(projSet)) proj[k](v);
+  const path = d3.geoPath(proj);
+  let W = 0, H = 0, zt = d3.zoomIdentity, feats = [], labelBoxes = [], cityBoxes = [], occupied = [];
+  let goal = null; // restarts the zoom under way (to a story step, a state, an event) when a refit changes the map's size
+  let ctlBox = [0, 0, 0, 0]; // the map buttons, which names and labels keep clear of
+  let featsA = [], divX = .5; // compare mode: left-year features and the divider position as a share of the map width
+  const comparing = () => state.mode === "compare";
+
+  const mtnPattern = d3.select("#mtn");
+  const RIVERS = phys ? topojson.feature(phys.topo, phys.topo.objects.rivers).features : [];
+  const LAKES = phys ? { type: "FeatureCollection", features: topojson.feature(phys.topo, phys.topo.objects.lakes).features.map(fixWinding) } : null;
+  const RANGES = phys ? { type: "FeatureCollection", features: topojson.feature(phys.topo, phys.topo.objects.ranges).features.map(fixWinding) } : null;
+  const riverClass = r => "river " + (r <= 2 ? "r1" : r <= 4 ? "r2" : r <= 6 ? "r3" : r <= 7 ? "r4" : "r5");
+  const zoom = d3.zoom().scaleExtent([.5, 14]).on("zoom", ev => {
+    zt = ev.transform;
+    if (ev.sourceEvent) goal = null; // the reader moved the map
+    gRoot.attr("transform", zt);
+    hatch.attr("patternTransform", `scale(${1 / zt.k}) rotate(45)`);
+    mtnPattern.attr("patternTransform", `scale(${1 / zt.k})`);
+    svg.classed("z2", zt.k >= 1.5).classed("z3", zt.k >= 2.5);
+    if (comparing()) updateClips();
+    scheduleOverlay();
+  });
+  svg.call(zoom);
+  // In the one-column layout the page scrolls past the map: one finger scrolls the page, two fingers move the map.
+  const oneColumn = matchMedia("(max-width: 860px)");
+  zoom.filter(ev => ev.type.startsWith("touch") ? !oneColumn.matches || ev.touches.length > 1 : (!ev.ctrlKey || ev.type === "wheel") && !ev.button);
+  const syncTouch = () => svg.style("touch-action", oneColumn.matches ? "pan-x pan-y" : "none");
+  syncTouch();
+  oneColumn.addEventListener("change", syncTouch);
+  let hintTimer = 0, hintsLeft = 3;
+  svg.on("touchmove.hint", ev => {
+    if (!oneColumn.matches || ev.touches.length !== 1 || !hintsLeft) return;
+    const h = $("#maphint");
+    if (h.hidden) hintsLeft--;
+    h.hidden = false;
+    clearTimeout(hintTimer);
+    hintTimer = setTimeout(() => { h.hidden = true; }, 1600);
+  }, { passive: true });
+
+  function fit() {
+    const r = mapEl.getBoundingClientRect();
+    // nothing to do at an unchanged size (the ResizeObserver also reports sizes that setReading() has already fitted)
+    if (!r.width || !r.height || (r.width === W && r.height === H)) return;
+    // a zoom under way is aimed again at its target; otherwise, when zoomed in, keep the place at the centre of the
+    // view (and the zoom level) through the refit
+    const keep = !goal && W && (zt.k !== 1 || zt.x || zt.y) ? proj.invert(zt.invert([W / 2, H / 2])) : null;
+    W = r.width; H = r.height;
+    const c = $(".zoomctl").getBoundingClientRect();
+    ctlBox = [c.left - r.left - 6, c.top - r.top - 6, W, H];
+    svg.attr("viewBox", `0 0 ${W} ${H}`);
+    proj.fitExtent([[24, 48], [W - 24, H - 24]], FOCUS);
+    const [[x0, y0], [x1, y1]] = path.bounds(EXTENT);
+    zoom.extent([[0, 0], [W, H]]).translateExtent([[x0 - W * .3, y0 - H * .3], [x1 + W * .3, y1 + H * .3]]);
+    if (goal) goal();
+    else if (keep) {
+      const [x, y] = proj(keep);
+      svg.interrupt().call(zoom.transform, d3.zoomIdentity.translate(W / 2 - zt.k * x, H / 2 - zt.k * y).scale(zt.k));
+    }
+    seaPath.attr("d", path(EXTENT));
+    gratPath.attr("d", path(GRAT));
+    modernPath.attr("d", state.show.modern ? path(MODERN) : null);
+    rangePath.attr("d", RANGES ? path(RANGES) : null);
+    lakePath.attr("d", LAKES ? path(LAKES) : null);
+    gRivers.selectAll("path").data(RIVERS).join("path").attr("class", d => riverClass(d.properties.r)).attr("d", path);
+    if (state.snap >= 0) renderSnapshot(false);
+    if (comparing()) renderCompare();
+  }
+
+  function fillOf(p) {
+    if (p.i === "_none") return "var(--land-empty)";
+    if (p.p) return "var(--land-people)";
+    if (p.l) return p.v ? `color-mix(in srgb, var(--lin-${p.l}) 50%, var(--land))` : `var(--lin-${p.l})`;
+    return `var(--n${p._n ?? hash(p.i) % 5})`;
+  }
+
+  function renderSnapshot(pulse) {
+    const y = YEARS[state.snap];
+    feats = polysOf(y);
+    feats.forEach(f => { f._area = path.area(f); f._bounds = path.bounds(f); });
+    gLand.selectAll("path").data(feats).join("path")
+      .attr("class", d => "poly" + (d.properties.v ? " vassal" : ""))
+      .attr("d", path)
+      .style("fill", d => fillOf(d.properties));
+    const cs = state.show.chg && !comparing() ? changesOf(y) : [];
+    gChg.selectAll("path").data(cs).join("path").attr("class", "chg").attr("d", path);
+    gPulse.selectAll("path").remove();
+    if (pulse && cs.length) gPulse.selectAll("path").data(cs).join("path").attr("class", "pulse").attr("d", path);
+    applySelection();
+  }
+
+  function updateClock() {
+    const y = state.year, sy = YEARS[state.snap], next = YEARS[state.snap + 1];
+    $("#year").textContent = fy(y);
+    $("#read-year").innerHTML = `${fy(y)}<small>${esc(tr("yearUnit"))}</small>`;
+    if (comparing()) {
+      $("#era").innerHTML = `${esc(tr("compareLine"))} <b>${fy(state.yearA)}</b> ↔ <b>${fy(y)}</b>`;
+      $("#era").title = tr("compareTitle", { a: fy(YEARS[state.snapA]), b: fy(sy) });
+      placeBadges();
+      return;
+    }
+    $("#era").innerHTML = `${esc(eraOf(y))} · ${esc(tr("borders"))} <b class="${y === sy ? "" : "lag"}">${fy(sy)}</b>`;
+    $("#era").title = tr("snapTitle", { y: fy(sy) }) + (next ? tr("snapNext", { y: fy(next) }) : "");
+  }
+
+  // fade the outgoing snapshot's fills and labels over the incoming one; rapid steps keep only the latest copy
+  let fading = [];
+  function crossfade() {
+    fading.forEach(n => n.remove());
+    fading = [];
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    for (const g of [gLand, gLabels]) {
+      const ghost = g.node().cloneNode(true);
+      ghost.style.pointerEvents = "none";
+      g.node().after(ghost);
+      fading.push(ghost);
+      ghost.style.transition = "opacity .42s ease-out";
+      ghost.getBoundingClientRect(); // flush styles so the change below starts a transition
+      ghost.style.opacity = "0";
+      setTimeout(() => ghost.remove(), 460);
+    }
+  }
+
+  // what the map is focused on: a selected polity or lineage ("dim" the rest) or a story step's powers ("soft")
+  function focus() {
+    const s = state.sel, st = curStep();
+    if (s) return s.kind === "event" ? null : { cls: "dim", hit: p => s.kind === "ident" ? p.i === s.id : p.l === s.id };
+    if (st && st.hl && st.hl.length) {
+      const hl = new Set(st.hl);
+      return { cls: "soft", hit: p => hl.has(p.l) || hl.has(p.i) };
+    }
+    return null;
+  }
+  function fade(sel, propsOf, f) {
+    sel.classed("dim", d => !!f && f.cls === "dim" && !f.hit(propsOf(d)))
+      .classed("soft", d => !!f && f.cls === "soft" && !f.hit(propsOf(d)));
+  }
+  function applySelection() {
+    const f = focus();
+    const land = d3.selectAll([...gLand.selectAll("path").nodes(), ...gLandA.selectAll("path").nodes()])
+      .classed("sel", d => !!f && f.hit(d.properties));
+    fade(land, d => d.properties, f);
+    gLand.selectAll("path.sel").raise();
+    gLandA.selectAll("path.sel").raise();
+    gPhys.classed("muted", !!f && f.cls === "dim");
+    placeLabels();
+    renderCities();
+  }
+
+  function placeLabels() {
+    const fo = focus(), cut = divX * W;
+    labelBoxes = [ctlBox];
+    placeLabelSet(feats, gLabels, fo, comparing() ? x => x > cut : null);
+    placeLabelSet(comparing() ? featsA : [], gLabelsA, fo, x => x < cut);
+  }
+  function labelNames(key) {
+    const full = pname(key), short = (LOC.short || {})[key] ?? (LOC.short || {})[srcName(key)];
+    const bare = full.replace(/\s*[（(][^（）()]*[）)]$/, "");
+    return [...new Set([full, short, bare].filter(Boolean))];
+  }
+  // for a polity whose label point is off-screen: a point inside the part that is in view, and that part's rough area
+  function inView(ft) {
+    const [x0, y0] = zt.apply(ft._bounds[0]), [x1, y1] = zt.apply(ft._bounds[1]);
+    const vx0 = Math.max(0, x0), vy0 = Math.max(0, y0), vx1 = Math.min(W, x1), vy1 = Math.min(H, y1);
+    const area = (vx1 - vx0) * (vy1 - vy0) * .5;
+    if (vx1 <= vx0 || vy1 <= vy0 || area < 2500) return null;
+    for (const [fx, fy] of [[.5, .5], [.35, .5], [.65, .5], [.5, .35], [.5, .65], [.3, .3], [.7, .3], [.3, .7], [.7, .7]]) {
+      const x = vx0 + (vx1 - vx0) * fx, y = vy0 + (vy1 - vy0) * fy;
+      if (d3.geoContains(ft, proj.invert(zt.invert([x, y])))) return [x, y, Math.min(ft._area * zt.k * zt.k, area)];
+    }
+    return null;
+  }
+  const LABEL_MIN = 12; // px; smaller Chinese names are hard to read, so a state too small for this goes unlabelled until zoomed
+  function placeLabelSet(list, group, f, side) {
+    const k = zt.k, cands = [];
+    for (const ft of list) {
+      const p = ft.properties;
+      if (!p.n || p.i === "_none") continue;
+      let a = ft._area * k * k;
+      if (a < 260) continue;
+      let [x, y] = zt.apply(proj([p.x, p.y])), moved = false;
+      if (x < 0 || x > W || y < 0 || y > H) {
+        const v = inView(ft);
+        if (!v) continue;
+        [x, y, a] = v;
+        moved = true;
+      }
+      if (side && !side(x)) continue;
+      cands.push({ ft, p, a, x, y, moved });
+    }
+    cands.sort((a, b) => (f ? f.hit(b.p) - f.hit(a.p) : 0) || (a.p.p || 0) - (b.p.p || 0) || b.a - a.a); // states before peoples
+    const out = [];
+    for (const c of cands) {
+      const s = Math.sqrt(c.a);
+      // the full name, unless it would be tiny or not fit and a short form (locale "short", or the name without a
+      // trailing parenthesis) reads larger
+      const fits = labelNames(c.p.n).map(txt => {
+        let fs = Math.min(22, Math.max(LABEL_MIN, s * .1));
+        if (c.p.v) fs = Math.max(LABEL_MIN, fs * .85);
+        if (c.p.p) fs = Math.min(14, fs);
+        const w = textW(txt, fs);
+        if (w > s * 1.6) fs = fs * s * 1.6 / w;
+        return { txt, fs };
+      }).filter(o => o.fs >= LABEL_MIN);
+      if (!fits.length) continue;
+      const pick = fits[0].txt === pname(c.p.n) && fits[0].fs >= LABEL_MIN + 1 ? fits[0] : fits.reduce((a, b) => b.fs > a.fs ? b : a);
+      const txt = pick.txt, fs = pick.fs;
+      let w = textW(txt, fs);
+      const big = fs >= 15;
+      if (big) w += txt.length * fs * .14;
+      // a name cut off at the map's edge reads as a different one: a large polity's name moves in a little, others are dropped
+      const at = (cx, cy) => {
+        const dx = Math.max(0, w / 2 + 2 - cx) || Math.min(0, W - cx - w / 2 - 2);
+        const dy = Math.max(0, fs * .65 - cy) || Math.min(0, H - cy - fs * .65);
+        if (Math.abs(dx) > s * .3 || Math.abs(dy) > s * .3) return null;
+        const x = cx + dx, y = cy + dy, b = [x - w / 2 - 2, y - fs * .65, x + w / 2 + 2, y + fs * .65];
+        return labelBoxes.some(q => q[0] < b[2] && b[0] < q[2] && q[1] < b[3] && b[1] < q[3]) ? null : { x, y, b };
+      };
+      // when the usual spot is taken or near the edge, try the middle of the part that is in view
+      let spot = at(c.x, c.y);
+      if (!spot && !c.moved) {
+        const v = inView(c.ft);
+        if (v && (!side || side(v[0]))) spot = at(v[0], v[1]);
+      }
+      if (!spot) continue;
+      labelBoxes.push(spot.b);
+      out.push({ p: c.p, x: spot.x, y: spot.y, fs, big, txt });
+    }
+    group.selectAll("text").data(out).join("text")
+      .attr("class", d => "label" + (d.big ? " big" : "") + (d.p.p ? " people" : ""))
+      .attr("x", d => d.x).attr("y", d => d.y)
+      .style("font-size", d => d.fs.toFixed(1) + "px")
+      .text(d => d.txt)
+      .classed("hit", d => !!f && f.hit(d.p));
+    fade(group.selectAll("text"), d => d.p, f);
+  }
+
+  // a city's name in a year; a null name means it no longer exists
+  const cityName = (c, y) => { let n = null; for (const [from, nm] of c.names) if (y >= from) n = nm; return n; };
+  const cityModern = c => c.names.filter(n => n[1]).pop()[1];
+  function renderCities() {
+    const k = zt.k, Y = state.year, boxes = labelBoxes.slice();
+    cityBoxes = [];
+    const rows = [];
+    const cut = comparing() ? divX * W : -Infinity;
+    for (const c of CITIES) {
+      if (c.rank === 1 ? k < .85 : k < 2.2) continue;
+      const [x, y] = zt.apply(proj([c.lon, c.lat]));
+      if (x < -10 || x > W + 10 || y < -10 || y > H + 10) continue;
+      const key = cityName(c, x < cut ? state.yearA : Y);
+      if (!key) continue;
+      const nm = cityLabel(key), modern = cityModern(c);
+      const now = key !== modern && k >= 2.6 ? tr("cityNow", { name: cityLabel(modern) }) : "";
+      const w = textW(nm, 12) + 6, b = [x + 4, y - 9, x + 4 + w, y + (now ? 19 : 8)];
+      const free = !boxes.some(q => q[0] < b[2] && b[0] < q[2] && q[1] < b[3] && b[1] < q[3]);
+      if (free) { boxes.push(b); cityBoxes.push(b); }
+      rows.push({ x, y, nm: free ? nm : "", now: free ? now : "" });
+    }
+    const g = gCities.selectAll("g.city").data(rows).join(enter => {
+      const e = enter.append("g").attr("class", "city");
+      e.append("circle").attr("r", 2.6);
+      const t = e.append("text").attr("x", 6).attr("dy", "0.35em");
+      t.append("tspan").attr("class", "nm");
+      t.append("tspan").attr("class", "now").attr("x", 6).attr("dy", "1.2em");
+      return e;
+    });
+    g.attr("transform", d => `translate(${d.x},${d.y})`);
+    g.select("tspan.nm").text(d => d.nm);
+    g.select("tspan.now").text(d => d.now);
+  }
+
+  function visibleEvents() {
+    const Y = state.year, selId = state.sel && state.sel.kind === "event" ? state.sel.id : -1;
+    const storyIds = (curStep() || {}).evIds || [];
+    return EVENTS.filter(e => e.id === selId || storyIds.includes(e.id) || (state.show.ev && !comparing() && e.year <= Y && e.year > Y - windowAt(Y)));
+  }
+  function renderEvents() {
+    const Y = state.year, selId = state.sel && state.sel.kind === "event" ? state.sel.id : -1;
+    const vis = visibleEvents().map(e => {
+      const [x, y] = zt.apply(proj([e.lon, e.lat]));
+      return { e, x, y, age: Math.max(0, Y - e.year) };
+    });
+    const storyIds = new Set((curStep() || {}).evIds || []);
+    const labelled = new Set(vis.filter(d => d.age <= windowAt(Y) / 4).sort((a, b) => a.age - b.age).slice(0, storyIds.size ? 1 : 3).map(d => d.e.id));
+    storyIds.forEach(id => labelled.add(id));
+    if (selId >= 0) labelled.add(selId);
+    const g = gEvents.selectAll("g.ev").data(vis, d => d.e.id).join(
+      enter => {
+        const e = enter.append("g").attr("class", "ev pop");
+        e.append("path").attr("d", d => d3.symbol((TYPES[d.e.type] || TYPES.politics).sym, d.e.type === "culture" ? 90 : 70)()); // an unknown type: a circle
+        e.append("text").attr("dy", "0.35em");
+        setTimeout(() => e.classed("pop", false), 600);
+        return e;
+      });
+    g.attr("transform", d => `translate(${d.x},${d.y})`)
+      .attr("opacity", d => d.e.id === selId ? 1 : 1 - Math.min(1, d.age / windowAt(Y)) * .7)
+      .classed("now", d => d.age <= 1 || storyIds.has(d.e.id))
+      .classed("sel", d => d.e.id === selId);
+    const boxes = labelBoxes.concat(cityBoxes);
+    occupied = boxes;
+    const order = vis.filter(d => labelled.has(d.e.id))
+      .sort((a, b) => (b.e.id === selId) - (a.e.id === selId) || storyIds.has(b.e.id) - storyIds.has(a.e.id) || a.age - b.age);
+    const pos = new Map();
+    for (const d of order) {
+      const w = textW(d.e.title, 12) + 4, x = d.x, y = d.y;
+      const opts = [[x + 9, y - 8, x + 9 + w, y + 8, "start", 9, 0], [x - 9 - w, y - 8, x - 9, y + 8, "end", -9, 0],
+        [x - w / 2, y - 26, x + w / 2, y - 10, "middle", 0, -18], [x - w / 2, y + 10, x + w / 2, y + 26, "middle", 0, 18]];
+      const inside = b => b[0] >= 2 && b[2] <= W - 2 && b[1] >= 2 && b[3] <= H - 2;
+      let o = opts.find(b => inside(b) && !boxes.some(q => q[0] < b[2] && b[0] < q[2] && q[1] < b[3] && b[1] < q[3]));
+      if (!o && (d.e.id === selId || storyIds.has(d.e.id))) o = opts[0];
+      if (!o) continue;
+      boxes.push(o);
+      pos.set(d.e.id, o);
+    }
+    g.select("text")
+      .text(d => pos.has(d.e.id) ? d.e.title : "")
+      .attr("x", d => pos.has(d.e.id) ? pos.get(d.e.id)[5] : 9)
+      .attr("y", d => pos.has(d.e.id) ? pos.get(d.e.id)[6] : 0)
+      .attr("text-anchor", d => pos.has(d.e.id) ? pos.get(d.e.id)[4] : "start");
+    g.filter(d => d.e.id === selId).raise();
+    placePhysLabels();
+  }
+
+  function placePhysLabels() {
+    const k = zt.k, out = [], boxes = occupied.slice();
+    if (phys && state.show.phys) {
+      const free = b => !boxes.some(q => q[0] < b[2] && b[0] < q[2] && q[1] < b[3] && b[1] < q[3]);
+      const mtMin = [0, .9, .9, 1.5, 2.3, 3.2], tracking = LOC.meta.code === "zh" ? 3.5 : 1.5;
+      for (const [key, lon, lat, rank] of phys.rangeLabels.slice().sort((a, b) => a[3] - b[3])) {
+        if (k < mtMin[rank]) continue;
+        const label = LOC.ranges[key] || key;
+        const [x, y] = zt.apply(proj([lon, lat])), w = textW(label, 11) + label.length * tracking;
+        const b = [x - w / 2, y - 8, x + w / 2, y + 8];
+        if (x < 0 || x > W || y < 0 || y > H || !free(b)) continue;
+        boxes.push(b);
+        out.push({ cls: "phys-l mt", label, x, y, a: 0 });
+      }
+      for (const [key, lon, lat, lon2, lat2, rank] of phys.riverLabels.slice().sort((a, b) => a[5] - b[5])) {
+        if (k < (rank <= 4 ? 1.3 : rank <= 6 ? 2 : 3)) continue;
+        const label = LOC.rivers[key] || key;
+        const [x1, y1] = zt.apply(proj([lon, lat])), [x2, y2] = zt.apply(proj([lon2, lat2]));
+        let a = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+        if (a > 90) a -= 180;
+        if (a < -90) a += 180;
+        const x = (x1 + x2) / 2, y = (y1 + y2) / 2, w = textW(label, 11) + label.length * 2, r = a * Math.PI / 180;
+        const hw = Math.abs(w / 2 * Math.cos(r)) + Math.abs(7 * Math.sin(r)), hh = Math.abs(w / 2 * Math.sin(r)) + Math.abs(7 * Math.cos(r));
+        const b = [x - hw, y - hh, x + hw, y + hh];
+        if (x < 0 || x > W || y < 0 || y > H || !free(b)) continue;
+        boxes.push(b);
+        out.push({ cls: "phys-l rv", label, x, y, a });
+      }
+    }
+    gPhysLabels.selectAll("text").data(out).join("text")
+      .attr("class", d => d.cls)
+      .attr("transform", d => `translate(${d.x},${d.y}) rotate(${d.a.toFixed(1)})`)
+      .text(d => d.label);
+  }
+
+  let overlayQueued = false;
+  function scheduleOverlay() {
+    if (overlayQueued) return;
+    overlayQueued = true;
+    requestAnimationFrame(() => { overlayQueued = false; placeLabels(); renderCities(); renderEvents(); });
+  }
+
+  // tooltips
+  function showTip(html, ev) {
+    tip.innerHTML = html;
+    tip.hidden = false;
+    const r = mapEl.getBoundingClientRect();
+    let x = ev.clientX - r.left + 14, y = ev.clientY - r.top + 14;
+    const tw = tip.offsetWidth, th = tip.offsetHeight;
+    if (x + tw > r.width - 8) x = ev.clientX - r.left - tw - 14;
+    if (y + th > r.height - 8) y = ev.clientY - r.top - th - 14;
+    tip.style.transform = `translate(${Math.max(4, x)}px,${Math.max(4, y)}px)`;
+  }
+  const hideTip = () => { tip.hidden = true; };
+  function polyTip(p) {
+    if (p.i === "_none") return `<b>${esc(pname("_none"))}</b>`;
+    const name = pname(p.n), src = srcName(p.n);
+    return `<b>${esc(name)}</b>` + (LOC.meta.code !== "en" && src !== name ? `<span>${esc(src)}</span>` : "") +
+      (p.o ? `<span>${esc(tr("overlord", { name: pname(p.o) }))}</span>` : "") + `<span>${esc(approx(p.a))}</span>`;
+  }
+  const chgTip = p => `<b>${esc(tr("changeRow", { to: pname(p.toK), from: pname(p.fromK) }))}</b>` +
+    `<span>${esc(tr("snapRange", { a: fy(YEARS[state.snap - 1]), b: fy(YEARS[state.snap]) }))} · ${esc(approx(p.a))}</span>`;
+  const evTip = e => `<b>${fy(e.year)} · ${esc(e.title)}</b><span>${esc(typeName(e.type))}</span>`;
+
+  svg.on("pointermove", ev => {
+    if (ev.pointerType === "touch") return;
+    const t = ev.target, evG = t.closest && t.closest(".ev");
+    if (evG) return showTip(evTip(d3.select(evG).datum().e), ev);
+    const d = t.__data__;
+    if (d && t.classList.contains("chg")) return showTip(chgTip(d.properties), ev);
+    if (d && t.classList.contains("poly")) return showTip(polyTip(d.properties), ev);
+    hideTip();
+  }).on("pointerleave", hideTip);
+
+  svg.on("click", ev => {
+    const t = ev.target, evG = t.closest && t.closest(".ev");
+    if (evG) return select({ kind: "event", id: d3.select(evG).datum().e.id });
+    const d = t.__data__;
+    if (d && t.classList.contains("chg")) return select({ kind: "ident", id: d.properties.to });
+    if (d && t.classList.contains("poly") && d.properties.i !== "_none") return select({ kind: "ident", id: d.properties.i, side: gLandA.node().contains(t) ? "a" : "b" });
+    if (t.closest && t.closest(".cmp-div")) return; // a click on the compare divider is not a click on the map
+    select(null);
+  });
+
+  const motion = ms => matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : ms;
+  // a zoom to a target computed for the map's current size; again() computes and starts it afresh after a refit
+  function aim(t, ms, again) {
+    goal = again;
+    svg.transition().duration(motion(ms)).call(zoom.transform, t).on("end", () => { if (goal === again) goal = null; });
+  }
+  function zoomToFeature(f) {
+    const [[x0, y0], [x1, y1]] = path.bounds(f);
+    const k = Math.max(.5, Math.min(6, .7 / Math.max((x1 - x0) / W, (y1 - y0) / H)));
+    aim(d3.zoomIdentity.translate(W / 2 - k * (x0 + x1) / 2, H / 2 - k * (y0 + y1) / 2).scale(k), 700, () => zoomToFeature(f));
+  }
+  function zoomToPoint(lon, lat) {
+    const [x, y] = proj([lon, lat]), k = Math.max(zt.k, 3);
+    aim(d3.zoomIdentity.translate(W / 2 - k * x, H / 2 - k * y).scale(k), 700, () => zoomToPoint(lon, lat));
+  }
+  $("#zin").onclick = () => { goal = null; svg.transition().duration(motion(300)).call(zoom.scaleBy, 1.6); };
+  $("#zout").onclick = () => { goal = null; svg.transition().duration(motion(300)).call(zoom.scaleBy, 1 / 1.6); };
+  $("#zreset").onclick = () => { goal = null; svg.transition().duration(motion(500)).call(zoom.transform, d3.zoomIdentity); };
+
+  // ---------- timeline ----------
+  const tl = d3.select("#tl");
+  let TL = null;
+
+  function drawTimeline() {
+    const w = $("#timewrap").clientWidth;
+    if (!w) return;
+    const narrow = w < 640;
+    // the lanes are folded away by default, leaving eras, event density and the axis
+    const lanes = state.lanes ? LANES : [];
+    const G = narrow ? 82 : 104, X0 = G, X1 = w - 14, laneH = narrow ? 11 : 12;
+    const eraY = 2, eraH = 20, lanesY = eraY + eraH + 6, lanesH = lanes.length * laneH;
+    const denY = lanesY + lanesH + (lanes.length ? 6 : 0), denH = 26, axisY = denY + denH + 2, TH = axisY + 18;
+    const X = y => X0 + tf(y) * (X1 - X0);
+    TL = { w, G, X0, X1, laneH, lanesY, denY, denH, axisY, TH, X };
+    tl.attr("viewBox", `0 0 ${w} ${TH}`).attr("height", TH).attr("aria-valuemin", Y0).attr("aria-valuemax", YN);
+    tl.selectAll("*").remove();
+    const selLin = state.sel && state.sel.kind === "lineage" ? state.sel.id : null;
+    tl.append("rect").attr("class", "snap-span").attr("y", eraY).attr("height", axisY - eraY).attr("rx", 3);
+    const chapter = state.story && STORIES[state.story.ch];
+    if (chapter) {
+      const ys = chapter.steps.map(st => st.y), a = Math.min(...ys), b = Math.max(...ys);
+      tl.append("rect").attr("class", "story-band").attr("x", X(a) - 4).attr("width", Math.max(8, X(b) - X(a) + 8))
+        .attr("y", eraY).attr("height", axisY - eraY).attr("rx", 4);
+    }
+
+    const gE = tl.append("g");
+    ERAS.forEach(([a, b], i) => {
+      const name = LOC.eras[i] ?? "";
+      gE.append("rect").attr("class", "era-r").attr("x", X(a)).attr("y", eraY).attr("width", X(b) - X(a)).attr("height", eraH)
+        .attr("rx", 3).style("fill", i % 2 ? "var(--era-b)" : "var(--era-a)");
+      if (X(b) - X(a) > textW(name, 11) + 10) gE.append("text").attr("class", "era-t").attr("x", (X(a) + X(b)) / 2).attr("y", eraY + eraH / 2).text(name);
+    });
+    const tog = $("#lanes-tog");
+    tog.textContent = tr("tl.lanesToggle");
+    tog.title = tr("tl.lanes");
+    tog.setAttribute("aria-expanded", state.lanes);
+    tog.style.right = `${w - G + (narrow ? 6 : 8)}px`;
+
+    const LANE_CAP = 3e6; // km²; the largest empires saturate so mid-sized powers stay readable
+    const gL = tl.append("g");
+    lanes.forEach((id, i) => {
+      const cy = lanesY + i * laneH + laneH / 2, s = LIN[id].s;
+      if (selLin === id) gL.append("rect").attr("class", "lane-sel").attr("x", 0).attr("y", cy - laneH / 2).attr("width", w).attr("height", laneH).attr("rx", 3);
+      const hh = v => v > 0 ? Math.max(3, (laneH - 2) * Math.sqrt(Math.min(1, v / LANE_CAP))) / 2 : 0;
+      const pts = YEARS.map((y, j) => [X(y), s[j]]);
+      pts.push([X(YN), s[s.length - 1]]);
+      const area = d3.area().x(d => d[0]).y0(d => cy - hh(d[1])).y1(d => cy + hh(d[1])).curve(d3.curveStepAfter);
+      gL.append("path").attr("class", "lane-b" + (selLin && selLin !== id ? " dim" : "")).attr("d", area(pts)).style("fill", `var(--lin-${id})`);
+      const lane = LOC.lanes[id] || id, label = narrow ? lane.split("/").pop() : lane;
+      gL.append("text").attr("class", "lane-l" + (selLin === id ? " on" : "")).attr("x", G - 8).attr("y", cy)
+        .text(label).on("click", () => select(selLin === id ? null : { kind: "lineage", id }));
+    });
+
+    const gD = tl.append("g");
+    // decades from denseFrom on; half-centuries before, where the scale is compressed
+    const bins = [];
+    for (let b = Y0; b < YN; b += b < DENSE ? 50 : 10) bins.push({ b, e: b + (b < DENSE ? 50 : 10) });
+    bins.forEach(o => { o.n = EVENTS.filter(e => e.year >= o.b && e.year < o.e).length; });
+    const maxN = d3.max(bins, d => d.n) || 1;
+    bins.forEach(({ b, e, n }) => {
+      if (!n) return;
+      const h = 2 + n / maxN * (denH - 8);
+      gD.append("rect").attr("class", "den").attr("x", X(b)).attr("width", Math.max(1, X(e) - X(b) - .6))
+        .attr("y", denY + denH - h).attr("height", h);
+    });
+    const totals = YEARS.map(y => d3.sum(CHANGES[y] || [], c => c.a));
+    const maxT = d3.max(totals) || 1;
+    YEARS.forEach((y, i) => {
+      if (!i) return;
+      const h = totals[i] ? 5 + Math.sqrt(totals[i] / maxT) * (denH - 9) : 3;
+      const g = gD.append("g");
+      g.append("line").attr("class", "ctick").attr("x1", X(y)).attr("x2", X(y)).attr("y1", denY + denH).attr("y2", denY + denH - h);
+      g.append("circle").attr("class", "ctick-d").attr("cx", X(y)).attr("cy", denY + denH - h).attr("r", 2.2);
+    });
+    const den = tr("tl.density"); // "Events · changes": keep only the first part where the label column is narrow
+    gD.append("text").attr("class", "row-l").attr("x", G - 8).attr("y", denY + denH / 2).text(textW(den, 10.5) > G - 10 ? den.split(" · ")[0] : den);
+
+    const gA = tl.append("g");
+    gA.append("line").attr("class", "axis-l").attr("x1", X0).attr("x2", X1).attr("y1", axisY).attr("y2", axisY);
+    const centuries = d3.range(Math.ceil(Y0 / 100) * 100, YN + 1, 100);
+    centuries.forEach(y =>
+      gA.append("line").attr("class", "axis-l").attr("x1", X(y)).attr("x2", X(y)).attr("y1", axisY).attr("y2", axisY + 4));
+    // century labels in order of importance, skipping any that would collide: the two ends, round thousands and five
+    // hundreds, then the centuries with the most room on the scale (compressed early centuries come last)
+    const rank = y => y % 1000 === 0 ? 0 : y % 500 === 0 ? 1 : 2, room = y => tf(y + 50) - tf(y - 50);
+    const labelled = centuries.filter(y => y && y !== Y0 && y !== YN).sort((a, b) => rank(a) - rank(b) || room(b) - room(a));
+    const taken = [];
+    for (const y of [Y0, YN, ...labelled]) {
+      const anchor = y === Y0 ? "start" : y === YN ? "end" : "middle", lw = textW(fy(y), 11);
+      const a = anchor === "start" ? X(y) : anchor === "end" ? X(y) - lw : X(y) - lw / 2;
+      if (taken.some(([p, q]) => a < q + 6 && p < a + lw + 6)) continue;
+      taken.push([a, a + lw]);
+      gA.append("text").attr("class", "axis-t").attr("x", X(y)).attr("y", axisY + 14).attr("text-anchor", anchor).text(fy(y));
+    }
+
+    const ghost = tl.append("g").attr("class", "ghostg").style("display", "none");
+    ghost.append("line").attr("class", "ghost").attr("y1", eraY).attr("y2", axisY);
+    ghost.append("text").attr("class", "ghost-t").attr("y", denY - 2);
+    const ph = tl.append("g").attr("class", "ph");
+    ph.append("line").attr("class", "ph-line").attr("y1", eraY).attr("y2", axisY);
+    ph.append("circle").attr("class", "ph-knob").attr("cy", axisY).attr("r", 5);
+    const phA = tl.append("g").attr("class", "ph-a").style("display", comparing() ? null : "none");
+    phA.append("line").attr("class", "ph-a-line").attr("y1", eraY).attr("y2", axisY);
+    phA.append("circle").attr("class", "ph-a-knob").attr("cy", axisY).attr("r", 5);
+
+    const hit = tl.append("rect").attr("x", X0 - 6).attr("y", 0).attr("width", X1 - X0 + 12).attr("height", TH).style("fill", "transparent").style("cursor", "ew-resize");
+    let drag = null;
+    const yearAt = px => Math.round(ty(Math.max(0, Math.min(1, (px - X0) / (X1 - X0)))));
+    hit.on("pointerdown", ev => {
+      ev.preventDefault();
+      hit.node().setPointerCapture(ev.pointerId);
+      const [px, py] = d3.pointer(ev, tl.node());
+      // in compare mode, grabbing near the grey playhead moves the left year
+      const nearA = comparing() && Math.abs(px - X(state.yearA)) < 16 && Math.abs(px - X(state.yearA)) < Math.abs(px - X(state.year));
+      drag = { x0: px, y0: py, moved: false, set: nearA ? setYearA : setYear };
+      ghost.style("display", "none");
+    }).on("pointermove", ev => {
+      const [px] = d3.pointer(ev, tl.node());
+      if (drag) {
+        if (!drag.moved && Math.abs(px - drag.x0) > 3) {
+          drag.moved = true;
+          stopPlay();
+        }
+        if (drag.moved) drag.set(yearAt(px));
+      } else if (ev.pointerType !== "touch") {
+        const y = yearAt(px);
+        ghost.style("display", null).attr("transform", `translate(${X(y)},0)`);
+        ghost.select("text").attr("x", X(y) > X1 - 40 ? -4 : 4).attr("text-anchor", X(y) > X1 - 40 ? "end" : "start").text(fy(y));
+      }
+    }).on("pointerup", () => {
+      if (drag && !drag.moved) {
+        const i = Math.floor((drag.y0 - lanesY) / laneH);
+        if (i >= 0 && i < lanes.length) select(selLin === lanes[i] ? null : { kind: "lineage", id: lanes[i] });
+        else {
+          stopPlay();
+          drag.set(yearAt(drag.x0));
+        }
+      }
+      drag = null;
+    }).on("pointercancel", () => { drag = null; }).on("pointerleave", () => ghost.style("display", "none"));
+    if (chapter) {
+      const gS = tl.append("g");
+      chapter.steps.forEach((st, i) => {
+        const dup = chapter.steps.slice(0, i).filter(o => o.y === st.y).length;
+        gS.append("circle").attr("class", "sdot" + (i === state.story.step ? " on" : ""))
+          .attr("cx", X(st.y) + dup * 11).attr("cy", eraY + eraH / 2).attr("r", i === state.story.step ? 6 : 4.5)
+          .on("click", () => goStep(i))
+          .append("title").text(`${fy(st.y)} · ${st.t}`);
+      });
+    }
+    movePlayhead();
+  }
+
+  $("#lanes-tog").onclick = () => {
+    state.lanes = !state.lanes;
+    try { localStorage.setItem(LANES_KEY, state.lanes ? "1" : "0"); } catch (e) { /* storage unavailable */ }
+    drawTimeline();
+  };
+
+  function movePlayhead() {
+    if (!TL) return;
+    tl.select(".ph").attr("transform", `translate(${TL.X(state.year)},0)`);
+    if (comparing() && state.yearA != null) tl.select(".ph-a").attr("transform", `translate(${TL.X(state.yearA)},0)`);
+    if (state.snap >= 0) {
+      const a = TL.X(YEARS[state.snap]), b = TL.X(YEARS[state.snap + 1] ?? YN);
+      tl.select(".snap-span").attr("x", a).attr("width", Math.max(2, b - a));
+    }
+    tl.attr("aria-valuenow", state.year).attr("aria-valuetext", tr("yearAria", { y: fy(state.year) }));
+  }
+
+  // ---------- side panel ----------
+  const side = $("#side");
+  let sideKey = "";
+
+  function recentEvents() {
+    const Y = state.year;
+    return EVENTS.filter(e => e.year <= Y && e.year > Y - windowAt(Y)).sort((a, b) => b.year - a.year || b.id - a.id).slice(0, 8);
+  }
+  const recentRange = Y => { const a = Math.max(Y0, Y - windowAt(Y) + 1); return fyr(a || 1, Y); };
+  function upcomingEvents() { return EVENTS.filter(e => e.year > state.year).slice(0, 2); }
+  const linSwatch = id => {
+    const l = IDENTS[id] && IDENTS[id].l;
+    const f = feats.find(f => f.properties.i === id);
+    if (f) return fillOf(f.properties);
+    return l ? `var(--lin-${l})` : `var(--n${hash(id) % 5})`;
+  };
+
+  const sparkX = y => 4 + tf(y) * 292; // 300 wide, 4 padding
+  function spark(s, color) {
+    const w = 300, h = 66, pad = 4, max = d3.max(s) || 1;
+    const X = sparkX, Y = v => h - pad - v / max * (h - 2 * pad - 14);
+    const pts = YEARS.map((y, i) => [X(y), Y(s[i])]);
+    pts.push([X(YN), Y(s[s.length - 1])]);
+    const line = d3.line().curve(d3.curveStepAfter)(pts);
+    const area = d3.area().x(d => d[0]).y0(h - pad).y1(d => d[1]).curve(d3.curveStepAfter)(pts);
+    const pk = s.indexOf(max);
+    const now = (cls, y) => `<line class="${cls}" x1="${X(y)}" x2="${X(y)}" y1="12" y2="${h}"></line>`;
+    return `<svg class="spark" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(tr("spark.label"))}">
+      <path d="${area}" style="fill:${color};opacity:.45"></path>
+      <path d="${line}" style="fill:none;stroke:${color};stroke-width:1.6"></path>
+      ${comparing() ? now("spark-now a", state.yearA) : ""}${now("spark-now b", state.year)}
+      <text class="spark-t" x="${pad}" y="10">${esc(tr("spark.peak", { area: fmtArea(max), y: fy(YEARS[pk]) }))}</text></svg>`;
+  }
+  const runsList = runs => `<ol class="runs">${runs.map(r =>
+    `<li><span>${esc(pname(r[0]))}</span><span class="yr">${fyr(r[1], r[2])}</span></li>`).join("")}</ol>`;
+
+  function selCard() {
+    const s = state.sel;
+    if (!s) return "";
+    const top = tag => `<div class="card-top"><span class="tag">${esc(tag)}</span><button class="x" data-act="close" aria-label="${esc(tr("close"))}">×</button></div>`;
+    if (s.kind === "event") {
+      const e = EVENTS[s.id];
+      return `<div class="card">${top(typeName(e.type))}<div class="cy">${fy(e.year)}</div><h4>${esc(e.title)}</h4><p>${esc(e.note)}</p>
+        <button class="link" data-act="locate">${esc(tr("locate"))}</button></div>`;
+    }
+    // compare mode describes both snapshots, left year first
+    const snaps = comparing() ? [[state.snapA, featsA], [state.snap, feats]] : [[state.snap, feats]];
+    if (s.kind === "lineage") {
+      const lin = LIN[s.id];
+      const metas = snaps.map(([si]) => `<p class="meta">${esc(lin.s[si] ? tr("lineageMeta", { y: fy(YEARS[si]), area: fmtArea(lin.s[si]) }) : tr("absent", { y: fy(YEARS[si]) }))}</p>`).join("");
+      return `<div class="card">${top(tr("tag.lineage"))}<h4>${esc(LOC.lineages[s.id] || s.id)}</h4>${metas}
+        ${spark(lin.s, `var(--lin-${s.id})`)}<h3>${esc(tr("nameHistory"))}</h3>${runsList(lin.names)}</div>`;
+    }
+    const info = IDENTS[s.id];
+    if (!info) return "";
+    const per = snaps.map(([si, list]) => ({ y: YEARS[si], p: (list.filter(f => f.properties.i === s.id).sort((a, b) => b.properties.a - a.properties.a)[0] || {}).properties }));
+    // name the state as it was on the side that was clicked (the right one unless the click was on the left)
+    const p = (s.side === "a" ? per[0] : per[per.length - 1]).p || (per.find(o => o.p) || {}).p;
+    const key = p ? p.n : info.names[info.names.length - 1][0];
+    const name = pname(key), src = srcName(key), color = info.l ? `var(--lin-${info.l})` : "var(--faint)";
+    const metas = per.map(o => `<p class="meta">${esc(o.p ? tr("stateMeta", { y: fy(o.y), area: fmtArea(o.p.a) }) : tr("absent", { y: fy(o.y) }))}</p>`).join("");
+    return `<div class="card">${top(tr("tag.state"))}<h4>${esc(name)}</h4>${LOC.meta.code !== "en" && src !== name ? `<p class="en">${esc(src)}</p>` : ""}
+      ${p && p.o ? `<p>${esc(tr("overlord", { name: pname(p.o) }))}</p>` : ""}
+      ${metas}
+      ${spark(info.s, color)}<h3>${esc(tr("nameHistory"))}</h3>${runsList(info.names)}
+      ${info.l ? `<button class="link" data-act="lineage" data-id="${info.l}"><i style="background:var(--lin-${info.l})"></i>${esc(tr("viewLineage", { name: LOC.lineages[info.l] || info.l }))}</button>` : ""}</div>`;
+  }
+
+  function changesSec() {
+    const y = YEARS[state.snap], prev = YEARS[state.snap - 1];
+    if (!prev) return `<section><h2>${esc(tr("changes"))} <span>${esc(tr("changes.first"))}</span></h2><p class="empty">${esc(tr("changes.firstNote", { y: fy(y) }))}</p></section>`;
+    // changes in the region's core (region.json) come before those at the edges of the map window
+    const [[cw, cs0], [ce, cn]] = RC.core || RC.window, core = c => c.x > cw && c.x < ce && c.y > cs0 && c.y < cn;
+    const cs = (CHANGES[y] || []).map((c, k) => ({ ...c, k })).sort((a, b) => core(b) - core(a) || b.a - a.a);
+    const noteText = LOC.notes[y];
+    const note = noteText ? `<p class="note">${esc(noteText)}</p>` : "";
+    // the three largest first; the rest of the top ten one click away
+    const shown = state.chgAll ? 10 : 3, hidden = Math.min(cs.length, 10) - shown;
+    const rows = cs.slice(0, shown).map(c => `<button class="row" data-act="chg" data-k="${c.k}">
+        <i class="sw" style="background:${linSwatch(c.to)}"></i>
+        <span>${tr("changeRow", { to: `<b>${esc(pname(c.toK))}</b>`, from: esc(pname(c.fromK)) })}<small>${esc(approx(c.a))}</small></span></button>`).join("");
+    const more = hidden > 0 ? `<button class="link" data-act="chg-all">${esc(tr("changes.showAll", { n: hidden }))}</button>`
+      : cs.length > 10 ? `<p class="more">${esc(tr("changes.more", { n: cs.length - 10 }))}</p>` : "";
+    const off = state.show.chg ? "" : `<p class="more">${esc(tr("changes.off"))}</p>`;
+    return `<section><h2>${esc(tr("changes"))} <span>${esc(tr("snapRange", { a: fy(prev), b: fy(y) }))}</span></h2>${note}${rows || (noteText ? "" : `<p class="empty">${esc(tr("changes.none"))}</p>`)}${more}${off}</section>`;
+  }
+
+  function eventsSec() {
+    const Y = state.year, rec = recentEvents(), up = upcomingEvents();
+    const row = (e, cls) => `<button class="row ${cls}" data-act="ev" data-id="${e.id}"><span class="yr">${fy(e.year)}</span>
+      <span><b>${esc(e.title)}</b><small>${esc(typeName(e.type))} · ${esc(e.note)}</small></span></button>`;
+    return `<section><h2>${esc(tr("recent"))} <span class="rng">${recentRange(Y)}</span></h2>
+      ${rec.length ? rec.map(e => row(e, "")).join("") : `<p class="empty">${esc(tr("recent.none", { n: windowAt(Y) }))}</p>`}
+      ${up.length ? `<h3>${esc(tr("upcoming"))}</h3>${up.map(e => row(e, "later")).join("")}` : ""}</section>`;
+  }
+
+  function footer() {
+    const leg = Object.entries(TYPES).map(([type, def]) =>
+      `<span><svg viewBox="-7 -7 14 14"><path d="${d3.symbol(def.sym, 60)()}"></path></svg>${esc(typeName(type))}</span>`).join("");
+    const link = (href, text) => `<a href="${href}" target="_blank" rel="noopener">${text}</a>`;
+    const credit = tr("credit", {
+      hb: link("https://github.com/aourednik/historical-basemaps", "aourednik/historical-basemaps"),
+      ne: link("https://www.naturalearthdata.com/", "Natural Earth"), n: YEARS.length, events: EVENTS.length,
+    });
+    return `<section><div class="legend">${leg}</div><p class="credit">${credit}</p><p class="keys">${tr("keys")}</p></section>`;
+  }
+
+  function storySec() {
+    if (state.mode !== "story") return "";
+    if (!state.story) {
+      return `<section class="stories"><h2>${esc(tr("stories"))} <span>${esc(tr("stories.count", { n: STORIES.length }))}</span></h2>${STORIES.map((c, i) =>
+        `<button class="chapter" data-act="chapter" data-i="${i}"><span class="ch-yr">${fyr(...c.span)}</span><b>${esc(c.title)}</b>
+          <span class="ch-n">${esc(tr("story.steps", { n: c.steps.length }))}${hasLong(c) ? ` · ${esc(tr("story.full"))}` : ""}</span><small>${esc(c.lede)}</small></button>`).join("")}</section>`;
+    }
+    const c = STORIES[state.story.ch], i = state.story.step, st = c.steps[i], last = i === c.steps.length - 1;
+    const nextCh = STORIES[state.story.ch + 1];
+    const away = state.year !== st.y ? `<button class="link" data-act="sback">${esc(tr("story.back", { y: fy(st.y) }))}</button>` : "";
+    const nextLabel = last ? (nextCh ? tr("story.nextChapter", { t: nextCh.title }) : tr("story.done")) : tr("story.next");
+    return `<div class="story">
+      <div class="story-top"><button class="back" data-act="chapters">${esc(tr("story.all"))}</button><span class="tag">${i + 1} / ${c.steps.length}</span></div>
+      <div class="story-ch">${esc(c.title)} · ${fyr(...c.span)}</div>
+      <div class="cy">${fy(st.y)}</div><h4>${esc(st.t)}</h4><p>${esc(st.b)}</p>${away}
+      ${hasLong(c) ? `<button class="link" data-act="read">${esc(tr("story.read"))} →</button>` : ""}
+      <div class="story-dots">${c.steps.map((o, j) =>
+        `<button class="sd${j === i ? " on" : ""}" data-act="sstep" data-i="${j}" aria-label="${esc(tr("story.stepLabel", { n: j + 1, t: o.t }))}"></button>`).join("")}</div>
+      <div class="story-nav"><button class="btn" data-act="sprev">${esc(tr(i ? "story.prev" : "story.toc"))}</button>
+        <button class="btn primary" data-act="snext">${esc(nextLabel)}</button></div></div>`;
+  }
+
+  // The reading layout: the whole chapter as one long column beside the map. Scrolling a step's section past the
+  // reading line moves the map to that step; choosing a step (contents, arrow keys, a link) scrolls to its section.
+  function readSec() {
+    const c = STORIES[state.story.ch], nextCh = STORIES[state.story.ch + 1];
+    const facts = f => f && f.length ? `<dl class="facts"><dt>${esc(tr("read.facts"))}</dt>${f.map(([k, v]) =>
+      `<dd><span>${esc(k)}</span><b>${esc(v)}</b></dd>`).join("")}</dl>` : "";
+    return `<article class="reader">
+      <div class="rd-bar"><span>${esc(c.title)} · <b class="rd-n"></b> / ${c.steps.length}</span>
+        <button class="x" data-act="unread" aria-label="${esc(tr("read.close"))}" title="${esc(tr("read.close"))}">×</button></div>
+      <header class="rd-head"><div class="rd-span">${fyr(...c.span)}</div><h2>${esc(c.title)}</h2><p>${esc(c.lede)}</p>
+        <ol class="rd-toc">${c.steps.map((st, j) => `<li><button data-act="rd-go" data-i="${j}"><span class="yr">${fy(st.y)}</span>${esc(st.t)}</button></li>`).join("")}</ol></header>
+      ${c.steps.map((st, j) => `<section class="rd-step" data-i="${j}">
+        <div class="rd-k">${esc(tr("read.step", { n: j + 1 }))} · ${fy(st.y)}</div><h3>${esc(st.t)}</h3>
+        <p class="rd-lead">${esc(st.b)}</p>${(st.long ? st.long.p : []).map(t => `<p>${esc(t)}</p>`).join("")}${facts(st.long && st.long.facts)}</section>`).join("")}
+      <div class="rd-end">${nextCh ? `<button class="btn" data-act="rd-next">${esc(tr("story.nextChapter", { t: nextCh.title }))}</button>` : ""}
+        <button class="btn primary" data-act="unread">${esc(tr("read.close"))}</button></div></article>`;
+  }
+  let readObs = null;
+  function renderReader() {
+    const key = `read|${state.story.ch}|${LOC.meta.code}`;
+    if (key !== sideKey) {
+      sideKey = key;
+      side.innerHTML = readSec();
+      watchSteps();
+      scrollToStep(state.story.step);
+    }
+    const i = state.story.step;
+    side.querySelector(".rd-n").textContent = i + 1;
+    side.querySelectorAll(".rd-step").forEach((n, j) => n.classList.toggle("on", j === i));
+    side.querySelectorAll(".rd-toc li").forEach((n, j) => n.classList.toggle("on", j === i));
+    syncHash();
+  }
+  // the reading line sits a third of the way down the panel; on phones the page scrolls under the map, so lower
+  function watchSteps() {
+    if (readObs) readObs.disconnect();
+    const page = oneColumn.matches;
+    readObs = new IntersectionObserver(entries => {
+      if (!state.reading) return;
+      const hit = entries.filter(en => en.isIntersecting).map(en => +en.target.dataset.i);
+      if (hit.length && hit[hit.length - 1] !== state.story.step) goStep(hit[hit.length - 1], true);
+    }, { root: page ? null : side, rootMargin: page ? "-58% 0px -38% 0px" : "-30% 0px -66% 0px" });
+    side.querySelectorAll(".rd-step").forEach(n => readObs.observe(n));
+  }
+  // the reading line belongs to the panel or the page depending on the layout, so follow a change of layout
+  oneColumn.addEventListener("change", () => { if (state.reading) watchSteps(); });
+  // the first step scrolls to the top, so the chapter's title and contents show above it
+  function scrollToStep(i) {
+    const n = side.querySelector(`.rd-step[data-i="${i}"]`);
+    if (i && n) n.scrollIntoView({ block: "start" });
+    else if (oneColumn.matches) scrollTo(0, 0);
+    else side.scrollTop = 0;
+  }
+  function setReading(on) {
+    state.reading = !!on && !!state.story && hasLong(STORIES[state.story.ch]);
+    $(".app").classList.toggle("reading", state.reading);
+    if (!state.reading && readObs) readObs.disconnect();
+    sideKey = "";
+    fit(); // the map changed size: refit now, so the step's view below is computed for the new size
+    const st = curStep();
+    if (st) zoomToBox(st.box);
+    renderSide(true);
+    if (!state.reading) { side.scrollTop = 0; if (oneColumn.matches) scrollTo(0, 0); }
+  }
+
+  // The panel is rebuilt only when its content changes; what moves with every year (the events window, the sparkline's
+  // year line) is patched in place, so playback doesn't replace a row under the pointer or the keyboard focus.
+  let sidePressed = false, sidePending = false;
+  function renderSide(force) {
+    if (state.reading) return renderReader();
+    const rec = recentEvents(), up = upcomingEvents(), s = state.sel;
+    const key = [state.snap, s && s.kind, s && s.id, s && s.side, rec.map(e => e.id).join(","), up.map(e => e.id).join(","),
+      state.show.chg, state.chgAll, state.mode, state.story ? `${state.story.ch}-${state.story.step}-${curStep().y === state.year}` : "",
+      comparing() ? `${state.yearA}-${state.year}` : ""].join("|");
+    if (key !== sideKey || force) {
+      if (sidePressed) sidePending = true; // rebuild once the button is released, so its click still lands
+      else {
+        sideKey = key;
+        const a = document.activeElement, refocus = a !== side && side.contains(a) ? focusSel(a) : null;
+        side.innerHTML = storySec() + selCard() + (comparing() ? compareSec() : eventsSec() + changesSec()) + footer();
+        if (refocus !== null) (refocus && side.querySelector(refocus) || side.querySelector("[data-act=snext]") || side).focus({ preventScroll: true });
+      }
+    }
+    const Y = state.year, x = sparkX(Y);
+    side.querySelectorAll(".rng").forEach(n => { n.textContent = recentRange(Y); });
+    side.querySelectorAll(".spark-now.b").forEach(l => { l.setAttribute("x1", x); l.setAttribute("x2", x); });
+    syncHash();
+  }
+  // a selector for the same control in the rebuilt panel
+  function focusSel(el) {
+    const act = el.dataset && el.dataset.act;
+    if (!act) return "";
+    const k = ["i", "id", "k", "a", "d"].find(k => el.dataset[k] != null);
+    return `[data-act="${act}"]` + (k ? `[data-${k}="${CSS.escape(el.dataset[k])}"]` : "");
+  }
+  side.addEventListener("pointerdown", () => { sidePressed = true; });
+  for (const type of ["pointerup", "pointercancel"]) addEventListener(type, () => {
+    if (!sidePressed) return;
+    sidePressed = false;
+    if (sidePending) setTimeout(() => { sidePending = false; renderSide(true); });
+  });
+
+  side.addEventListener("click", ev => {
+    const b = ev.target.closest("[data-act]");
+    if (!b) return;
+    const act = b.dataset.act;
+    if (act === "close") select(null);
+    else if (act === "read") setReading(true);
+    else if (act === "unread") setReading(false);
+    else if (act === "rd-go") goStep(+b.dataset.i);
+    else if (act === "rd-next") openStory(state.story.ch + 1);
+    else if (act === "chg-all") {
+      state.chgAll = true;
+      renderSide(true);
+      const first = side.querySelectorAll("[data-act=chg]")[3]; // keyboard focus moves to the first row that just appeared
+      if (first) first.focus({ preventScroll: true });
+    }
+    else if (act === "preset") { setYearA(+b.dataset.a); setYear(+b.dataset.b); }
+    else if (act === "ya") setYearA(snapStep(state.yearA, +b.dataset.d));
+    else if (act === "yb") setYear(snapStep(state.year, +b.dataset.d));
+    else if (act === "cmp-id") {
+      select({ kind: "ident", id: b.dataset.id });
+      const fs = feats.filter(f => f.properties.i === b.dataset.id);
+      const pool = fs.length ? fs : featsA.filter(f => f.properties.i === b.dataset.id);
+      if (pool.length) zoomToFeature({ type: "FeatureCollection", features: pool });
+    }
+    else if (act === "chapter") openStory(+b.dataset.i);
+    else if (act === "chapters") closeStory();
+    else if (act === "sprev") state.story.step ? goStep(state.story.step - 1) : closeStory();
+    else if (act === "snext") nextStep();
+    else if (act === "sstep") goStep(+b.dataset.i);
+    else if (act === "sback") goStep(state.story.step);
+    else if (act === "lineage") select({ kind: "lineage", id: b.dataset.id });
+    else if (act === "locate") { const e = EVENTS[state.sel.id]; zoomToPoint(e.lon, e.lat); }
+    else if (act === "ev") {
+      const e = EVENTS[+b.dataset.id];
+      if (e.year > state.year && !comparing()) setYear(e.year);
+      select({ kind: "event", id: e.id });
+      zoomToPoint(e.lon, e.lat);
+    } else if (act === "chg") {
+      const f = changesOf(YEARS[state.snap]).find(c => c.properties.k === +b.dataset.k);
+      if (!f) return;
+      zoomToFeature(f);
+      gPulse.selectAll("path").remove();
+      gPulse.append("path").datum(f).attr("class", "pulse").attr("d", path);
+    }
+  });
+  side.addEventListener("pointerover", ev => {
+    const b = ev.target.closest("[data-act=chg]");
+    gChg.selectAll("path").classed("hot", d => !!b && d.properties.k === +b.dataset.k);
+  });
+  side.addEventListener("pointerleave", () => gChg.selectAll("path").classed("hot", false));
+
+  // ---------- state changes ----------
+  function setYear(y, fromPlay) {
+    y = Math.max(Y0, Math.min(YN, Math.round(y)));
+    if (y === 0) y = state.year > 0 ? -1 : 1; // 1 BC is followed by AD 1
+    if (!fromPlay) state.t = tf(y);
+    if (y === state.year) return;
+    state.year = y;
+    const i = snapIndexFor(y), forward = i === state.snap + 1;
+    if (i !== state.snap) {
+      if (state.snap >= 0) crossfade();
+      state.snap = i;
+      state.chgAll = false;
+      renderSnapshot(forward && state.show.chg);
+    } else renderCities();
+    renderEvents();
+    updateClock();
+    movePlayhead();
+    renderSide();
+  }
+
+  function select(s) {
+    state.sel = s;
+    applySelection();
+    renderEvents();
+    drawTimeline();
+    renderSide(true);
+  }
+
+  // the next or previous snapshot year; from a year between snapshots, "previous" is the snapshot it shows
+  const snapStep = (y, dir) => {
+    const i = snapIndexFor(y);
+    return dir > 0 ? YEARS[i + 1] ?? YN : y > YEARS[i] ? YEARS[i] : YEARS[i - 1] ?? Y0;
+  };
+  function stepSnap(dir) {
+    stopPlay();
+    setYear(snapStep(state.year, dir));
+  }
+
+  let lastTs = null;
+  function loop(ts) {
+    if (!state.playing) return;
+    if (lastTs == null) lastTs = ts;
+    const dt = Math.min(.1, (ts - lastTs) / 1000);
+    lastTs = ts;
+    state.t = Math.min(1, state.t + dt / 100);
+    setYear(ty(state.t), true);
+    if (state.t >= 1) return stopPlay();
+    requestAnimationFrame(loop);
+  }
+  function startPlay() {
+    if (state.year >= YN) setYear(Y0);
+    state.playing = true;
+    state.t = tf(state.year);
+    lastTs = null;
+    $("#playicon").innerHTML = '<path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/>';
+    $("#play").setAttribute("aria-label", tr("pause"));
+    requestAnimationFrame(loop);
+  }
+  function stopPlay() {
+    if (!state.playing) return;
+    state.playing = false;
+    $("#playicon").innerHTML = '<path d="M7 4.5v15l12-7.5z"/>';
+    $("#play").setAttribute("aria-label", tr("play"));
+    syncHash();
+  }
+  const togglePlay = () => state.playing ? stopPlay() : startPlay();
+
+  $("#play").onclick = togglePlay;
+  $("#prev").onclick = () => stepSnap(-1);
+  $("#next").onclick = () => stepSnap(1);
+  function bindToggle(id, key, after) {
+    const b = $(id);
+    b.onclick = () => {
+      state.show[key] = !state.show[key];
+      b.setAttribute("aria-pressed", state.show[key]);
+      after();
+    };
+  }
+  bindToggle("#t-chg", "chg", () => { renderSnapshot(false); renderSide(true); });
+  bindToggle("#t-ev", "ev", () => { renderEvents(); });
+  bindToggle("#t-modern", "modern", () => modernPath.attr("d", state.show.modern ? path(MODERN) : null));
+  bindToggle("#t-phys", "phys", () => { gPhys.style("display", state.show.phys ? null : "none"); placePhysLabels(); });
+  // the layers menu stays open while switches are flipped; a press anywhere else or Esc closes it
+  const layersBtn = $("#layers-btn"), layersMenu = $("#layers");
+  function openLayers(open) {
+    layersMenu.hidden = !open;
+    layersBtn.setAttribute("aria-expanded", open);
+  }
+  layersBtn.onclick = () => openLayers(layersMenu.hidden);
+  document.addEventListener("pointerdown", ev => {
+    if (!layersMenu.hidden && !layersMenu.contains(ev.target) && !layersBtn.contains(ev.target)) openLayers(false);
+  });
+
+  document.addEventListener("keydown", e => {
+    const target = e.target instanceof Element ? e.target : document.body;
+    // leave modified keys to the browser (Cmd/Alt+← is Back, Ctrl+Home scrolls)
+    if (target.closest("input, textarea, select") || e.altKey || e.metaKey || e.ctrlKey) return;
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      const dir = e.key === "ArrowRight" ? 1 : -1;
+      if (e.shiftKey) { stopPlay(); setYear(state.year + 10 * dir); }
+      else if (state.story) dir > 0 ? nextStep() : state.story.step ? goStep(state.story.step - 1) : closeStory();
+      else stepSnap(dir);
+    } else if (e.key === " " && !target.closest("button") && !state.reading) {
+      e.preventDefault();
+      if (!e.repeat) togglePlay();
+    } else if (e.key === "Escape") {
+      if (!layersMenu.hidden) { openLayers(false); layersBtn.focus(); }
+      else if (state.reading) setReading(false);
+      else state.sel ? select(null) : state.story && closeStory();
+    }
+    else if (e.key === "/") { e.preventDefault(); $("#q").focus(); }
+    else if (e.key === "Home" && !state.reading) { stopPlay(); setYear(Y0); }
+    else if (e.key === "End" && !state.reading) { stopPlay(); setYear(YN); }
+  });
+
+  function zoomToBox(box) {
+    const [[w, s], [e, n]] = box, pts = [];
+    for (let i = 0; i <= 8; i++) {
+      const x = w + (e - w) * i / 8, y = s + (n - s) * i / 8;
+      pts.push(proj([x, s]), proj([x, n]), proj([w, y]), proj([e, y]));
+    }
+    const [x0, x1] = d3.extent(pts, p => p[0]), [y0, y1] = d3.extent(pts, p => p[1]);
+    const k = Math.max(.5, Math.min(8, .94 * Math.min(W / (x1 - x0), (H - 44) / (y1 - y0))));
+    aim(d3.zoomIdentity.translate(W / 2 - k * (x0 + x1) / 2, (H + 36) / 2 - k * (y0 + y1) / 2).scale(k), 900, () => zoomToBox(box));
+  }
+  function setMode(m) {
+    const was = state.mode;
+    state.mode = m;
+    if (m !== "story") { state.story = null; if (state.reading) setReading(false); }
+    document.querySelectorAll(".modes button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === m));
+    $(".app").classList.toggle("side-first", m === "story"); // on phones the story card goes right under the map; compare keeps the timeline there
+    if (m === "compare" && was !== "compare") {
+      stopPlay();
+      if (state.snap === 0) setYear(YEARS[1]);
+      state.yearA = YEARS[state.snap - 1];
+      state.snapA = state.snap - 1;
+    }
+    if (m === "compare" || was === "compare") {
+      renderSnapshot(false);
+      renderCompare();
+      updateClock();
+    }
+    refreshStory();
+  }
+  function refreshStory() {
+    applySelection();
+    renderEvents();
+    drawTimeline();
+    renderSide(true);
+  }
+  function openStory(ch) {
+    state.story = { ch, step: 0 };
+    if (state.reading && !hasLong(STORIES[ch])) setReading(false);
+    if (state.mode !== "story") setMode("story");
+    goStep(0);
+  }
+  function closeStory() {
+    if (state.reading) setReading(false);
+    state.story = null;
+    refreshStory();
+  }
+  // fromScroll: the reader scrolled to this step, so its text is already in view
+  function goStep(i, fromScroll) {
+    const c = STORIES[state.story.ch];
+    state.story.step = Math.max(0, Math.min(c.steps.length - 1, i));
+    const st = c.steps[state.story.step];
+    stopPlay();
+    state.sel = null;
+    setYear(st.y);
+    zoomToBox(st.box);
+    refreshStory();
+    if (!state.reading) side.scrollTop = 0;
+    else if (!fromScroll) scrollToStep(state.story.step);
+  }
+  function nextStep() {
+    const c = STORIES[state.story.ch];
+    if (state.story.step < c.steps.length - 1) return goStep(state.story.step + 1);
+    if (state.story.ch + 1 < STORIES.length) return openStory(state.story.ch + 1);
+    closeStory();
+  }
+  // ---------- compare ----------
+  const PRESETS = RC.presets || []; // [left year, right year]; labels: LOC.presets["a-b"]
+  function updateClips() {
+    const x = divX * W;
+    d3.select("#clip-a-ov-r").attr("x", -10).attr("y", -10).attr("width", x + 10).attr("height", H + 20);
+    d3.select("#clip-b-ov-r").attr("x", x).attr("y", -10).attr("width", Math.max(0, W - x + 10)).attr("height", H + 20);
+    d3.select("#clip-a-land-r").attr("x", (-10 - zt.x) / zt.k).attr("y", (-10 - zt.y) / zt.k)
+      .attr("width", (x + 10) / zt.k).attr("height", (H + 20) / zt.k);
+  }
+  function renderCompare() {
+    const on = comparing();
+    gLandA.style("display", on ? null : "none");
+    gLabelsA.style("display", on ? null : "none");
+    gCmp.style("display", on ? null : "none");
+    gLabels.attr("clip-path", on ? "url(#clip-b-ov)" : null);
+    if (!on) {
+      featsA = [];
+      gLandA.selectAll("path").remove();
+      gLabelsA.selectAll("text").remove();
+      return;
+    }
+    featsA = polysOf(YEARS[state.snapA]);
+    featsA.forEach(f => { f._area = path.area(f); f._bounds = path.bounds(f); });
+    gLandA.selectAll("path").data(featsA).join("path")
+      .attr("class", d => "poly" + (d.properties.v ? " vassal" : ""))
+      .attr("d", path)
+      .style("fill", d => fillOf(d.properties));
+    drawDivider();
+    updateClips();
+    applySelection();
+  }
+  function drawDivider() {
+    gCmp.selectAll("*").remove();
+    const d = gCmp.append("g").attr("class", "cmp-div");
+    d.append("line").attr("y1", 0).attr("y2", H);
+    d.append("rect").attr("class", "hit").attr("x", -12).attr("width", 24).attr("height", H);
+    const knob = d.append("g").attr("class", "cmp-knob").attr("transform", `translate(0,${H / 2})`);
+    knob.append("circle").attr("r", 15);
+    knob.append("path").attr("d", "M-4 -5L-9 0L-4 5M4 -5L9 0L4 5");
+    knob.append("title").text(tr("cmp.knob"));
+    knob.attr("tabindex", 0).attr("role", "slider").attr("aria-label", tr("cmp.knob")).attr("aria-valuemin", 0).attr("aria-valuemax", 100)
+      .on("keydown", ev => {
+        if (ev.key !== "ArrowLeft" && ev.key !== "ArrowRight") return;
+        ev.preventDefault();
+        ev.stopPropagation(); // not a year step
+        divX = Math.max(.04, Math.min(.96, divX + (ev.key === "ArrowRight" ? .05 : -.05)));
+        positionDivider();
+      });
+    d.call(d3.drag().on("drag", ev => {
+      divX = Math.max(.04, Math.min(.96, ev.x / W));
+      positionDivider();
+    }));
+    for (const c of ["a", "b"]) {
+      const g = gCmp.append("g").attr("class", "cmp-badge " + c);
+      g.append("rect").attr("rx", 6);
+      g.append("text");
+    }
+    positionDivider();
+  }
+  function positionDivider() {
+    gCmp.select(".cmp-div").attr("transform", `translate(${divX * W},0)`);
+    gCmp.select(".cmp-knob").attr("aria-valuenow", Math.round(divX * 100));
+    placeBadges();
+    updateClips();
+    scheduleOverlay();
+  }
+  function placeBadges() {
+    if (gCmp.select(".cmp-badge.a").empty()) return;
+    const x = divX * W;
+    [["a", state.yearA, YEARS[state.snapA], -1], ["b", state.year, YEARS[state.snap], 1]].forEach(([c, y, sy, dir]) => {
+      const g = gCmp.select(".cmp-badge." + c);
+      const t = g.select("text").text(y === sy ? fy(y) : tr("cmp.badgeLag", { y: fy(y), s: fy(sy) }))
+        .attr("x", x + dir * 18).attr("y", 24).attr("text-anchor", dir < 0 ? "end" : "start");
+      const bb = t.node().getBBox();
+      g.select("rect").attr("x", bb.x - 8).attr("y", 12).attr("width", bb.width + 16).attr("height", 24);
+    });
+  }
+  function setYearA(y) {
+    y = Math.max(Y0, Math.min(YN, Math.round(y)));
+    if (y === 0) y = state.yearA > 0 ? -1 : 1;
+    if (y === state.yearA) return;
+    state.yearA = y;
+    const i = snapIndexFor(y), changed = i !== state.snapA;
+    state.snapA = i;
+    if (changed) renderCompare();
+    renderCities();
+    updateClock();
+    movePlayhead();
+    renderSide();
+  }
+  function compareSec() {
+    const ia = state.snapA, ib = state.snap, A = state.yearA, B = state.year, FA = fy(A), FB = fy(B);
+    const T = (key, params) => esc(tr(key, params));
+    const presets = PRESETS.map(([a, b]) => `<button class="preset${a === A && b === B ? " on" : ""}" data-act="preset" data-a="${a}" data-b="${b}">
+      <b>${fy(a)} ↔ ${fy(b)}</b><small>${esc(LOC.presets[`${a}-${b}`] || "")}</small></button>`).join("");
+    const nameAt = (id, i) => {
+      const runs = IDENTS[id].names, y = YEARS[i], r = runs.find(r => r[1] <= y && y <= r[2]);
+      return pname((r || runs[runs.length - 1])[0]);
+    };
+    const rows = Object.entries(IDENTS).filter(([, info]) => !info.p) // peoples' spread is not a gain or loss
+      .map(([id, info]) => ({ id, a: info.s[ia], b: info.s[ib], d: info.s[ib] - info.s[ia] }))
+      .filter(r => Math.abs(r.d) >= 5000);
+    const row = r => {
+      const tag = !r.a ? tr("cmp.new") : !r.b ? tr("cmp.gone") : "";
+      return `<button class="row" data-act="cmp-id" data-id="${esc(r.id)}"><i class="sw" style="background:${linSwatch(r.id)}"></i>
+        <span><b>${esc(nameAt(r.id, r.b ? ib : ia))}</b>${esc(tag)}<small class="delta">${r.d > 0 ? "+" : "−"}${fmtArea(Math.abs(r.d))}</small></span></button>`;
+    };
+    const gains = rows.filter(r => r.d > 0).sort((x, y) => y.d - x.d).slice(0, 6);
+    const losses = rows.filter(r => r.d < 0).sort((x, y) => x.d - y.d).slice(0, 6);
+    const lo = Math.min(A, B), hi = Math.max(A, B);
+    const between = EVENTS.filter(e => e.year > lo && e.year <= hi);
+    const evRow = e => `<button class="row" data-act="ev" data-id="${e.id}"><span class="yr">${fy(e.year)}</span>
+      <span><b>${esc(e.title)}</b><small>${esc(typeName(e.type))} · ${esc(e.note)}</small></span></button>`;
+    const same = ia === ib;
+    const arrow = d => `<svg viewBox="0 0 24 24"><path d="${d < 0 ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"}"/></svg>`;
+    const stepper = (act, side, y) => `<span class="cmp-step"><span>${T(side)}</span>${[-1, 1].map(d =>
+      `<button class="btn" data-act="${act}" data-d="${d}" aria-label="${T(side)} · ${T(d < 0 ? "cmp.earlier" : "cmp.later")}">${arrow(d)}</button>`).join(`<b>${fy(y)}</b>`)}</span>`;
+    return `<section><h2>${T("cmp.title")} <span>${FA} ↔ ${FB}</span></h2>
+        <p class="empty">${T("cmp.help")}</p>
+        <div class="cmp-steps">${stepper("ya", "cmp.left", A)}${stepper("yb", "cmp.right", B)}</div>
+        <div class="presets">${presets}</div></section>
+      <section><h2>${T("cmp.gains", { a: FA, b: FB })} <span>${T("cmp.window")}</span></h2>
+        ${same ? `<p class="empty">${T("cmp.same", { y: fy(YEARS[ib]) })}</p>` : gains.map(row).join("") || `<p class="empty">${T("cmp.noGains")}</p>`}</section>
+      ${same ? "" : `<section><h2>${T("cmp.losses", { a: FA, b: FB })}</h2>${losses.map(row).join("") || `<p class="empty">${T("cmp.noLosses")}</p>`}</section>`}
+      <section><h2>${T("cmp.events")} <span>${T("cmp.eventsCount", { n: between.length })}</span></h2>
+        ${between.slice(0, 10).map(evRow).join("") || `<p class="empty">${T("cmp.noEvents")}</p>`}
+        ${between.length > 10 ? `<p class="more">${T("cmp.moreEvents", { n: between.length - 10 })}</p>` : ""}</section>`;
+  }
+
+  document.querySelectorAll(".modes button").forEach(b => { b.onclick = () => setMode(b.dataset.mode); });
+
+  // ---------- search ----------
+  const KIND_ORDER = { ident: 0, lineage: 1, city: 2, event: 3, story: 4 };
+  // case, accents (Kraków = Krakow) and punctuation don't matter
+  const FOLD = { ł: "l", ø: "o", æ: "ae", œ: "oe", ß: "ss", đ: "d", ı: "i" };
+  const norm = t => String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[łøæœßđı]/g, c => FOLD[c])
+    .replace(/[\s·《》“”"'’（）()\-–—,，.、/]/g, "");
+  const spanText = idx => {
+    const parts = [];
+    for (let i = 0; i < idx.length; i++) {
+      let j = i;
+      while (j + 1 < idx.length && idx[j + 1] === idx[j] + 1) j++;
+      parts.push(fyr(YEARS[idx[i]], YEARS[idx[j]]));
+      i = j;
+    }
+    return parts.join(tr("listSep"));
+  };
+  let SEARCH = [], ALT = null, enLocale = null;
+  // in another language the English names are searchable too (only the region's content is needed for that)
+  async function loadAlt() {
+    ALT = null;
+    if (LOC.meta.code === "en") return;
+    try { enLocale = enLocale || complete(await getJSON(`${RDIR}/locales/en.json`)); } catch (e) { return; }
+    if (LOC.meta.code === "en") return;
+    ALT = enLocale;
+    SEARCH = buildSearch();
+  }
+  const alts = (name, ...ns) => [...new Set(ns.filter(n => n && n !== name))];
+  // locale "aliases": nicknames and other common names (神罗, 沙俄, WWII) that search also finds, from this locale and
+  // the English one; polity names look up the full key first, then the key without its |label, like pname
+  const aliasesOf = (kind, key) => [LOC, ALT].flatMap(loc => {
+    const a = loc && loc.aliases && loc.aliases[kind];
+    return (a && (a[key] ?? (kind === "names" ? a[srcName(key)] : null))) || [];
+  });
+  function buildSearch() {
+    const out = [], runs = new Map();
+    YEARS.forEach((y, yi) => {
+      for (const g of topo.objects["s" + y].geometries) {
+        const p = g.properties;
+        if (!p || !p.n || p.i === "_none") continue;
+        const id = p.i + "|" + pname(p.n); // one entry per name as displayed, even if the source spells it two ways
+        if (!runs.has(id)) runs.set(id, { id: p.i, key: p.n, keys: new Set(), idx: [] });
+        const r = runs.get(id);
+        r.keys.add(p.n); // aliases may be filed under any of the source names shown this way
+        if (r.idx[r.idx.length - 1] !== yi) r.idx.push(yi);
+      }
+    });
+    for (const r of runs.values()) {
+      const name = pname(r.key), src = srcName(r.key), other = src !== name;
+      const en = ALT && (ALT.names[r.key] ?? ALT.names[src]);
+      out.push({ kind: "ident", id: r.id, name, alt: alts(name, src, en, ...[...r.keys].flatMap(k => aliasesOf("names", k))), idx: r.idx, sub: spanText(r.idx) + (other ? " · " + src : "") });
+    }
+    for (const [id, lin] of Object.entries(LIN)) {
+      const idx = YEARS.map((y, i) => i).filter(i => lin.s[i] > 0);
+      const names = [...new Set(lin.names.map(n => pname(n[0])))];
+      const name = LOC.lineages[id] || id;
+      const alt = alts(name, ...(LOC.lanes[id] || "").split("/"), ALT && ALT.lineages[id], ...(ALT && ALT.lanes[id] || "").split("/"), ...aliasesOf("lineages", id));
+      out.push({ kind: "lineage", id, name, alt, idx, sub: names.slice(0, 4).join(" → ") + (names.length > 4 ? " …" : "") });
+    }
+    for (const c of CITIES) {
+      const modern = cityModern(c), byKey = new Map();
+      c.names.forEach(([from, key], j) => {
+        if (!key) return; // a city that ceased to exist
+        const to = j + 1 < c.names.length ? c.names[j + 1][0] - 1 || -1 : YN;
+        if (!byKey.has(key)) byKey.set(key, []);
+        byKey.get(key).push([from, to]);
+      });
+      for (const [key, ranges] of byKey) {
+        const sub = ranges.map(r => fyr(r[0], r[1])).join(tr("listSep")) + (key !== modern ? " · " + tr("cityNow", { name: cityLabel(modern) }) : "");
+        out.push({ kind: "city", c, name: cityLabel(key), alt: alts(cityLabel(key), ALT && ALT.cities[key], key), ranges, sub });
+      }
+    }
+    for (const e of EVENTS) out.push({ kind: "event", e, name: e.title, alt: alts(e.title, ALT && (ALT.events[e.key] || [])[0], ...aliasesOf("events", e.key)), sub: `${fy(e.year)} · ${typeName(e.type)}` });
+    STORIES.forEach((c, i) => out.push({ kind: "story", i, name: c.title, alt: alts(c.title, ALT && (ALT.stories[c.id] || {}).title, c.id, ...aliasesOf("stories", c.id)), sub: fyr(...c.span) }));
+    return out;
+  }
+  SEARCH = buildSearch();
+
+  function findMatches(q) {
+    const nq = norm(q);
+    if (!nq) return [];
+    const res = [];
+    for (const r of SEARCH) {
+      let best = -1, via = null;
+      for (const n of [r.name, ...(r.alt || [])]) {
+        const nn = norm(n);
+        const sc = nn === nq ? 3 : nn.startsWith(nq) ? 2 : nn.includes(nq) ? 1 : 0;
+        if (sc > best) { best = sc; via = n === r.name ? null : n; }
+      }
+      if (best > 0) res.push({ r, sc: best, via });
+    }
+    res.sort((a, b) => b.sc - a.sc || KIND_ORDER[a.r.kind] - KIND_ORDER[b.r.kind] || a.r.name.length - b.r.name.length);
+    // a result found under another name (an alias, the English name) says which, unless its subtitle already does
+    return res.slice(0, 8).map(x => x.via && !x.r.sub.includes(x.via) ? { ...x.r, via: x.via } : x.r);
+  }
+
+  const qIn = $("#q"), qList = $("#qlist");
+  let qRes = [], qSel = 0;
+  const markHit = (name, q) => {
+    const i = name.toLowerCase().indexOf(q.trim().toLowerCase());
+    return i < 0 ? esc(name) : esc(name.slice(0, i)) + "<mark>" + esc(name.slice(i, i + q.trim().length)) + "</mark>" + esc(name.slice(i + q.trim().length));
+  };
+  function renderResults() {
+    const q = qIn.value;
+    if (!q.trim()) return closeResults();
+    qRes = findMatches(q);
+    qSel = Math.min(qSel, Math.max(0, qRes.length - 1));
+    qList.innerHTML = qRes.length ? qRes.map((r, i) => `<li role="option" id="qo-${i}" data-i="${i}" aria-selected="${i === qSel}">
+        <span class="q-name">${markHit(r.name, q)}</span><span class="q-type">${esc(tr("kind." + r.kind))}</span><span class="q-sub">${r.via ? markHit(r.via, q) + " · " : ""}${esc(r.sub)}</span></li>`).join("")
+      : `<li class="q-empty" role="option" aria-disabled="true">${tr("search.none", { q: esc(q.trim()) })}</li>`;
+    qList.hidden = false;
+    qIn.setAttribute("aria-expanded", "true");
+    qIn.setAttribute("aria-activedescendant", qRes.length ? `qo-${qSel}` : "");
+  }
+  function closeResults() {
+    qList.hidden = true;
+    qIn.setAttribute("aria-expanded", "false");
+    qIn.removeAttribute("aria-activedescendant");
+  }
+  function moveSel(d) {
+    if (!qRes.length) return;
+    qSel = (qSel + d + qRes.length) % qRes.length;
+    qList.querySelectorAll("li").forEach((li, i) => li.setAttribute("aria-selected", i === qSel));
+    qIn.setAttribute("aria-activedescendant", `qo-${qSel}`);
+    qList.querySelector(`#qo-${qSel}`).scrollIntoView({ block: "nearest" });
+  }
+  function choose(r) {
+    closeResults();
+    qIn.blur();
+    if (r.kind === "story") return openStory(r.i);
+    if (state.mode === "story") setMode("explore");
+    stopPlay();
+    const nearest = idx => idx.includes(snapIndexFor(state.year)) ? null
+      : idx.reduce((b, i) => Math.abs(YEARS[i] - state.year) < Math.abs(YEARS[b] - state.year) ? i : b, idx[0]);
+    const flyTo = test => {
+      const fs = feats.filter(f => test(f.properties));
+      if (fs.length) zoomToFeature({ type: "FeatureCollection", features: fs });
+    };
+    if (r.kind === "ident" || r.kind === "lineage") {
+      const i = nearest(r.idx);
+      if (i != null) setYear(YEARS[i]);
+      select({ kind: r.kind, id: r.id });
+      flyTo(r.kind === "ident" ? p => p.i === r.id : p => p.l === r.id);
+    } else if (r.kind === "city") {
+      if (!r.ranges.some(([a, b]) => state.year >= a && state.year <= b)) {
+        // the year closest to "now" in which the city carried this name
+        const ys = r.ranges.map(([a, b]) => Math.min(b, Math.max(a, state.year)));
+        setYear(ys.reduce((best, y) => Math.abs(y - state.year) < Math.abs(best - state.year) ? y : best));
+      }
+      select(null);
+      zoomToPoint(r.c.lon, r.c.lat);
+      ping(r.c.lon, r.c.lat);
+    } else if (r.kind === "event") {
+      setYear(r.e.year);
+      select({ kind: "event", id: r.e.id });
+      zoomToPoint(r.e.lon, r.e.lat);
+    }
+  }
+  // a ring that draws the eye to a searched city once the map has flown there
+  function ping(lon, lat) {
+    setTimeout(() => {
+      const [x, y] = zt.apply(proj([lon, lat]));
+      const c = gOver.append("circle").attr("class", "ping").attr("cx", x).attr("cy", y).attr("r", 7);
+      setTimeout(() => c.remove(), 1600);
+    }, 760);
+  }
+
+  qIn.addEventListener("input", () => { qSel = 0; renderResults(); });
+  qIn.addEventListener("focus", () => { qIn.select(); if (qIn.value.trim()) renderResults(); });
+  qIn.addEventListener("blur", closeResults);
+  qIn.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown") { e.preventDefault(); moveSel(1); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); moveSel(-1); }
+    else if (e.key === "Enter") { e.preventDefault(); if (qRes[qSel] && !qList.hidden) choose(qRes[qSel]); }
+    else if (e.key === "Escape") {
+      if (qIn.value) { qIn.value = ""; closeResults(); } else qIn.blur();
+    }
+  });
+  qList.addEventListener("pointerdown", e => e.preventDefault());
+  qList.addEventListener("click", e => {
+    const li = e.target.closest("li[data-i]");
+    if (li) choose(qRes[+li.dataset.i]);
+  });
+
+  // ---------- language ----------
+  function applyStatic() {
+    applyText();
+    $("#play").setAttribute("aria-label", tr(state.playing ? "pause" : "play"));
+  }
+  async function setLang(code) {
+    try {
+      LOC = await loadLocale(code);
+    } catch (e) {
+      console.error(e);
+      return;
+    }
+    try { localStorage.setItem(LANG_KEY, code); } catch (e) { /* storage unavailable */ }
+    if (params.has("lang")) { // the address would otherwise win over this choice on the next visit
+      params.set("lang", code);
+      history.replaceState(null, "", `?${params}${location.hash}`);
+    }
+    localizeContent();
+    SEARCH = buildSearch();
+    loadAlt();
+    applyStatic();
+    closeResults();
+    applySelection();
+    renderEvents();
+    drawTimeline();
+    updateClock();
+    if (comparing()) renderCompare();
+    renderSide(true);
+  }
+  $("#lang").onclick = () => setLang($("#lang").dataset.next);
+
+  new ResizeObserver(() => { fit(); scheduleOverlay(); }).observe(mapEl);
+  new ResizeObserver(() => drawTimeline()).observe($("#timewrap"));
+
+  // ---------- links ----------
+  // #1650, #1650/state:Serbia, #1215/event:magna-carta, #napoleon/3 (story step), #napoleon/3/read (in the reading layout),
+  // #stories, #compare-1914-1920; BC years are written 500bc
+  const hy = y => y < 0 ? `${-y}bc` : `${y}`;
+  function stateHash() {
+    if (state.mode === "story") return state.story ? STORIES[state.story.ch].id + (state.story.step ? `/${state.story.step + 1}` : "") + (state.reading ? "/read" : "") : "stories";
+    const s = state.sel;
+    const sel = !s ? "" : "/" + (s.kind === "event" ? `event:${EVENTS[s.id].key}` : `${s.kind === "ident" ? "state" : "lineage"}:${encodeURIComponent(s.id)}`);
+    return (comparing() ? `compare-${hy(state.yearA)}-${hy(state.year)}` : hy(state.year)) + sel;
+  }
+  // written a moment after the view settles (browsers limit how often the URL may change), not during playback
+  let hashTimer = 0;
+  function syncHash() {
+    clearTimeout(hashTimer);
+    hashTimer = setTimeout(() => {
+      if (state.playing) return;
+      const h = stateHash(), want = h === hy(START) ? "" : "#" + h; // the opening view needs no hash
+      if (want !== location.hash) history.replaceState(null, "", want || location.pathname + location.search);
+    }, 400);
+  }
+  function applyHash(raw) {
+    const anchor = raw.replace(/^#/, ""), cut = anchor.indexOf("/");
+    const head = cut < 0 ? anchor : anchor.slice(0, cut), tail = cut < 0 ? "" : anchor.slice(cut + 1);
+    const ch = STORIES.findIndex(c => c.id === head);
+    if (ch >= 0) {
+      const parts = tail.split("/"), n = +parts.find(t => /^\d+$/.test(t)) || 1, read = parts.includes("read");
+      openStory(ch);
+      if (n > 1) goStep(n - 1);
+      if (read !== state.reading) setReading(read);
+      return;
+    }
+    if (head === "stories") {
+      setMode("story");
+      if (state.story) closeStory();
+      return;
+    }
+    const Y = "(\\d{1,4}(?:bc)?)", py = t => t.endsWith("bc") ? -parseInt(t) : +t;
+    const cmp = head.match(new RegExp(`^compare(?:-${Y}-${Y})?$`)), year = head.match(new RegExp(`^${Y}$`));
+    if (!cmp && !year) return;
+    stopPlay();
+    if (cmp) {
+      if (!comparing()) setMode("compare");
+      if (cmp[1]) { setYearA(py(cmp[1])); setYear(py(cmp[2])); }
+    } else {
+      if (state.mode !== "explore") setMode("explore");
+      setYear(py(head));
+    }
+    const decode = t => { try { return decodeURIComponent(t); } catch (e) { return null; } }; // a malformed link selects nothing
+    const m = tail.match(/^(state|lineage|event):(.+)$/), id = m && decode(m[2]);
+    if (m && m[1] === "event") {
+      const e = EVENTS.find(e => e.key === id);
+      if (e) { select({ kind: "event", id: e.id }); zoomToPoint(e.lon, e.lat); }
+    } else if (m && (m[1] === "state" ? IDENTS[id] : LIN[id])) {
+      const kind = m[1] === "state" ? "ident" : "lineage", hit = kind === "ident" ? p => p.i === id : p => p.l === id;
+      select({ kind, id });
+      const fs = feats.filter(f => hit(f.properties));
+      if (fs.length) zoomToFeature({ type: "FeatureCollection", features: fs });
+    } else if (state.sel) select(null);
+  }
+  addEventListener("hashchange", () => applyHash(location.hash));
+
+  applyStatic();
+  $("#loading").remove();
+  drawTimeline(); // first: its height sets the map's, so the map is fitted once at its final size
+  fit();
+  setYear(START);
+  applyHash(location.hash);
+  loadAlt();
+})().catch(err => {
+  const el = document.getElementById("loading");
+  if (el) el.textContent = `边界数据没能载入 · Couldn't load the map data (${err.message})`;
+  console.error(err);
+});
+</script>
