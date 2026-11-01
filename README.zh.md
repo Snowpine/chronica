@@ -55,7 +55,9 @@ python3 path/to/chronica/scripts/serve.py
 ```
 chronica/
   index.html                 页面和全部前端代码，不含任何地区或语言的内容
-  favicon.svg  og.png        网站图标，以及分享链接时显示的预览图
+  icon.svg                   图标原稿；favicon.svg、apple-touch-icon.png、icon-512.png 都由它生成
+  site.webmanifest           添加到手机主屏幕时使用的名称和图标
+  og.png                     分享链接时显示的预览图
   locales/
     en.json  zh.json         界面文字（按钮、标签、帮助），所有地区共用
   regions/

@@ -1,0 +1,11 @@
+{
+  "name": "Chronica · 寰宇古今",
+  "short_name": "Chronica",
+  "start_url": "./",
+  "icons": [
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "theme_color": "#1c2830",
+  "background_color": "#f4f6f7"
+}

@@ -48,7 +48,9 @@ The language button in the top right cycles through the languages listed in `LOC
 ```
 chronica/
   index.html                 the page and all of its code; neither region- nor language-specific
-  favicon.svg  og.png        the site icon and the image shown when a link to the site is shared
+  icon.svg                   the icon artwork; favicon.svg, apple-touch-icon.png and icon-512.png are made from it
+  site.webmanifest           the name and icon used when the site is added to a phone's home screen
+  og.png                     the image shown when a link to the site is shared
   locales/
     en.json  zh.json         interface text (buttons, labels, help), shared by every region
   regions/

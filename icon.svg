@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="disc"><circle cx="256" cy="256" r="178"/></clipPath>
+    <pattern id="hatch" patternUnits="userSpaceOnUse" width="26" height="26" patternTransform="rotate(45)">
+      <rect width="26" height="26" fill="#5fa8a2"/><rect width="9" height="26" fill="#1c2830" fill-opacity=".42"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" fill="#1c2830"/>
+  <g clip-path="url(#disc)" stroke="#1c2830" stroke-width="9" stroke-linejoin="round">
+    <rect width="512" height="512" fill="#d5e0e7" stroke="none"/>
+    <path d="M226 40H480V236L392 246L340 214L286 226L246 188L240 130Z" fill="#a3b86c"/>
+    <path d="M240 130L246 188L286 226L268 280L286 330L238 368L186 382L132 364L104 318L120 270L170 246L204 196Z" fill="#6f92d2"/>
+    <path d="M286 226L340 214L392 246L480 236V372L418 364L372 392L322 372L286 330L268 280Z" fill="url(#hatch)"/>
+    <path d="M286 330L322 372L314 420L282 452L262 418L238 368Z" fill="#e8b54e"/>
+    <path d="M126 166L150 128L192 118L214 146L200 184L162 204L132 196Z" fill="#d6707b"/>
+  </g>
+  <circle cx="256" cy="256" r="178" fill="none" stroke="#f4f6f7" stroke-width="12"/>
+  <circle cx="286" cy="226" r="26" fill="#d6402a" stroke="#f4f6f7" stroke-width="10"/>
+</svg>
