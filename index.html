@@ -1,6 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>欧陆古今</title>
+<meta name="description" content="Chronica, an interactive historical atlas: Europe from 700 BC to AD 2000, with its changing borders, events and stories, in English and Chinese. 欧洲历史地图：公元前 700 年至 2000 年的疆域变迁、事件与故事。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Chronica">
+<meta property="og:title" content="Europe Through the Ages · 欧陆古今">
+<meta property="og:description" content="An interactive historical atlas of Europe from 700 BC to AD 2000: changing borders, events and stories. 欧洲历史地图：疆域变迁、事件与故事。">
+<meta property="og:url" content="https://c.ilewen.com/">
+<meta property="og:image" content="https://c.ilewen.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<!-- lets the map run under the notch when the page is shown as a claude.ai artifact -->
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -408,7 +421,8 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   .poly, .lane-b { transition: none; }
 }
 </style>
-
+</head>
+<body>
 <div class="app">
   <header>
     <div class="brand">
@@ -478,8 +492,8 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js" integrity="sha512-4UKI/XKm3xrvJ6pZS5oTRvIQGIzZFoXR71rRBb1y2N+PbwAsKa5tPl2J6WvbEvwN3TxQCm8hMzsl/pO+82iRlg==" crossorigin="anonymous"></script>
 <script>
 (async function () {
   const $ = s => document.querySelector(s);
@@ -2195,3 +2209,5 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   console.error(err);
 });
 </script>
+</body>
+</html>
