@@ -1,0 +1,10 @@
+# Files Cloudflare does not serve (same syntax as .gitignore). Everything at the top level is left out except the
+# page, its icon and preview image, the interface locales and the regions' data; the build tables stay out too.
+/*
+!/index.html
+!/favicon.svg
+!/og.png
+!/locales/
+!/regions/
+*.py
+__pycache__/

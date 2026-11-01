@@ -1,0 +1,8 @@
+// Deploys the site to Cloudflare as a Worker that only serves static files: there is no Worker script.
+// .assetsignore keeps everything except the page and its data out of the upload.
+{
+  "name": "chronica",
+  "compatibility_date": "2026-10-31",
+  "assets": { "directory": "." },
+  "routes": [{ "pattern": "c.ilewen.com", "custom_domain": true }]
+}

@@ -2,3 +2,6 @@
 __pycache__/
 # intermediate files from scripts/make_data.py
 work/
+# Cloudflare wrangler
+.wrangler/
+node_modules/
