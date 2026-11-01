@@ -406,10 +406,11 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   .brand h1 { font-size: 26px; }
   /* reading on a phone: the map stays pinned at the top while the text scrolls underneath */
   .app.reading { display: block; }
-  .app.reading .mapwrap { position: sticky; top: 0; z-index: 4; height: 42vh; min-height: 220px; }
+  .app.reading { --rd-map: max(32vh, 190px); }
+  .app.reading .mapwrap { position: sticky; top: 0; z-index: 4; height: var(--rd-map); min-height: 0; }
   .app.reading aside { margin-top: 10px; }
-  .rd-bar { top: max(42vh, 220px); }
-  .rd-step { scroll-margin-top: calc(max(42vh, 220px) + 44px); padding-inline: 18px; }
+  .rd-bar { top: var(--rd-map); }
+  .rd-step { scroll-margin-top: calc(var(--rd-map) + 44px); padding-inline: 18px; }
   .rd-head, .rd-end { padding-inline: 18px; }
   .rd-end { padding-bottom: 45vh; }
   .year { font-size: 28px; }
@@ -536,7 +537,11 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   // adds its title). A region not yet translated into the language shows its English content.
   // sections a region may leave out: a missing name falls back to the source's English name, a missing text to its key
   const SECTIONS = ["types", "lanes", "lineages", "notes", "presets", "names", "short", "cities", "rivers", "ranges", "events", "stories", "aliases"];
-  const complete = loc => { for (const k of SECTIONS) loc[k] = loc[k] || {}; loc.eras = loc.eras || []; return loc; };
+  const complete = loc => {
+    for (const k of SECTIONS) loc[k] = loc[k] || {};
+    for (const k of ["eras", "erasShort", "periods"]) loc[k] = loc[k] || [];
+    return loc;
+  };
   const regionText = code => getJSON(`${RDIR}/locales/${code}.json`).catch(e => code === "en" ? Promise.reject(e) : regionText("en"));
   async function loadLocale(code) {
     const [base, region] = await Promise.all([getJSON(`locales/${code}.json`), regionText(code)]);
@@ -1180,12 +1185,23 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
         .attr("y", eraY).attr("height", axisY - eraY).attr("rx", 4);
     }
 
-    const gE = tl.append("g");
-    ERAS.forEach(([a, b], i) => {
-      const name = LOC.eras[i] ?? "";
+    // Each era is labelled with its name, or its short name, if one fits. When some era of a period (region.json
+    // "periods") has no name that fits, as on a phone, the period's eras merge into one bar under the period's name.
+    const gE = tl.append("g"), probe = gE.append("text").attr("class", "era-t"); // measures names in the label font
+    const fits = (name, a, b) => !!name && X(b) - X(a) > probe.text(name).node().getComputedTextLength() + 8;
+    const eras = ERAS.map(([a, b], i) => ({ a, b, name: [LOC.eras[i], LOC.erasShort[i]].find(n => fits(n, a, b)) }));
+    const periods = (RC.periods || []).slice(1).map((b, j) => ({ a: RC.periods[j], b, name: LOC.periods[j] }));
+    const bars = [];
+    for (const e of eras) {
+      const p = periods.find(p => e.a >= p.a && e.b <= p.b);
+      if (!p || eras.every(o => o.a < p.a || o.b > p.b || o.name)) bars.push(e);
+      else if (!bars.includes(p)) bars.push(Object.assign(p, { name: fits(p.name, p.a, p.b) ? p.name : "" }));
+    }
+    probe.remove();
+    bars.forEach(({ a, b, name }, i) => {
       gE.append("rect").attr("class", "era-r").attr("x", X(a)).attr("y", eraY).attr("width", X(b) - X(a)).attr("height", eraH)
         .attr("rx", 3).style("fill", i % 2 ? "var(--era-b)" : "var(--era-a)");
-      if (X(b) - X(a) > textW(name, 11) + 10) gE.append("text").attr("class", "era-t").attr("x", (X(a) + X(b)) / 2).attr("y", eraY + eraH / 2).text(name);
+      if (name) gE.append("text").attr("class", "era-t").attr("x", (X(a) + X(b)) / 2).attr("y", eraY + eraH / 2).text(name);
     });
     const tog = $("#lanes-tog");
     tog.textContent = tr("tl.lanesToggle");
@@ -1494,7 +1510,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
       if (!state.reading) return;
       const hit = entries.filter(en => en.isIntersecting).map(en => +en.target.dataset.i);
       if (hit.length && hit[hit.length - 1] !== state.story.step) goStep(hit[hit.length - 1], true);
-    }, { root: page ? null : side, rootMargin: page ? "-58% 0px -38% 0px" : "-30% 0px -66% 0px" });
+    }, { root: page ? null : side, rootMargin: page ? "-44% 0px -52% 0px" : "-30% 0px -66% 0px" });
     side.querySelectorAll(".rd-step").forEach(n => readObs.observe(n));
   }
   // the reading line belongs to the panel or the page depending on the layout, so follow a change of layout
@@ -2199,6 +2215,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   applyStatic();
   $("#loading").remove();
   drawTimeline(); // first: its height sets the map's, so the map is fitted once at its final size
+  document.fonts.ready.then(() => drawTimeline()); // era names are measured in the web font once it has loaded
   fit();
   setYear(START);
   applyHash(location.hash);

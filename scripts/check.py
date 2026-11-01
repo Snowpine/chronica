@@ -57,6 +57,9 @@ def check_region(rid, langs, types):
         errors.append(f"{where}/region.json scale: should run from [{y0} or earlier, 0] to [{yn}, 1]")
     if rc["eras"][0] > y0 or rc["eras"][-1] != yn:
         errors.append(f"{where}/region.json eras: should start by {y0} and end at {yn}")
+    periods = rc.get("periods", [])
+    if periods and (periods[0] != rc["eras"][0] or periods[-1] != rc["eras"][-1] or not set(periods) <= set(rc["eras"])):
+        errors.append(f"{where}/region.json periods: should run from the first to the last era boundary, using only era boundaries")
     if not y0 <= rc["start"] <= yn:
         errors.append(f"{where}/region.json start: {rc['start']} is outside {y0}..{yn}")
     if set(rc["lineages"]) != set(borders["lineages"]):
@@ -114,6 +117,10 @@ def check_region(rid, langs, types):
                 errors.append(f"{tag} ui: no {k!r}")
         if len(loc.get("eras", [])) != len(rc["eras"]) - 1:
             errors.append(f"{tag} eras: {len(loc.get('eras', []))} names for {len(rc['eras']) - 1} eras")
+        if loc.get("erasShort") and len(loc["erasShort"]) != len(rc["eras"]) - 1:
+            errors.append(f"{tag} erasShort: {len(loc['erasShort'])} names for {len(rc['eras']) - 1} eras")
+        if len(loc.get("periods", [])) != max(0, len(periods) - 1):
+            errors.append(f"{tag} periods: {len(loc.get('periods', []))} names for {max(0, len(periods) - 1)} periods")
         for k in ("lanes", "lineages"):
             missing = lineages - set(sec(k))
             if missing:

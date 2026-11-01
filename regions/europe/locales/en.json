@@ -15,6 +15,22 @@
   "Long 19th century",
   "20th century"
  ],
+ "erasShort": [
+  "Greece",
+  "Hellenistic",
+  "Rome",
+  "Early medieval",
+  "High medieval",
+  "Late medieval",
+  "",
+  "19th c.",
+  "20th c."
+ ],
+ "periods": [
+  "Ancient",
+  "Medieval",
+  "Modern"
+ ],
  "lanes": {
   "britain": "England/UK",
   "france": "France",

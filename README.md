@@ -86,6 +86,7 @@ Years are integers throughout, negative for BC (`-500` is 500 BC); there is no y
 | `core` | Optional `[[west, south], [east, north]]`. Territorial changes inside it are listed before those at the edges of the window. Defaults to `window`. |
 | `start`, `end` | The opening year, and the year the timeline ends. The timeline starts at the first border snapshot. |
 | `eras` | Era boundaries, from the first snapshot year to `end`; the locales name the eras in between. |
+| `periods` | Optional. Broader periods made of whole eras, given as boundaries taken from `eras` (Europe: ancient, medieval, modern). Where the timeline is too narrow for an era's name, as on a phone, the eras of that period merge into one bar labelled with the period's name. |
 | `scale` | The timeline's time scale: `[year, share]` pairs from `[first year, 0]` to `[end, 1]`, linear in between. Give sparse periods a smaller share. |
 | `denseFrom` | Optional. Before this year, "recent events" reach back 100 years instead of 25, and the timeline counts events per half-century instead of per decade. |
 | `lineages` | `{id: [light colour, dark colour]}` for each lineage in `polities.py`, in the order of the timeline lanes. |
@@ -112,6 +113,8 @@ The page combines two files per language: `locales/<lang>.json`, which holds the
 
 - `ui`: `title`, `subtitle`, `map`.
 - `eras`: one name per era in `region.json`.
+- `erasShort` (optional): a shorter name for each era (`""` for none), used where the full name doesn't fit.
+- `periods`: one name per period in `region.json`.
 - `lanes`: short names for the timeline lanes. A `/` separates alternatives; narrow screens show the last one.
 - `lineages`: full names of the lineages.
 - `notes`: remarks on individual snapshots, keyed by year.
