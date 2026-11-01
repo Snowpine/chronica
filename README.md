@@ -6,6 +6,8 @@ Chronica is a historical atlas built region by region. The first region is *Euro
 
 The page code itself is region-neutral: everything specific to a region lives in its folder under `regions/`, so another region (East Asia, the Middle East, …) can be added next to Europe without changing the page's code.
 
+**Try it at https://c.ilewen.com**
+
 ## What it does
 
 - **Explore**: drag the timeline or press play to watch borders change. Hatched areas mark this snapshot's territorial changes. Click a state to see its name history and an area chart. Click a coloured lane (the "Powers" button left of the timeline opens them) to follow a lineage such as France or Russia across renamings.
@@ -15,6 +17,12 @@ The page code itself is region-neutral: everything specific to a region lives in
 - **Links**: the address always reflects the view, so any view can be shared (see [Links](#links)).
 
 ## Running it locally
+
+There is no build step and nothing to install besides Python 3. Get the code:
+
+```bash
+git clone https://github.com/Snowpine/chronica.git
+```
 
 The page reads its data with `fetch`, so it needs a local web server rather than opening the file directly. From any directory:
 
@@ -40,6 +48,7 @@ The language button in the top right cycles through the languages listed in `LOC
 ```
 chronica/
   index.html                 the page and all of its code; neither region- nor language-specific
+  favicon.svg  og.png        the site icon and the image shown when a link to the site is shared
   locales/
     en.json  zh.json         interface text (buttons, labels, help), shared by every region
   regions/
@@ -60,6 +69,8 @@ chronica/
     build_physical.py        step of make_data.py: picks rivers, lakes and ranges
     check.py                 checks regions and locales for gaps
     serve.py                 local preview server
+  wrangler.jsonc             Cloudflare deployment (see Deploying)
+  .assetsignore              what the deployment leaves out
   LICENSE                    GPL-3.0
 ```
 
@@ -221,6 +232,25 @@ The source is [Natural Earth](https://www.naturalearthdata.com/) (public domain)
 
 `make_data.py physical` runs `scripts/build_physical.py` with the region's `physical.py`, which keeps the listed rivers and ranges and every lake in the window, then simplifies and packs the result.
 
+## Deploying
+
+The site is plain static files, so any static host will do. The live site runs on Cloudflare as a Worker that only serves static files:
+- `wrangler.jsonc` names the Worker and its custom domain;
+- `.assetsignore` leaves everything out of the upload except the page, its icon and preview image, and the locale and region data. Scripts, Python tables and READMEs are not uploaded.
+
+To deploy your own copy, change `routes` in `wrangler.jsonc` to your domain (or remove it to use a workers.dev address), then run:
+
+```bash
+npx wrangler deploy
+```
+
+## Contributing
+
+Corrections and additions are welcome: open an issue or a pull request.
+
+- **Historical corrections:** please cite a source.
+- **Data or translations:** run `python3 scripts/check.py` before sending the change; it should report no errors.
+
 ## Sources and licence
 
 The project, code and data alike, is released under [GPL-3.0](LICENSE).
@@ -228,3 +258,5 @@ The project, code and data alike, is released under [GPL-3.0](LICENSE).
 - Borders: [aourednik/historical-basemaps](https://github.com/aourednik/historical-basemaps), GPL-3.0. `borders.json` is derived from it.
 - Rivers, lakes and mountains: [Natural Earth](https://www.naturalearthdata.com/), public domain.
 - Events, stories and translations were written for this project.
+- Libraries: [d3](https://d3js.org/) and [TopoJSON client](https://github.com/topojson/topojson-client) (both ISC), loaded from cdnjs.
+- Fonts: Spectral, Noto Sans SC, IBM Plex Sans Condensed and ZCOOL XiaoWei from Google Fonts (SIL Open Font License).

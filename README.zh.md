@@ -11,6 +11,8 @@
 
 页面代码本身与地区无关：地区特有的东西都放在 `regions/` 下该地区的文件夹里。所以以后增加东亚、中东等地区时，只要在欧洲旁边新建一个文件夹，不必改页面代码。
 
+**在线访问：https://c.ilewen.com**
+
 ## 功能
 
 - **探索**：拖动时间轴或按播放，看边界变化；斜线区域是本期的领土变化。
@@ -22,6 +24,12 @@
 - **链接**：地址栏始终反映当前视图，可以直接复制分享（见[链接](#链接)）。
 
 ## 本地预览
+
+不需要构建，除了 Python 3 也不用安装别的东西。先获取代码：
+
+```bash
+git clone https://github.com/Snowpine/chronica.git
+```
 
 页面用 `fetch` 读取数据，不能直接双击打开，需要一个本地服务器。在任何目录下都可以运行：
 
@@ -47,6 +55,7 @@ python3 path/to/chronica/scripts/serve.py
 ```
 chronica/
   index.html                 页面和全部前端代码，不含任何地区或语言的内容
+  favicon.svg  og.png        网站图标，以及分享链接时显示的预览图
   locales/
     en.json  zh.json         界面文字（按钮、标签、帮助），所有地区共用
   regions/
@@ -67,6 +76,8 @@ chronica/
     build_physical.py        make_data.py 的一步：挑选河流、湖泊、山脉
     check.py                 检查各地区和各语言有没有缺漏
     serve.py                 本地预览服务器
+  wrangler.jsonc             Cloudflare 部署配置（见“部署”）
+  .assetsignore              部署时不上传的文件
   LICENSE                    GPL-3.0
 ```
 
@@ -245,6 +256,25 @@ python3 scripts/make_data.py europe physical <natural-earth-vector>/geojson
 
 `make_data.py physical` 按该地区的 `physical.py` 运行 `scripts/build_physical.py`：保留列出的河流和山脉，以及范围内所有湖泊，再简化打包。
 
+## 部署
+
+网站全是静态文件，任何静态托管都可以。线上版本部署在 Cloudflare 上，是一个只提供静态文件的 Worker：
+- `wrangler.jsonc` 写了 Worker 的名字和自定义域名；
+- `.assetsignore` 规定只上传页面、图标和预览图，以及语言和地区数据。脚本、Python 表格和 README 都不上传。
+
+部署自己的副本时，把 `wrangler.jsonc` 里的 `routes` 改成自己的域名（或者删掉，改用 workers.dev 地址），然后运行：
+
+```bash
+npx wrangler deploy
+```
+
+## 参与贡献
+
+欢迎指正和补充，可以开 issue 或提交 pull request。
+
+- **史实更正：** 请注明出处。
+- **数据或翻译：** 提交前运行 `python3 scripts/check.py`，确认没有报错。
+
 ## 数据来源与许可
 
 本项目（代码和数据）以 [GPL-3.0](LICENSE) 发布。
@@ -252,3 +282,5 @@ python3 scripts/make_data.py europe physical <natural-earth-vector>/geojson
 - 边界：[aourednik/historical-basemaps](https://github.com/aourednik/historical-basemaps)，GPL-3.0。`borders.json` 是它的衍生数据。
 - 河流、湖泊、山脉：[Natural Earth](https://www.naturalearthdata.com/)，公有领域。
 - 事件、故事、译名为本项目整理。
+- 程序库：[d3](https://d3js.org/) 和 [TopoJSON client](https://github.com/topojson/topojson-client)（均为 ISC 许可），从 cdnjs 加载。
+- 字体：Spectral、Noto Sans SC、IBM Plex Sans Condensed、站酷小薇（ZCOOL XiaoWei），来自 Google Fonts（SIL 开源字体许可）。
