@@ -4,7 +4,7 @@
 
 Chronica is a historical atlas built region by region. The first region is *Europe Through the Ages* (欧陆古今), which covers Europe from 700 BC to AD 2000: 44 border snapshots, the territory that changed hands between each pair of them, 296 events and 10 story chapters. Every story step has a short lead plus a full text written for reading at length. The interface and all content are available in English and Chinese.
 
-The page code itself is region-neutral: everything specific to a region lives in its folder under `regions/`, so another region (East Asia, the Middle East, …) can be added next to Europe without changing the page's code. The second region, *China Through the Ages* (中华古今), covers China and its neighbours from the traditional start of the Xia (c. 2070 BC) to the end of the Qing in 1912: 53 border snapshots, every one of them corrected or redrawn for this atlas because the source is coarse for China, 317 events, 88 cities with their names through history, and 14 story chapters, all with full texts. The title at the top left switches between regions.
+The page code itself is region-neutral: everything specific to a region lives in its folder under `regions/`, so another region (East Asia, the Middle East, …) can be added next to Europe without changing the page's code. The second region, *China Through the Ages* (中华古今), covers China and its neighbours from the traditional start of the Xia (c. 2070 BC) to the end of the Qing in 1912: 53 border snapshots, every one of them corrected or redrawn for this atlas because the source is coarse for China, 317 events, 88 cities with their names through history, and 14 story chapters, all with full texts. It is not on the live site yet (see [Deploying](#deploying)), but a local copy shows it. The title at the top left switches between regions.
 
 **Try it at https://c.ilewen.com**
 
@@ -190,6 +190,7 @@ Ancient snapshots include many peoples and archaeological cultures (Celts, Urnfi
 4. **Write the content.** Add `events.json`, `stories.json` and `cities.json` (each may start as `[]`), then `locales/en.json` with at least `ui`, `eras`, `lanes` and `lineages`. Add other languages when ready.
    A chapter of a period with many states side by side can carry a `chart`: one bar per state, `[name key, from, to, lane]`. States that follow one another share a lane, so each lane reads as a line of succession (`regions/china/stories.json`, chapter `five-dynasties`). The chart shows below the step's buttons and at the head of the reading view, in the states' map colours, with the step's year marked.
 5. **List the region.** Add its id to `REGIONS` in `index.html`, and its name and subtitle to `regions` in each interface locale (`locales/<lang>.json`), which the region menu under the title shows. Open `http://localhost:8000/?region=<id>`. The first region in the list is the default.
+   To work on a region before it goes live, also add its id to `UNPUBLISHED` and a `/regions/<id>/` line to `.assetsignore`. A local copy then shows it like the others, while the deployment leaves its folder out and the live site neither lists nor opens it. `check.py` reports it when the two lists disagree.
 6. **Check it.** Run `python3 scripts/check.py <id>`. It lists untranslated names, story steps that don't match, unknown event keys, lineage mismatches and other problems.
 
 ## Links
@@ -267,13 +268,16 @@ The source is [Natural Earth](https://www.naturalearthdata.com/) (public domain)
 
 The site is plain static files, so any static host will do. The live site runs on Cloudflare as a Worker that only serves static files:
 - `wrangler.jsonc` names the Worker and its custom domain;
-- `.assetsignore` leaves everything out of the upload except the page, its icon and preview image, and the locale and region data. Scripts, Python tables, the regions' own source snapshots and READMEs are not uploaded.
+- `.assetsignore` leaves everything out of the upload except the page, its icon and preview image, and the locale and region data. Scripts, Python tables, the regions' own source snapshots and READMEs are not uploaded;
+- regions listed in `UNPUBLISHED` in `index.html` stay out as well, each with a `/regions/<id>/` line.
 
 To deploy your own copy, change `routes` in `wrangler.jsonc` to your domain (or remove it to use a workers.dev address), then run:
 
 ```bash
 npx wrangler deploy
 ```
+
+To publish an unpublished region, take its id out of `UNPUBLISHED` and its line out of `.assetsignore`, and mention it in the `description` and `og:description` tags at the top of `index.html`. Then run `python3 scripts/check.py` and deploy.
 
 ## Contributing
 

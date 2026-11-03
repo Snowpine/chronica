@@ -14,12 +14,13 @@ errors, warnings = [], []
 
 
 def page_lists():
-    """the LOCALES, REGIONS and event TYPES that index.html knows"""
+    """the LOCALES, REGIONS, UNPUBLISHED regions and event TYPES that index.html knows"""
     html = open(f"{ROOT}/index.html", encoding="utf-8").read()
     locales = re.findall(r"(\w+): \[", re.search(r"const LOCALES = \{([^}]*)\}", html).group(1))
     regions = re.findall(r'"([\w-]+)"', re.search(r"const REGIONS = \[([^\]]*)\]", html).group(1))
+    unpublished = re.findall(r'"([\w-]+)"', re.search(r"const UNPUBLISHED = \[([^\]]*)\]", html).group(1))
     types = re.findall(r"(\w+): \{ sym:", re.search(r"const TYPES = \{(.*?)\};", html, re.S).group(1))
-    return locales, regions, types
+    return locales, regions, unpublished, types
 
 
 def check_shared(langs, regions):
@@ -39,6 +40,18 @@ def check_shared(langs, regions):
         missing = [r for r in regions if len(loc.get("regions", {}).get(r, [])) != 2]
         if missing:
             errors.append(f"locales/{code}.json regions: no [name, subtitle] for {missing} (the region menu)")
+
+
+def check_deploy(regions, unpublished):
+    """an unpublished region must be left out of the deployment, and a region left out of it must be unpublished"""
+    lines = [l.strip() for l in open(f"{ROOT}/.assetsignore", encoding="utf-8")]
+    skipped = {m.group(1) for l in lines if (m := re.fullmatch(r"/regions/([\w-]+)/", l))}
+    for rid in sorted(set(unpublished) - set(regions)):
+        errors.append(f"index.html UNPUBLISHED: {rid!r} is not in REGIONS")
+    for rid in sorted(set(unpublished) - skipped):
+        errors.append(f".assetsignore: add /regions/{rid}/ (the region is unpublished in index.html, so it must not be deployed)")
+    for rid in sorted(skipped - set(unpublished)):
+        errors.append(f".assetsignore: /regions/{rid}/ is not deployed, but the live site would offer it (add it to UNPUBLISHED in index.html)")
 
 
 def check_region(rid, langs, types):
@@ -187,9 +200,10 @@ def check_region(rid, langs, types):
 
 
 def main():
-    langs, page_regions, types = page_lists()
+    langs, page_regions, unpublished, types = page_lists()
     regions = sys.argv[1:] or sorted(d for d in os.listdir(f"{ROOT}/regions") if os.path.isfile(f"{ROOT}/regions/{d}/region.json"))
     check_shared(langs, page_regions)
+    check_deploy(page_regions, unpublished)
     for rid in regions:
         if rid not in page_regions:
             warnings.append(f"regions/{rid}: not listed in REGIONS in index.html")

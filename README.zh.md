@@ -9,7 +9,7 @@
 
 界面和全部内容都有中文和英文。
 
-页面代码本身与地区无关：地区特有的东西都放在 `regions/` 下该地区的文件夹里。所以以后增加东亚、中东等地区时，只要在欧洲旁边新建一个文件夹，不必改页面代码。第二个地区“中华古今”（China Through the Ages）覆盖从传统纪年的夏朝开始（约公元前 2070 年）到 1912 年清朝结束时的中国及其周边：53 份边界快照（原始数据对中国较粗，每一份都经本图修改或重画）、317 条事件、88 座带历代名称的城市、14 个故事章节，每章都有全文。点左上角的标题可以切换地区。
+页面代码本身与地区无关：地区特有的东西都放在 `regions/` 下该地区的文件夹里。所以以后增加东亚、中东等地区时，只要在欧洲旁边新建一个文件夹，不必改页面代码。第二个地区“中华古今”（China Through the Ages）覆盖从传统纪年的夏朝开始（约公元前 2070 年）到 1912 年清朝结束时的中国及其周边：53 份边界快照（原始数据对中国较粗，每一份都经本图修改或重画）、317 条事件、88 座带历代名称的城市、14 个故事章节，每章都有全文。它还没有在线上发布（见[部署](#部署)），本地预览可以看到。点左上角的标题可以切换地区。
 
 **在线访问：https://c.ilewen.com**
 
@@ -206,6 +206,7 @@ chronica/
 4. **写内容。** 加上 `events.json`、`stories.json`、`cities.json`，开始时都可以是 `[]`。再写 `locales/en.json`，至少要有 `ui`、`eras`、`lanes`、`lineages`。其他语言可以以后再加。
    多国并立时期的章节可以加一个 `chart`（并立图）：每个政权一条色带，写成 `[名称键, 起, 止, 行]`。前后相继的政权放在同一行，每一行就是一条承续线（见 `regions/china/stories.json` 的 `five-dynasties` 一章）。并立图显示在故事步骤的按钮下方和阅读视图的开头，颜色与地图一致，并标出当前步骤的年份。
 5. **登记地区。** 把 id 加进 `index.html` 的 `REGIONS`，再在每个界面语言文件（`locales/<语言>.json`）的 `regions` 里写上它的名称和副标题，标题下的地区菜单会显示它们。打开 `http://localhost:8000/?region=<id>` 查看。列表里的第一个地区是默认地区。
+   地区在上线前，还要把 id 加进 `UNPUBLISHED`，并在 `.assetsignore` 里加一行 `/regions/<id>/`。这样本地预览照常显示它，部署时不上传它的文件夹，线上版本也不列出、不打开它。两处不一致时 `check.py` 会报错。
 6. **检查。** 运行 `python3 scripts/check.py <id>`。它会列出这些问题：
    - 未翻译的名称；
    - 步数对不上的故事；
@@ -291,13 +292,16 @@ python3 scripts/make_data.py europe physical <natural-earth-vector>/geojson
 
 网站全是静态文件，任何静态托管都可以。线上版本部署在 Cloudflare 上，是一个只提供静态文件的 Worker：
 - `wrangler.jsonc` 写了 Worker 的名字和自定义域名；
-- `.assetsignore` 规定只上传页面、图标和预览图，以及语言和地区数据。脚本、Python 表格、各地区自绘的源快照和 README 都不上传。
+- `.assetsignore` 规定只上传页面、图标和预览图，以及语言和地区数据。脚本、Python 表格、各地区自绘的源快照和 README 都不上传；
+- `index.html` 里 `UNPUBLISHED` 列出的地区也不上传，每个地区在 `.assetsignore` 里有一行 `/regions/<id>/`。
 
 部署自己的副本时，把 `wrangler.jsonc` 里的 `routes` 改成自己的域名（或者删掉，改用 workers.dev 地址），然后运行：
 
 ```bash
 npx wrangler deploy
 ```
+
+发布一个未发布的地区：把它的 id 从 `UNPUBLISHED` 里删掉，删掉 `.assetsignore` 里对应的那一行，再在 `index.html` 开头的 `description` 和 `og:description` 里写上它。然后运行 `python3 scripts/check.py`，再部署。
 
 ## 参与贡献
 

@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>寰宇古今 · Chronica</title>
-<meta name="description" content="Chronica, an interactive historical atlas of Europe from 700 BC to AD 2000 and of China from c. 2070 BC to 1912, with their changing borders, events and stories, in English and Chinese. 欧洲与中国历史地图：疆域变迁、事件与故事。">
+<meta name="description" content="Chronica, an interactive historical atlas: Europe from 700 BC to AD 2000, with its changing borders, events and stories, in English and Chinese. 欧洲历史地图：公元前 700 年至 2000 年的疆域变迁、事件与故事。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Chronica">
 <meta property="og:title" content="Chronica · 寰宇古今">
-<meta property="og:description" content="An interactive historical atlas of Europe and China: changing borders, events and stories. 欧洲与中国历史地图：疆域变迁、事件与故事。">
+<meta property="og:description" content="An interactive historical atlas of Europe from 700 BC to AD 2000: changing borders, events and stories. 欧洲历史地图：疆域变迁、事件与故事。">
 <meta property="og:url" content="https://c.ilewen.com/">
 <meta property="og:image" content="https://c.ilewen.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -564,7 +564,13 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   const params = new URLSearchParams(location.search);
   // regions: each one is a folder under regions/ with its region.json, data and locales; ?region=<id> picks one
   const REGIONS = ["europe", "china"];
-  const RID = REGIONS.includes(params.get("region")) ? params.get("region") : REGIONS[0], RDIR = `regions/${RID}`;
+  // regions not yet published: the deployment leaves their folders out (.assetsignore, which check.py keeps in step)
+  // and the live site neither lists nor opens them, while a local copy shows them like the others. Take a region out
+  // of both lists to publish it.
+  const UNPUBLISHED = ["china"];
+  const LOCAL = ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname);
+  const OPEN = REGIONS.filter(id => LOCAL || !UNPUBLISHED.includes(id)); // the regions this copy shows
+  const RID = OPEN.includes(params.get("region")) ? params.get("region") : OPEN[0], RDIR = `regions/${RID}`;
   // languages: each one is a locales/<code>.json file (the interface) plus regions/<id>/locales/<code>.json (the content)
   const LOCALES = { zh: ["中文", "zh-CN"], en: ["English", "en"] }; // code: [native name, BCP 47 tag]
   const LANG_KEY = "chronica.lang", LANES_KEY = "chronica.lanes";
@@ -633,7 +639,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
       }
     });
     // the region menu: a link to each region, named in the active language (interface locale "regions")
-    $("#regions").replaceChildren(...REGIONS.map(id => {
+    $("#regions").replaceChildren(...OPEN.map(id => {
       const [name, sub] = LOC.regions[id] || [id, ""], q = new URLSearchParams(params), a = document.createElement("a");
       q.set("region", id);
       a.href = `?${q}`;
@@ -1905,7 +1911,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     regionMenu.hidden = !open;
     regionBtn.setAttribute("aria-expanded", open);
   }
-  regionBtn.disabled = REGIONS.length < 2;
+  regionBtn.disabled = OPEN.length < 2;
   regionBtn.onclick = () => openRegions(regionMenu.hidden);
   document.addEventListener("pointerdown", ev => {
     if (!regionMenu.hidden && !regionMenu.contains(ev.target) && !regionBtn.contains(ev.target)) openRegions(false);
