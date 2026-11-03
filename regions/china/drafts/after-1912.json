@@ -1,0 +1,1363 @@
+{
+ "about": "Content after 1912, left out while the China timeline ends with the Qing. Same formats as events.json, stories.json and the locales; move it back when the timeline is extended past 1912.",
+ "events": [
+  [
+   "twenty-one-demands",
+   1915,
+   39.92,
+   116.39,
+   "treaty"
+  ],
+  [
+   "new-youth",
+   1915,
+   31.23,
+   121.47,
+   "culture"
+  ],
+  [
+   "may-fourth",
+   1919,
+   39.9,
+   116.39,
+   "politics"
+  ],
+  [
+   "haiyuan-earthquake",
+   1920,
+   36.57,
+   105.4,
+   "plague"
+  ],
+  [
+   "cpc-founded",
+   1921,
+   31.22,
+   121.47,
+   "politics"
+  ],
+  [
+   "northern-expedition",
+   1926,
+   23.13,
+   113.26,
+   "war"
+  ],
+  [
+   "april-12-purge",
+   1927,
+   31.23,
+   121.47,
+   "politics"
+  ],
+  [
+   "nanchang-uprising",
+   1927,
+   28.68,
+   115.86,
+   "war"
+  ],
+  [
+   "yangtze-flood-1931",
+   1931,
+   30.59,
+   114.3,
+   "plague"
+  ],
+  [
+   "mukden-incident",
+   1931,
+   41.84,
+   123.42,
+   "war"
+  ],
+  [
+   "manchukuo",
+   1932,
+   43.88,
+   125.32,
+   "politics"
+  ],
+  [
+   "long-march",
+   1934,
+   25.88,
+   116.03,
+   "war"
+  ],
+  [
+   "zunyi-conference",
+   1935,
+   27.7,
+   106.93,
+   "politics"
+  ],
+  [
+   "xian-incident",
+   1936,
+   34.36,
+   109.21,
+   "politics"
+  ],
+  [
+   "marco-polo-bridge",
+   1937,
+   39.85,
+   116.21,
+   "war"
+  ],
+  [
+   "battle-of-shanghai",
+   1937,
+   31.25,
+   121.45,
+   "war"
+  ],
+  [
+   "nanjing-massacre",
+   1937,
+   32.05,
+   118.78,
+   "war"
+  ],
+  [
+   "taierzhuang",
+   1938,
+   34.56,
+   117.73,
+   "war"
+  ],
+  [
+   "huayuankou",
+   1938,
+   34.91,
+   113.65,
+   "plague"
+  ],
+  [
+   "battle-of-wuhan",
+   1938,
+   30.58,
+   114.27,
+   "war"
+  ],
+  [
+   "henan-famine",
+   1942,
+   34.2,
+   113.5,
+   "plague"
+  ],
+  [
+   "japan-surrenders",
+   1945,
+   32.05,
+   118.8,
+   "treaty"
+  ],
+  [
+   "taiwan-retrocession",
+   1945,
+   25.04,
+   121.51,
+   "politics"
+  ],
+  [
+   "february-28",
+   1947,
+   25.04,
+   121.51,
+   "politics"
+  ],
+  [
+   "liaoshen",
+   1948,
+   41.1,
+   121.13,
+   "war"
+  ],
+  [
+   "huaihai",
+   1948,
+   34.26,
+   117.19,
+   "war"
+  ],
+  [
+   "prc-founded",
+   1949,
+   39.9,
+   116.39,
+   "politics"
+  ],
+  [
+   "roc-to-taiwan",
+   1949,
+   25.04,
+   121.51,
+   "politics"
+  ],
+  [
+   "pingjin",
+   1949,
+   39.93,
+   116.4,
+   "war"
+  ],
+  [
+   "yangtze-crossing",
+   1949,
+   31.33,
+   118.38,
+   "war"
+  ],
+  [
+   "korean-war",
+   1950,
+   40.12,
+   124.39,
+   "war"
+  ],
+  [
+   "seventeen-point-agreement",
+   1951,
+   39.92,
+   116.39,
+   "treaty"
+  ],
+  [
+   "great-leap-forward",
+   1958,
+   39.9,
+   116.39,
+   "politics"
+  ],
+  [
+   "tibet-1959",
+   1959,
+   29.65,
+   91.13,
+   "politics"
+  ],
+  [
+   "great-famine",
+   1959,
+   32.13,
+   114.07,
+   "plague"
+  ],
+  [
+   "sino-indian-war",
+   1962,
+   27.59,
+   91.86,
+   "war"
+  ],
+  [
+   "first-atomic-bomb",
+   1964,
+   40.82,
+   89.8,
+   "culture"
+  ],
+  [
+   "cultural-revolution",
+   1966,
+   39.9,
+   116.39,
+   "politics"
+  ],
+  [
+   "zhenbao-island",
+   1969,
+   46.49,
+   133.84,
+   "war"
+  ],
+  [
+   "nixon-visit",
+   1972,
+   39.9,
+   116.39,
+   "politics"
+  ],
+  [
+   "tangshan-earthquake",
+   1976,
+   39.63,
+   118.18,
+   "plague"
+  ],
+  [
+   "gang-of-four",
+   1976,
+   39.92,
+   116.39,
+   "politics"
+  ],
+  [
+   "reform-and-opening",
+   1978,
+   39.9,
+   116.39,
+   "politics"
+  ],
+  [
+   "sino-vietnamese-war",
+   1979,
+   21.85,
+   106.76,
+   "war"
+  ],
+  [
+   "sino-british-declaration",
+   1984,
+   39.9,
+   116.39,
+   "treaty"
+  ],
+  [
+   "tiananmen-1989",
+   1989,
+   39.9,
+   116.39,
+   "politics"
+  ],
+  [
+   "three-gorges-dam",
+   1994,
+   30.82,
+   111.0,
+   "culture"
+  ],
+  [
+   "hong-kong-handover",
+   1997,
+   22.28,
+   114.16,
+   "politics"
+  ]
+ ],
+ "stories": [
+  {
+   "id": "war-and-revolution",
+   "span": [
+    1931,
+    1949
+   ],
+   "steps": [
+    {
+     "y": 1931,
+     "box": [
+      [
+       115,
+       35
+      ],
+      [
+       135,
+       50
+      ]
+     ],
+     "hl": [
+      "roc",
+      "japan"
+     ],
+     "ev": [
+      "mukden-incident",
+      "manchukuo"
+     ]
+    },
+    {
+     "y": 1937,
+     "box": [
+      [
+       105,
+       25
+      ],
+      [
+       125,
+       42
+      ]
+     ],
+     "hl": [
+      "roc",
+      "japan"
+     ],
+     "ev": [
+      "marco-polo-bridge",
+      "battle-of-shanghai",
+      "nanjing-massacre"
+     ]
+    },
+    {
+     "y": 1938,
+     "box": [
+      [
+       100,
+       20
+      ],
+      [
+       135,
+       48
+      ]
+     ],
+     "hl": [
+      "japan",
+      "roc"
+     ],
+     "ev": [
+      "taierzhuang",
+      "huayuankou",
+      "battle-of-wuhan"
+     ]
+    },
+    {
+     "y": 1945,
+     "box": [
+      [
+       95,
+       18
+      ],
+      [
+       135,
+       50
+      ]
+     ],
+     "hl": [
+      "roc"
+     ],
+     "ev": [
+      "japan-surrenders",
+      "taiwan-retrocession"
+     ]
+    },
+    {
+     "y": 1946,
+     "box": [
+      [
+       105,
+       25
+      ],
+      [
+       127,
+       45
+      ]
+     ],
+     "hl": [
+      "roc"
+     ],
+     "ev": [
+      "liaoshen",
+      "huaihai",
+      "pingjin"
+     ]
+    },
+    {
+     "y": 1949,
+     "box": [
+      [
+       95,
+       18
+      ],
+      [
+       130,
+       48
+      ]
+     ],
+     "hl": [
+      "China",
+      "Taiwan"
+     ],
+     "ev": [
+      "yangtze-crossing",
+      "prc-founded",
+      "roc-to-taiwan"
+     ]
+    }
+   ]
+  }
+ ],
+ "en": {
+  "events": {
+   "twenty-one-demands": [
+    "Twenty-One Demands",
+    "Under a Japanese ultimatum, Yuan Shikai's government accepts most of Japan's demands."
+   ],
+   "new-youth": [
+    "New Youth",
+    "Chen Duxiu founds the magazine that leads the New Culture Movement for science and democracy."
+   ],
+   "may-fourth": [
+    "May Fourth Movement",
+    "Students protest in Beijing against the Versailles decision to give German rights in Shandong to Japan."
+   ],
+   "haiyuan-earthquake": [
+    "Haiyuan earthquake",
+    "One of the deadliest earthquakes of the century strikes Gansu, killing over 200,000 people."
+   ],
+   "cpc-founded": [
+    "Communist Party of China founded",
+    "The first congress meets in Shanghai and ends on a boat on South Lake in Jiaxing."
+   ],
+   "northern-expedition": [
+    "Northern Expedition",
+    "The National Revolutionary Army of the KMT–CPC alliance marches north from Guangzhou against the warlords."
+   ],
+   "april-12-purge": [
+    "Shanghai purge",
+    "Chiang Kai-shek turns on the Communists in Shanghai, ending the first united front."
+   ],
+   "nanchang-uprising": [
+    "Nanchang Uprising",
+    "Communist-led troops revolt on 1 August, later marked as the founding day of the People's Liberation Army."
+   ],
+   "yangtze-flood-1931": [
+    "1931 floods",
+    "The Yangtze and Huai flood vast areas; Hankou stands under water for months."
+   ],
+   "mukden-incident": [
+    "Mukden Incident",
+    "Japanese officers blow up a railway line near Shenyang and use it as a pretext to seize Manchuria."
+   ],
+   "manchukuo": [
+    "Manchukuo",
+    "Japan sets up a puppet state in Manchuria with Puyi at its head and its capital at Changchun."
+   ],
+   "long-march": [
+    "Long March",
+    "The Red Army breaks out of its Jiangxi base and marches some 10,000 km to northern Shaanxi."
+   ],
+   "zunyi-conference": [
+    "Zunyi Conference",
+    "Meeting during the Long March, the Communist leadership gives Mao Zedong a leading voice in military affairs."
+   ],
+   "xian-incident": [
+    "Xi'an Incident",
+    "Zhang Xueliang and Yang Hucheng detain Chiang Kai-shek to force a united front against Japan."
+   ],
+   "marco-polo-bridge": [
+    "Marco Polo Bridge Incident",
+    "Claiming a soldier is missing, Japanese troops attack Wanping near Beiping, and full-scale war begins."
+   ],
+   "battle-of-shanghai": [
+    "Battle of Shanghai",
+    "Chinese and Japanese armies fight for three months over Shanghai, one of the largest battles of the war."
+   ],
+   "nanjing-massacre": [
+    "Nanjing Massacre",
+    "Japanese troops take Nanjing and kill civilians and prisoners for weeks; the Tokyo tribunal put the dead at over 200,000."
+   ],
+   "taierzhuang": [
+    "Battle of Taierzhuang",
+    "Chinese armies under Li Zongren win a major victory over the Japanese in southern Shandong."
+   ],
+   "huayuankou": [
+    "Yellow River dykes breached",
+    "Nationalist troops break the dykes at Huayuankou to slow the Japanese; floods kill hundreds of thousands."
+   ],
+   "battle-of-wuhan": [
+    "Battle of Wuhan",
+    "Japan takes Wuhan after months of fighting; the government holds out in Chongqing as the war stalls."
+   ],
+   "henan-famine": [
+    "Henan famine",
+    "Drought, locusts and war bring famine to Henan; millions die or flee."
+   ],
+   "japan-surrenders": [
+    "Japan surrenders",
+    "Japan announces its surrender on 15 August; on 9 September its army in China signs in Nanjing."
+   ],
+   "taiwan-retrocession": [
+    "Retrocession of Taiwan",
+    "On 25 October Japanese forces in Taiwan surrender to the Republic of China in Taipei."
+   ],
+   "february-28": [
+    "February 28 Incident",
+    "A clash over contraband cigarettes in Taipei sparks an island-wide uprising, put down by troops."
+   ],
+   "liaoshen": [
+    "Liaoshen Campaign",
+    "Communist forces take Jinzhou, Changchun and Shenyang and win all of Manchuria."
+   ],
+   "huaihai": [
+    "Huaihai Campaign",
+    "In two months of fighting around Xuzhou, the PLA destroys the main Nationalist armies north of the Yangtze."
+   ],
+   "prc-founded": [
+    "People's Republic of China founded",
+    "On 1 October Mao Zedong proclaims the People's Republic from Tiananmen."
+   ],
+   "roc-to-taiwan": [
+    "ROC government moves to Taiwan",
+    "Defeated on the mainland, the Nationalist government of the Republic of China moves to Taipei."
+   ],
+   "pingjin": [
+    "Pingjin Campaign",
+    "The PLA storms Tianjin, and the Beiping garrison agrees to a peaceful handover."
+   ],
+   "yangtze-crossing": [
+    "Crossing of the Yangtze",
+    "The PLA crosses the Yangtze on a broad front and takes Nanjing and Shanghai."
+   ],
+   "korean-war": [
+    "China enters the Korean War",
+    "Chinese People's Volunteers cross the Yalu in October; the war ends in an armistice in 1953."
+   ],
+   "seventeen-point-agreement": [
+    "Seventeen Point Agreement",
+    "After the battle of Chamdo, Tibetan delegates in Beijing sign terms bringing Tibet under the People's Republic."
+   ],
+   "great-leap-forward": [
+    "Great Leap Forward",
+    "Mao launches a drive to overtake Britain in steel, and the countryside is organised into people's communes."
+   ],
+   "tibet-1959": [
+    "1959 Tibetan uprising",
+    "The PLA puts down an uprising in Lhasa against Chinese rule; the 14th Dalai Lama flees to India."
+   ],
+   "great-famine": [
+    "Great Chinese Famine",
+    "The Great Leap Forward and natural disasters bring famine; estimates of the dead start at 15 million."
+   ],
+   "sino-indian-war": [
+    "Sino-Indian War",
+    "Fighting breaks out on the disputed Himalayan border; China advances, then declares a ceasefire and withdraws."
+   ],
+   "first-atomic-bomb": [
+    "First atomic bomb",
+    "China explodes its first nuclear device at Lop Nur on 16 October."
+   ],
+   "cultural-revolution": [
+    "Cultural Revolution",
+    "Mao launches a mass political campaign, and a decade of upheaval and persecution follows."
+   ],
+   "zhenbao-island": [
+    "Zhenbao Island clash",
+    "Chinese and Soviet border troops fight over an island in the Ussuri River."
+   ],
+   "nixon-visit": [
+    "Nixon visits China",
+    "Months after Beijing takes China's seat at the United Nations, Nixon meets Mao; the Shanghai Communiqué follows."
+   ],
+   "tangshan-earthquake": [
+    "Tangshan earthquake",
+    "An earthquake levels the industrial city of Tangshan, killing about 240,000 people."
+   ],
+   "gang-of-four": [
+    "Death of Mao and fall of the Gang of Four",
+    "Mao dies in September; in October Jiang Qing and her allies are arrested, ending the Cultural Revolution."
+   ],
+   "reform-and-opening": [
+    "Reform and opening up",
+    "The Third Plenum backs Deng Xiaoping's turn to economic reform and opening to the world."
+   ],
+   "sino-vietnamese-war": [
+    "Sino-Vietnamese War",
+    "Chinese troops invade northern Vietnam for a month, taking Lang Son before withdrawing."
+   ],
+   "sino-british-declaration": [
+    "Sino-British Joint Declaration",
+    "Britain agrees to return Hong Kong in 1997 under 'one country, two systems'."
+   ],
+   "tiananmen-1989": [
+    "Tiananmen Square protests",
+    "Weeks of student-led protests end when troops are ordered into Beijing on 3–4 June; many are killed."
+   ],
+   "three-gorges-dam": [
+    "Three Gorges Dam begun",
+    "Work starts on the world's largest hydroelectric dam; over a million people will be relocated."
+   ],
+   "hong-kong-handover": [
+    "Hong Kong handover",
+    "Britain hands Hong Kong back to China on 1 July after 156 years of rule."
+   ]
+  },
+  "aliases": {
+   "new-youth": [
+    "New Culture Movement"
+   ],
+   "cpc-founded": [
+    "CPC",
+    "CCP",
+    "Chinese Communist Party"
+   ],
+   "northern-expedition": [
+    "Kuomintang",
+    "KMT",
+    "Chiang Kai-shek"
+   ],
+   "mukden-incident": [
+    "September 18 Incident",
+    "Manchurian Incident"
+   ],
+   "long-march": [
+    "Red Army"
+   ],
+   "xian-incident": [
+    "Sian Incident"
+   ],
+   "marco-polo-bridge": [
+    "Second Sino-Japanese War",
+    "War of Resistance",
+    "Lugou Bridge",
+    "July 7 Incident"
+   ],
+   "nanjing-massacre": [
+    "Nanking Massacre",
+    "Rape of Nanking"
+   ],
+   "battle-of-wuhan": [
+    "Chongqing",
+    "wartime capital"
+   ],
+   "japan-surrenders": [
+    "V-J Day"
+   ],
+   "huaihai": [
+    "Chinese Civil War"
+   ],
+   "prc-founded": [
+    "PRC",
+    "Mao Zedong",
+    "Mao Tse-tung"
+   ],
+   "korean-war": [
+    "Korean War",
+    "Chinese People's Volunteers"
+   ],
+   "great-leap-forward": [
+    "People's communes"
+   ],
+   "tibet-1959": [
+    "Lhasa uprising"
+   ],
+   "great-famine": [
+    "Three Years of Great Famine"
+   ],
+   "cultural-revolution": [
+    "Red Guards"
+   ],
+   "reform-and-opening": [
+    "Deng Xiaoping",
+    "Special Economic Zones"
+   ],
+   "tiananmen-1989": [
+    "June Fourth Incident",
+    "1989 protests"
+   ]
+  },
+  "stories": {
+   "war-and-revolution": {
+    "title": "War and Revolution",
+    "lede": "From a blast on the railway at Mukden to the salute in Tiananmen Square, eighteen years of war remade China.",
+    "steps": [
+     [
+      "The Mukden Incident",
+      "On the night of 18 September 1931 Japan's Kwantung Army blew up a stretch of railway north of Shenyang (Mukden), blamed Chinese troops and attacked the Northeastern Army's barracks. Under a policy of non-resistance that army withdrew south of the Great Wall, and within five months Manchuria had fallen. In 1932 Japan set up the puppet state of Manchukuo. The map still shows Manchuria in the Republic; the 1938 snapshot draws it as Japanese.",
+      {
+       "p": [
+        "In the Republic's first years warlord factions took turns controlling the Beijing government. In Guangzhou Sun Yat-sen rebuilt his Nationalist Party, the Kuomintang, with Soviet help and admitted Communists; in 1926 its army marched north. In April 1927 Chiang Kai-shek turned on the Communists in Shanghai and set up a Nationalist government in Nanjing. The Communists rose at Nanchang, then built rural bases in Jiangxi and elsewhere, proclaiming a Chinese Soviet Republic at Ruijin in November 1931. In 1928 the Kwantung Army killed the Manchurian warlord Zhang Zuolin by blowing up his train; his son Zhang Xueliang then declared allegiance to Nanjing, and China was nominally reunited.",
+        "Japan had held the Liaodong lease and the South Manchuria Railway since the Russo-Japanese War, guarded by the Kwantung Army. Staff officers such as Ishiwara Kanji and Itagaki Seishirō, convinced that Manchuria and Mongolia must be taken by force, planned the blast at Liutiaohu. That night Japanese guns shelled the Beidaying barracks; Shenyang fell the next day, Changchun and Jilin within days. The bulk of the Northeastern Army was south of the Wall and did not resist; historians still debate whether that policy came from Zhang Xueliang or from Chiang Kai-shek. Ma Zhanshan fought back at the Nenjiang bridge in November, but Jinzhou fell in January 1932 and Harbin in February.",
+        "Manchukuo was proclaimed on 1 March 1932, with Puyi as 'chief executive' and Changchun, renamed Xinjing, as capital; in 1934 he became 'emperor', but power lay with the Kwantung Army and Japanese officials. A League of Nations commission under Lord Lytton found that Japan had not acted in self-defence and that Manchukuo was no genuine independence movement. In February 1933 the League adopted its report by 42 votes to 1, and Japan walked out. That year Japan took Rehe and pressed on the Great Wall; the Tanggu Truce of May demilitarised eastern Hebei. In Manchuria volunteer armies and later the Northeast Anti-Japanese United Army fought on for years."
+       ],
+       "facts": [
+        [
+         "Mukden Incident",
+         "18 September 1931"
+        ],
+        [
+         "Manchukuo proclaimed",
+         "1 March 1932"
+        ],
+        [
+         "League vote on the Lytton Report",
+         "24 February 1933, 42 to 1"
+        ]
+       ]
+      }
+     ],
+     [
+      "Full-scale war",
+      "On the night of 7 July 1937 Japanese troops near the Marco Polo Bridge claimed a soldier was missing and demanded to search the town of Wanping. Refused, they clashed with Chinese troops early on the 8th; full-scale war had begun. Fighting spread to Shanghai in August, and in December Nanjing fell and Japanese troops carried out a massacre. The map is still the 1930 snapshot, without Manchukuo or the newly occupied lands.",
+      {
+       "p": [
+        "From 1933 the Nationalist government threw its armies against the Communists' base in Jiangxi. In October 1934 the Red Army broke out and a year later reached northern Shaanxi: the Long March, traditionally reckoned at 25,000 li (12,500 km). As Japan pressed into north China, students in Beiping marched in December 1935 for an end to civil war. On 12 December 1936 the generals Zhang Xueliang and Yang Hucheng seized Chiang Kai-shek at Xi'an, where he had come to press the campaign against the Red Army, and demanded that he end the civil war and resist Japan. Freed on the 25th after intense mediation, Chiang moved towards a second united front with the Communists.",
+        "On 17 July, at Lushan, Chiang declared that every Chinese, north or south, young or old, had a duty to resist. By the end of July Beiping and Tianjin had fallen. On 13 August fighting broke out in Shanghai. China committed some 700,000 troops, who held out for three months; Xie Jinyuan's defence of the Sihang Warehouse became famous worldwide. On 5 November Japanese troops landed in Hangzhou Bay behind the Chinese lines, forcing a general retreat, and Shanghai fell on the 12th. In the north the Eighth Route Army, formed from the Red Army, ambushed a Japanese column at Pingxingguan, but Taiyuan fell in November.",
+        "Japanese forces took Nanjing on 13 December and for some six weeks killed surrendered soldiers and civilians on a massive scale in and around the city, amid widespread rape, looting and arson. The International Military Tribunal for the Far East found that over 200,000 civilians and prisoners were murdered and that there were about 20,000 cases of rape; the Nanjing war crimes tribunal put the dead at over 300,000, the figure China officially uses. According to the joint Japanese–Chinese history report of 2010, Japanese scholars' estimates go up to 200,000, with others of 40,000 and 20,000. A Safety Zone run by foreigners such as John Rabe and Minnie Vautrin sheltered over 200,000 refugees. The generals Tani Hisao and Matsui Iwane were later executed."
+       ],
+       "facts": [
+        [
+         "Marco Polo Bridge Incident",
+         "7 July 1937"
+        ],
+        [
+         "Battle of Shanghai",
+         "13 August – 12 November 1937"
+        ],
+        [
+         "Fall of Nanjing",
+         "13 December 1937"
+        ]
+       ]
+      }
+     ],
+     [
+      "From Wuhan to Chongqing",
+      "In 1938 Japan pushed along the Tianjin–Pukou railway and up the Yangtze. Chinese forces won at Taierzhuang but lost Xuzhou; the battle for Wuhan lasted over four months, and in October Wuhan and Guangzhou fell. The government held out in Chongqing, Japan could push no deeper, and the war settled into a long stalemate. The 1938 snapshot draws Manchukuo as Japanese, but not the occupied parts of China proper.",
+      {
+       "p": [
+        "In March and April 1938 Li Zongren's armies encircled and destroyed part of a Japanese force at Taierzhuang, China's first major victory of the full-scale war. Japan then massed troops around Xuzhou, and in May the Chinese broke out westwards. To stop the Japanese advancing along the Longhai railway to Zhengzhou, Nationalist troops breached the Yellow River dykes at Huayuankou on 9 June. The flood delayed the Japanese but swamped over 40 counties in Henan, Anhui and Jiangsu and drove millions from their homes; estimates of the dead range from about 400,000 to 890,000, the higher figure from a 1948 relief survey.",
+        "The battle for Wuhan lasted from June to October. China committed over a million troops, and at Wanjialing Xue Yue's forces mauled the Japanese 106th Division. But Japan took Guangzhou on 21 October and entered Wuhan from the 25th. The government had announced its move to Chongqing in November 1937, and ministries, factories and schools moved west up the Yangtze; Peking, Tsinghua and Nankai universities joined in Kunming as the Southwestern Associated University. From 1938 Japanese aircraft bombed Chongqing for more than five years; the raids of 3 and 4 May 1939 alone killed nearly 4,000 people.",
+        "After Wuhan, Japan held the main cities and railways of north and east China and the southern coast, but its armies were overstretched and it turned to puppet regimes: Wang Jingwei, deputy leader of the Kuomintang, defected in December 1938 and in March 1940 set up a collaborationist government in Nanjing. Behind Japanese lines the Communist-led Eighth Route and New Fourth armies built base areas and in 1940 launched the Hundred Regiments Offensive, but friction between the parties grew; in January 1941 Nationalist troops all but destroyed the New Fourth Army's headquarters column in southern Anhui. In 1944 Japan's Operation Ichi-go inflicted heavy losses on the Nationalist armies."
+       ],
+       "facts": [
+        [
+         "Battle of Taierzhuang",
+         "March–April 1938"
+        ],
+        [
+         "Fall of Wuhan",
+         "late October 1938"
+        ],
+        [
+         "Bombing of Chongqing",
+         "1938–1943"
+        ]
+       ]
+      }
+     ],
+     [
+      "Japan surrenders",
+      "In August 1945 the United States dropped atomic bombs on Hiroshima and Nagasaki and the Soviet Union invaded Manchuria. Japan announced its surrender on 15 August, and the surrender in the China theatre was received at Nanjing on 9 September. On 25 October Taiwan passed to the Republic of China. The 1945 snapshot shows Manchuria, Taiwan and Penghu back in the Republic, and Korea split into Soviet and American zones.",
+      {
+       "p": [
+        "After Pearl Harbor the China front still tied down large Japanese armies. In 1942 a Chinese Expeditionary Force fought in Burma, and once the Burma Road was cut, American aircraft flew supplies from India to Kunming over the 'Hump' of the eastern Himalayas. In January 1943 the United States and Britain gave up extraterritoriality, essentially ending the system of unequal treaties. That November Chiang Kai-shek met Roosevelt and Churchill at Cairo; their declaration stated that the territories Japan had stolen from China, such as Manchuria, Taiwan and the Penghu Islands, should be restored to the Republic of China. The Potsdam Proclamation of July 1945 reaffirmed it.",
+        "The bombs fell on Hiroshima on 6 August and Nagasaki on the 9th. The Soviet Union declared war on the 8th and over 1.5 million Soviet troops poured into Manchuria; the Kwantung Army quickly collapsed. On 15 August the emperor announced by radio that Japan accepted the Potsdam terms, and on 2 September Japan signed the surrender aboard the USS Missouri in Tokyo Bay. On 9 September General Okamura Yasuji, commander of the China Expeditionary Army, surrendered to He Yingqin at Nanjing. On 25 October Chen Yi, the new governor of Taiwan Province, accepted the surrender of Governor-General Andō Rikichi at Taipei, ending fifty years of Japanese rule.",
+        "The toll was immense. Chinese official figures put military and civilian casualties at over 35 million; Western historians' estimates of the dead mostly lie between 14 and 20 million, and tens of millions became refugees. On 14 August the Nationalist government signed a treaty with the Soviet Union agreeing to joint control of the Changchun Railway, a shared naval base at Port Arthur and recognition of Outer Mongolia's independence after a plebiscite, granted in January 1946. In late August Mao Zedong flew to Chongqing for talks, and on 10 October the parties signed the Double Tenth Agreement, but their armies were already clashing over who would take the Japanese surrender."
+       ],
+       "facts": [
+        [
+         "Japan announces surrender",
+         "15 August 1945"
+        ],
+        [
+         "Surrender at Nanjing",
+         "9 September 1945"
+        ],
+        [
+         "Surrender at Taipei",
+         "25 October 1945"
+        ]
+       ]
+      }
+     ],
+     [
+      "The Civil War",
+      "After the American envoy George Marshall failed to broker a settlement, full-scale civil war broke out in 1946. The Nationalists, at first stronger, even took Yan'an, but the Communists gradually went over to the offensive. Between September 1948 and January 1949 the PLA destroyed or absorbed over 1.5 million Nationalist troops in three great campaigns. The map keeps the 1945 snapshot, without the moving front lines.",
+      {
+       "p": [
+        "George Marshall arrived in December 1945 to mediate. In January 1946 the parties agreed a ceasefire, and a Political Consultative Conference met in Chongqing. But the race for Manchuria never stopped: Communist troops moved in as the Soviets left, while American aircraft and ships carried Nationalist troops north. In June 1946 Nationalist forces attacked the Communists' Central Plains base on the Hubei–Henan border, and full-scale war began. By figures later published in the People's Republic, the Nationalists then had about 4.3 million troops and the Communists about 1.27 million. In March 1947 Hu Zongnan's army took Yan'an, but the Communist leadership stayed in northern Shaanxi.",
+        "At the end of 1946 a National Assembly adopted the Constitution of the Republic of China, and in 1948 Chiang became the first president under it. But in Nationalist areas prices soared and corruption was rife; the gold yuan, issued in August 1948, was almost worthless within a year, and the cities lost faith. Where they ruled, the Communists carried out land reform, giving landlords' land to peasants, and many peasants joined the army or carried its supplies. In the summer of 1947 Liu Bocheng and Deng Xiaoping struck south into the Dabie Mountains, carrying the war into Nationalist territory. By autumn 1948 the gap between the two sides had narrowed sharply.",
+        "In September 1948 Lin Biao and Luo Ronghuan's Northeast Field Army opened the Liaoshen campaign, taking Jinzhou and trapping the Nationalist armies in Manchuria. Changchun, besieged for over five months, surrendered in October; estimates of the civilians who starved inside range from over 100,000 to 300,000. Shenyang fell in early November. From November the Huaihai campaign around Xuzhou cost the Nationalists over 550,000 men. In the Pingjin campaign the PLA stormed Tianjin in January 1949, and Fu Zuoyi agreed to hand over Beiping peacefully; the PLA entered on the 31st. Most of China north of the Yangtze was now under Communist control."
+       ],
+       "facts": [
+        [
+         "Full-scale war begins",
+         "June 1946"
+        ],
+        [
+         "The three great campaigns",
+         "September 1948 – January 1949"
+        ],
+        [
+         "Nationalist losses",
+         "over 1.5 million (PLA figures)"
+        ]
+       ]
+      }
+     ],
+     [
+      "The mainland and Taiwan",
+      "In April 1949 the People's Liberation Army crossed the Yangtze and took Nanjing. On 1 October Mao Zedong proclaimed the People's Republic of China from the Tiananmen gate in Beijing. In December the government of the Republic of China moved to Taipei, and more than a million people followed it to Taiwan. On the 1949 snapshot the mainland is the People's Republic, and Taiwan, labelled as such, remains under the Republic of China.",
+      {
+       "p": [
+        "In January 1949 Chiang Kai-shek stepped down, leaving Vice-President Li Zongren as acting president to negotiate with the Communists in Beiping. On 20 April the Nanjing government refused to sign the final text of a peace agreement, and that night a million PLA troops began crossing the Yangtze along a front of some 500 km from Hukou to Jiangyin. They entered Nanjing on 23 April and Shanghai on 27 May, then pushed on into the south, north-west and south-west. By the end of the year they held most of the mainland, and the authorities in Xinjiang, Yunnan and Xikang had gone over to the new government.",
+        "In late September the Chinese People's Political Consultative Conference met in Beiping. It adopted a Common Programme as an interim constitution, made the city the capital under the name Beijing, chose the five-star red flag and, as provisional anthem, the March of the Volunteers, and elected Mao chairman of the Central People's Government. The founding ceremony followed in Tiananmen Square on the afternoon of 1 October. The Soviet Union recognised the new government the next day, followed by Eastern Europe and, around the turn of the year, India and Britain. In February 1950 a Sino-Soviet treaty of alliance confirmed that the new state 'leaned to one side'.",
+        "The Nationalist government moved to Guangzhou, then Chongqing and Chengdu, and on 7 December decided to move to Taipei; Chiang flew to Taiwan on the 10th and resumed the presidency there in March 1950. Taiwan, which had lived through the February 28 Incident of 1947, was under martial law from May 1949 until 1987. With the government went crates of treasures from the Palace Museum and the central bank's gold. In late October 1949 a PLA landing on Kinmen was defeated at Guningtou; Hainan fell in May 1950. When the Korean War began that June, the US Seventh Fleet entered the Taiwan Strait, and the standoff hardened, each government claiming to represent China."
+       ],
+       "facts": [
+        [
+         "Crossing of the Yangtze",
+         "from 20 April 1949"
+        ],
+        [
+         "People's Republic of China founded",
+         "1 October 1949"
+        ],
+        [
+         "Republic of China government moves to Taipei",
+         "December 1949"
+        ]
+       ]
+      }
+     ]
+    ]
+   }
+  }
+ },
+ "zh": {
+  "events": {
+   "twenty-one-demands": [
+    "“二十一条”",
+    "日本向袁世凯政府提出“二十一条”，并以最后通牒迫其接受大部分条款。"
+   ],
+   "new-youth": [
+    "《新青年》创刊",
+    "陈独秀在上海创办《青年杂志》，次年改名《新青年》，新文化运动兴起。"
+   ],
+   "may-fourth": [
+    "五四运动",
+    "北京学生抗议巴黎和会把德国在山东的权益转让给日本，运动扩展到全国。"
+   ],
+   "haiyuan-earthquake": [
+    "海原大地震",
+    "甘肃海原一带发生特大地震，死亡二十余万人。"
+   ],
+   "cpc-founded": [
+    "中国共产党成立",
+    "中共一大在上海召开，最后一天转移到嘉兴南湖的游船上举行。"
+   ],
+   "northern-expedition": [
+    "北伐战争",
+    "国共合作下的国民革命军从广州出师北伐，讨伐北洋军阀。"
+   ],
+   "april-12-purge": [
+    "四一二政变",
+    "蒋介石在上海清除共产党人，国共第一次合作破裂。"
+   ],
+   "nanchang-uprising": [
+    "南昌起义",
+    "8月1日，中共领导的部队在南昌起义，这一天后来成为人民解放军建军节。"
+   ],
+   "yangtze-flood-1931": [
+    "1931年江淮大水",
+    "长江、淮河流域发生特大洪水，汉口被淹达数月，死亡人数众多。"
+   ],
+   "mukden-incident": [
+    "九一八事变",
+    "日本关东军炸毁沈阳柳条湖附近铁路，以此为借口侵占中国东北。"
+   ],
+   "manchukuo": [
+    "伪满洲国成立",
+    "日本扶植溥仪建立伪满洲国，以长春为“首都”。"
+   ],
+   "long-march": [
+    "长征",
+    "中央红军撤离江西苏区开始长征，转战二万五千里，1935年到达陕北。"
+   ],
+   "zunyi-conference": [
+    "遵义会议",
+    "长征途中中共中央在遵义召开会议，毛泽东进入中央最高领导层。"
+   ],
+   "xian-incident": [
+    "西安事变",
+    "张学良、杨虎城扣押蒋介石，逼其停止内战、联共抗日。"
+   ],
+   "marco-polo-bridge": [
+    "七七事变",
+    "日军以士兵失踪为借口进攻宛平城，中国守军奋起抵抗，全面抗战爆发。"
+   ],
+   "battle-of-shanghai": [
+    "淞沪会战",
+    "中日两军在上海激战三个月，是抗战中规模最大的会战之一。"
+   ],
+   "nanjing-massacre": [
+    "南京大屠杀",
+    "日军攻占南京后，数周内屠杀大批平民和战俘，远东国际军事法庭认定遇难者逾20万。"
+   ],
+   "taierzhuang": [
+    "台儿庄战役",
+    "李宗仁指挥中国军队在台儿庄重创日军，取得全面抗战以来的重大胜利。"
+   ],
+   "huayuankou": [
+    "花园口决堤",
+    "国民政府军队扒开花园口黄河大堤阻滞日军，造成大片黄泛区，死难者数十万。"
+   ],
+   "battle-of-wuhan": [
+    "武汉会战",
+    "日军经数月激战攻占武汉，国民政府坚守重庆，抗战进入相持阶段。"
+   ],
+   "henan-famine": [
+    "河南大饥荒",
+    "旱灾、蝗灾与战争交加，河南发生大饥荒，数百万人饿死或逃荒。"
+   ],
+   "japan-surrenders": [
+    "日本投降",
+    "8月15日日本宣布无条件投降，9月9日侵华日军在南京签署投降书。"
+   ],
+   "taiwan-retrocession": [
+    "台湾光复",
+    "10月25日，台湾日军在台北向中华民国政府投降，日本对台殖民统治结束。"
+   ],
+   "february-28": [
+    "二二八事件",
+    "台北查缉私烟引发冲突，民众抗争蔓延全岛，随后遭军队镇压。"
+   ],
+   "liaoshen": [
+    "辽沈战役",
+    "人民解放军攻克锦州，又取长春、沈阳，夺取东北全境。"
+   ],
+   "huaihai": [
+    "淮海战役",
+    "解放军在徐州一带歼灭国民党军主力，长江以北大局已定。"
+   ],
+   "prc-founded": [
+    "中华人民共和国成立",
+    "10月1日，毛泽东在天安门城楼宣告中华人民共和国中央人民政府成立。"
+   ],
+   "roc-to-taiwan": [
+    "中华民国政府迁台",
+    "国民党在大陆战败，12月中华民国政府迁至台北。"
+   ],
+   "pingjin": [
+    "平津战役",
+    "解放军攻克天津，北平守军接受和平改编。"
+   ],
+   "yangtze-crossing": [
+    "渡江战役",
+    "解放军在千里江面上强渡长江，随后占领南京、上海。"
+   ],
+   "korean-war": [
+    "志愿军入朝参战",
+    "10月中国人民志愿军跨过鸭绿江入朝作战，1953年双方签订停战协定。"
+   ],
+   "seventeen-point-agreement": [
+    "《十七条协议》",
+    "昌都战役后，西藏地方政府代表在北京签订协议，解放军随后进驻拉萨。"
+   ],
+   "great-leap-forward": [
+    "大跃进",
+    "中共发动大跃进和人民公社化运动，提出“超英赶美”，全民大炼钢铁。"
+   ],
+   "tibet-1959": [
+    "1959年西藏事件",
+    "拉萨爆发反对中央政府的武装起事，被解放军平息，十四世达赖喇嘛出走印度。"
+   ],
+   "great-famine": [
+    "三年大饥荒",
+    "大跃进的失误与自然灾害叠加，引发大饥荒，据估计死亡一千五百万人以上。"
+   ],
+   "sino-indian-war": [
+    "中印边境战争",
+    "中印在喜马拉雅边境爆发战争，中国军队推进后宣布停火并主动后撤。"
+   ],
+   "first-atomic-bomb": [
+    "第一颗原子弹爆炸",
+    "10月16日，中国第一颗原子弹在新疆罗布泊爆炸成功。"
+   ],
+   "cultural-revolution": [
+    "文化大革命",
+    "毛泽东发动“文化大革命”，此后十年政治动荡，许多人遭受迫害。"
+   ],
+   "zhenbao-island": [
+    "珍宝岛事件",
+    "中苏边防部队在乌苏里江珍宝岛发生武装冲突，两国关系降至冰点。"
+   ],
+   "nixon-visit": [
+    "尼克松访华",
+    "继中华人民共和国取得联合国席位后，尼克松访华，中美发表《上海公报》。"
+   ],
+   "tangshan-earthquake": [
+    "唐山大地震",
+    "唐山发生7.8级大地震，城市几乎被夷为平地，二十四万余人遇难。"
+   ],
+   "gang-of-four": [
+    "毛泽东逝世与“四人帮”被捕",
+    "9月毛泽东逝世，10月江青等“四人帮”被捕，“文化大革命”结束。"
+   ],
+   "reform-and-opening": [
+    "改革开放",
+    "中共十一届三中全会召开，确定以经济建设为中心，实行改革开放。"
+   ],
+   "sino-vietnamese-war": [
+    "中越战争",
+    "中国军队攻入越南北部作战约一个月，攻占谅山后撤回。"
+   ],
+   "sino-british-declaration": [
+    "《中英联合声明》",
+    "中英两国政府签署联合声明，确定1997年香港回归，实行“一国两制”。"
+   ],
+   "tiananmen-1989": [
+    "六四事件",
+    "以学生为主的抗议持续数周，6月3日夜军队奉命进京清场，造成大量伤亡。"
+   ],
+   "three-gorges-dam": [
+    "三峡工程开工",
+    "长江三峡水利枢纽工程正式开工，库区移民一百余万人。"
+   ],
+   "hong-kong-handover": [
+    "香港回归",
+    "7月1日，中国恢复对香港行使主权，香港特别行政区成立。"
+   ]
+  },
+  "aliases": {
+   "new-youth": [
+    "新文化运动",
+    "陈独秀"
+   ],
+   "cpc-founded": [
+    "中共一大",
+    "中共"
+   ],
+   "april-12-purge": [
+    "四一二反革命政变",
+    "清党"
+   ],
+   "nanchang-uprising": [
+    "八一建军节"
+   ],
+   "mukden-incident": [
+    "柳条湖事件"
+   ],
+   "long-march": [
+    "红军",
+    "二万五千里长征"
+   ],
+   "xian-incident": [
+    "双十二事变",
+    "张学良"
+   ],
+   "marco-polo-bridge": [
+    "卢沟桥事变",
+    "抗日战争",
+    "全面抗战"
+   ],
+   "battle-of-shanghai": [
+    "八一三事变",
+    "八一三淞沪抗战"
+   ],
+   "huayuankou": [
+    "黄泛区"
+   ],
+   "battle-of-wuhan": [
+    "重庆",
+    "陪都",
+    "相持阶段"
+   ],
+   "japan-surrenders": [
+    "抗战胜利",
+    "抗日战争胜利"
+   ],
+   "liaoshen": [
+    "三大战役"
+   ],
+   "huaihai": [
+    "解放战争",
+    "国共内战"
+   ],
+   "prc-founded": [
+    "新中国成立",
+    "开国大典"
+   ],
+   "korean-war": [
+    "抗美援朝",
+    "朝鲜战争",
+    "韩战"
+   ],
+   "seventeen-point-agreement": [
+    "西藏和平解放"
+   ],
+   "great-leap-forward": [
+    "人民公社",
+    "大炼钢铁"
+   ],
+   "tibet-1959": [
+    "西藏平叛",
+    "达赖出走"
+   ],
+   "great-famine": [
+    "三年困难时期",
+    "三年自然灾害"
+   ],
+   "cultural-revolution": [
+    "文革",
+    "红卫兵"
+   ],
+   "gang-of-four": [
+    "粉碎四人帮"
+   ],
+   "reform-and-opening": [
+    "十一届三中全会",
+    "邓小平"
+   ],
+   "sino-vietnamese-war": [
+    "对越自卫反击战"
+   ],
+   "sino-british-declaration": [
+    "一国两制"
+   ],
+   "tiananmen-1989": [
+    "八九民运",
+    "1989年政治风波"
+   ]
+  },
+  "stories": {
+   "war-and-revolution": {
+    "title": "抗战与内战",
+    "lede": "从柳条湖的爆炸声到天安门的礼炮，十八年战火重塑了中国。",
+    "steps": [
+     [
+      "九一八事变",
+      "1931 年 9 月 18 日夜，日本关东军炸毁沈阳北郊柳条湖附近的一段南满铁路，反称是中国军队所为，随即进攻东北军北大营。东北军奉行不抵抗方针，大部撤入关内，不到半年东北三省全部沦陷。1932 年 3 月，日本扶植溥仪建立伪满洲国。地图上的东北仍属中华民国，1938 年的快照则把它画入日本的范围。",
+      {
+       "p": [
+        "民国初年，北京政府由各派军阀轮流把持。孙中山在广州改组国民党，与苏联合作并接纳共产党员，1926 年国民革命军出师北伐。1927 年 4 月，蒋介石在上海以武力清除共产党人，国共合作破裂，南京国民政府成立；共产党发动南昌起义，转到江西等地农村建立根据地，1931 年 11 月在瑞金成立中华苏维埃共和国。1928 年关东军在皇姑屯炸死奉系首领张作霖，其子张学良年底宣布东北“易帜”，归附南京，中国在名义上重归统一。",
+        "日俄战争后，日本取得旅大租借地和南满铁路，派关东军驻守。关东军参谋石原莞尔、板垣征四郎等人认定必须武力夺取“满蒙”，策划了柳条湖事件。当夜日军炮击北大营，次日占领沈阳，几天内又攻占长春、吉林。东北军主力此时在关内，奉行不抵抗方针——这一方针出自张学良本人还是蒋介石的意旨，至今仍有争论。黑龙江代理主席马占山 11 月在嫩江桥率部抵抗，终告退却；1932 年 1 月锦州失守，2 月哈尔滨陷落。",
+        "1932 年 3 月 1 日伪满洲国宣告成立，溥仪任“执政”，以长春为“新京”，1934 年改称“皇帝”，实权则操在关东军和日本官员手中。国际联盟派出的李顿调查团认定，日军的行动不能视为自卫，“满洲国”也不是当地民众自发建立的。1933 年 2 月国联大会以 42 票对 1 票通过报告，日本随即宣布退出国联。同年日军攻占热河，进逼长城各口，5 月中日签订《塘沽协定》，冀东被划为非武装区。东北各地的抗日义勇军和后来的东北抗日联军坚持游击战多年。"
+       ],
+       "facts": [
+        [
+         "九一八事变",
+         "1931 年 9 月 18 日"
+        ],
+        [
+         "伪满洲国成立",
+         "1932 年 3 月 1 日"
+        ],
+        [
+         "国联表决李顿报告",
+         "1933 年 2 月 24 日，42 票对 1 票"
+        ]
+       ]
+      }
+     ],
+     [
+      "全面抗战",
+      "1937 年 7 月 7 日夜，在卢沟桥附近演习的日军借口一名士兵失踪，要求进入宛平城搜查，遭到拒绝；次日凌晨双方交火，中日全面战争爆发。8 月战火燃到上海，中国军队苦战 3 个月后撤退；12 月南京陷落，日军展开大屠杀。地图仍是 1930 年的快照，没有画出伪满洲国和日军新占领的地区。",
+      {
+       "p": [
+        "1933 年起，国民政府集中兵力进攻江西的中央苏区。1934 年 10 月，中央红军被迫撤离，转战一年，1935 年 10 月到达陕北，史称“二万五千里长征”。日本在华北步步进逼，北平学生 1935 年 12 月发起一二·九运动，呼吁一致抗日。1936 年 12 月 12 日，张学良、杨虎城在西安扣押前来督促进攻红军的蒋介石，要求停止内战、联合抗日，史称西安事变。经多方斡旋，蒋介石 25 日获释，国共两党由此走向第二次合作。",
+        "7 月 17 日，蒋介石在庐山发表谈话，宣称“地无分南北，年无分老幼”，人人皆有守土抗战之责。月底北平、天津失守。8 月 13 日淞沪会战爆发，中国先后投入约 70 万兵力，在上海与日军血战 3 个月，谢晋元率部坚守四行仓库的事迹传遍中外。11 月 5 日日军在杭州湾登陆，中国军队全线撤退，上海于 12 日失守。华北方面，由红军改编的八路军 9 月在平型关伏击日军，太原则在 11 月陷落。",
+        "日军乘势西进，12 月 13 日攻陷南京，此后约 6 周里在城内外大规模屠杀放下武器的士兵和平民，强奸、抢劫、纵火遍及全城。远东国际军事法庭判决认定，被杀害的平民和战俘在 20 万人以上，强奸案约 2 万起；南京审判战犯军事法庭认定遇害者在 30 万人以上，中国官方采用这一数字。据 2010 年的中日共同历史研究报告，日本学者的估计以 20 万为上限，也有 4 万、2 万等说法。拉贝、魏特琳等外国人设立的安全区收容了二十多万难民。战后，谷寿夫、松井石根分别在南京和东京被处决。"
+       ],
+       "facts": [
+        [
+         "卢沟桥事变",
+         "1937 年 7 月 7 日"
+        ],
+        [
+         "淞沪会战",
+         "1937 年 8 月 13 日—11 月 12 日"
+        ],
+        [
+         "南京陷落",
+         "1937 年 12 月 13 日"
+        ]
+       ]
+      }
+     ],
+     [
+      "从武汉到重庆",
+      "1938 年，日军沿津浦铁路和长江两路进攻。中国军队在台儿庄取胜，却没能守住徐州；武汉会战历时 4 个多月，10 月武汉、广州相继失守。国民政府迁到重庆继续抗战，日军也已无力大举深入，战争转入长期相持。1938 年的快照把伪满洲国画进了日本的范围，关内的日占区则没有画出。",
+      {
+       "p": [
+        "1938 年 3 月至 4 月，李宗仁指挥的第五战区部队在鲁南台儿庄围歼日军一部，是全面抗战以来的一次大捷。日军随即重兵合围徐州，中国军队于 5 月突围西撤。为阻止日军沿陇海铁路西进郑州，6 月 9 日国民政府军队掘开花园口黄河大堤。洪水迟滞了日军，却淹没豫、皖、苏三省 40 多个县，数百万人流离失所，死亡人数估计从 40 万到 89 万不等，后一数字出自 1948 年的一项救济调查。黄河改道南流，直到 1947 年才回归故道。",
+        "武汉会战从 6 月打到 10 月，中国投入 100 万以上兵力，10 月薛岳部在万家岭重创日军第 106 师团。但日军 21 日攻占广州，25 日起进入武汉三镇。早在 1937 年 11 月，国民政府已宣布移驻重庆，政府机关和大批工厂、学校沿长江西迁，北大、清华、南开三校在昆明合组西南联合大学。从 1938 年起，日军飞机对重庆进行了 5 年多的轰炸，仅 1939 年 5 月 3 日、4 日两天就炸死近 4000 人。",
+        "武汉失守后，日军控制了华北、华东和华南沿海的主要城市与交通线，却已兵力分散，转而扶植傀儡政权：1938 年 12 月国民党副总裁汪精卫出走河内，1940 年 3 月在南京成立汪伪国民政府。八路军、新四军在日军后方建立根据地，1940 年发动百团大战；国共摩擦也日益加剧，1941 年 1 月新四军军部所属部队在皖南遭国民政府军队围攻，几乎全军覆没，史称皖南事变。1944 年日军发动“一号作战”，国民政府军队损失惨重。"
+       ],
+       "facts": [
+        [
+         "台儿庄战役",
+         "1938 年 3 月—4 月"
+        ],
+        [
+         "武汉失守",
+         "1938 年 10 月下旬"
+        ],
+        [
+         "重庆遭轰炸",
+         "1938—1943 年"
+        ]
+       ]
+      }
+     ],
+     [
+      "日本投降",
+      "1945 年 8 月，美国在广岛、长崎投下原子弹，苏联出兵中国东北。8 月 15 日日本宣布无条件投降，9 月 9 日中国战区受降仪式在南京举行。10 月 25 日，台湾由中华民国政府接收，史称台湾光复。1945 年的快照上，东北、台湾和澎湖已画回中华民国，朝鲜半岛则分为苏、美两个占领区。",
+      {
+       "p": [
+        "太平洋战争爆发后，中国战场继续牵制着大批日军。1942 年中国远征军入缅作战，滇缅公路被切断后，美国飞机经“驼峰航线”飞越喜马拉雅山脉东段，从印度向昆明运送物资。1943 年 1 月，美、英与中国签订新约，放弃在华治外法权，不平等条约体系基本终结。同年 11 月，蒋介石与罗斯福、丘吉尔在开罗会晤，《开罗宣言》声明，日本窃取的东北、台湾和澎湖列岛应归还中华民国，1945 年 7 月的《波茨坦公告》重申了这一条件。",
+        "8 月 6 日和 9 日，美国先后向广岛、长崎投下原子弹；8 月 8 日苏联对日宣战，150 多万苏军随即攻入东北，关东军迅速瓦解。8 月 15 日，日本天皇广播宣布接受《波茨坦公告》。9 月 2 日，日本在东京湾的美舰“密苏里”号上签署投降书。9 月 9 日，日本中国派遣军总司令官冈村宁次在南京向中国陆军总司令何应钦递交降书。10 月 25 日，台湾省行政长官陈仪在台北接受日本台湾总督安藤利吉投降，日本对台湾 50 年的统治结束。",
+        "据中国官方统计，抗战期间中国军民伤亡 3500 万人以上；西方学者对死亡人数的估计多在 1400 万至 2000 万之间，难民数以千万计。8 月 14 日，国民政府与苏联签订《中苏友好同盟条约》，同意中长铁路由两国共管、旅顺为两国共用的海军基地，并承诺在外蒙古公民投票后承认其独立，1946 年 1 月正式承认。8 月底毛泽东应邀飞抵重庆谈判，10 月 10 日国共签署《双十协定》，但两党军队争夺受降和地盘的冲突已经开始。"
+       ],
+       "facts": [
+        [
+         "日本宣布投降",
+         "1945 年 8 月 15 日"
+        ],
+        [
+         "南京受降",
+         "1945 年 9 月 9 日"
+        ],
+        [
+         "台北受降",
+         "1945 年 10 月 25 日"
+        ]
+       ]
+      }
+     ],
+     [
+      "国共内战",
+      "美国特使马歇尔调处失败，1946 年夏国共全面内战爆发。国民政府军队起初占优，一度攻占延安，共产党则逐步转入反攻。1948 年 9 月至 1949 年 1 月，人民解放军在辽沈、淮海、平津三大战役中歼灭、改编国民政府军队 150 余万人。地图沿用 1945 年的快照，没有画出不断移动的战线。",
+      {
+       "p": [
+        "1945 年 12 月，马歇尔来华调处，1946 年 1 月国共签订停战协定，政治协商会议也在重庆召开。但东北的争夺从未停止：苏军撤出前后，共产党军队抢先进入东北，国民政府军队则由美国飞机和军舰运往华北、东北接收。1946 年 6 月，国民政府军队围攻湖北、河南交界处的中原解放区，全面内战爆发。据中华人民共和国方面的统计，当时国民政府军队约 430 万人，共产党军队约 127 万人。1947 年 3 月胡宗南部攻占延安，中共中央仍留在陕北。",
+        "1946 年底，国民政府召开国民大会，通过《中华民国宪法》，1948 年蒋介石当选为行宪后的首任总统。但国民政府控制区内物价飞涨，贪腐盛行，1948 年 8 月发行的金圆券不到一年就形同废纸，城市民心迅速流失。共产党在控制区推行土地改革，把地主的土地分给农民，大批农民参军支前。1947 年夏，刘伯承、邓小平率部千里跃进大别山，战事开始转入国民政府控制的地区。到 1948 年秋，双方的兵力差距已大大缩小。",
+        "1948 年 9 月，林彪、罗荣桓指挥的东北野战军发起辽沈战役，攻克锦州，切断东北国民政府军队的退路；长春守军在被围困 5 个多月后于 10 月投降，城内饿死的平民各方估计从十余万到 30 万不等；11 月初沈阳易手。11 月起，华东、中原野战军在以徐州为中心的淮海战役中歼灭国民政府军队 55 万余人。平津战役中，解放军 1949 年 1 月攻克天津，傅作义接受和平改编，31 日解放军进入北平。至此，长江以北的大部分地区已在共产党控制之下。"
+       ],
+       "facts": [
+        [
+         "全面内战爆发",
+         "1946 年 6 月"
+        ],
+        [
+         "三大战役",
+         "1948 年 9 月—1949 年 1 月"
+        ],
+        [
+         "国民政府军队损失",
+         "150 余万人（解放军方面统计）"
+        ]
+       ]
+      }
+     ],
+     [
+      "大陆与台湾",
+      "1949 年 4 月，人民解放军渡过长江，占领南京，随后向华南和西南推进。10 月 1 日，毛泽东在北京天安门城楼宣告中华人民共和国中央人民政府成立。12 月，中华民国政府迁往台北，百万以上军民先后赴台。1949 年的快照上，大陆是中华人民共和国，台湾仍由中华民国政府管辖（图上标作“台湾”）。",
+      {
+       "p": [
+        "1949 年 1 月，蒋介石宣布“引退”，由副总统李宗仁代行总统职权，与共产党在北平和谈。4 月 20 日，南京政府拒绝在《国内和平协定》最后文本上签字，当夜起解放军百万大军在西起湖口、东至江阴的千里江面上强渡长江，23 日占领南京，5 月 27 日占领上海。此后解放军分路向华南、西北和西南推进，到年底已控制大陆绝大部分地区，新疆、云南、西康等地的军政当局也先后宣布接受新政权。",
+        "9 月下旬，中国人民政治协商会议第一届全体会议在北平召开，通过起临时宪法作用的《共同纲领》，决定定都北平并改名北京，以五星红旗为国旗、《义勇军进行曲》为代国歌，选举毛泽东为中央人民政府主席。10 月 1 日下午，开国大典在天安门广场举行。苏联次日即宣布承认新政府，东欧各国随后跟进，印度、英国等国也在 1949 年底至 1950 年初承认。1950 年 2 月，中苏签订友好同盟互助条约，新政权在外交上“一边倒”向苏联。",
+        "国民政府先后迁往广州、重庆和成都，12 月 7 日决定迁设台北。蒋介石 12 月 10 日飞往台湾，次年 3 月复任总统。台湾在 1947 年经历了二二八事件，1949 年 5 月起又实行戒严，直到 1987 年才解除。随政府运到台湾的还有故宫等机构的大批文物和中央银行的黄金。1949 年 10 月下旬，解放军渡海进攻金门，在古宁头失利；1950 年 5 月海南岛被攻占。同年 6 月朝鲜战争爆发，美国派第七舰队进入台湾海峡，两岸隔海对峙的局面从此固定下来，双方都宣称自己代表中国。"
+       ],
+       "facts": [
+        [
+         "渡江战役",
+         "1949 年 4 月 20 日起"
+        ],
+        [
+         "中华人民共和国成立",
+         "1949 年 10 月 1 日"
+        ],
+        [
+         "中华民国政府迁台",
+         "1949 年 12 月"
+        ]
+       ]
+      }
+     ]
+    ]
+   }
+  }
+ }
+}

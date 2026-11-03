@@ -4,7 +4,7 @@
 
 Chronica is a historical atlas built region by region. The first region is *Europe Through the Ages* (欧陆古今), which covers Europe from 700 BC to AD 2000: 44 border snapshots, the territory that changed hands between each pair of them, 296 events and 10 story chapters. Every story step has a short lead plus a full text written for reading at length. The interface and all content are available in English and Chinese.
 
-The page code itself is region-neutral: everything specific to a region lives in its folder under `regions/`, so another region (East Asia, the Middle East, …) can be added next to Europe without changing the page's code.
+The page code itself is region-neutral: everything specific to a region lives in its folder under `regions/`, so another region (East Asia, the Middle East, …) can be added next to Europe without changing the page's code. The second region, *China Through the Ages* (中华古今), covers China and its neighbours from the traditional start of the Xia (c. 2070 BC) to the end of the Qing in 1912: 53 border snapshots, every one of them corrected or redrawn for this atlas because the source is coarse for China, 317 events, 88 cities with their names through history, and 14 story chapters, all with full texts. The title at the top left switches between regions.
 
 **Try it at https://c.ilewen.com**
 
@@ -59,12 +59,13 @@ chronica/
       borders.json           border snapshots (TopoJSON), territorial changes, area series     — built
       physical.json          rivers, lakes, mountain ranges                                     — built
       events.json            events: [key, year, latitude, longitude, type]
-      stories.json           story chapters: per step a year, a map box, highlighted states, events
+      stories.json           story chapters: per step a year, a map box, highlighted states, events; optionally a chart
       cities.json            cities: [latitude, longitude, rank, [[from year, name key], …]]
       locales/
         en.json  zh.json     the region's content: names, eras, events, stories, search aliases
       polities.py            how to read the border source: snapshots, lineages, corrections
       physical.py            which rivers and mountain ranges to draw and label
+      sources/               optional: border snapshots the region draws itself (see Own snapshots)
   scripts/
     make_data.py             rebuilds a region's borders.json or physical.json from the sources
     build.py                 step of make_data.py: merges polities, computes changes and series
@@ -85,11 +86,12 @@ Years are integers throughout, negative for BC (`-500` is 500 BC); there is no y
 | `window` | `[[west, south], [east, north]]` in degrees. The sources are clipped to it, and it is the area of sea drawn behind the land. |
 | `projection` | A [d3-geo](https://d3js.org/d3-geo) projection name without the `geo` prefix, plus settings to call on it, e.g. `{"type": "ConicConformal", "parallels": [40, 62], "rotate": [-15, 0]}`. |
 | `focus` | Points the opening view must contain; the map fits the smallest view around them. |
-| `core` | Optional `[[west, south], [east, north]]`. Territorial changes inside it are listed before those at the edges of the window. Defaults to `window`. |
-| `start`, `end` | The opening year, and the year the timeline ends. The timeline starts at the first border snapshot. |
-| `eras` | Era boundaries, from the first snapshot year to `end`; the locales name the eras in between. |
+| `core` | Optional `[[west, south], [east, north]]`, or a list of such boxes. Territorial changes inside it are listed before those at the edges of the window. Defaults to `window`. |
+| `start`, `end` | The opening year, and the year the timeline ends. The timeline starts at the first era boundary (see `eras`). |
+| `eras` | Era boundaries, from the start of the timeline to `end`; the locales name the eras in between. The first may come before the first border snapshot, which then stands for the years before it (China: the timeline starts with the Xia in 2070 BC, the first snapshot is of 1750 BC). |
 | `periods` | Optional. Broader periods made of whole eras, given as boundaries taken from `eras` (Europe: ancient, medieval, modern). Where the timeline is too narrow for an era's name, as on a phone, the eras of that period merge into one bar labelled with the period's name. |
 | `scale` | The timeline's time scale: `[year, share]` pairs from `[first year, 0]` to `[end, 1]`, linear in between. Give sparse periods a smaller share. |
+| `circa` | Optional. Dates before this year are approximate and shown as "c. 1600 BC" / "约前1600" (China: 841 BC, the first year of the Gonghe regency, where the exact chronology begins). |
 | `denseFrom` | Optional. Before this year, "recent events" reach back 100 years instead of 25, and the timeline counts events per half-century instead of per decade. |
 | `lineages` | `{id: [light colour, dark colour]}` for each lineage in `polities.py`, in the order of the timeline lanes. |
 | `presets` | Optional `[[left year, right year], …]` shortcuts in compare mode; the locales label them. |
@@ -132,6 +134,7 @@ The page combines two files per language: `locales/<lang>.json`, which holds the
   - `stories`, keyed by chapter id.
 
   Each entry is a list of strings. English aliases also work in other languages. A result found through an alias shows the alias under its name, so a theme word such as "Industrial Revolution" can be attached to a representative event.
+- `about` (optional): the "Sources and notes" dialog, opened from the side panel's footer: `[{"h": heading, "p": [paragraph, …], "items": [[text, url?], …]}, …]`. Say there where the borders, dates and texts come from and how far to trust them.
 
 ### Name keys
 
@@ -170,9 +173,11 @@ Ancient snapshots include many peoples and archaeological cultures (Celts, Urnfi
      - `LINEAGE_NAMES`: polity names grouped into lineages; the ids must match `lineages` in `region.json`;
      - `OVERLORD_LINEAGES`: overlord spellings that differ from a lineage member's name;
      - `IDENTITY_GROUPS`: names that count as the same state, so a rename is not a territorial change;
-     - corrections to source labels: `RENAMES`, `GROUP_RENAMES`, `OVERLORD_RENAMES`, `NOT_POLITIES`;
+     - corrections to source labels: `RENAMES`, `GROUP_RENAMES`, `OVERLORD_RENAMES`, `OVERLORD_FIXES` (an overlord the source gets wrong in some years, or one for a polity drawn with `CUT` or `SPLIT`), `NOT_POLITIES`;
      - `PEOPLES`, `VARIANTS`;
-     - geometry fixes: `UNNAMED`, `REASSIGN`.
+     - geometry fixes: `UNNAMED`, `REASSIGN`, `CUT`, `SPLIT`;
+     - `BASE`: snapshots built from another year's source file (see [Redrawing a snapshot](#redrawing-a-snapshot));
+     - `MODERN`: for a region whose timeline ends before today, the source year of the "today's borders" layer (`None`: the last snapshot).
    - `physical.py`: rivers and ranges to draw and label, by their Natural Earth names.
 3. **Build the data** (see [Rebuilding the data](#rebuilding-the-data)):
    ```bash
@@ -183,7 +188,8 @@ Ancient snapshots include many peoples and archaeological cultures (Celts, Urnfi
    ```
    The build prints the largest changes in each snapshot. Implausible ones usually mean a source label needs a correction in `polities.py`.
 4. **Write the content.** Add `events.json`, `stories.json` and `cities.json` (each may start as `[]`), then `locales/en.json` with at least `ui`, `eras`, `lanes` and `lineages`. Add other languages when ready.
-5. **List the region.** Add its id to `REGIONS` in `index.html` and open `http://localhost:8000/?region=<id>`. The first region in the list is the default. There is no region menu yet; add one when there is a second region.
+   A chapter of a period with many states side by side can carry a `chart`: one bar per state, `[name key, from, to, lane]`. States that follow one another share a lane, so each lane reads as a line of succession (`regions/china/stories.json`, chapter `five-dynasties`). The chart shows below the step's buttons and at the head of the reading view, in the states' map colours, with the step's year marked.
+5. **List the region.** Add its id to `REGIONS` in `index.html`, and its name and subtitle to `regions` in each interface locale (`locales/<lang>.json`), which the region menu under the title shows. Open `http://localhost:8000/?region=<id>`. The first region in the list is the default.
 6. **Check it.** Run `python3 scripts/check.py <id>`. It lists untranslated names, story steps that don't match, unknown event keys, lineage mismatches and other problems.
 
 ## Links
@@ -217,15 +223,35 @@ python3 scripts/make_data.py europe physical <natural-earth-vector>/geojson
 
 The source is the `geojson/world_<year>.geojson` files of https://github.com/aourednik/historical-basemaps (`world_bc<year>.geojson` for BC). `make_data.py borders`:
 
-1. **Clips and simplifies** each snapshot listed in `YEARS` to the region's `window`, using mapshaper.
+1. **Clips and simplifies** each snapshot listed in `YEARS` to the region's `window`, using mapshaper. Simplification keeps 60% of the source's vertices (`BORDER_DETAIL` in `make_data.py`), about one every 20 km.
 2. **Runs `scripts/build.py`** with the region's `polities.py`, which:
    - merges polygons of the same polity and assigns name keys, lineages and overlords;
-   - corrects known source errors (`RENAMES`, `OVERLORD_RENAMES`, `UNNAMED`, `REASSIGN`);
+   - corrects known source errors (`RENAMES`, `OVERLORD_RENAMES`, `UNNAMED`, `REASSIGN`) and redraws borders (`CUT`, `SPLIT`);
    - computes the territory each state gained from each neighbour between consecutive snapshots, ignoring pieces under 6,000 km²;
    - builds per-state and per-lineage area series.
 3. **Packs** all snapshots and changes into one TopoJSON file, together with that metadata.
 
 New name keys need entries in each locale's `names`; without them the map shows the source's English names. `scripts/check.py` lists them.
+
+#### Redrawing a snapshot
+
+Where historical-basemaps has no snapshot for a year that matters, or draws one badly, `polities.py` can redraw it from tables, so every border stays reviewable as coordinates (`regions/china/polities.py` has worked examples):
+
+- `BASE = {year: source year}` builds a snapshot from another year's file, e.g. `{-221: -200}`; `RENAMES` then apply with the snapshot's own year, so the 200 BC Han can become Qin.
+- `CUT = [(years, NAME, area, new NAME)]` moves the part of a polity inside an area to another polity. The area is a ring of longitude/latitude points, or the name of another polity, whose outline in that snapshot is used (for source layers whose polygons overlap). `NAME` may be `None` for unrecorded land.
+- `SPLIT = [(years, NAME, lines, {NAME: [seed points]})]` cuts a polity along border lines, each drawn once as a list of points; every piece goes to the name whose seed point it holds, and a piece without a seed (an island) to the piece nearest to it. Lines should run a little past the polity and past each other where they meet. The build prints a warning when a line does not close and two seeds end up in one piece.
+A border that followed a river can take the river's course from a trace in `polities.py` (China: the Huai, the Yangtze and the Yellow River between Shanxi and Shaanxi, from Natural Earth): `*along(HUAI, a, b)` gives the stretch between the points nearest `a` and `b`.
+
+The snapshot notes in the locales should say when a snapshot has been redrawn.
+
+#### Own snapshots
+
+For a snapshot that is easier drawn by hand, the region can supply the whole file:
+
+1. Save it as `regions/<id>/sources/world_<year>.geojson` (`world_bc<year>.geojson` for BC), with the same properties as historical-basemaps: `NAME`, plus `SUBJECTO` and `PARTOF` where they apply. A practical start is a copy of the nearest historical-basemaps snapshot, edited in QGIS or in mapshaper's web interface.
+2. Add the year to `YEARS` in `polities.py` if it is not there yet.
+
+`make_data.py borders` then uses the file instead of the historical-basemaps snapshot of that year, and lists the years it took from `sources/`. The folder is not deployed.
 
 ### Rivers, lakes and mountains: `physical.json`
 
@@ -241,7 +267,7 @@ The source is [Natural Earth](https://www.naturalearthdata.com/) (public domain)
 
 The site is plain static files, so any static host will do. The live site runs on Cloudflare as a Worker that only serves static files:
 - `wrangler.jsonc` names the Worker and its custom domain;
-- `.assetsignore` leaves everything out of the upload except the page, its icon and preview image, and the locale and region data. Scripts, Python tables and READMEs are not uploaded.
+- `.assetsignore` leaves everything out of the upload except the page, its icon and preview image, and the locale and region data. Scripts, Python tables, the regions' own source snapshots and READMEs are not uploaded.
 
 To deploy your own copy, change `routes` in `wrangler.jsonc` to your domain (or remove it to use a workers.dev address), then run:
 
@@ -262,6 +288,6 @@ The project, code and data alike, is released under [GPL-3.0](LICENSE).
 
 - Borders: [aourednik/historical-basemaps](https://github.com/aourednik/historical-basemaps), GPL-3.0. `borders.json` is derived from it.
 - Rivers, lakes and mountains: [Natural Earth](https://www.naturalearthdata.com/), public domain.
-- Events, stories and translations were written for this project.
+- Events, stories and translations were written for this project. China's were written by an AI assistant (Claude) and checked against online sources in November 2026; each region's Sources and notes dialog (`about` in its locales) says what they rest on.
 - Libraries: [d3](https://d3js.org/) and [TopoJSON client](https://github.com/topojson/topojson-client) (both ISC), loaded from cdnjs.
 - Fonts: Spectral, Noto Sans SC, IBM Plex Sans Condensed and ZCOOL XiaoWei from Google Fonts (SIL Open Font License).

@@ -598,7 +598,13 @@
   "White Russia": "Byelorussia",
   "Württemberg": "Württemberg",
   "Yugoslavia": "Yugoslavia",
-  "Zayyanid Caliphate": "Zayyanid Caliphate"
+  "Zayyanid Caliphate": "Zayyanid Caliphate",
+  "Andorra": "Andorra",
+  "Hohenzollern": "Hohenzollern",
+  "Malta": "Malta",
+  "Pontremoli": "Pontremoli",
+  "Waldeck": "Waldeck",
+  "Wetzlar": "Wetzlar"
  },
  "short": {
   "Abbasid Caliphate": "Abbasids",
@@ -3739,5 +3745,35 @@
     "Bubonic plague"
    ]
   }
- }
+ },
+ "about": [
+  {
+   "h": "Maps",
+   "p": [
+    "Borders come from 44 snapshots of aourednik/historical-basemaps (GPL-3.0); known labelling errors in that data are corrected here. Rivers, lakes and mountains are from Natural Earth (public domain) and are today's. Areas are approximate and cover only the map window."
+   ],
+   "items": [
+    [
+     "aourednik/historical-basemaps",
+     "https://github.com/aourednik/historical-basemaps"
+    ],
+    [
+     "Natural Earth",
+     "https://www.naturalearthdata.com/"
+    ]
+   ]
+  },
+  {
+   "h": "Texts",
+   "p": [
+    "The events and story chapters were written for this project, without a source for each item. For any particular fact, rely on the primary sources and specialist works; corrections are welcome on GitHub."
+   ],
+   "items": [
+    [
+     "Report a correction on GitHub",
+     "https://github.com/Snowpine/chronica/issues"
+    ]
+   ]
+  }
+ ]
 }

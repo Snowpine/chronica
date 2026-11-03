@@ -11,3 +11,5 @@
 !/regions/
 *.py
 __pycache__/
+/regions/*/sources/
+/regions/*/drafts/

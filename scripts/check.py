@@ -22,7 +22,7 @@ def page_lists():
     return locales, regions, types
 
 
-def check_shared(langs):
+def check_shared(langs, regions):
     base = load(f"{ROOT}/locales/en.json")
     for code in langs:
         path = f"{ROOT}/locales/{code}.json"
@@ -36,6 +36,9 @@ def check_shared(langs):
             missing = set(base[section]) - set(loc.get(section, {}))
             if missing:
                 errors.append(f"locales/{code}.json {section}: missing {sorted(missing)}")
+        missing = [r for r in regions if len(loc.get("regions", {}).get(r, [])) != 2]
+        if missing:
+            errors.append(f"locales/{code}.json regions: no [name, subtitle] for {missing} (the region menu)")
 
 
 def check_region(rid, langs, types):
@@ -53,10 +56,11 @@ def check_region(rid, langs, types):
     borders = load(f"{rdir}/borders.json")
     years = borders["years"]
     y0, yn = years[0], rc["end"]
-    if not (rc["scale"][0][0] <= y0 and rc["scale"][-1] == [yn, 1] and rc["scale"][0][1] == 0):
-        errors.append(f"{where}/region.json scale: should run from [{y0} or earlier, 0] to [{yn}, 1]")
     if rc["eras"][0] > y0 or rc["eras"][-1] != yn:
         errors.append(f"{where}/region.json eras: should start by {y0} and end at {yn}")
+    y0 = min(y0, rc["eras"][0])  # the timeline starts with the first era, which may come before the first snapshot
+    if not (rc["scale"][0][0] <= y0 and rc["scale"][-1] == [yn, 1] and rc["scale"][0][1] == 0):
+        errors.append(f"{where}/region.json scale: should run from [{y0} or earlier, 0] to [{yn}, 1]")
     periods = rc.get("periods", [])
     if periods and (periods[0] != rc["eras"][0] or periods[-1] != rc["eras"][-1] or not set(periods) <= set(rc["eras"])):
         errors.append(f"{where}/region.json periods: should run from the first to the last era boundary, using only era boundaries")
@@ -83,7 +87,13 @@ def check_region(rid, langs, types):
     if dupes:
         errors.append(f"{where}/events.json: duplicate keys {sorted(dupes)}")
     idents, lineages = set(borders["idents"]), set(borders["lineages"])
+    chart_names = set()
     for ch in stories:
+        for r in ch.get("chart", []):
+            if len(r) == 4 and isinstance(r[0], str) and all(isinstance(v, int) for v in r[1:]) and r[1] <= r[2] and r[3] >= 0:
+                chart_names.add(r[0])
+            else:
+                errors.append(f"{where}/stories.json {ch['id']} chart: {r} should be [name key, from, to, lane]")
         for i, st in enumerate(ch["steps"]):
             for k in st.get("ev", []):
                 if k not in event_keys:
@@ -93,7 +103,7 @@ def check_region(rid, langs, types):
                     errors.append(f"{where}/stories.json {ch['id']} step {i + 1}: {k!r} is neither a state nor a lineage")
 
     # every name key the page may show
-    names = {"_none"}
+    names = {"_none"} | chart_names
     for y in years:
         for g in borders["topo"]["objects"][f"s{y}"]["geometries"]:
             p = g.get("properties") or {}
@@ -158,6 +168,14 @@ def check_region(rid, langs, types):
             missing = sorted(keys - set(sec(k)))
             if missing:
                 warnings.append(f"{tag} {k}: missing {missing}")
+        about = loc.get("about")
+        if about is None:
+            warnings.append(f"{tag}: no about (the footer's Sources and notes link is hidden)")
+        elif not (isinstance(about, list) and all(isinstance(s, dict) and isinstance(s.get("h"), str)
+                                                  and all(isinstance(t, str) for t in s.get("p", []))
+                                                  and all(isinstance(i, list) and 1 <= len(i) <= 2 for i in s.get("items", []))
+                                                  for s in about)):
+            errors.append(f"{tag} about: should be [{{\"h\": heading, \"p\": [paragraphs], \"items\": [[text, url?], ...]}}, ...]")
         known = {"names": None, "lineages": lineages, "events": set(event_keys), "stories": {c["id"] for c in stories}}
         for kind, table in sec("aliases").items():
             if kind not in known:
@@ -171,7 +189,7 @@ def check_region(rid, langs, types):
 def main():
     langs, page_regions, types = page_lists()
     regions = sys.argv[1:] or sorted(d for d in os.listdir(f"{ROOT}/regions") if os.path.isfile(f"{ROOT}/regions/{d}/region.json"))
-    check_shared(langs)
+    check_shared(langs, page_regions)
     for rid in regions:
         if rid not in page_regions:
             warnings.append(f"regions/{rid}: not listed in REGIONS in index.html")

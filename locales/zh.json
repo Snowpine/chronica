@@ -19,11 +19,13 @@
   "pause": "暂停",
   "yearUnit": "年",
   "bc": "前{y}",
+  "circa": "约{y}",
   "yearAria": "{y} 年",
   "search.placeholder": "搜索国家、城市、事件",
   "search.label": "搜索国家、城市、事件和故事",
   "search.results": "搜索结果",
   "search.none": "没有找到“{q}”。试试中文名、英文名或旧称。",
+  "search.maps": "地图 {r}",
   "layers": "地图图层",
   "layer.chg": "本期变化",
   "layer.ev": "事件",
@@ -68,7 +70,10 @@
   "recent": "这些年发生了什么",
   "recent.none": "这 {n} 年里没有收录事件。",
   "upcoming": "接下来",
-  "credit": "边界：{hb}（GPL-3.0）的 {n} 个年份快照，两次快照之间沿用前一份。河流、湖泊、山脉：{ne}（公有领域）。虚线边框为附属领地，颜色随宗主。面积为地图范围内的近似值。事件 {events} 条，为人工整理。浅色、斜体标注的是民族或考古学文化而非国家，它们的范围变化不计入“变化”。",
+  "about": "资料与说明",
+  "era.prev": "上一个时代",
+  "era.next": "下一个时代",
+  "credit": "边界：{hb}（GPL-3.0）的 {n} 个年份快照，两次快照之间沿用前一份。河流、湖泊、山脉：{ne}（公有领域）。虚线边框为附属领地，颜色随宗主。面积为地图范围内的近似值。事件 {events} 条，来源和编写方式见“资料与说明”。浅色、斜体标注的是民族或考古学文化而非国家，它们的范围变化不计入“变化”。",
   "keys": "<kbd>←</kbd><kbd>→</kbd> 上/下一次边界更新 · <kbd>Shift</kbd>+<kbd>←</kbd><kbd>→</kbd> 前后 10 年 · <kbd>空格</kbd> 播放 · <kbd>Esc</kbd> 取消选择 · <kbd>/</kbd> 搜索",
   "stories": "故事",
   "stories.count": "{n} 章",
@@ -113,7 +118,19 @@
   "cmp.left": "左",
   "cmp.right": "右",
   "cmp.earlier": "上一期快照",
-  "cmp.later": "下一期快照"
+  "cmp.later": "下一期快照",
+  "region": "切换地区",
+  "chart": "{t}：并立政权图"
+ },
+ "regions": {
+  "europe": [
+   "欧陆古今",
+   "欧洲 · 前700–2000"
+  ],
+  "china": [
+   "中华古今",
+   "中国 · 约前2070–1912"
+  ]
  },
  "types": {
   "war": "战争",

@@ -6,16 +6,17 @@ are wrong; see regions/europe/polities.py.
 """
 import json, math, os, sys
 from collections import defaultdict
-from shapely.geometry import shape, mapping as _mapping, MultiPolygon, Polygon, Point
+from shapely.geometry import shape, mapping as _mapping, LineString, MultiPolygon, Polygon, Point
 from shapely.geometry.polygon import orient
-from shapely.ops import unary_union, polylabel
+from shapely.ops import unary_union, polylabel, polygonize
+from shapely import set_precision
 from shapely.validation import make_valid
 
 region_dir, clip_dir, out_dir = sys.argv[1], sys.argv[2], sys.argv[3]
 sys.path.insert(0, os.path.abspath(region_dir))
 import polities as P
 
-YEARS, PEOPLES, UNNAMED, REASSIGN = P.YEARS, P.PEOPLES, P.UNNAMED, P.REASSIGN
+YEARS, PEOPLES, UNNAMED, REASSIGN, CUT, SPLIT = P.YEARS, P.PEOPLES, P.UNNAMED, P.REASSIGN, P.CUT, P.SPLIT
 LINEAGE_IDS = list(P.LINEAGE_NAMES)
 LINEAGE_OF = {n: k for k, ns in P.LINEAGE_NAMES.items() for n in ns}
 LINEAGE_OF.update(P.OVERLORD_LINEAGES)
@@ -40,6 +41,9 @@ def fix_props(p, year):
     if fixed:
         sub = sub if sub != name else fixed
         name = fixed
+    lord = next((o for test, o in P.OVERLORD_FIXES.get(name, []) if test(year)), None)
+    if lord is not None:
+        sub = lord
     if sub in ("", name) or sub == (p.get("PARTOF") or "").strip() == name:
         sub = ""
     return name or None, sub or None
@@ -88,6 +92,30 @@ def outline(name, y):
     return make_valid(unary_union([shape(f["geometry"]) for f in fs if f.get("geometry") and fix_props(f["properties"], y)[0] == name]))
 
 
+def split(g, lines, seeds, where):
+    """Cut g along the lines: {name: pieces}. A piece goes to the name whose seed point it holds; a piece without a
+    seed (an island, a sliver between lines) goes to the name of the seeded piece nearest to it."""
+    net = unary_union([g.boundary] + [LineString(l) for l in lines])
+    pieces = [p for p in polygonize(net) if g.contains(p.representative_point())]
+    owner = {}
+    for i, p in enumerate(pieces):
+        hits = {n for n, pts in seeds.items() for pt in pts if p.contains(Point(pt))}
+        if len(hits) > 1:
+            print(f"{where}: one piece holds the seeds of {sorted(hits)}; a border line does not close")
+        if hits:
+            owner[i] = sorted(hits)[0]
+    if not owner:
+        return {}
+    out = defaultdict(list)
+    for i, p in enumerate(pieces):
+        n = owner.get(i) or owner[min(owner, key=lambda j: pieces[j].distance(p))]
+        out[n].append(p)
+    missing = set(seeds) - set(out)
+    if missing:
+        print(f"{where}: no piece for {sorted(missing)}")
+    return out
+
+
 snap = {}  # year -> list of dicts
 for y in YEARS:
     groups = defaultdict(list)
@@ -111,13 +139,51 @@ for y in YEARS:
         groups[key].extend(polys(geom))
         if key not in meta or sub:
             meta[key] = sub
+    redrawn = set()
+    for ys, name, area, to in CUT:
+        key, to = name or "_none", to or "_none"
+        if y in ys and key in groups and (not isinstance(area, str) or area in groups):
+            # the area is a ring of points, or the name of another polity whose outline in this snapshot is used
+            inside = make_valid(unary_union(groups[area]) if isinstance(area, str) else Polygon(area))
+            g = make_valid(unary_union(groups[key]))
+            groups[to].extend(polys(g.intersection(inside)))
+            groups[key] = polys(g.difference(inside))
+            meta.setdefault(to, None)
+            redrawn.update((to, key))
+    for ys, name, lines, seeds in SPLIT:
+        if y in ys and name in groups:
+            parts = split(make_valid(unary_union(groups[name])), lines, seeds, f"SPLIT {y} {name}")
+            if parts:
+                groups[name] = []
+            for to, ps in parts.items():
+                groups[to].extend(ps)
+                meta.setdefault(to, None)
+                redrawn.add(to)
+    # ASSIGN: (years, area, NAME or None, keep): all land inside the area goes to NAME (None: unrecorded), whoever held
+    # it, except the polities named in keep
+    for ys, area, to, keep in P.ASSIGN:
+        if y not in ys:
+            continue
+        inside, tkey = make_valid(Polygon(area)), to or "_none"
+        for key in [k for k in groups if k != tkey and (None if k == "_none" else k) not in keep]:
+            g = make_valid(unary_union(groups[key]))
+            if g.intersects(inside):
+                groups[tkey].extend(polys(g.intersection(inside)))
+                groups[key] = polys(g.difference(inside))
+                redrawn.update((tkey, key))
+        meta.setdefault(tkey, None)
     feats = []
     for key, ps in groups.items():
-        g = make_valid(unary_union(ps))
+        # pieces cut apart and put together again can miss each other by rounding errors; a 0.1 m grid joins them
+        g = make_valid(unary_union([set_precision(p, 1e-6) for p in ps] if key in redrawn else ps))
         if g.is_empty:
             continue
         name = None if key == "_none" else key
         sub = meta[key]
+        # a polity drawn by CUT or SPLIT has no source overlord; OVERLORD_FIXES may give it one
+        lord = next((o for test, o in P.OVERLORD_FIXES.get(name, []) if test(y)), None)
+        if lord is not None:
+            sub = lord or None
         lin = LINEAGE_OF.get(name, "") if name else ""
         vassal = 0
         if name and not lin and sub and LINEAGE_OF.get(sub):

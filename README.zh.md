@@ -9,7 +9,7 @@
 
 界面和全部内容都有中文和英文。
 
-页面代码本身与地区无关：地区特有的东西都放在 `regions/` 下该地区的文件夹里。所以以后增加东亚、中东等地区时，只要在欧洲旁边新建一个文件夹，不必改页面代码。
+页面代码本身与地区无关：地区特有的东西都放在 `regions/` 下该地区的文件夹里。所以以后增加东亚、中东等地区时，只要在欧洲旁边新建一个文件夹，不必改页面代码。第二个地区“中华古今”（China Through the Ages）覆盖从传统纪年的夏朝开始（约公元前 2070 年）到 1912 年清朝结束时的中国及其周边：53 份边界快照（原始数据对中国较粗，每一份都经本图修改或重画）、317 条事件、88 座带历代名称的城市、14 个故事章节，每章都有全文。点左上角的标题可以切换地区。
 
 **在线访问：https://c.ilewen.com**
 
@@ -66,12 +66,13 @@ chronica/
       borders.json           边界快照（TopoJSON）、每期变化、面积序列           —— 由脚本生成
       physical.json          河流、湖泊、山脉                                    —— 由脚本生成
       events.json            事件：[键, 年份, 纬度, 经度, 类型]
-      stories.json           故事章节：每一步的年份、地图范围、高亮的政权、引用的事件
+      stories.json           故事章节：每一步的年份、地图范围、高亮的政权、引用的事件；可选的并立图
       cities.json            城市：[纬度, 经度, 级别, [[起始年份, 名称键], …]]
       locales/
         en.json  zh.json     该地区的内容：各类名称、时代、事件、故事、搜索别名
       polities.py            怎样读边界数据源：用哪些快照、谱系、数据修正
       physical.py            画哪些河流和山脉、给哪些加标注
+      sources/               可选：该地区自绘的边界快照（见“自绘快照”）
   scripts/
     make_data.py             从原始数据重新生成某个地区的 borders.json 或 physical.json
     build.py                 make_data.py 的一步：合并政权、计算变化和面积序列
@@ -92,11 +93,12 @@ chronica/
 | `window` | `[[西, 南], [东, 北]]`，单位是度。原始数据裁剪到这个范围，地图上的海也画在这个范围里。 |
 | `projection` | [d3-geo](https://d3js.org/d3-geo) 的投影名（去掉 `geo` 前缀）和要设置的参数，例如 `{"type": "ConicConformal", "parallels": [40, 62], "rotate": [-15, 0]}`。 |
 | `focus` | 初始视野必须包含的点，地图取包住它们的最小视野。 |
-| `core` | 可选，`[[西, 南], [东, 北]]`。落在这个范围里的领土变化排在边缘地区的变化前面。默认等于 `window`。 |
-| `start`、`end` | 打开时显示的年份，以及时间轴的终点。时间轴的起点是第一份边界快照。 |
-| `eras` | 时代分界年份，从第一份快照的年份到 `end`；时代名称写在各语言文件里。 |
+| `core` | 可选，`[[西, 南], [东, 北]]`，也可以是由这样的范围组成的列表。落在这个范围里的领土变化排在边缘地区的变化前面。默认等于 `window`。 |
+| `start`、`end` | 打开时显示的年份，以及时间轴的终点。时间轴的起点是第一个时代分界（见 `eras`）。 |
+| `eras` | 时代分界年份，从时间轴的起点到 `end`；时代名称写在各语言文件里。第一个分界可以早于第一份边界快照，这之前的年份都显示第一份快照（中国：时间轴从前 2070 年的夏开始，第一份快照是前 1750 年）。 |
 | `periods` | 可选。由若干完整时代组成的大时期，写法是从 `eras` 里取的分界年份（欧洲：古代、中世纪、近现代）。时间轴太窄、放不下某个时代的名称时（比如在手机上），这个时期的几个时代会合并成一段，标上时期的名称。 |
 | `scale` | 时间轴刻度：一串 `[年份, 比例]`，从 `[起始年, 0]` 到 `[end, 1]`，中间线性。史料稀疏的时期可以给小一点的比例。 |
+| `circa` | 可选。这一年以前的年份是推定的，显示为“约前1600”“c. 1600 BC”（中国：前 841 年，即共和元年，确切纪年从这一年开始）。 |
 | `denseFrom` | 可选。这一年以前，“最近发生的事件”回溯 100 年而不是 25 年，时间轴按半个世纪而不是十年统计事件。 |
 | `lineages` | `{谱系 id: [浅色主题颜色, 深色主题颜色]}`，对应 `polities.py` 里的每个谱系，顺序就是时间轴泳道的顺序。 |
 | `presets` | 可选，对比模式的快捷年份对 `[[左, 右], …]`；说明文字写在各语言文件里。 |
@@ -145,6 +147,7 @@ chronica/
   - 每项是一个字符串数组。
   - 非英文界面也能搜到英文别名。
   - 结果的副标题会显示命中的别名，所以可以把“工业革命”这类主题词挂在代表性事件上。
+- `about`（可选）：侧栏底部“资料与说明”对话框的内容，格式是 `[{ "h": 标题, "p": [段落, …], "items": [[文字, 网址?], …] }, …]`。在这里说明边界、年代和文字的来源，以及可信到什么程度。
 
 ### 名称键
 
@@ -186,9 +189,11 @@ chronica/
      - `LINEAGE_NAMES`：哪些名称属于同一谱系，id 要和 `region.json` 的 `lineages` 一致；
      - `OVERLORD_LINEAGES`：宗主名称的写法和谱系成员名称不同时，把它对应到谱系；
      - `IDENTITY_GROUPS`：哪些名称算同一个政权，改名不算领土变化；
-     - 修正原始数据标注的 `RENAMES`、`GROUP_RENAMES`、`OVERLORD_RENAMES`、`NOT_POLITIES`；
+     - 修正原始数据标注的 `RENAMES`、`GROUP_RENAMES`、`OVERLORD_RENAMES`、`OVERLORD_FIXES`（原始数据在某些年份标错的宗主，或用 `CUT`、`SPLIT` 画出的政权的宗主）、`NOT_POLITIES`；
      - `PEOPLES`、`VARIANTS`；
-     - 几何修正 `UNNAMED`、`REASSIGN`。
+     - 几何修正 `UNNAMED`、`REASSIGN`、`CUT`、`SPLIT`；
+     - `BASE`：用另一年的源文件生成的快照（见[重画快照](#重画快照)）；
+     - `MODERN`：时间线截止于今天之前的地区，用哪一年的源文件画“今日国界”图层（`None` 表示用最后一份快照）。
    - `physical.py`：要画和标注的河流、山脉，用 Natural Earth 的名称。
 3. **生成数据**（见[重新生成数据](#重新生成数据)）：
    ```bash
@@ -199,7 +204,8 @@ chronica/
    ```
    生成时会打印每期最大的几处变化。如果有明显不合理的，通常是原始数据的标注需要在 `polities.py` 里修正。
 4. **写内容。** 加上 `events.json`、`stories.json`、`cities.json`，开始时都可以是 `[]`。再写 `locales/en.json`，至少要有 `ui`、`eras`、`lanes`、`lineages`。其他语言可以以后再加。
-5. **登记地区。** 把 id 加进 `index.html` 的 `REGIONS`，打开 `http://localhost:8000/?region=<id>` 查看。列表里的第一个地区是默认地区。现在还没有切换地区的菜单，有了第二个地区再加。
+   多国并立时期的章节可以加一个 `chart`（并立图）：每个政权一条色带，写成 `[名称键, 起, 止, 行]`。前后相继的政权放在同一行，每一行就是一条承续线（见 `regions/china/stories.json` 的 `five-dynasties` 一章）。并立图显示在故事步骤的按钮下方和阅读视图的开头，颜色与地图一致，并标出当前步骤的年份。
+5. **登记地区。** 把 id 加进 `index.html` 的 `REGIONS`，再在每个界面语言文件（`locales/<语言>.json`）的 `regions` 里写上它的名称和副标题，标题下的地区菜单会显示它们。打开 `http://localhost:8000/?region=<id>` 查看。列表里的第一个地区是默认地区。
 6. **检查。** 运行 `python3 scripts/check.py <id>`。它会列出这些问题：
    - 未翻译的名称；
    - 步数对不上的故事；
@@ -242,15 +248,35 @@ python3 scripts/make_data.py europe physical <natural-earth-vector>/geojson
 
 数据来源是 https://github.com/aourednik/historical-basemaps 的 `geojson/world_<年份>.geojson`，公元前为 `world_bc<年份>.geojson`。`make_data.py borders` 依次：
 
-1. **裁剪简化。** 用 mapshaper 把 `YEARS` 里的每份快照裁剪到该地区的 `window`，并做简化。
+1. **裁剪简化。** 用 mapshaper 把 `YEARS` 里的每份快照裁剪到该地区的 `window`，并做简化。简化保留原始数据 60% 的顶点（`make_data.py` 里的 `BORDER_DETAIL`），大约每 20 公里一个。
 2. **运行 `scripts/build.py`**，按该地区的 `polities.py`：
    - 合并同一政权的多边形，生成名称键，标出谱系和宗主；
-   - 修正原始数据的已知错误（`RENAMES`、`OVERLORD_RENAMES`、`UNNAMED`、`REASSIGN`）；
+   - 修正原始数据的已知错误（`RENAMES`、`OVERLORD_RENAMES`、`UNNAMED`、`REASSIGN`），重画边界（`CUT`、`SPLIT`）；
    - 计算每两份相邻快照之间各政权从各邻国得到的领土（小于 6000 km² 的不计）；
    - 生成各政权和各谱系的面积序列。
 3. **打包。** 把各年和这些元数据合并成一个 TopoJSON 文件。
 
 新出现的名称键需要在各语言文件的 `names` 里补上翻译，不补就显示原始英文名。`scripts/check.py` 会列出这些名称。
+
+#### 重画快照
+
+如果某个重要年份 historical-basemaps 没有快照，或者画得很粗，可以在 `polities.py` 里用表格重画。每条边界都以坐标写在表里，便于核对（`regions/china/polities.py` 里有实际的例子）：
+
+- `BASE = {年份: 源年份}`：用另一年的源文件生成这一期快照，例如 `{-221: -200}`。`RENAMES` 按这一期自己的年份生效，所以前 200 年的汉可以改成秦。
+- `CUT = [(年份, 名称, 范围, 新名称)]`：把某个政权落在一个范围里的部分划给另一个政权。范围可以是经纬度点围成的多边形，也可以是另一个政权的名称，这时用它在该期快照中的轮廓（用于源图层里多边形相互重叠的情况）。`名称` 为 `None` 时指未记载的土地。
+- `SPLIT = [(年份, 名称, 边界线, {名称: [种子点]})]`：沿边界线把一个政权切开，每条线只画一次。每一块归包含其种子点的名称；没有种子点的块（例如海岛）归离它最近的那块。边界线要稍微越过政权的边缘，相交处也要彼此越过一点。如果某条线没有闭合、两个种子点落在同一块里，生成时会打印警告。
+沿河而定的边界可以直接取河道：`polities.py` 里存有河道走向（中国：淮河、长江和晋陕之间的黄河，取自 Natural Earth），`*along(HUAI, a, b)` 给出离 `a`、`b` 最近两点之间的那一段。
+
+被重画的快照，应在语言文件的快照说明（`notes`）里注明。
+
+#### 自绘快照
+
+如果某期快照更适合整份手绘，也可以由该地区直接提供文件：
+
+1. 存为 `regions/<id>/sources/world_<年份>.geojson`（公元前为 `world_bc<年份>.geojson`），属性和 historical-basemaps 一致：`NAME`，有需要时再加 `SUBJECTO` 和 `PARTOF`。比较省事的做法是复制最接近的 historical-basemaps 快照，再用 QGIS 或 mapshaper 的网页界面修改。
+2. 如果 `polities.py` 的 `YEARS` 里还没有这个年份，把它加进去。
+
+之后 `make_data.py borders` 会用这个文件代替 historical-basemaps 的同年快照，并列出哪些年份取自 `sources/`。这个文件夹不会部署上线。
 
 ### 河流、湖泊、山脉：`physical.json`
 
@@ -265,7 +291,7 @@ python3 scripts/make_data.py europe physical <natural-earth-vector>/geojson
 
 网站全是静态文件，任何静态托管都可以。线上版本部署在 Cloudflare 上，是一个只提供静态文件的 Worker：
 - `wrangler.jsonc` 写了 Worker 的名字和自定义域名；
-- `.assetsignore` 规定只上传页面、图标和预览图，以及语言和地区数据。脚本、Python 表格和 README 都不上传。
+- `.assetsignore` 规定只上传页面、图标和预览图，以及语言和地区数据。脚本、Python 表格、各地区自绘的源快照和 README 都不上传。
 
 部署自己的副本时，把 `wrangler.jsonc` 里的 `routes` 改成自己的域名（或者删掉，改用 workers.dev 地址），然后运行：
 
@@ -286,6 +312,6 @@ npx wrangler deploy
 
 - 边界：[aourednik/historical-basemaps](https://github.com/aourednik/historical-basemaps)，GPL-3.0。`borders.json` 是它的衍生数据。
 - 河流、湖泊、山脉：[Natural Earth](https://www.naturalearthdata.com/)，公有领域。
-- 事件、故事、译名为本项目整理。
+- 事件、故事、译名为本项目整理。中国部分由 AI 助手（Claude）编写，2026 年 11 月对照网上资料核对过；各地区的依据见页面上的“资料与说明”（语言文件里的 `about`）。
 - 程序库：[d3](https://d3js.org/) 和 [TopoJSON client](https://github.com/topojson/topojson-client)（均为 ISC 许可），从 cdnjs 加载。
 - 字体：Spectral、Noto Sans SC、IBM Plex Sans Condensed、站酷小薇（ZCOOL XiaoWei），来自 Google Fonts（SIL 开源字体许可）。

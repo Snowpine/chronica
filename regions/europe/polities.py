@@ -128,6 +128,8 @@ GROUP_RENAMES = {"Baltic archeological cultures": "Baltic tribes"}
 NOT_POLITIES = {"Lake Segozerskoye", "Lake Vygozero"}  # the 700 layer draws two Karelian lakes as polities
 # misspelt overlords (SUBJECTO): source spelling -> NAME
 OVERLORD_RENAMES = {"Persi": "Persia"}  # the 400 layer makes Persia a dependency of "Persi"
+# overlords the source gets wrong, by NAME: [(year test, overlord NAME, or "" for none)]
+OVERLORD_FIXES = {}
 
 # Peoples, tribes and archaeological cultures rather than states: drawn pale, and their spread between snapshots
 # (often just the source mapping them in one year and not the next) is not counted as a territorial change.
@@ -160,3 +162,11 @@ UNNAMED = [((1994, 2000), (7.45, 46.95), "Switzerland")]  # the source draws Swi
 # polygons that swallow a neighbour: (year, NAME, neighbour NAME, a year whose outline of the neighbour is used);
 # the part inside that outline goes back to the neighbour
 REASSIGN = [(1530, "Astrakhan Khanate", "Georgia", 1500)]  # the 1530 layer stretches Astrakhan over Georgia
+# CUT and SPLIT redraw a polity after its polygons are merged; see regions/china/polities.py
+CUT = []
+SPLIT = []
+ASSIGN = []
+# snapshots built from another year's historical-basemaps file: year -> source year
+BASE = {}
+# the year of the "today's borders" layer when the timeline ends before today; None uses the last snapshot
+MODERN = None

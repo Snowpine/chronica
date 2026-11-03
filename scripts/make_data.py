@@ -6,6 +6,9 @@ usage:
 
 <region> is a folder under regions/ (e.g. europe). Its region.json gives the map window the sources are clipped to;
 its polities.py and physical.py say how to read them. The output goes to regions/<region>/ unless out.json is given.
+A snapshot the region draws itself goes in regions/<region>/sources/ under the historical-basemaps file name
+(world_bc221.geojson, world_262.geojson) and is used instead of that file; its year need not exist in historical-basemaps.
+A year listed in the region's BASE is built from another year's historical-basemaps file instead.
 Needs Python 3 with shapely 2, and mapshaper (npm install -g mapshaper, or set MAPSHAPER=/path/to/mapshaper).
 Intermediate files go to ./work/<region>, or to $WORK.
 """
@@ -13,6 +16,9 @@ import glob, json, os, shutil, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
+# share of the source's border vertices kept: 60% leaves a vertex about every 20 km (12% left one about every 100 km,
+# which turned peninsulas into triangles) for about a third more data
+BORDER_DETAIL = "60%"
 
 
 def source_file(y):
@@ -36,16 +42,25 @@ def write(meta, topo_path, out):
 
 def borders(region, src, out, work):
     sys.path.insert(0, region)
-    from polities import YEARS
+    import polities as P
     (w, s), (e, n) = json.load(open(f"{region}/region.json"))["window"]
     clip, build = f"{work}/clip", f"{work}/build"
     os.makedirs(clip, exist_ok=True)
-    for y in YEARS:
-        mapshaper("-i", f"{src}/{source_file(y)}", "-clean", "-clip", f"bbox={w},{s},{e},{n}", "-simplify", "12%",
+    own = [y for y in P.YEARS if os.path.isfile(f"{region}/sources/{source_file(y)}")]
+    if own:
+        print("own snapshots:", ", ".join(map(str, own)))
+    for y in P.YEARS:
+        path = f"{region}/sources/{source_file(y)}" if y in own else f"{src}/{source_file(P.BASE.get(y, y))}"
+        mapshaper("-i", path, "-clean", "-clip", f"bbox={w},{s},{e},{n}", "-simplify", BORDER_DETAIL,
                   "keep-shapes", "-filter-slivers", "min-area=200km2", "-o", f"{clip}/c_{y}.geojson", "precision=0.001")
     shutil.rmtree(build, ignore_errors=True)
     subprocess.run([sys.executable, f"{HERE}/build.py", region, clip, build], check=True)
     layers = sorted(glob.glob(f"{build}/s*.geojson")) + sorted(glob.glob(f"{build}/d*.geojson"))
+    if P.MODERN:  # the "today's borders" layer, for a region whose timeline ends before today
+        mapshaper("-i", f"{src}/{source_file(P.MODERN)}", "-clean", "-clip", f"bbox={w},{s},{e},{n}", "-dissolve", "NAME",
+                  "-simplify", BORDER_DETAIL, "keep-shapes", "-filter-slivers", "min-area=200km2", "-o", f"{build}/modern.geojson",
+                  "precision=0.001")
+        layers.append(f"{build}/modern.geojson")
     mapshaper("-i", *layers, "combine-files", "-o", f"{work}/topo.json", "format=topojson", "quantization=60000")
     write(json.load(open(f"{build}/meta.json")), f"{work}/topo.json", out)
 

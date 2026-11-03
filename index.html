@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>欧陆古今</title>
-<meta name="description" content="Chronica, an interactive historical atlas: Europe from 700 BC to AD 2000, with its changing borders, events and stories, in English and Chinese. 欧洲历史地图：公元前 700 年至 2000 年的疆域变迁、事件与故事。">
+<title>寰宇古今 · Chronica</title>
+<meta name="description" content="Chronica, an interactive historical atlas of Europe from 700 BC to AD 2000 and of China from c. 2070 BC to 1912, with their changing borders, events and stories, in English and Chinese. 欧洲与中国历史地图：疆域变迁、事件与故事。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Chronica">
-<meta property="og:title" content="Europe Through the Ages · 欧陆古今">
-<meta property="og:description" content="An interactive historical atlas of Europe from 700 BC to AD 2000: changing borders, events and stories. 欧洲历史地图：疆域变迁、事件与故事。">
+<meta property="og:title" content="Chronica · 寰宇古今">
+<meta property="og:description" content="An interactive historical atlas of Europe and China: changing borders, events and stories. 欧洲与中国历史地图：疆域变迁、事件与故事。">
 <meta property="og:url" content="https://c.ilewen.com/">
 <meta property="og:image" content="https://c.ilewen.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -79,14 +79,33 @@ html:not(.i18n) #q::placeholder { color: transparent; }
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
 
-header { grid-area: head; display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; }
+.app > header { grid-area: head; display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; }
+.brand { position: relative; }
 .brand h1 { margin: 0; font: 400 30px/1 var(--f-display); letter-spacing: .08em; }
+/* the title opens a menu of the regions when there is more than one */
+.region-btn { display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; color: inherit; font: inherit; letter-spacing: inherit; cursor: pointer; }
+.region-btn svg { width: 16px; height: 16px; fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.region-btn:hover svg, .region-btn[aria-expanded="true"] svg { stroke: var(--ink); }
+.region-btn:disabled { cursor: default; }
+.region-btn:disabled svg { display: none; }
+.regions {
+  position: absolute; top: 100%; left: -6px; z-index: 30; margin: 8px 0 0; padding: 6px; list-style: none; min-width: 230px;
+  border: 1px solid var(--rule); border-radius: 10px; background: var(--panel); box-shadow: 0 8px 24px rgba(0, 0, 0, .14);
+}
+.regions[hidden] { display: none; }
+.regions a { display: block; padding: 8px 10px; border-radius: 7px; color: var(--ink); text-decoration: none; font: 400 18px/1.2 var(--f-display); letter-spacing: .06em; }
+.regions a:hover { background: color-mix(in srgb, var(--rule) 45%, transparent); }
+.regions a[aria-current] { background: var(--accent-soft); }
+.regions small { display: block; margin-top: 3px; font: 12px var(--f-body); color: var(--muted); letter-spacing: .04em; }
 .brand p { margin: 4px 0 0; font-size: 12px; color: var(--muted); letter-spacing: .06em; }
 .clock { display: flex; align-items: center; gap: 8px; }
 .yearbox { width: 12.5rem; text-align: center; line-height: 1; }
 .year { font: 600 34px/1 var(--f-num); font-variant-numeric: tabular-nums; letter-spacing: .01em; }
 .year small { font: 400 14px var(--f-body); color: var(--muted); margin-left: 3px; }
-.era { margin-top: 4px; font-size: 12px; color: var(--muted); letter-spacing: .06em; white-space: nowrap; }
+.era { display: flex; justify-content: center; margin-top: 4px; font-size: 12px; color: var(--muted); letter-spacing: .06em; white-space: nowrap; }
+/* a long era name gives way first, so the borders' year after it always shows */
+.era > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.era > span + span { flex: none; }
 .era b { font: 600 12px var(--f-num); color: var(--ink); letter-spacing: 0; font-variant-numeric: tabular-nums; }
 .era b.lag { color: var(--accent); }
 .btn {
@@ -222,6 +241,11 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 .spark-now.a { stroke: var(--faint); stroke-dasharray: 3 2; }
 #side:focus { outline: none; }
 .spark-t { font: 11px var(--f-body); fill: var(--muted); }
+.era-navs { display: flex; justify-content: space-between; gap: 10px; margin-top: 14px; }
+.era-nav { display: grid; gap: 2px; padding: 6px 12px; border: 1px solid var(--rule); border-radius: 8px; background: none; cursor: pointer; text-align: left; font-size: 14px; color: var(--ink); }
+.era-nav.next { text-align: right; }
+.era-nav small { font-size: 11px; color: var(--muted); }
+.era-nav:hover { border-color: var(--faint); }
 .link { margin-top: 8px; border: 1px solid var(--rule); background: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
 .link:hover { border-color: var(--faint); }
 .link i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
@@ -230,6 +254,17 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 .legend span { display: inline-flex; align-items: center; gap: 5px; }
 .legend svg { width: 12px; height: 12px; overflow: visible; }
 .legend path { fill: var(--ink); }
+.about { width: min(640px, calc(100vw - 32px)); max-height: min(82vh, 780px); padding: 0 0 18px; border: 1px solid var(--rule); border-radius: 14px;
+  background: var(--panel); color: var(--ink); box-shadow: 0 20px 60px rgba(0, 0, 0, .25); overscroll-behavior: contain; }
+.about::backdrop { background: rgba(10, 16, 20, .45); }
+.about-bar { position: sticky; top: 0; display: flex; align-items: center; justify-content: space-between; padding: 16px 22px 12px;
+  background: var(--panel); border-bottom: 1px solid var(--rule); }
+.about h2 { margin: 0; font: 400 24px/1.3 var(--f-display); letter-spacing: .04em; }
+.about section { padding: 0 22px; }
+.about h3 { margin: 18px 0 6px; font-size: 15px; }
+.about p, .about li { margin: 0 0 8px; font-size: 14px; line-height: 1.7; }
+.about ul { margin: 0; padding-left: 1.2em; }
+.about a { color: var(--accent); }
 .credit, .keys { margin: 8px 0 0; font-size: 11.5px; color: var(--faint); line-height: 1.6; }
 .keys kbd { font: 500 11px var(--f-num); border: 1px solid var(--rule); border-radius: 4px; padding: 0 4px; color: var(--muted); }
 
@@ -246,6 +281,8 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 #tl:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
 .era-r { stroke: var(--paper); stroke-width: 2; }
 .era-t { font-size: 11px; fill: var(--muted); text-anchor: middle; dominant-baseline: central; letter-spacing: .08em; pointer-events: none; }
+.era-r.on { fill: color-mix(in srgb, var(--accent) 20%, var(--panel)) !important; }
+.era-t.on { fill: var(--accent); font-weight: 700; }
 .lane-l { font-size: 11px; fill: var(--muted); text-anchor: end; dominant-baseline: central; cursor: pointer; }
 .lane-l:hover, .lane-l.on { fill: var(--ink); font-weight: 700; }
 .lane-b { transition: opacity .2s; pointer-events: none; }
@@ -265,7 +302,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 
 /* reading layout: a story's full text in a wide column, the map beside it following the step being read */
 .app.reading { grid-template-columns: minmax(0, 1fr) min(600px, 46vw); grid-template-rows: minmax(0, 1fr); grid-template-areas: "map side"; }
-.app.reading header, .app.reading .timewrap { display: none; }
+.app.reading > header, .app.reading .timewrap { display: none; }
 .app.reading aside { padding: 0; }
 .read-year { display: none; position: absolute; left: 12px; top: 12px; padding: 3px 11px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); font: 600 20px/1.4 var(--f-num); font-variant-numeric: tabular-nums; pointer-events: none; }
 .read-year small { font: 400 13px var(--f-body); color: var(--muted); margin-left: 2px; }
@@ -319,6 +356,19 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 .back { padding: 2px 0; border: 0; background: none; cursor: pointer; font-size: 12px; color: var(--muted); }
 .back:hover { color: var(--ink); }
 .story-ch { margin-top: 8px; font-size: 12px; color: var(--muted); letter-spacing: .06em; }
+/* a chapter's chart of the states that stood side by side (stories.json "chart") */
+.story-chart { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--rule); }
+.story-chart .cap { font-size: 12px; color: var(--muted); letter-spacing: .06em; }
+.chart-slot { margin: 8px 0 2px; }
+.rd-head .chart-slot { margin: 16px 0 4px; }
+.chart { display: block; width: 100%; max-width: 440px; height: auto; overflow: visible; }
+.chart rect { stroke: var(--border-poly); stroke-width: .5; }
+.chart g[data-act] { cursor: pointer; }
+.chart g[data-act]:hover rect { stroke: var(--ink); stroke-width: 1; }
+.chart text { font: 11px var(--f-body); fill: var(--ink); pointer-events: none; }
+.chart .ax { font: 500 10px var(--f-num); fill: var(--muted); }
+.chart .tick { stroke: var(--rule); stroke-width: 1; }
+.chart .now { stroke: var(--accent); stroke-width: 1.5; }
 .story .cy { margin-top: 4px; font: 600 26px/1.1 var(--f-num); color: var(--accent); font-variant-numeric: tabular-nums; }
 .story h4 { margin: 2px 0 8px; font: 400 24px/1.3 var(--f-display); letter-spacing: .04em; text-wrap: balance; }
 .story p { margin: 0; font-size: 14px; line-height: 1.8; }
@@ -404,11 +454,20 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   html, body { height: auto; }
   .app { height: auto; grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "map" "time" "side"; }
   .mapwrap { height: 54vh; min-height: 300px; }
+  /* a story's map is 16:9, so the story card starts higher up */
+  .app.side-first:not(.reading) .mapwrap { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+  /* on that short map the buttons form a 2×2 block (zoom in over zoom out), and the layer menu opens beside it */
+  .app.side-first .zoomctl { display: grid; grid-template-columns: 34px 34px; grid-template-areas: "lay in" "reset out"; }
+  .app.side-first #layers-btn { grid-area: lay; }
+  .app.side-first #zin { grid-area: in; }
+  .app.side-first #zout { grid-area: out; }
+  .app.side-first #zreset { grid-area: reset; }
+  .app.side-first .layers { right: 90px; bottom: 10px; }
   aside { overflow: visible; }
   .brand h1 { font-size: 26px; }
-  /* reading on a phone: the map stays pinned at the top while the text scrolls underneath */
+  /* reading on a phone: the map, 16:9 as in the story, stays pinned at the top while the text scrolls underneath */
   .app.reading { display: block; }
-  .app.reading { --rd-map: max(32vh, 190px); }
+  .app.reading { --rd-map: calc((100vw - 32px) * 9 / 16); }
   .app.reading .mapwrap { position: sticky; top: 0; z-index: 4; height: var(--rd-map); min-height: 0; }
   .app.reading aside { margin-top: 10px; }
   .rd-bar { top: var(--rd-map); }
@@ -429,8 +488,9 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 <div class="app">
   <header>
     <div class="brand">
-      <h1 data-i18n="title">欧陆古今</h1>
+      <h1><button class="region-btn" id="region-btn" aria-haspopup="true" aria-expanded="false" aria-controls="regions" title="切换地区" data-i18n-attr="title:region"><span data-i18n="title">欧陆古今</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></button></h1>
       <p data-i18n="subtitle">欧洲历史地图 · 前700–2000</p>
+      <ul class="regions" id="regions" hidden></ul>
     </div>
     <div class="modes" role="group" aria-label="模式" data-i18n-attr="aria-label:modes">
       <button data-mode="explore" aria-pressed="true" data-i18n="mode.explore">探索</button>
@@ -494,6 +554,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     <svg id="tl" role="slider" tabindex="0" aria-label="时间轴" data-i18n-attr="aria-label:timeline"></svg>
   </div>
 </div>
+<dialog class="about" id="about" aria-labelledby="about-h"></dialog>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js" integrity="sha512-4UKI/XKm3xrvJ6pZS5oTRvIQGIzZFoXR71rRBb1y2N+PbwAsKa5tPl2J6WvbEvwN3TxQCm8hMzsl/pO+82iRlg==" crossorigin="anonymous"></script>
@@ -502,8 +563,8 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   const $ = s => document.querySelector(s);
   const params = new URLSearchParams(location.search);
   // regions: each one is a folder under regions/ with its region.json, data and locales; ?region=<id> picks one
-  const REGIONS = ["europe"];
-  const RDIR = `regions/${REGIONS.includes(params.get("region")) ? params.get("region") : REGIONS[0]}`;
+  const REGIONS = ["europe", "china"];
+  const RID = REGIONS.includes(params.get("region")) ? params.get("region") : REGIONS[0], RDIR = `regions/${RID}`;
   // languages: each one is a locales/<code>.json file (the interface) plus regions/<id>/locales/<code>.json (the content)
   const LOCALES = { zh: ["中文", "zh-CN"], en: ["English", "en"] }; // code: [native name, BCP 47 tag]
   const LANG_KEY = "chronica.lang", LANES_KEY = "chronica.lanes";
@@ -538,7 +599,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   // A locale is the interface text with the region's content laid over it, section by section (the region's "ui"
   // adds its title). A region not yet translated into the language shows its English content.
   // sections a region may leave out: a missing name falls back to the source's English name, a missing text to its key
-  const SECTIONS = ["types", "lanes", "lineages", "notes", "presets", "names", "short", "cities", "rivers", "ranges", "events", "stories", "aliases"];
+  const SECTIONS = ["types", "regions", "lanes", "lineages", "notes", "presets", "names", "short", "cities", "rivers", "ranges", "events", "stories", "aliases"];
   const complete = loc => {
     for (const k of SECTIONS) loc[k] = loc[k] || {};
     for (const k of ["eras", "erasShort", "periods"]) loc[k] = loc[k] || [];
@@ -571,6 +632,15 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
         el.setAttribute(attr, tr(key));
       }
     });
+    // the region menu: a link to each region, named in the active language (interface locale "regions")
+    $("#regions").replaceChildren(...REGIONS.map(id => {
+      const [name, sub] = LOC.regions[id] || [id, ""], q = new URLSearchParams(params), a = document.createElement("a");
+      q.set("region", id);
+      a.href = `?${q}`;
+      a.append(name, Object.assign(document.createElement("small"), { textContent: sub }));
+      if (id === RID) a.setAttribute("aria-current", "page");
+      return Object.assign(document.createElement("li"), { role: "none" }).appendChild(a).parentNode;
+    }));
     // the language button names the next language in the list
     const codes = Object.keys(LOCALES), next = codes[(codes.indexOf(LOC.meta.code) + 1) % codes.length], btn = $("#lang");
     [btn.textContent, btn.lang] = LOCALES[next];
@@ -589,8 +659,9 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     war: { sym: d3.symbolDiamond }, treaty: { sym: d3.symbolSquare }, politics: { sym: d3.symbolCircle },
     faith: { sym: d3.symbolTriangle }, culture: { sym: d3.symbolStar }, plague: { sym: d3.symbolCross },
   };
-  // years are integers, negative for BC (-500 is 500 BC); there is no year 0
-  const Y0 = YEARS[0], YN = RC.end, START = RC.start;
+  // years are integers, negative for BC (-500 is 500 BC); there is no year 0. The timeline may start before the first
+  // snapshot (region.json eras), which then stands for the years before it
+  const Y0 = Math.min(YEARS[0], RC.eras[0]), YN = RC.end, START = RC.start;
   const ERAS = RC.eras.slice(1).map((b, i) => [RC.eras[i], b]); // names: LOC.eras
   // piecewise-linear time scale: [year, share of the timeline]; sparse early centuries compressed, dense ones stretched
   const SEG = RC.scale;
@@ -620,18 +691,20 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     return YN;
   };
   const snapIndexFor = y => { let i = 0; while (i + 1 < YEARS.length && YEARS[i + 1] <= y) i++; return i; };
-  const eraOf = y => {
-    const i = ERAS.findIndex(e => y < e[1]);
-    return LOC.eras[i < 0 ? ERAS.length - 1 : i] ?? "";
-  };
+  const eraIndex = y => { const i = ERAS.findIndex(e => y < e[1]); return i < 0 ? ERAS.length - 1 : i; };
+  // where going to an era (or period) takes the map: its first snapshot, or its start if it has none
+  const eraMap = (a, b) => YEARS.find(y => y >= a && y < b) ?? Math.max(a, Y0);
   // "wan" counts in units of 10,000 (万), as Chinese readers expect; other locales get grouped digits
   const fmtArea = a => LOC.meta.area === "wan"
     ? (a >= 1e4 ? `${(a / 1e4).toFixed(a >= 1e6 ? 0 : 1)} 万 km²` : `${Math.round(a / 100) * 100} km²`)
     : `${new Intl.NumberFormat(LOC.meta.lang, { maximumSignificantDigits: 3 }).format(a)} km²`;
   const approx = a => tr("approx", { v: fmtArea(a) });
-  // 500 BC is "前500" in Chinese and "500 BC" in English (locale ui.bc)
-  const fy = y => y < 0 ? tr("bc", { y: -y }) : String(y);
-  const fyr = (a, b) => a === b ? fy(a) : `${fy(a)}–${fy(b)}`;
+  // 500 BC is "前500" in Chinese and "500 BC" in English (locale ui.bc). Dates before region.json "circa" are
+  // approximate: "约前1600", "c. 1600 BC" (ui.circa), with one mark for a range; scale labels (fyBare) carry none
+  const CIRCA = RC.circa ?? -Infinity;
+  const fyBare = y => y < 0 ? tr("bc", { y: -y }) : String(y);
+  const fy = y => y < CIRCA ? tr("circa", { y: fyBare(y) }) : fyBare(y);
+  const fyr = (a, b) => a === b ? fy(a) : b < CIRCA ? tr("circa", { y: `${fyBare(a)}–${fyBare(b)}` }) : `${fy(a)}–${fy(b)}`;
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const hash = s => { let h = 0; for (const ch of s) h = (h * 31 + ch.codePointAt(0)) | 0; return Math.abs(h); };
   const textW = (s, fs) => { let w = 0; for (const ch of s) w += /[\u2e80-\uffff]/.test(ch) ? 1 : .58; return w * fs; };
@@ -641,7 +714,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   // reading: a story is open in the reading layout (its full text beside the map)
   const state = { year: null, t: tf(START), snap: -1, sel: null, show: { chg: true, ev: true, modern: false, phys: false }, playing: false, mode: "explore", story: null, yearA: null, snapA: -1, lanes: storedLanes(), chgAll: false, reading: false };
   const STORIES = storyRows.map(ch => ({
-    id: ch.id, span: ch.span, title: ch.id, lede: "",
+    id: ch.id, span: ch.span, chart: ch.chart, title: ch.id, lede: "",
     steps: ch.steps.map(st => ({ ...st, t: "", b: "", evIds: (st.ev || []).map(k => EVENTS.findIndex(e => e.key === k)).filter(i => i >= 0) })),
   }));
   // event and story text come from the active locale
@@ -708,7 +781,8 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     ...edge(WW, WE).map(x => [x, WS]), ...edge(WS, WN).slice(1).map(y => [WE, y]),
     ...edge(WE, WW).slice(1).map(x => [x, WN]), ...edge(WN, WS).slice(1).map(y => [WW, y])]] } });
   const GRAT = d3.geoGraticule().extent([[WW, WS], [WE + .01, WN + .01]]).step([10, 10])();
-  const MODERN = topojson.mesh(topo, topo.objects["s" + YEARS[YEARS.length - 1]], (a, b) => a !== b);
+  // today's borders: the region's own modern layer when its timeline ends before today, else the last snapshot
+  const MODERN = topojson.mesh(topo, topo.objects.modern || topo.objects["s" + YEARS[YEARS.length - 1]], (a, b) => a !== b);
   // the opening view: the smallest view that holds these points (for Europe: Lisbon to Moscow, Crete to central Sweden)
   const FOCUS = { type: "MultiPoint", coordinates: RC.focus };
 
@@ -826,17 +900,26 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     applySelection();
   }
 
+  let clockLine = "";
   function updateClock() {
     const y = state.year, sy = YEARS[state.snap], next = YEARS[state.snap + 1];
     $("#year").textContent = fy(y);
     $("#read-year").innerHTML = `${fy(y)}<small>${esc(tr("yearUnit"))}</small>`;
     if (comparing()) {
-      $("#era").innerHTML = `${esc(tr("compareLine"))} <b>${fy(state.yearA)}</b> ↔ <b>${fy(y)}</b>`;
+      $("#era").innerHTML = `<span>${esc(tr("compareLine"))} <b>${fy(state.yearA)}</b> ↔ <b>${fy(y)}</b></span>`;
+      clockLine = "";
       $("#era").title = tr("compareTitle", { a: fy(YEARS[state.snapA]), b: fy(sy) });
       placeBadges();
       return;
     }
-    $("#era").innerHTML = `${esc(eraOf(y))} · ${esc(tr("borders"))} <b class="${y === sy ? "" : "lag"}">${fy(sy)}</b>`;
+    // the era's name, or its short name where the full one would be cut off; measured only when the line changes
+    const ei = eraIndex(y), full = LOC.eras[ei] ?? "", line = [ei, sy, y === sy, LOC.meta.code].join("|");
+    if (line !== clockLine) {
+      clockLine = line;
+      $("#era").innerHTML = `<span title="${esc(full)}">${esc(full)}</span><span>&nbsp;· ${esc(tr("borders"))} <b class="${y === sy ? "" : "lag"}">${fy(sy)}</b></span>`;
+      const n = $("#era").firstChild, short = LOC.erasShort[ei];
+      if (short && n.scrollWidth > n.clientWidth) n.textContent = short;
+    }
     $("#era").title = tr("snapTitle", { y: fy(sy) }) + (next ? tr("snapNext", { y: fy(next) }) : "");
   }
 
@@ -1114,8 +1197,8 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   const hideTip = () => { tip.hidden = true; };
   function polyTip(p) {
     if (p.i === "_none") return `<b>${esc(pname("_none"))}</b>`;
-    const name = pname(p.n), src = srcName(p.n);
-    return `<b>${esc(name)}</b>` + (LOC.meta.code !== "en" && src !== name ? `<span>${esc(src)}</span>` : "") +
+    const name = pname(p.n), en = enName(p.n);
+    return `<b>${esc(name)}</b>` + (LOC.meta.code !== "en" && en !== name ? `<span>${esc(en)}</span>` : "") +
       (p.o ? `<span>${esc(tr("overlord", { name: pname(p.o) }))}</span>` : "") + `<span>${esc(approx(p.a))}</span>`;
   }
   const chgTip = p => `<b>${esc(tr("changeRow", { to: pname(p.toK), from: pname(p.fromK) }))}</b>` +
@@ -1187,24 +1270,35 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
         .attr("y", eraY).attr("height", axisY - eraY).attr("rx", 4);
     }
 
-    // Each era is labelled with its name, or its short name, if one fits. When some era of a period (region.json
-    // "periods") has no name that fits, as on a phone, the period's eras merge into one bar under the period's name.
+    // Each era is labelled with its name, or its short name, if one fits; an era too short for either is left blank
+    // (its name shows on hover). When the blank eras of a period (region.json "periods") would take up more than a
+    // third of it, as on a phone, the period's eras merge into one bar under the period's name.
     const gE = tl.append("g"), probe = gE.append("text").attr("class", "era-t"); // measures names in the label font
     const fits = (name, a, b) => !!name && X(b) - X(a) > probe.text(name).node().getComputedTextLength() + 8;
-    const eras = ERAS.map(([a, b], i) => ({ a, b, name: [LOC.eras[i], LOC.erasShort[i]].find(n => fits(n, a, b)) }));
-    const periods = (RC.periods || []).slice(1).map((b, j) => ({ a: RC.periods[j], b, name: LOC.periods[j] }));
+    const eras = ERAS.map(([a, b], i) => ({ a, b, full: LOC.eras[i], name: [LOC.eras[i], LOC.erasShort[i]].find(n => fits(n, a, b)) }));
+    const periods = (RC.periods || []).slice(1).map((b, j) => ({ a: RC.periods[j], b, full: LOC.periods[j], name: LOC.periods[j] }));
+    const merged = p => {
+      const es = eras.filter(o => o.a >= p.a && o.b <= p.b), w = o => X(o.b) - X(o.a);
+      return d3.sum(es.filter(o => !o.name), w) * 3 > d3.sum(es, w);
+    };
     const bars = [];
     for (const e of eras) {
       const p = periods.find(p => e.a >= p.a && e.b <= p.b);
-      if (!p || eras.every(o => o.a < p.a || o.b > p.b || o.name)) bars.push(e);
+      if (!p || !merged(p)) bars.push(e);
       else if (!bars.includes(p)) bars.push(Object.assign(p, { name: fits(p.name, p.a, p.b) ? p.name : "" }));
     }
     probe.remove();
-    bars.forEach(({ a, b, name }, i) => {
-      gE.append("rect").attr("class", "era-r").attr("x", X(a)).attr("y", eraY).attr("width", X(b) - X(a)).attr("height", eraH)
+    // a click on an era's bar goes to the era's first map; the current era is highlighted (movePlayhead)
+    bars.forEach((bar, i) => {
+      const { a, b, name } = bar;
+      gE.append("rect").datum(bar).attr("class", "era-r").attr("x", X(a)).attr("y", eraY).attr("width", X(b) - X(a)).attr("height", eraH)
         .attr("rx", 3).style("fill", i % 2 ? "var(--era-b)" : "var(--era-a)");
-      if (name) gE.append("text").attr("class", "era-t").attr("x", (X(a) + X(b)) / 2).attr("y", eraY + eraH / 2).text(name);
+      if (name) gE.append("text").datum(bar).attr("class", "era-t").attr("x", (X(a) + X(b)) / 2).attr("y", eraY + eraH / 2).text(name);
     });
+    const barAt = px => bars.find(o => px < X(o.b)) || bars[bars.length - 1];
+    const onEras = py => py >= eraY && py <= eraY + eraH;
+    TL.bars = bars;
+    TL.era = null;
     const tog = $("#lanes-tog");
     tog.textContent = tr("tl.lanesToggle");
     tog.title = tr("tl.lanes");
@@ -1261,11 +1355,11 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const labelled = centuries.filter(y => y && y !== Y0 && y !== YN).sort((a, b) => rank(a) - rank(b) || room(b) - room(a));
     const taken = [];
     for (const y of [Y0, YN, ...labelled]) {
-      const anchor = y === Y0 ? "start" : y === YN ? "end" : "middle", lw = textW(fy(y), 11);
+      const anchor = y === Y0 ? "start" : y === YN ? "end" : "middle", lw = textW(fyBare(y), 11);
       const a = anchor === "start" ? X(y) : anchor === "end" ? X(y) - lw : X(y) - lw / 2;
       if (taken.some(([p, q]) => a < q + 6 && p < a + lw + 6)) continue;
       taken.push([a, a + lw]);
-      gA.append("text").attr("class", "axis-t").attr("x", X(y)).attr("y", axisY + 14).attr("text-anchor", anchor).text(fy(y));
+      gA.append("text").attr("class", "axis-t").attr("x", X(y)).attr("y", axisY + 14).attr("text-anchor", anchor).text(fyBare(y));
     }
 
     const ghost = tl.append("g").attr("class", "ghostg").style("display", "none");
@@ -1298,15 +1392,21 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
         }
         if (drag.moved) drag.set(yearAt(px));
       } else if (ev.pointerType !== "touch") {
-        const y = yearAt(px);
+        const [, py] = d3.pointer(ev, tl.node()), bar = onEras(py) && barAt(px), y = bar ? eraMap(bar.a, bar.b) : yearAt(px);
+        hit.style("cursor", bar ? "pointer" : "ew-resize");
         ghost.style("display", null).attr("transform", `translate(${X(y)},0)`);
-        ghost.select("text").attr("x", X(y) > X1 - 40 ? -4 : 4).attr("text-anchor", X(y) > X1 - 40 ? "end" : "start").text(fy(y));
+        ghost.select("text").attr("x", X(y) > X1 - 90 ? -4 : 4).attr("text-anchor", X(y) > X1 - 90 ? "end" : "start")
+          .text(bar ? `${bar.full} · ${fy(y)}` : fy(y));
       }
     }).on("pointerup", () => {
       if (drag && !drag.moved) {
         const i = Math.floor((drag.y0 - lanesY) / laneH);
         if (i >= 0 && i < lanes.length) select(selLin === lanes[i] ? null : { kind: "lineage", id: lanes[i] });
-        else {
+        else if (onEras(drag.y0)) {
+          const bar = barAt(drag.x0);
+          stopPlay();
+          drag.set(eraMap(bar.a, bar.b));
+        } else {
           stopPlay();
           drag.set(yearAt(drag.x0));
         }
@@ -1337,8 +1437,13 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     tl.select(".ph").attr("transform", `translate(${TL.X(state.year)},0)`);
     if (comparing() && state.yearA != null) tl.select(".ph-a").attr("transform", `translate(${TL.X(state.yearA)},0)`);
     if (state.snap >= 0) {
-      const a = TL.X(YEARS[state.snap]), b = TL.X(YEARS[state.snap + 1] ?? YN);
+      const a = TL.X(state.snap ? YEARS[state.snap] : Y0), b = TL.X(YEARS[state.snap + 1] ?? YN);
       tl.select(".snap-span").attr("x", a).attr("width", Math.max(2, b - a));
+    }
+    const era = TL.bars.find(o => state.year < o.b) || TL.bars[TL.bars.length - 1];
+    if (era !== TL.era) {
+      TL.era = era;
+      tl.selectAll(".era-r, .era-t").classed("on", d => d === era);
     }
     tl.attr("aria-valuenow", state.year).attr("aria-valuetext", tr("yearAria", { y: fy(state.year) }));
   }
@@ -1347,9 +1452,9 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   const side = $("#side");
   let sideKey = "";
 
-  function recentEvents() {
+  function recentEvents() { // the latest eight in the window, oldest first, so the list runs on into the upcoming ones
     const Y = state.year;
-    return EVENTS.filter(e => e.year <= Y && e.year > Y - windowAt(Y)).sort((a, b) => b.year - a.year || b.id - a.id).slice(0, 8);
+    return EVENTS.filter(e => e.year <= Y && e.year > Y - windowAt(Y)).sort((a, b) => b.year - a.year || b.id - a.id).slice(0, 8).reverse();
   }
   const recentRange = Y => { const a = Math.max(Y0, Y - windowAt(Y) + 1); return fyr(a || 1, Y); };
   function upcomingEvents() { return EVENTS.filter(e => e.year > state.year).slice(0, 2); }
@@ -1402,9 +1507,9 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     // name the state as it was on the side that was clicked (the right one unless the click was on the left)
     const p = (s.side === "a" ? per[0] : per[per.length - 1]).p || (per.find(o => o.p) || {}).p;
     const key = p ? p.n : info.names[info.names.length - 1][0];
-    const name = pname(key), src = srcName(key), color = info.l ? `var(--lin-${info.l})` : "var(--faint)";
+    const name = pname(key), en = enName(key), color = info.l ? `var(--lin-${info.l})` : "var(--faint)";
     const metas = per.map(o => `<p class="meta">${esc(o.p ? tr("stateMeta", { y: fy(o.y), area: fmtArea(o.p.a) }) : tr("absent", { y: fy(o.y) }))}</p>`).join("");
-    return `<div class="card">${top(tr("tag.state"))}<h4>${esc(name)}</h4>${LOC.meta.code !== "en" && src !== name ? `<p class="en">${esc(src)}</p>` : ""}
+    return `<div class="card">${top(tr("tag.state"))}<h4>${esc(name)}</h4>${LOC.meta.code !== "en" && en !== name ? `<p class="en">${esc(en)}</p>` : ""}
       ${p && p.o ? `<p>${esc(tr("overlord", { name: pname(p.o) }))}</p>` : ""}
       ${metas}
       ${spark(info.s, color)}<h3>${esc(tr("nameHistory"))}</h3>${runsList(info.names)}
@@ -1414,8 +1519,9 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   function changesSec() {
     const y = YEARS[state.snap], prev = YEARS[state.snap - 1];
     if (!prev) return `<section><h2>${esc(tr("changes"))} <span>${esc(tr("changes.first"))}</span></h2><p class="empty">${esc(tr("changes.firstNote", { y: fy(y) }))}</p></section>`;
-    // changes in the region's core (region.json) come before those at the edges of the map window
-    const [[cw, cs0], [ce, cn]] = RC.core || RC.window, core = c => c.x > cw && c.x < ce && c.y > cs0 && c.y < cn;
+    // changes in the region's core (region.json: one box or a list of boxes) come before those at the edges of the map window
+    const boxes = RC.core ? (typeof RC.core[0][0] === "number" ? [RC.core] : RC.core) : [RC.window];
+    const core = c => boxes.some(([[w, s], [e, n]]) => c.x > w && c.x < e && c.y > s && c.y < n);
     const cs = (CHANGES[y] || []).map((c, k) => ({ ...c, k })).sort((a, b) => core(b) - core(a) || b.a - a.a);
     const noteText = LOC.notes[y];
     const note = noteText ? `<p class="note">${esc(noteText)}</p>` : "";
@@ -1434,9 +1540,13 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const Y = state.year, rec = recentEvents(), up = upcomingEvents();
     const row = (e, cls) => `<button class="row ${cls}" data-act="ev" data-id="${e.id}"><span class="yr">${fy(e.year)}</span>
       <span><b>${esc(e.title)}</b><small>${esc(typeName(e.type))} · ${esc(e.note)}</small></span></button>`;
+    // exploring, the list ends with the eras either side, so the next one is a click away from the reading
+    const ei = eraIndex(Y), eraBtn = (i, dir) => i < 0 || i >= ERAS.length ? "<span></span>"
+      : `<button class="era-nav ${dir}" data-act="era" data-i="${i}"><small>${esc(tr(`era.${dir}`))}</small><b>${dir === "prev" ? "‹ " : ""}${esc(LOC.eras[i])}${dir === "next" ? " ›" : ""}</b></button>`;
+    const nav = state.mode === "explore" ? `<div class="era-navs">${eraBtn(ei - 1, "prev")}${eraBtn(ei + 1, "next")}</div>` : "";
     return `<section><h2>${esc(tr("recent"))} <span class="rng">${recentRange(Y)}</span></h2>
       ${rec.length ? rec.map(e => row(e, "")).join("") : `<p class="empty">${esc(tr("recent.none", { n: windowAt(Y) }))}</p>`}
-      ${up.length ? `<h3>${esc(tr("upcoming"))}</h3>${up.map(e => row(e, "later")).join("")}` : ""}</section>`;
+      ${up.length ? `<h3>${esc(tr("upcoming"))}</h3>${up.map(e => row(e, "later")).join("")}` : ""}${nav}</section>`;
   }
 
   function footer() {
@@ -1447,8 +1557,23 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
       hb: link("https://github.com/aourednik/historical-basemaps", "aourednik/historical-basemaps"),
       ne: link("https://www.naturalearthdata.com/", "Natural Earth"), n: YEARS.length, events: EVENTS.length,
     });
-    return `<section><div class="legend">${leg}</div><p class="credit">${credit}</p><p class="keys">${tr("keys")}</p></section>`;
+    const about = LOC.about ? `<button class="link" data-act="about">${esc(tr("about"))}</button>` : "";
+    return `<section><div class="legend">${leg}</div><p class="credit">${credit}</p>${about}<p class="keys">${tr("keys")}</p></section>`;
   }
+
+  // "Sources and notes": the region's locale "about", a list of sections {h, p: [paragraphs], items: [[text, url?]]}
+  const aboutEl = $("#about");
+  function openAbout() {
+    const item = ([t, url]) => `<li>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(t)}</a>` : esc(t)}</li>`;
+    aboutEl.innerHTML = `<div class="about-bar"><h2 id="about-h">${esc(tr("about"))}</h2>
+      <button class="x" data-act="about-x" aria-label="${esc(tr("read.close"))}" title="${esc(tr("read.close"))}">×</button></div>` +
+      LOC.about.map(sec => `<section><h3>${esc(sec.h)}</h3>${(sec.p || []).map(t => `<p>${esc(t)}</p>`).join("")}
+        ${sec.items ? `<ul>${sec.items.map(item).join("")}</ul>` : ""}</section>`).join("");
+    aboutEl.showModal();
+    aboutEl.scrollTop = 0;
+  }
+  // a click on the backdrop lands on the dialog itself
+  aboutEl.addEventListener("click", e => { if (e.target === aboutEl || e.target.closest("[data-act=about-x]")) aboutEl.close(); });
 
   function storySec() {
     if (state.mode !== "story") return "";
@@ -1469,7 +1594,66 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
       <div class="story-dots">${c.steps.map((o, j) =>
         `<button class="sd${j === i ? " on" : ""}" data-act="sstep" data-i="${j}" aria-label="${esc(tr("story.stepLabel", { n: j + 1, t: o.t }))}"></button>`).join("")}</div>
       <div class="story-nav"><button class="btn" data-act="sprev">${esc(tr(i ? "story.prev" : "story.toc"))}</button>
-        <button class="btn primary" data-act="snext">${esc(nextLabel)}</button></div></div>`;
+        <button class="btn primary" data-act="snext">${esc(nextLabel)}</button></div>
+      ${c.chart ? `<div class="story-chart"><div class="cap">${esc(tr("chart", { t: c.title }))}</div>${chartSlot(state.story.ch, st.y)}</div>` : ""}</div>`;
+  }
+
+  // A chapter's chart (stories.json "chart"): the states that stood side by side, one bar per state as
+  // [name key, from, to, lane]. States that follow one another share a lane, so a lane reads as a line of succession.
+  // Bars take the state's colour on the map and select the state when pressed; a line marks the step's year.
+  // The panel holds an empty slot that fillCharts draws into at the slot's own width, so the labels keep their size.
+  const CHART_LH = 17, CHART_FS = 11;
+  const identOfKey = new Map();
+  for (const [id, info] of Object.entries(IDENTS)) for (const [k] of info.names) { identOfKey.set(k, id); identOfKey.set(srcName(k), id); }
+  function chartFill(key, a, b) {
+    for (const y of YEARS) {
+      if (y < a || y > b) continue;
+      const f = polysOf(y).find(f => f.properties.n === key || srcName(f.properties.n) === key);
+      if (f) return fillOf(f.properties);
+    }
+    return `var(--n${hash(identOfKey.get(key) || key) % 5})`;
+  }
+  const chartX = (svg, y) => (Math.max(svg.a, Math.min(svg.b, y)) - svg.a) / (svg.b - svg.a) * svg.w;
+  const chartSlot = (ch, y) => STORIES[ch].chart ? `<div class="chart-slot" data-ch="${ch}" data-y="${y}"></div>` : "";
+  // drawn again whenever the slot's width changes (the panel is laid out, the reading layout opens, the window resizes)
+  const chartSizes = new ResizeObserver(entries => entries.forEach(en => drawChart(en.target)));
+  function drawChart(slot) {
+    const w = Math.min(440, Math.round(slot.clientWidth));
+    if (!w || +slot.dataset.w === w) return;
+    slot.dataset.w = w;
+    slot.innerHTML = chartSvg(STORIES[+slot.dataset.ch], +slot.dataset.y, w);
+  }
+  function fillCharts() {
+    chartSizes.disconnect();
+    side.querySelectorAll(".chart-slot").forEach(slot => { drawChart(slot); chartSizes.observe(slot); });
+  }
+  function chartSvg(c, y, W) {
+    const [a, b] = c.span, span = { a, b, w: W }, H = (1 + Math.max(...c.chart.map(r => r[3]))) * CHART_LH;
+    // round years (every 10, 20, 25, 50… years, at least 60px apart) between the first and the last, clear of both
+    const every = [10, 20, 25, 50, 100, 200, 500].find(e => (b - a) / e <= W / 60), ticks = [];
+    for (let t = Math.ceil(a / every) * every; t < b; t += every) {
+      const x = chartX(span, t), half = textW(fyBare(t), 10) / 2 + 4;
+      if (t && x - half > textW(fyBare(a), 10) && x + half < W - textW(fyBare(b), 10)) ticks.push([t, x]);
+    }
+    const grid = ticks.map(([, x]) => `<line class="tick" x1="${x.toFixed(1)}" x2="${x.toFixed(1)}" y1="-3" y2="${H}"/>`).join("");
+    const axis = [[a, 0, "start"], ...ticks.map(([t, x]) => [t, x, "middle"]), [b, W, "end"]].map(([t, x, anchor]) =>
+      `<text class="ax" x="${x.toFixed(1)}" y="${H + 10}" text-anchor="${anchor}">${esc(fyBare(t))}</text>`).join("");
+    const bars = c.chart.map(([key, from, to, lane]) => {
+      const x0 = chartX(span, from), w = Math.max(2, chartX(span, to) - x0), y0 = lane * CHART_LH, id = identOfKey.get(key);
+      const txt = labelNames(key).find(t => textW(t, CHART_FS) + 6 <= w);
+      return `<g${id ? ` data-act="ident" data-id="${esc(id)}"` : ""}><title>${esc(pname(key))} ${fyr(from, to)}</title>
+        <rect x="${x0.toFixed(1)}" y="${y0 + 1}" width="${w.toFixed(1)}" height="${CHART_LH - 3}" rx="2" style="fill: ${chartFill(key, from, to)}"/>
+        ${txt ? `<text x="${(x0 + 3).toFixed(1)}" y="${y0 + CHART_LH - 5}">${esc(txt)}</text>` : ""}</g>`;
+    }).join("");
+    const x = chartX(span, y).toFixed(1);
+    return `<svg class="chart" viewBox="0 -3 ${W} ${H + 16}" data-a="${a}" data-b="${b}" data-w="${W}" role="img" aria-label="${esc(tr("chart", { t: c.title }))}">${grid}${bars}${axis}
+      <line class="now" x1="${x}" x2="${x}" y1="-3" y2="${H}"/></svg>`;
+  }
+  function moveChartMark(svg, y) {
+    const x = chartX({ a: +svg.dataset.a, b: +svg.dataset.b, w: +svg.dataset.w }, y).toFixed(1), line = svg.querySelector(".now");
+    svg.parentNode.dataset.y = y; // where a redrawn chart puts the line
+    line.setAttribute("x1", x);
+    line.setAttribute("x2", x);
   }
 
   // The reading layout: the whole chapter as one long column beside the map. Scrolling a step's section past the
@@ -1478,11 +1662,13 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const c = STORIES[state.story.ch], nextCh = STORIES[state.story.ch + 1];
     const facts = f => f && f.length ? `<dl class="facts"><dt>${esc(tr("read.facts"))}</dt>${f.map(([k, v]) =>
       `<dd><span>${esc(k)}</span><b>${esc(v)}</b></dd>`).join("")}</dl>` : "";
+    const yw = Math.max(...c.steps.map(st => textW(fy(st.y), 1))); // one width for the TOC's years, so the titles line up
     return `<article class="reader">
       <div class="rd-bar"><span>${esc(c.title)} · <b class="rd-n"></b> / ${c.steps.length}</span>
         <button class="x" data-act="unread" aria-label="${esc(tr("read.close"))}" title="${esc(tr("read.close"))}">×</button></div>
       <header class="rd-head"><div class="rd-span">${fyr(...c.span)}</div><h2>${esc(c.title)}</h2><p>${esc(c.lede)}</p>
-        <ol class="rd-toc">${c.steps.map((st, j) => `<li><button data-act="rd-go" data-i="${j}"><span class="yr">${fy(st.y)}</span>${esc(st.t)}</button></li>`).join("")}</ol></header>
+        ${chartSlot(state.story.ch, c.steps[state.story.step].y)}
+        <ol class="rd-toc">${c.steps.map((st, j) => `<li><button data-act="rd-go" data-i="${j}"><span class="yr" style="min-width: ${yw}em">${fy(st.y)}</span>${esc(st.t)}</button></li>`).join("")}</ol></header>
       ${c.steps.map((st, j) => `<section class="rd-step" data-i="${j}">
         <div class="rd-k">${esc(tr("read.step", { n: j + 1 }))} · ${fy(st.y)}</div><h3>${esc(st.t)}</h3>
         <p class="rd-lead">${esc(st.b)}</p>${(st.long ? st.long.p : []).map(t => `<p>${esc(t)}</p>`).join("")}${facts(st.long && st.long.facts)}</section>`).join("")}
@@ -1495,11 +1681,13 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     if (key !== sideKey) {
       sideKey = key;
       side.innerHTML = readSec();
+      fillCharts();
       watchSteps();
       scrollToStep(state.story.step);
     }
     const i = state.story.step;
     side.querySelector(".rd-n").textContent = i + 1;
+    side.querySelectorAll(".chart").forEach(svg => moveChartMark(svg, STORIES[state.story.ch].steps[i].y));
     side.querySelectorAll(".rd-step").forEach((n, j) => n.classList.toggle("on", j === i));
     side.querySelectorAll(".rd-toc li").forEach((n, j) => n.classList.toggle("on", j === i));
     syncHash();
@@ -1542,7 +1730,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   function renderSide(force) {
     if (state.reading) return renderReader();
     const rec = recentEvents(), up = upcomingEvents(), s = state.sel;
-    const key = [state.snap, s && s.kind, s && s.id, s && s.side, rec.map(e => e.id).join(","), up.map(e => e.id).join(","),
+    const key = [state.snap, eraIndex(state.year), s && s.kind, s && s.id, s && s.side, rec.map(e => e.id).join(","), up.map(e => e.id).join(","),
       state.show.chg, state.chgAll, state.mode, state.story ? `${state.story.ch}-${state.story.step}-${curStep().y === state.year}` : "",
       comparing() ? `${state.yearA}-${state.year}` : ""].join("|");
     if (key !== sideKey || force) {
@@ -1551,6 +1739,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
         sideKey = key;
         const a = document.activeElement, refocus = a !== side && side.contains(a) ? focusSel(a) : null;
         side.innerHTML = storySec() + selCard() + (comparing() ? compareSec() : eventsSec() + changesSec()) + footer();
+        fillCharts();
         if (refocus !== null) (refocus && side.querySelector(refocus) || side.querySelector("[data-act=snext]") || side).focus({ preventScroll: true });
       }
     }
@@ -1604,7 +1793,10 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     else if (act === "sstep") goStep(+b.dataset.i);
     else if (act === "sback") goStep(state.story.step);
     else if (act === "lineage") select({ kind: "lineage", id: b.dataset.id });
+    else if (act === "ident") select({ kind: "ident", id: b.dataset.id });
     else if (act === "locate") { const e = EVENTS[state.sel.id]; zoomToPoint(e.lon, e.lat); }
+    else if (act === "about") openAbout();
+    else if (act === "era") { stopPlay(); setYear(eraMap(...ERAS[+b.dataset.i])); }
     else if (act === "ev") {
       const e = EVENTS[+b.dataset.id];
       if (e.year > state.year && !comparing()) setYear(e.year);
@@ -1654,6 +1846,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 
   // the next or previous snapshot year; from a year between snapshots, "previous" is the snapshot it shows
   const snapStep = (y, dir) => {
+    if (y < YEARS[0]) return dir > 0 ? YEARS[0] : Y0;
     const i = snapIndexFor(y);
     return dir > 0 ? YEARS[i + 1] ?? YN : y > YEARS[i] ? YEARS[i] : YEARS[i - 1] ?? Y0;
   };
@@ -1706,6 +1899,17 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   bindToggle("#t-ev", "ev", () => { renderEvents(); });
   bindToggle("#t-modern", "modern", () => modernPath.attr("d", state.show.modern ? path(MODERN) : null));
   bindToggle("#t-phys", "phys", () => { gPhys.style("display", state.show.phys ? null : "none"); placePhysLabels(); });
+  // the region menu: a press anywhere else or Esc closes it
+  const regionBtn = $("#region-btn"), regionMenu = $("#regions");
+  function openRegions(open) {
+    regionMenu.hidden = !open;
+    regionBtn.setAttribute("aria-expanded", open);
+  }
+  regionBtn.disabled = REGIONS.length < 2;
+  regionBtn.onclick = () => openRegions(regionMenu.hidden);
+  document.addEventListener("pointerdown", ev => {
+    if (!regionMenu.hidden && !regionMenu.contains(ev.target) && !regionBtn.contains(ev.target)) openRegions(false);
+  });
   // the layers menu stays open while switches are flipped; a press anywhere else or Esc closes it
   const layersBtn = $("#layers-btn"), layersMenu = $("#layers");
   function openLayers(open) {
@@ -1719,6 +1923,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 
   document.addEventListener("keydown", e => {
     const target = e.target instanceof Element ? e.target : document.body;
+    if (aboutEl.open) return; // the dialog has the keys (Esc closes it)
     // leave modified keys to the browser (Cmd/Alt+← is Back, Ctrl+Home scrolls)
     if (target.closest("input, textarea, select") || e.altKey || e.metaKey || e.ctrlKey) return;
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
@@ -1732,6 +1937,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
       if (!e.repeat) togglePlay();
     } else if (e.key === "Escape") {
       if (!layersMenu.hidden) { openLayers(false); layersBtn.focus(); }
+      else if (!regionMenu.hidden) { openRegions(false); regionBtn.focus(); }
       else if (state.reading) setReading(false);
       else state.sel ? select(null) : state.story && closeStory();
     }
@@ -1752,8 +1958,9 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   }
   function setMode(m) {
     const was = state.mode;
+    if (m !== "story" && state.reading) setReading(false); // before the mode changes: compare isn't set up yet
     state.mode = m;
-    if (m !== "story") { state.story = null; if (state.reading) setReading(false); }
+    if (m !== "story") state.story = null;
     document.querySelectorAll(".modes button").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode === m));
     $(".app").classList.toggle("side-first", m === "story"); // on phones the story card goes right under the map; compare keeps the timeline there
     if (m === "compare" && was !== "compare") {
@@ -1953,6 +2160,10 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     return parts.join(tr("listSep"));
   };
   let SEARCH = [], ALT = null, enLocale = null;
+  // a state's English name, shown under its name in another language: the English locale's once loaded, else the source's
+  function enName(key) {
+    return (ALT && (ALT.names[key] ?? ALT.names[srcName(key)])) ?? srcName(key);
+  }
   // in another language the English names are searchable too (only the region's content is needed for that)
   async function loadAlt() {
     ALT = null;
@@ -1983,9 +2194,10 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
       }
     });
     for (const r of runs.values()) {
-      const name = pname(r.key), src = srcName(r.key), other = src !== name;
-      const en = ALT && (ALT.names[r.key] ?? ALT.names[src]);
-      out.push({ kind: "ident", id: r.id, name, alt: alts(name, src, en, ...[...r.keys].flatMap(k => aliasesOf("names", k))), idx: r.idx, sub: spanText(r.idx) + (other ? " · " + src : "") });
+      const name = pname(r.key), src = srcName(r.key), en = ALT && (ALT.names[r.key] ?? ALT.names[src]);
+      const other = ALT ? enName(r.key) : src; // in English the source's own spelling, in other languages the English name
+      out.push({ kind: "ident", id: r.id, name, alt: alts(name, src, en, ...[...r.keys].flatMap(k => aliasesOf("names", k))), idx: r.idx,
+        sub: tr("search.maps", { r: spanText(r.idx) }) + (other !== name ? " · " + other : "") });
     }
     for (const [id, lin] of Object.entries(LIN)) {
       const idx = YEARS.map((y, i) => i).filter(i => lin.s[i] > 0);
@@ -1997,14 +2209,15 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     for (const c of CITIES) {
       const modern = cityModern(c), byKey = new Map();
       c.names.forEach(([from, key], j) => {
-        if (!key) return; // a city that ceased to exist
-        const to = j + 1 < c.names.length ? c.names[j + 1][0] - 1 || -1 : YN;
+        if (!key || from > YN) return; // a city that ceased to exist, or a name from after the region's last year
+        const to = Math.min(YN, j + 1 < c.names.length ? c.names[j + 1][0] - 1 || -1 : YN);
         if (!byKey.has(key)) byKey.set(key, []);
         byKey.get(key).push([from, to]);
       });
       for (const [key, ranges] of byKey) {
         const sub = ranges.map(r => fyr(r[0], r[1])).join(tr("listSep")) + (key !== modern ? " · " + tr("cityNow", { name: cityLabel(modern) }) : "");
-        out.push({ kind: "city", c, name: cityLabel(key), alt: alts(cityLabel(key), ALT && ALT.cities[key], key), ranges, sub });
+        const now = key !== modern ? [cityLabel(modern), ALT && ALT.cities[modern]] : [];
+        out.push({ kind: "city", c, name: cityLabel(key), alt: alts(cityLabel(key), ALT && ALT.cities[key], key, ...now), ranges, sub });
       }
     }
     for (const e of EVENTS) out.push({ kind: "event", e, name: e.title, alt: alts(e.title, ALT && (ALT.events[e.key] || [])[0], ...aliasesOf("events", e.key)), sub: `${fy(e.year)} · ${typeName(e.type)}` });
@@ -2026,7 +2239,8 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
       }
       if (best > 0) res.push({ r, sc: best, via });
     }
-    res.sort((a, b) => b.sc - a.sc || KIND_ORDER[a.r.kind] - KIND_ORDER[b.r.kind] || a.r.name.length - b.r.name.length);
+    // among equals, a match on the name itself goes before one on another name (a city's later name, an alias)
+    res.sort((a, b) => b.sc - a.sc || KIND_ORDER[a.r.kind] - KIND_ORDER[b.r.kind] || !!a.via - !!b.via || a.r.name.length - b.r.name.length);
     // a result found under another name (an alias, the English name) says which, unless its subtitle already does
     return res.slice(0, 8).map(x => x.via && !x.r.sub.includes(x.via) ? { ...x.r, via: x.via } : x.r);
   }
