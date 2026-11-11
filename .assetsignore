@@ -13,5 +13,4 @@
 __pycache__/
 /regions/*/sources/
 /regions/*/drafts/
-# regions not yet published (UNPUBLISHED in index.html)
-/regions/china/
+# regions not yet published (UNPUBLISHED in index.html), one /regions/<id>/ line each
