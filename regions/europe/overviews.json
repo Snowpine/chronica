@@ -1,1 +1,366 @@
-{}
+{
+ "-700": [
+  "Assyria",
+  "Egypt",
+  "greeks",
+  "Kingdom of Judah",
+  "Phrygians",
+  "Urartu",
+  "Urnfield cultures"
+ ],
+ "-500": [
+  "Achaemenid Empire",
+  "greeks",
+  "carthage",
+  "Etrurians",
+  "Samnites"
+ ],
+ "-400": [
+  "greeks",
+  "Achaemenid Empire",
+  "carthage",
+  "rome",
+  "Boii",
+  "Celts"
+ ],
+ "-323": [
+  "macedon",
+  "carthage",
+  "rome",
+  "Cappadocia",
+  "Armenia"
+ ],
+ "-300": [
+  "Seleucid Kingdom",
+  "Ptolemaic Kingdom",
+  "Kingdom of Antigonus",
+  "macedon",
+  "Kingdom of Lysimachus",
+  "rome"
+ ],
+ "-200": [
+  "rome",
+  "carthage",
+  "macedon",
+  "Seleucid Kingdom",
+  "Ptolemaic Kingdom",
+  "Pergamon",
+  "persia"
+ ],
+ "-100": [
+  "rome",
+  "persia",
+  "Seleucid Kingdom",
+  "numidia",
+  "minor states"
+ ],
+ "-1": [
+  "rome",
+  "persia",
+  "Armenia",
+  "Judea",
+  "bosporus"
+ ],
+ "100": [
+  "rome",
+  "persia",
+  "dacia",
+  "Nabatean Kingdom",
+  "Armenia"
+ ],
+ "200": [
+  "rome",
+  "persia",
+  "Boihaenum",
+  "Armenia",
+  "bosporus"
+ ],
+ "300": [
+  "rome",
+  "persia",
+  "Armenia",
+  "Heruli",
+  "Suren Kingdom"
+ ],
+ "400": [
+  "rome",
+  "byzantine",
+  "Hunnic Empire",
+  "visigoths",
+  "Ostrogoths",
+  "Caucasian Alans"
+ ],
+ "500": [
+  "byzantine",
+  "Ostrogoths",
+  "franks",
+  "visigoths",
+  "Vandals",
+  "Anglo-Saxons",
+  "persia"
+ ],
+ "600": [
+  "byzantine",
+  "persia",
+  "franks",
+  "lombards",
+  "Avars",
+  "visigoths",
+  "kent",
+  "Hejaz"
+ ],
+ "700": [
+  "Umayyad Caliphate",
+  "byzantine",
+  "franks",
+  "bulgaria",
+  "lombards"
+ ],
+ "800": [
+  "franks",
+  "byzantine",
+  "Abbasid Caliphate",
+  "cordoba",
+  "Avars",
+  "norse"
+ ],
+ "900": [
+  "hre",
+  "france",
+  "franks",
+  "kyivan_rus",
+  "hungary",
+  "moravia"
+ ],
+ "1000": [
+  "hre",
+  "byzantine",
+  "kyivan_rus",
+  "poland",
+  "hungary",
+  "bulgaria",
+  "cordoba",
+  "Fatimid Caliphate"
+ ],
+ "1100": [
+  "byzantine",
+  "Seljuk Empire",
+  "Fatimid Caliphate",
+  "Almoravid dynasty",
+  "britain"
+ ],
+ "1200": [
+  "britain",
+  "france",
+  "byzantine",
+  "Fatimid Caliphate",
+  "Principality of Vladimir-Suzdal",
+  "novgorod",
+  "Cuman Khanates"
+ ],
+ "1279": [
+  "golden_horde",
+  "Ilkhanate",
+  "Mamluke Sultanate",
+  "rus",
+  "hre"
+ ],
+ "1300": [
+  "Papal States",
+  "france",
+  "britain",
+  "Scotland",
+  "golden_horde",
+  "Ilkhanate",
+  "Mamluke Sultanate",
+  "byzantine"
+ ],
+ "1400": [
+  "ottoman",
+  "byzantine",
+  "Timurid Empire",
+  "Mamluke Sultanate",
+  "denmark"
+ ],
+ "1492": [
+  "spain",
+  "Aragón",
+  "Portugal",
+  "ottoman",
+  "russia",
+  "golden_horde"
+ ],
+ "1500": [
+  "Portugal",
+  "france",
+  "spain",
+  "Aragón",
+  "ottoman",
+  "Venice",
+  "Emirate of the White Sheep Turks"
+ ],
+ "1530": [
+  "hre",
+  "spain",
+  "ottoman",
+  "Habsburg Netherlands",
+  "two_sicilies"
+ ],
+ "1600": [
+  "spain",
+  "Portugal",
+  "britain",
+  "netherlands",
+  "france",
+  "russia"
+ ],
+ "1650": [
+  "hre",
+  "sweden",
+  "netherlands",
+  "switzerland",
+  "britain",
+  "poland",
+  "ottoman",
+  "Venice"
+ ],
+ "1700": [
+  "spain",
+  "france",
+  "britain",
+  "netherlands",
+  "austria",
+  "sweden",
+  "russia",
+  "denmark"
+ ],
+ "1715": [
+  "france",
+  "spain",
+  "austria",
+  "russia",
+  "sweden"
+ ],
+ "1783": [
+  "britain",
+  "france",
+  "russia",
+  "ottoman",
+  "poland",
+  "prussia",
+  "austria"
+ ],
+ "1800": [
+  "france",
+  "austria",
+  "netherlands",
+  "switzerland",
+  "russia",
+  "prussia"
+ ],
+ "1815": [
+  "france",
+  "britain",
+  "russia",
+  "prussia",
+  "austria",
+  "sweden",
+  "denmark"
+ ],
+ "1878": [
+  "germany",
+  "italy",
+  "russia",
+  "ottoman",
+  "austria",
+  "Bulgaria",
+  "Serbia",
+  "Romania"
+ ],
+ "1880": [
+  "germany",
+  "austria",
+  "italy",
+  "france",
+  "britain",
+  "russia",
+  "Egypt"
+ ],
+ "1900": [
+  "germany",
+  "austria",
+  "italy",
+  "france",
+  "russia",
+  "britain"
+ ],
+ "1914": [
+  "austria",
+  "Serbia",
+  "germany",
+  "russia",
+  "france",
+  "britain",
+  "ottoman",
+  "italy"
+ ],
+ "1920": [
+  "russia",
+  "poland",
+  "germany",
+  "Czechoslovakia",
+  "Yugoslavia",
+  "ottoman",
+  "Syria (France)",
+  "Mesopotamia (GB)"
+ ],
+ "1930": [
+  "germany",
+  "russia",
+  "italy",
+  "ottoman",
+  "france"
+ ],
+ "1938": [
+  "germany",
+  "Czechoslovakia",
+  "britain",
+  "france",
+  "spain",
+  "italy",
+  "poland"
+ ],
+ "1945": [
+  "russia",
+  "Germany (Soviet)",
+  "Germany (USA)",
+  "Germany (UK)",
+  "poland",
+  "britain",
+  "france"
+ ],
+ "1960": [
+  "russia",
+  "germany",
+  "East Germany",
+  "france",
+  "italy",
+  "Yugoslavia",
+  "algeria"
+ ],
+ "1994": [
+  "russia",
+  "germany",
+  "Ukraine",
+  "belarus",
+  "Kazakhstan"
+ ],
+ "2000": [
+  "germany",
+  "france",
+  "italy",
+  "poland",
+  "hungary",
+  "russia"
+ ]
+}

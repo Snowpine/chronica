@@ -186,6 +186,13 @@ def check_region(rid, langs, types):
             missing = [y for y in years if str(y) not in ov]
             if missing:
                 warnings.append(f"{tag} overviews: none for {missing}")
+        prof = sec("profiles")
+        odd = sorted(k for k, v in prof.items() if not (isinstance(v, list) and len(v) == 2 and isinstance(v[0], str) and isinstance(v[1], str) and v[1]))
+        if odd:
+            errors.append(f"{tag} profiles: {odd} should be [dates and capital, text]")
+        odd = sorted(set(prof) - names)
+        if odd:
+            warnings.append(f"{tag} profiles: {odd} are not names on the map")
         odd = sorted(k for k in sec("notes") if not k.lstrip("-").isdigit() or int(k) not in years)
         if odd:
             warnings.append(f"{tag} notes: {odd} are not snapshot years")

@@ -237,6 +237,8 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 .card .en { color: var(--faint); font-size: 12px; margin-top: 0; }
 .card .meta { color: var(--muted); }
 .ov p { font-size: 14px; line-height: 1.75; }
+.card .when { margin-top: 2px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.card .prof { font-size: 14px; line-height: 1.7; }
 .ov-ids { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .idchip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 8px; border: 1px solid var(--rule); border-radius: 999px; background: none; color: var(--ink); font-size: 13px; cursor: pointer; }
 .idchip i { width: 10px; height: 10px; border-radius: 2px; border: 1px solid var(--border-poly); }
@@ -615,7 +617,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   // A locale is the interface text with the region's content laid over it, section by section (the region's "ui"
   // adds its title). A region not yet translated into the language shows its English content.
   // sections a region may leave out: a missing name falls back to the source's English name, a missing text to its key
-  const SECTIONS = ["types", "regions", "lanes", "lineages", "notes", "overviews", "presets", "names", "short", "cities", "rivers", "ranges", "events", "stories", "aliases"];
+  const SECTIONS = ["types", "regions", "lanes", "lineages", "notes", "overviews", "profiles", "presets", "names", "short", "cities", "rivers", "ranges", "events", "stories", "aliases"];
   const complete = loc => {
     for (const k of SECTIONS) loc[k] = loc[k] || {};
     for (const k of ["eras", "erasShort", "periods"]) loc[k] = loc[k] || [];
@@ -729,7 +731,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   const storedLanes = () => { try { return localStorage.getItem(LANES_KEY) === "1"; } catch (e) { return false; } };
   // lanes: the timeline's per-power lanes are open; chgAll: the side panel lists all of this snapshot's changes, not just the largest;
   // reading: a story is open in the reading layout (its full text beside the map); open: the side panel's folded sections
-  const state = { year: null, t: tf(START), snap: -1, sel: null, show: { chg: true, ev: true, modern: false, phys: false }, playing: false, mode: "explore", story: null, yearA: null, snapA: -1, lanes: storedLanes(), chgAll: false, reading: false, open: { chg: false, note: false } };
+  const state = { year: null, t: tf(START), snap: -1, sel: null, show: { chg: true, ev: true, modern: false, phys: false }, playing: false, mode: "explore", story: null, yearA: null, snapA: -1, lanes: storedLanes(), chgAll: false, reading: false, open: { chg: false, note: false, stat: false } };
   const STORIES = storyRows.map(ch => ({
     id: ch.id, span: ch.span, chart: ch.chart, title: ch.id, lede: "",
     steps: ch.steps.map(st => ({ ...st, t: "", b: "", evIds: (st.ev || []).map(k => EVENTS.findIndex(e => e.key === k)).filter(i => i >= 0) })),
@@ -830,6 +832,10 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   const path = d3.geoPath(proj);
   let W = 0, H = 0, zt = d3.zoomIdentity, feats = [], labelBoxes = [], cityBoxes = [], occupied = [];
   let goal = null; // restarts the zoom under way (to a story step, a state, an event) when a refit changes the map's size
+  // A zoom that shows a selection is undone when the selection's card is closed: viewBack is the view from before the
+  // first such zoom, as a place and a zoom level so that it survives a change of the map's size. Once the reader moves
+  // the map, it stays where they put it.
+  let viewBack = null;
   let ctlBox = [0, 0, 0, 0]; // the map buttons, which names and labels keep clear of
   let featsA = [], divX = .5; // compare mode: left-year features and the divider position as a share of the map width
   const comparing = () => state.mode === "compare";
@@ -841,7 +847,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   const riverClass = r => "river " + (r <= 2 ? "r1" : r <= 4 ? "r2" : r <= 6 ? "r3" : r <= 7 ? "r4" : "r5");
   const zoom = d3.zoom().scaleExtent([.5, 14]).on("zoom", ev => {
     zt = ev.transform;
-    if (ev.sourceEvent) goal = null; // the reader moved the map
+    if (ev.sourceEvent) goal = viewBack = null; // the reader moved the map
     gRoot.attr("transform", zt);
     hatch.attr("patternTransform", `scale(${1 / zt.k}) rotate(45)`);
     mtnPattern.attr("patternTransform", `scale(${1 / zt.k})`);
@@ -1248,18 +1254,32 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     goal = again;
     svg.transition().duration(motion(ms)).call(zoom.transform, t).on("end", () => { if (goal === again) goal = null; });
   }
-  function zoomToFeature(f) {
+  // forSel: the zoom shows a selection, so keep the view to return to (viewBack)
+  const keepView = () => { viewBack = viewBack || (zt.k === 1 && !zt.x && !zt.y ? { home: true } : { at: proj.invert(zt.invert([W / 2, H / 2])), k: zt.k }); };
+  function restoreView() {
+    const v = viewBack;
+    viewBack = null;
+    if (!v) return;
+    const go = () => {
+      const [x, y] = v.home ? [0, 0] : proj(v.at);
+      aim(v.home ? d3.zoomIdentity : d3.zoomIdentity.translate(W / 2 - v.k * x, H / 2 - v.k * y).scale(v.k), 500, go);
+    };
+    go();
+  }
+  function zoomToFeature(f, forSel) {
+    if (forSel) keepView();
     const [[x0, y0], [x1, y1]] = path.bounds(f);
     const k = Math.max(.5, Math.min(6, .7 / Math.max((x1 - x0) / W, (y1 - y0) / H)));
     aim(d3.zoomIdentity.translate(W / 2 - k * (x0 + x1) / 2, H / 2 - k * (y0 + y1) / 2).scale(k), 700, () => zoomToFeature(f));
   }
-  function zoomToPoint(lon, lat) {
+  function zoomToPoint(lon, lat, forSel) {
+    if (forSel) keepView();
     const [x, y] = proj([lon, lat]), k = Math.max(zt.k, 3);
     aim(d3.zoomIdentity.translate(W / 2 - k * x, H / 2 - k * y).scale(k), 700, () => zoomToPoint(lon, lat));
   }
-  $("#zin").onclick = () => { goal = null; svg.transition().duration(motion(300)).call(zoom.scaleBy, 1.6); };
-  $("#zout").onclick = () => { goal = null; svg.transition().duration(motion(300)).call(zoom.scaleBy, 1 / 1.6); };
-  $("#zreset").onclick = () => { goal = null; svg.transition().duration(motion(500)).call(zoom.transform, d3.zoomIdentity); };
+  $("#zin").onclick = () => { goal = viewBack = null; svg.transition().duration(motion(300)).call(zoom.scaleBy, 1.6); };
+  $("#zout").onclick = () => { goal = viewBack = null; svg.transition().duration(motion(300)).call(zoom.scaleBy, 1 / 1.6); };
+  $("#zreset").onclick = () => { goal = viewBack = null; svg.transition().duration(motion(500)).call(zoom.transform, d3.zoomIdentity); };
 
   // ---------- timeline ----------
   const tl = d3.select("#tl");
@@ -1392,6 +1412,9 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const hit = tl.append("rect").attr("x", X0 - 6).attr("y", 0).attr("width", X1 - X0 + 12).attr("height", TH).style("fill", "transparent").style("cursor", "ew-resize");
     let drag = null;
     const yearAt = px => Math.round(ty(Math.max(0, Math.min(1, (px - X0) / (X1 - X0)))));
+    // the snapshot whose pin is under the pointer (within 3 px), so a click beside a pin lands on its year
+    const pinAt = px => YEARS.reduce((best, y) => Math.abs(X(y) - px) <= Math.min(3, best == null ? 3 : Math.abs(X(best) - px)) ? y : best, null);
+    const mapLabel = y => YEARS.includes(y) ? tr("tl.snapAt", { y: fy(y) }) : tr("tl.snapOf", { y: fy(y), s: fy(YEARS[snapIndexFor(y)]) });
     hit.on("pointerdown", ev => {
       ev.preventDefault();
       hit.node().setPointerCapture(ev.pointerId);
@@ -1409,11 +1432,11 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
         }
         if (drag.moved) drag.set(yearAt(px));
       } else if (ev.pointerType !== "touch") {
-        const [, py] = d3.pointer(ev, tl.node()), bar = onEras(py) && barAt(px), y = bar ? eraMap(bar.a, bar.b) : yearAt(px);
+        const [, py] = d3.pointer(ev, tl.node()), bar = onEras(py) && barAt(px), y = bar ? eraMap(bar.a, bar.b) : pinAt(px) ?? yearAt(px);
         hit.style("cursor", bar ? "pointer" : "ew-resize");
         ghost.style("display", null).attr("transform", `translate(${X(y)},0)`);
-        ghost.select("text").attr("x", X(y) > X1 - 90 ? -4 : 4).attr("text-anchor", X(y) > X1 - 90 ? "end" : "start")
-          .text(bar ? `${bar.full} · ${fy(y)}` : fy(y));
+        ghost.select("text").attr("x", X(y) > X1 - 150 ? -4 : 4).attr("text-anchor", X(y) > X1 - 150 ? "end" : "start")
+          .text(bar ? `${bar.full} · ${fy(y)}` : mapLabel(y));
       }
     }).on("pointerup", () => {
       if (drag && !drag.moved) {
@@ -1425,7 +1448,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
           drag.set(eraMap(bar.a, bar.b));
         } else {
           stopPlay();
-          drag.set(yearAt(drag.x0));
+          drag.set(pinAt(drag.x0) ?? yearAt(drag.x0));
         }
       }
       drag = null;
@@ -1511,6 +1534,16 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     }));
     return best;
   }
+  // The chapter that tells a state's story: of the steps that highlight it, the one nearest the snapshot's year.
+  function storyOf(id) {
+    const y = YEARS[state.snap];
+    let best = null;
+    STORIES.forEach((c, i) => c.steps.forEach((st, s) => {
+      const d = Math.abs(st.y - y);
+      if ((st.hl || []).includes(id) && (!best || d < best.d)) best = { i, s, d, title: c.title };
+    }));
+    return best;
+  }
   // Exploring, the panel opens with the snapshot's overview: what the map shows in a few sentences (locale "overviews":
   // [title, text]), its main powers to pick out on the map (overviews.json) and the chapter that tells the story.
   function overviewSec() {
@@ -1532,8 +1565,12 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const top = tag => `<div class="card-top"><span class="tag">${esc(tag)}</span><button class="x" data-act="close" aria-label="${esc(tr("close"))}">×</button></div>`;
     if (s.kind === "event") {
       const e = EVENTS[s.id];
+      // exploring, the map may be of a later time than the event: say so, with a way to the event's year
+      const off = state.mode === "explore" && snapIndexFor(e.year) !== state.snap;
       return `<div class="card">${top(typeName(e.type))}<div class="cy">${fy(e.year)}</div><h4>${esc(e.title)}</h4><p>${esc(e.note)}</p>
-        <button class="link" data-act="locate">${esc(tr("locate"))}</button></div>`;
+        ${off ? `<p class="meta">${esc(tr("ev.mapOf", { y: fy(YEARS[state.snap]) }))}</p>` : ""}
+        <button class="link" data-act="locate">${esc(tr("locate"))}</button>
+        ${off ? `<button class="link" data-act="ev-go">${esc(tr("ev.goto", { y: fy(e.year) }))}</button>` : ""}</div>`;
     }
     // compare mode describes both snapshots, left year first
     const snaps = comparing() ? [[state.snapA, featsA], [state.snap, feats]] : [[state.snap, feats]];
@@ -1551,10 +1588,15 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const key = p ? p.n : info.names[info.names.length - 1][0];
     const name = pname(key), en = enName(key), color = info.l ? `var(--lin-${info.l})` : "var(--faint)";
     const metas = per.map(o => `<p class="meta">${esc(o.p ? tr("stateMeta", { y: fy(o.y), area: fmtArea(o.p.a) }) : tr("absent", { y: fy(o.y) }))}</p>`).join("");
+    // a state with a profile (locale "profiles": [dates and capital, text]) leads with it and folds the figures away
+    const prof = LOC.profiles[key] ?? LOC.profiles[srcName(key)], ch = state.mode === "explore" && storyOf(s.id);
+    const stats = `${spark(info.s, color)}<h3>${esc(tr("nameHistory"))}</h3>${runsList(info.names)}`;
     return `<div class="card">${top(tr("tag.state"))}<h4>${esc(name)}</h4>${LOC.meta.code !== "en" && en !== name ? `<p class="en">${esc(en)}</p>` : ""}
+      ${prof ? `${prof[0] ? `<p class="when">${esc(prof[0])}</p>` : ""}<p class="prof">${esc(prof[1])}</p>` : ""}
       ${p && p.o ? `<p>${esc(tr("overlord", { name: pname(p.o) }))}</p>` : ""}
       ${metas}
-      ${spark(info.s, color)}<h3>${esc(tr("nameHistory"))}</h3>${runsList(info.names)}
+      ${ch ? `<button class="link" data-act="ov-story" data-i="${ch.i}" data-s="${ch.s}">${esc(tr("overview.story", { t: ch.title }))} →</button>` : ""}
+      ${prof ? `<h3>${foldBtn("stat", tr("card.stats"))}</h3>${state.open.stat ? stats : ""}` : stats}
       ${info.l ? `<button class="link" data-act="lineage" data-id="${info.l}"><i style="background:var(--lin-${info.l})"></i>${esc(tr("viewLineage", { name: LOC.lineages[info.l] || info.l }))}</button>` : ""}</div>`;
   }
 
@@ -1568,7 +1610,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const range = tr("snapRange", { a: fy(prev), b: fy(y) });
     // the list is a detail of the map's hatched areas, so it stays folded until asked for
     if (!state.open.chg) return `<section><h2>${foldBtn("chg", tr("changes"))} <span>${esc(range)}${cs.length ? ` · ${esc(tr("changes.count", { n: cs.length }))}` : ""}</span></h2></section>`;
-    // a state that is gone, most of its land now a state that is new, was replaced rather than robbed
+    // a state that is gone, most of its land now a state that is new: the new one holds its lands, it did not gain from it
     const si = state.snap, from = c => IDENTS[c.from], to = c => IDENTS[c.to];
     const replaced = c => from(c) && to(c) && !from(c).s[si] && !to(c).s[si - 1] && c.a >= .6 * from(c).s[si - 1];
     // the three largest first; the rest of the top ten one click away
@@ -1785,7 +1827,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     if (state.reading) return renderReader();
     const rec = recentEvents(), up = upcomingEvents(), s = state.sel;
     const key = [state.snap, eraIndex(state.year), s && s.kind, s && s.id, s && s.side, rec.map(e => e.id).join(","), up.map(e => e.id).join(","),
-      state.show.chg, state.chgAll, state.open.chg, state.open.note, state.mode, state.story ? `${state.story.ch}-${state.story.step}-${curStep().y === state.year}` : "",
+      state.show.chg, state.chgAll, state.open.chg, state.open.note, state.open.stat, state.mode, state.story ? `${state.story.ch}-${state.story.step}-${curStep().y === state.year}` : "",
       comparing() ? `${state.yearA}-${state.year}` : ""].join("|");
     if (key !== sideKey || force) {
       if (sidePressed) sidePending = true; // rebuild once the button is released, so its click still lands
@@ -1838,7 +1880,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
       select({ kind: "ident", id: b.dataset.id });
       const fs = feats.filter(f => f.properties.i === b.dataset.id);
       const pool = fs.length ? fs : featsA.filter(f => f.properties.i === b.dataset.id);
-      if (pool.length) zoomToFeature({ type: "FeatureCollection", features: pool });
+      if (pool.length) zoomToFeature({ type: "FeatureCollection", features: pool }, true);
     }
     else if (act === "chapter") openStory(+b.dataset.i);
     else if (act === "chapters") closeStory();
@@ -1851,14 +1893,15 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     else if (act === "ov-id") select(b.getAttribute("aria-pressed") === "true" ? null : { kind: "ident", id: b.dataset.id }); // a second press lets go
     else if (act === "ov-story") openStory(+b.dataset.i, +b.dataset.s);
     else if (act === "fold") { state.open[b.dataset.k] = !state.open[b.dataset.k]; renderSide(true); }
-    else if (act === "locate") { const e = EVENTS[state.sel.id]; zoomToPoint(e.lon, e.lat); }
+    else if (act === "locate") { const e = EVENTS[state.sel.id]; zoomToPoint(e.lon, e.lat, true); }
+    else if (act === "ev-go") { stopPlay(); setYear(EVENTS[state.sel.id].year); }
     else if (act === "about") openAbout();
     else if (act === "era") { stopPlay(); setYear(eraMap(...ERAS[+b.dataset.i])); }
     else if (act === "ev") {
       const e = EVENTS[+b.dataset.id];
       if (e.year > state.year && !comparing()) setYear(e.year);
       select({ kind: "event", id: e.id });
-      zoomToPoint(e.lon, e.lat);
+      zoomToPoint(e.lon, e.lat, true);
     } else if (act === "chg") {
       const f = changesOf(YEARS[state.snap]).find(c => c.properties.k === +b.dataset.k);
       if (!f) return;
@@ -1895,6 +1938,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 
   function select(s) {
     state.sel = s;
+    if (!s) restoreView();
     applySelection();
     renderEvents();
     drawTimeline();
@@ -2004,6 +2048,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   });
 
   function zoomToBox(box) {
+    viewBack = null; // a story step's view is its own
     const [[w, s], [e, n]] = box, pts = [];
     for (let i = 0; i <= 8; i++) {
       const x = w + (e - w) * i / 8, y = s + (n - s) * i / 8;
@@ -2342,7 +2387,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
       : idx.reduce((b, i) => Math.abs(YEARS[i] - state.year) < Math.abs(YEARS[b] - state.year) ? i : b, idx[0]);
     const flyTo = test => {
       const fs = feats.filter(f => test(f.properties));
-      if (fs.length) zoomToFeature({ type: "FeatureCollection", features: fs });
+      if (fs.length) zoomToFeature({ type: "FeatureCollection", features: fs }, true);
     };
     if (r.kind === "ident" || r.kind === "lineage") {
       const i = nearest(r.idx);
@@ -2361,7 +2406,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     } else if (r.kind === "event") {
       setYear(r.e.year);
       select({ kind: "event", id: r.e.id });
-      zoomToPoint(r.e.lon, r.e.lat);
+      zoomToPoint(r.e.lon, r.e.lat, true);
     }
   }
   // a ring that draws the eye to a searched city once the map has flown there

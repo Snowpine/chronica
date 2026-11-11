@@ -4,7 +4,7 @@
 
 Chronica is a historical atlas built region by region. The first region is *Europe Through the Ages* (欧陆古今), which covers Europe from 700 BC to AD 2000: 44 border snapshots, the territory that changed hands between each pair of them, 296 events and 10 story chapters. Every story step has a short lead plus a full text written for reading at length. The interface and all content are available in English and Chinese.
 
-The page code itself is region-neutral: everything specific to a region lives in its folder under `regions/`, so another region (East Asia, the Middle East, …) can be added next to Europe without changing the page's code. The second region, *China Through the Ages* (中华古今), covers China and its neighbours from the traditional start of the Xia (c. 2070 BC) to the end of the Qing in 1912: 53 border snapshots, every one of them corrected or redrawn for this atlas because the source is coarse for China, 317 events, 88 cities with their names through history, and 14 story chapters, all with full texts. The title at the top left switches between regions.
+The page code itself is region-neutral: everything specific to a region lives in its folder under `regions/`, so another region (East Asia, the Middle East, …) can be added next to Europe without changing the page's code. The second region, *China Through the Ages* (中华古今), covers China and its neighbours from the traditional start of the Xia (c. 2070 BC) to the end of the Qing in 1912: 54 border snapshots, every one of them corrected or redrawn for this atlas because the source is coarse for China, 317 events, 88 cities with their names through history, and 14 story chapters, all with full texts. The title at the top left switches between regions.
 
 **Try it at https://c.ilewen.com**
 
@@ -124,6 +124,7 @@ The page combines two files per language: `locales/<lang>.json`, which holds the
 - `lineages`: full names of the lineages.
 - `notes`: remarks on individual snapshots, keyed by year: what this atlas changed in the source's map. The side panel keeps them folded under "About this map".
 - `overviews`: `{year: [title, text]}`, what the map of a snapshot shows, in a few sentences. Exploring, the side panel opens with it, followed by buttons for the snapshot's main powers (`overviews.json`) and a link to the story chapter that covers the year. A region without overviews opens on the list of events.
+- `profiles`: `{name key: [dates and capital, text]}`, a line such as "618–907 · capital Chang'an" and a sentence or two on who the state was. A state's card leads with its profile and folds its area chart and name history away; a state without one shows the chart as before.
 - `presets`: labels for the compare presets, keyed `"<left>-<right>"`.
 - `names`, `cities`, `rivers`, `ranges`: place names, keyed by name key (see below).
 - `short` (optional): shorter map labels used when a full name doesn't fit, e.g. `Polish–Lithuanian Commonwealth` → `Poland–Lithuania`. A trailing parenthesis such as "(France)" is dropped automatically and needs no entry.

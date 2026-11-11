@@ -117,6 +117,7 @@
   "1500": "The source puts pieces of Moghulistan in Siberia and around Chifeng; these are corrected. The Ordos is the Northern Yuan's, Hainan the Ming's, and Ryukyu is added. Nepal, Ladakh, Kashmir, Assam and Manipur are redrawn. Taiwan itself is indigenous land outside the Ming.",
   "1600": "The source carries the Ming beyond the Great Wall and the Oirats into Transbaikalia; here the land beyond the Wall is the Northern Yuan's (the Mongol tribes), the Oirats are in Dzungaria, and Russia ends at the Tara–Narym line. Nepal, Ladakh, Assam and Manipur are redrawn. Taiwan itself (the Ming's Dongfan) is still indigenous land outside the Ming's prefectures; from the late 16th century the Ming garrisoned Penghu by season (it is too small to draw).",
   "1650": "The Dzungars are moved to Dzungaria and Kokonor is the Khoshut Khanate's; southern Sichuan and north-west Yunnan are still with the Southern Ming. Nepal, Ladakh, Assam and Manipur are redrawn.",
+  "1676": "The source has no snapshot for this year. This one starts from the 1650 layer and redraws the south as it stood in the summer of 1676, when the Revolt of the Three Feudatories was at its widest: Wu Sangui holds Yunnan, Guizhou, Guangxi, Sichuan, Hanzhong and Hunan; Geng Jingzhong northern Fujian and Wenzhou; Shang Zhixin Guangdong; Zheng Jing the coast of southern Fujian and eastern Guangdong and the western plain of Taiwan. The lines between them are approximate, and the rest of Taiwan is indigenous land. The Dzungars, the Khalkha and the Khoshuts are drawn as in 1650.",
   "1715": "The source runs the Dzungars to Hami, Hexi and western Khalkha, which were Qing; Kokonor is the Khoshut Khanate (a Qing vassal). Taiwan, a prefecture of Fujian from 1684, is drawn whole as Qing, although the mountains and the east coast were still indigenous land with no Qing officials. Hami is the Kumul Khanate, a Qing vassal; Nepal, Ladakh, Assam and Manipur are redrawn.",
   "1800": "Kashgar is Qing from 1759, and all of Taiwan is drawn as the Qing's Taiwan Prefecture (the east coast got Qing officials only in 1875). Ladakh and Assam are still independent (Burma invaded Assam only in 1817), and Kashmir is still Afghan (the Sikhs took it in 1819).",
   "1900": "The foreign leases are added: Port Arthur and Dalny (Russia), Kiautschou (Germany), Weihaiwei (Britain) and Kwangchowan (France). Tawang was still Tibetan."
@@ -200,7 +201,7 @@
   ],
   "262": [
    "The Three Kingdoms near their end",
-   "Wei, Shu and Wu have stood side by side for forty years. In Wei real power belongs to the Sima family; Shu Han, since Zhuge Liang's death, has worn itself out in Jiang Wei's northern campaigns. Next year Wei armies invade, Deng Ai slips through the Yinping trail and Shu falls; two years after that Sima Yan replaces Wei with the Jin dynasty."
+   "Wei, Shu and Wu have stood side by side for forty years. In Wei real power belongs to the Sima family; Shu Han, since Zhuge Liang's death, has worn itself out in Jiang Wei's northern campaigns. Next year Wei armies invade, Deng Ai slips through the Yinping trail and Shu falls; early in 266 Sima Yan replaces Wei with the Jin dynasty."
   ],
   "280": [
    "Jin reunites China",
@@ -322,6 +323,10 @@
    "From Ming to Qing",
    "In 1644 Li Zicheng took Beijing, the Chongzhen emperor hanged himself, and Wu Sangui let the Qing army through the Wall; the Qing made Beijing its capital. It now holds most of China. The regent Dorgon dies at the end of this year, and the Shunzhi emperor then begins to rule in person. The Southern Ming court of the Yongli emperor has fallen back to the south-west, Zheng Chenggong holds Xiamen and Jinmen, and the Dutch have a base in south-west Taiwan. In the west two Oirat peoples, the Dzungars and the Khoshuts, have khanates of their own."
   ],
+  "1676": [
+   "The Three Feudatories",
+   "In 1673 the Kangxi emperor ordered the three great fiefs of the south abolished. Wu Sangui rose in Yunnan, and Geng Jingzhong in Fujian and Shang Zhixin in Guangdong followed. This year the revolt is at its widest: Wu holds the south-west and Hunan, and Zheng Jing has crossed from Taiwan to take the coast of Fujian and Guangdong. This winter Geng surrenders and the tide turns. Qing armies take Kunming in 1681, and Taiwan submits in 1683."
+  ],
   "1715": [
    "The late Kangxi reign",
    "The Kangxi emperor is in the fifty-fourth year of his reign. He has put down the Three Feudatories (1681), taken Taiwan (1683), driven the Russians from Albazin and signed the Treaty of Nerchinsk (1689), and led three campaigns that broke Galdan of the Dzungars and brought the Khalkha Mongols under the Qing. The Dzungar khanate still holds both sides of the Tianshan and remains the Qing's great rival in the north-west; their wars have forty years still to run."
@@ -333,6 +338,628 @@
   "1900": [
    "The Boxer year",
    "After two Opium Wars, the Taiping war and defeat by Japan, the Qing has lost Hong Kong, Outer Manchuria and Taiwan, and the powers have carved leases and spheres of influence along the coast. This year the Boxers enter Beijing, the Eight-Nation Alliance takes the capital, and the Empress Dowager Cixi flees to Xi'an with the Guangxu emperor, while Russia occupies Manchuria. The Boxer Protocol follows next year; eleven years from now the 1911 Revolution breaks out and the dynasty falls."
+  ]
+ },
+ "profiles": {
+  "Dongyi": [
+   "",
+   "The Central Plains name for the peoples of the east, in today's Shandong and northern Jiangsu and Anhui; the Yueshi culture is usually linked with them. Shang and Western Zhou kings campaigned against them, and after Qi and Lu were founded there they merged into the Zhou world."
+  ],
+  "Proto-Shang": [
+   "c. 18th–16th century BC",
+   "An archaeological culture of the Zhang River valley in southern Hebei and northern Henan, widely seen as the remains of the Shang people before they conquered Xia. Texts say their ancestors moved many times; around 1600 BC their leader Tang overthrew Xia and founded the Shang."
+  ],
+  "Ancient Shu": [
+   "c. 1700–c. 1100 BC · centre at Sanxingdui (Guanghan)",
+   "A Bronze Age civilisation of the Chengdu plain, centred on the city of Sanxingdui. Its sacrificial pits held bronze masks, sacred trees and a gold staff unlike anything in the Central Plains, beside Shang-style vessels. No writing has been found. After about 1100 BC its centre moved to Jinsha."
+  ],
+  "Lower Xiajiadian culture": [
+   "c. 2000–c. 1400 BC",
+   "An early Bronze Age culture around the Yan Mountains and in western Liaoning, named after the lower layer of the Xiajiadian site at Chifeng. Its millet farmers lived in dense settlements, often defended by stone walls and ditches, and painted their pottery. It declined after about 1400 BC."
+  ],
+  "Xia (Erlitou)": [
+   "c. 2070–c. 1600 BC · Erlitou (Yanshi) may be its late capital",
+   "The first dynasty of the written tradition: Yu's son Qi is said to have made kingship hereditary, and its last king, Jie, fell to Tang of Shang. No Xia writing has been found. Most Chinese scholars link it with the Erlitou culture of western Henan, but the question is open."
+  ],
+  "Qijia culture": [
+   "c. 2200–c. 1600 BC",
+   "A culture of the upper Yellow River in Gansu, Qinghai and Ningxia, named after the Qijiaping site in Guanghe, Gansu. Its people grew millet, kept sheep, made small copper and bronze objects such as knives and mirrors, and used much jade. Local cultures such as Xindian and Siwa followed it."
+  ],
+  "Shang": [
+   "c. 1600–c. 1046 BC · capitals including Yin (Anyang)",
+   "The dynasty founded when Tang overthrew Xia. Its capital moved often until Pan Geng settled at Yin, where the oracle bones, China's earliest systematic writing, were found; bronze casting reached a peak. Around 1046 BC its last king, Zhou, was defeated at Muye by King Wu of Zhou."
+  ],
+  "Qiang": [
+   "",
+   "A general name for herding peoples west of the Central Plains. Shang oracle bones often mention raids on the Qiang and the sacrifice of Qiang captives. In Warring States, Qin and Han times they lived mainly in the upper Yellow River valleys of Gansu and Qinghai, under no single ruler."
+  ],
+  "Guifang": [
+   "c. 13th–10th century BC",
+   "A people of Shang and early Zhou times, usually placed in northern Shaanxi and north-western Shanxi. The Book of Changes says Wu Ding of Shang took three years to defeat them; the early Western Zhou Xiao Yu ding records over ten thousand captives. They then vanish from the record."
+  ],
+  "Wu": [
+   "c. 11th century–473 BC · capital Gusu (Suzhou)",
+   "A state around Lake Tai, traditionally founded by Taibo, son of the Zhou ancestor King Tai. It rose late in the Spring and Autumn period: King Helü took the Chu capital Ying in 506 BC, and his son Fuchai sought northern hegemony. Yue destroyed it in 473 BC."
+  ],
+  "Zhou states": [
+   "c. 11th–3rd century BC",
+   "The many states enfeoffed by the Zhou kings. The early Zhou sent royal kinsmen, allies and heirs of earlier dynasties to guard the realm, creating a hundred or more fiefs. From the Spring and Autumn period they swallowed one another until few were left, and Qin annexed the last."
+  ],
+  "Song": [
+   "c. 11th century–286 BC · capital Shangqiu",
+   "After the Duke of Zhou put down Wu Geng's revolt, he enfeoffed Weizi Qi, half-brother of the last Shang king, at Shangqiu to continue the Shang sacrifices. Duke Xiang of Song sought hegemony but lost to Chu at the Hong River in 638 BC. Qi destroyed Song in 286 BC."
+  ],
+  "Ba and Shu": [
+   "fell 316 BC · capitals Chengdu (Shu) and Jiangzhou (Ba, today's Chongqing)",
+   "Two old kingdoms of the Sichuan basin: Shu on the Chengdu plain in the west, Ba along the Jialing and Yangtze in the east. Each had its own bronzes and used the undeciphered Ba–Shu symbols. King Huiwen of Qin conquered both in 316 BC."
+  ],
+  "Rong and Di": [
+   "",
+   "Zhou names for peoples to the west (Rong) and north (Di), in fact many tribes, some living between the Zhou states. The Quanrong sacked Haojing in 771 BC, and in the Spring and Autumn period the Di attacked Xing and overran Wey. Jin, Qin and others gradually absorbed them."
+  ],
+  "Jin (Spring and Autumn)": [
+   "c. 11th century–376 BC · capital Jiang, later Xintian",
+   "The fief of Shu Yu, brother of King Cheng of Zhou, in southern Shanxi. After Duke Wen beat Chu at Chengpu in 632 BC, Jin long led the Central Plains. Power passed to six ministerial clans, and in 453 BC Han, Zhao and Wei divided the state."
+  ],
+  "Chu": [
+   "c. 11th century–223 BC · capital Ying (Jingzhou), later Chen and Shouchun",
+   "The great state of the middle Yangtze and Han rivers. Its rulers called themselves kings from the early Spring and Autumn period, and for a time it was the largest state. Qu Yuan's poetry came from Chu. Qin took Ying in 278 BC and destroyed Chu in 223 BC."
+  ],
+  "Yan": [
+   "c. 11th century–222 BC · capital Ji (Beijing)",
+   "The fief of the Duke of Shao, founded in early Zhou around today's Beijing and northern Hebei. Under King Zhao its general Yue Yi led five states to overrun Qi in 284 BC, and Qin Kai drove back the Donghu and reached Liaodong. Qin destroyed Yan in 222 BC."
+  ],
+  "Baiyue": [
+   "",
+   "A blanket name, 'the Hundred Yue', for the many Yue peoples from south of the Yangtze to northern Vietnam, such as the Minyue, Nanyue and Luoyue. They cut their hair short, tattooed their bodies and were skilled boatmen. Under Qin and Han commanderies they gradually merged with Han settlers."
+  ],
+  "Sushen": [
+   "",
+   "The most distant north-eastern people in early texts, north of the Changbai Mountains. Tradition says they sent stone-tipped arrows as tribute after King Wu of Zhou conquered Shang. The Yilou of Han and Wei times, the Mohe of Sui and Tang and the later Jurchens count as their descendants."
+  ],
+  "Yue": [
+   "fell 222 BC · capital Kuaiji (Shaoxing)",
+   "A Yue kingdom in today's Zhejiang. After defeat by Wu, King Goujian rebuilt his strength, destroyed Wu in 473 BC and marched north as hegemon. Chu broke the kingdom around 306 BC, and in 222 BC Qin took the submission of its last lords and set up Kuaiji commandery."
+  ],
+  "Lu": [
+   "c. 11th century–mid-3rd century BC · capital Qufu",
+   "The fief of Boqin, son of the Duke of Zhou, in southern Shandong, where Zhou ritual and music were best preserved. Confucius was born there; its chronicle, the Spring and Autumn Annals, named an age. Power fell to three noble houses, and Chu annexed Lu in the mid-3rd century BC."
+  ],
+  "Qi": [
+   "c. 11th century–221 BC · capital Linzi",
+   "The fief of Lü Shang in northern Shandong. Duke Huan, with his minister Guan Zhong, was the first Spring and Autumn hegemon. The Tian clan took the throne in 386 BC, and the Jixia academy drew scholars of every school. Qin conquered it last of all, in 221 BC."
+  ],
+  "Qin": [
+   "c. 9th century–221 BC · capital Yong, later Xianyang",
+   "A state that began in eastern Gansu as horse-breeders for the Zhou kings. It became a full fief in 770 BC for escorting King Ping east, and then took over Guanzhong. Shang Yang's reforms made it strong, and between 230 and 221 BC it conquered the other six states."
+  ],
+  "Eastern Zhou": [
+   "770–256 BC · capital Luoyi (Luoyang)",
+   "The land the Zhou kings ruled directly after King Ping moved east, a small area around Luoyi. The king stayed nominal sovereign of all states and hegemons acted in his name, but he could no longer command them. Qin ended the royal house and the dynasty in 256 BC."
+  ],
+  "Zheng": [
+   "806–375 BC · capital Xinzheng",
+   "The fief of Duke Huan, brother of King Xuan of Zhou, which moved from Guanzhong to central Henan as the Western Zhou fell. It was strongest under Duke Zhuang, who beat the king's army in 707 BC. Later squeezed between Jin and Chu, it fell to Han in 375 BC."
+  ],
+  "Donghu tribes": [
+   "c. 7th century–late 3rd century BC",
+   "A nomad confederation east of the Xiongnu, in eastern Inner Mongolia and western Liaoning. The Yan general Qin Kai drove them back in Warring States times. Around 206 BC Modu of the Xiongnu crushed them; the survivors, withdrawing to the Wuhuan and Xianbei mountains, became the Wuhuan and Xianbei."
+  ],
+  "Gojoseon": [
+   "fell 108 BC · capital Wanggeom (near Pyongyang)",
+   "An early kingdom of north-western Korea and Liaodong, founded according to legend by Dangun and bordering Yan. Around 194 BC Wiman, a refugee from Yan, seized the throne. Emperor Wu of Han destroyed it in 108 BC and set up four commanderies there, among them Lelang."
+  ],
+  "Yuezhi": [
+   "c. 3rd century BC–1st century AD",
+   "Nomads of the Hexi Corridor, once stronger than the Xiongnu. Defeated by them in the early 2nd century BC, most moved west to the Amu Darya, conquered Bactria and were called the Great Yuezhi; Zhang Qian was sent to seek their alliance. Their Kushan clan later founded the Kushan Empire."
+  ],
+  "Zhao": [
+   "403–222 BC · capital Handan",
+   "One of the three states carved from Jin, in Shanxi and Hebei. King Wuling adopted nomad dress and mounted archery in 307 BC and pushed north to the Yin Mountains. Qin crushed Zhao at Changping in 260 BC, took Handan in 228 BC and ended the state in 222 BC."
+  ],
+  "Han (Warring States)": [
+   "403–230 BC · capital Xinzheng",
+   "One of the three states carved from Jin, in central Henan and south-eastern Shanxi, the smallest of the seven Warring States. It destroyed Zheng in 375 BC and made Xinzheng its capital. Eaten away by neighbouring Qin, it was the first of the six to fall, in 230 BC."
+  ],
+  "Wei": [
+   "403–225 BC · capital Anyi, later Daliang",
+   "One of the three states carved from Jin, astride the Yellow River. Marquis Wen's reforms, the first of the age, made it the leading power of the early Warring States. Qi beat it twice and Qin took its western lands; in 225 BC Qin flooded Daliang and Wei fell."
+  ],
+  "Xiongnu": [
+   "c. 3rd century BC–1st century AD · court north of the Gobi",
+   "A nomad empire of the Mongolian plateau. Modu became chanyu in 209 BC, crushed the Donghu, drove out the Yuezhi and united the steppe, forcing the early Han to buy peace with marriage alliances. Emperor Wu's campaigns weakened it, and in AD 48 it split into north and south."
+  ],
+  "Qin Empire": [
+   "221–206 BC · capital Xianyang",
+   "China's first unified empire. After conquering the six states King Zheng of Qin became First Emperor, replaced fiefs with commanderies and counties, standardised script, weights and measures, built the Great Wall and took Lingnan. After his death revolt broke out in 209 BC and brought the dynasty down."
+  ],
+  "Nan-Yue": [
+   "204–111 BC · capital Panyu (Guangzhou)",
+   "A kingdom founded in Lingnan by the Qin general Zhao Tuo as the Qin fell, covering Guangdong, Guangxi and northern Vietnam. He reigned over sixty years, at times a Han vassal, at times a self-styled emperor. Emperor Wu of Han conquered it in 111 BC, creating nine commanderies."
+  ],
+  "Han|western": [
+   "202 BC–AD 9 · capital Chang'an",
+   "The dynasty Liu Bang founded after defeating Xiang Yu. After early recovery Emperor Wu made Confucianism the state creed, drove back the Xiongnu, opened the Western Regions and annexed Nanyue and Gojoseon. Later consort families dominated the court, and one of them, Wang Mang, founded his own Xin dynasty."
+  ],
+  "Min-Yue": [
+   "202–110 BC · capital Dongye (Fuzhou)",
+   "A Yue kingdom in today's Fujian. Its leader Wuzhu, claiming descent from Goujian of Yue, was made king by Emperor Gaozu of Han in 202 BC. Minyue later attacked Dong'ou and Nanyue and rebelled; Emperor Wu destroyed it in 110 BC and moved its people north to the Yangtze–Huai region."
+  ],
+  "Wusun": [
+   "c. 2nd century BC–5th century AD · capital Chigu",
+   "A large nomad kingdom of the Ili valley. To outflank the Xiongnu the Han married two princesses, Xijun and Jieyou, to its kings, and in 71 BC the allies routed the Xiongnu. Pressed by the Rouran in the 5th century, it moved into the Pamirs and then disappears."
+  ],
+  "Wuhuan": [
+   "late 3rd century BC–early 3rd century AD",
+   "A branch of the Donghu, named after the Wuhuan Mountains to which they withdrew after the Xiongnu victory. Emperor Wu of Han settled them beyond five frontier commanderies to watch the Xiongnu. In 207 Cao Cao crushed them at White Wolf Mountain and moved the survivors inland."
+  ],
+  "Buyeo": [
+   "c. 2nd century BC–AD 494 · royal seat near today's Jilin city",
+   "An early kingdom on the Songhua River, living by farming and herding, in close touch with Han and Wei China. The kings of Goguryeo and Baekje claimed descent from it. Murong Xianbei raids from the late 3rd century weakened it, and in 494 its royal family surrendered to Goguryeo."
+  ],
+  "Samhan": [
+   "c. 2nd century BC–4th century AD",
+   "The collective name for three confederacies in southern Korea: Mahan, Jinhan and Byeonhan. The Records of the Three Kingdoms counts over seventy small polities among them. They dealt with China through the Lelang and Daifang commanderies. Baekje later grew from Mahan, Silla from Jinhan and Gaya from Byeonhan."
+  ],
+  "Silla": [
+   "57 BC (traditional)–AD 935 · capital Geumseong (Gyeongju)",
+   "A kingdom grown from Saro, a polity of south-eastern Korea, expanding fast from the 6th century. With Tang help it destroyed Baekje in 660 and Goguryeo in 668, then expelled the Tang armies and united Korea south of the Taedong River. Its last king submitted to Goryeo in 935."
+  ],
+  "Protectorate of the Western Regions": [
+   "60 BC–AD 107, with gaps · seat at Wulei, later Kucha",
+   "The Han office overseeing the Western Regions. When a Xiongnu prince defected in 60 BC, Zheng Ji became the first Protector-General, supervising dozens of oasis states around the Tianshan. It lapsed under Wang Mang, was restored by Ban Chao in AD 91 and abolished after a revolt in 107."
+  ],
+  "Koguryo": [
+   "37 BC (traditional)–AD 668 · capital Gungnae (Ji'an), later Pyongyang",
+   "A kingdom from the Hun and Yalu valleys, claiming descent from Buyeo. At its height around the 5th century, under Gwanggaeto and Jangsu, it held Liaodong and northern Korea. It beat off Sui and Tang invasions until Tang and Silla destroyed it in 668."
+  ],
+  "Han|eastern": [
+   "25–220 · capital Luoyang",
+   "The Han as restored by Liu Xiu after Wang Mang's fall. Ban Chao secured the Western Regions and Cai Lun improved papermaking; later consort families and eunuchs alternated in power. After the Yellow Turban rising of 184 warlords divided the empire, and Emperor Xian abdicated to Cao Pi in 220."
+  ],
+  "Southern Xiongnu": [
+   "48–216 · court at Meiji in Xihe commandery",
+   "The Xiongnu who joined the Eastern Han when they split in 48. Settled in Inner Mongolia, northern Shanxi and Shaanxi, they guarded the Han frontier. In 216 Cao Cao detained their chanyu at Ye and split them into five sections. Liu Yuan, founder of Han Zhao, was one of them."
+  ],
+  "Kushan Empire": [
+   "c. 1st–4th century · capitals including Purushapura (Peshawar)",
+   "An empire founded when the Kushan clan united the Great Yuezhi, from the Amu Darya to northern India. At its height under the 2nd-century king Kanishka it patronised Buddhism and passed Gandharan art and Buddhist texts to China. After defeat by Sasanian Persia in the 3rd century it broke up."
+  ],
+  "Xianbei": [
+   "late 3rd century BC–6th century AD",
+   "A Donghu branch, named after the mountains where they sheltered from the Xiongnu. They took the Mongolian steppe when the Northern Xiongnu moved west in the late 1st century; Tanshihuai's confederation of the mid-2nd century died with him. The Murong, Tuoba and other branches later founded states in north China."
+  ],
+  "Eastern Wu": [
+   "222–280 · capital Jianye (Nanjing)",
+   "The state Sun Quan built on the lower Yangtze, one of the Three Kingdoms. With Liu Bei he beat Cao Cao at Red Cliffs in 208, and he became King of Wu in 222 and emperor in 229. Wu opened up the south. The Western Jin conquered it in 280."
+  ],
+  "Cao Wei": [
+   "220–266 · capital Luoyang",
+   "The state founded in 220 when Cao Pi, son of Cao Cao, replaced the Eastern Han. Holding the north, it was the strongest of the Three Kingdoms. Sima Yi seized power in 249; Wei conquered Shu Han in 263, and in 266 Sima Yan replaced it with the Western Jin."
+  ],
+  "Shu Han": [
+   "221–263 · capital Chengdu",
+   "The state Liu Bei founded in Yi province as a Han kinsman, still calling it Han; one of the Three Kingdoms. After his death the chancellor Zhuge Liang governed for his son Liu Shan and repeatedly attacked Cao Wei. Wei armies took Chengdu in 263 and Liu Shan surrendered."
+  ],
+  "Jin|western": [
+   "266–316 · capital Luoyang",
+   "The dynasty Sima Yan founded in place of Cao Wei, which conquered Eastern Wu in 280, ending the Three Kingdoms. After his death came the War of the Eight Princes, and the Xiongnu and other peoples settled in the north rose: Luoyang fell in 311 and Chang'an in 316."
+  ],
+  "Jin|eastern": [
+   "317–420 · capital Jiankang (Nanjing)",
+   "The Jin dynasty as revived south of the Yangtze by Sima Rui, Prince of Langya, backed by émigré northern families. Great clans long controlled the court. Victory over Former Qin at the Fei River in 383 saved the south. In 420 the general Liu Yu took the throne."
+  ],
+  "Dai": [
+   "315–376 · capital Shengle (Horinger, Inner Mongolia)",
+   "A Tuoba Xianbei state in central Inner Mongolia and northern Shanxi. Its chief Tuoba Yilu became Prince of Dai in 315 for helping the Western Jin. Former Qin destroyed it in 376; ten years later Tuoba Gui, grandson of its last ruler Shiyijian, revived it as the Northern Wei."
+  ],
+  "Former Liang (Zhang)": [
+   "301–376 · capital Guzang (Wuwei)",
+   "The Hexi Corridor state of the Han Chinese Zhang family. Zhang Gui became governor of Liangzhou in 301 and his heirs held the region, long in the name of the Jin. Scholars fleeing the wars further east preserved Han and Jin learning there. Former Qin conquered it in 376."
+  ],
+  "Later Zhao": [
+   "319–351 · capital Xiangguo (Xingtai), later Ye",
+   "A state founded by Shi Le of the Jie people, a former slave and Han Zhao general. He became Prince of Zhao in 319, destroyed Han Zhao in 329 and held most of the north. His nephew Shi Hu ruled harshly; after his death the state collapsed, ending in 351."
+  ],
+  "Murong": [
+   "3rd century–337 · capital Jicheng (western Liaoning)",
+   "A branch of the Xianbei who moved into western Liaoning in the 3rd century. Murong Hui, chief from 285, settled at Jicheng, encouraged farming, took in many Central Plains refugees and accepted Jin titles. In 337 his son Murong Huang proclaimed himself Prince of Yan, founding the Former Yan."
+  ],
+  "Cheng Han": [
+   "304–347 · capital Chengdu",
+   "A Sichuan state founded by the Li family of the Ba-Di people, leading refugees from the north-west. Li Xiong took Chengdu in 304 and became emperor of Cheng in 306; Li Shou renamed it Han in 338, hence Cheng Han. Huan Wen of the Eastern Jin conquered it in 347."
+  ],
+  "Han Zhao": [
+   "304–329 · capital Pingyang, later Chang'an",
+   "The first of the Sixteen Kingdoms, founded by the Xiongnu noble Liu Yuan. Claiming kinship with the Han house, he named it Han; his successors took Luoyang in 311 and Chang'an in 316, ending the Western Jin. It was renamed Zhao in 319. Later Zhao destroyed it in 329."
+  ],
+  "Former Yan": [
+   "337–370 · capital Longcheng (Chaoyang), later Ye",
+   "A state of the Murong Xianbei. Murong Huang took the title Prince of Yan in 337 and dominated Liaodong. His son Murong Jun destroyed Ran Wei in 352, proclaimed himself emperor and moved to Ye, holding Hebei and the Central Plains. Misrule followed, and Former Qin conquered it in 370."
+  ],
+  "Former Qin": [
+   "351–394 · capital Chang'an",
+   "A Di state founded in Guanzhong by the Fu family. Fu Jian, aided by the minister Wang Meng, conquered Former Yan, Former Liang and Dai by 376, uniting the north. His invasion of the south failed at the Fei River in 383; the state then fell apart, ending in 394."
+  ],
+  "Tuyuhun": [
+   "early 4th century–663 · capital Fuqi, west of Qinghai Lake",
+   "A kingdom of Murong Xianbei who moved west to Qinghai and southern Gansu, named after their leader Tuyuhun. They ruled the local Qiang and controlled the trade route through Qinghai to the Western Regions. The Tang defeated it in 635 and the Tibetan Empire destroyed it in 663."
+  ],
+  "Rouran tribes": [
+   "4th century–402",
+   "The Rouran before their khaganate: nomad tribes of the Mongolian plateau, once subject to the Tuoba. In the later 4th century they split into eastern and western groups, and the Northern Wei defeated them in 391. In 402 their leader Shelun united the northern steppe as khagan."
+  ],
+  "Northern Liang": [
+   "397–439 · capital Zhangye, later Guzang (Wuwei)",
+   "A Hexi state dominated by Juqu Mengxun of the Lushui Hu. He first enthroned Duan Ye, replaced him in 401 and destroyed Western Liang in 421, winning the whole corridor. Buddhism flourished, with sutra translation and cave temples. The Northern Wei conquered it in 439, ending the Sixteen Kingdoms."
+  ],
+  "Toba Wei": [
+   "386–534 · capital Pingcheng (Datong), later Luoyang",
+   "The dynasty of the Tuoba Xianbei. Tuoba Gui revived his state in 386 and Emperor Taiwu united the north in 439. Emperor Xiaowen moved to Luoyang in 494 and adopted Chinese ways; the Yungang and Longmen caves were begun under Wei. In 534 it split into Eastern and Western Wei."
+  ],
+  "Southern Yan": [
+   "398–410 · capital Guanggu (Qingzhou)",
+   "A small Murong Xianbei state. After the Northern Wei broke Later Yan, Murong De, brother of Murong Chui, led his followers south in 398 and made Guanggu his capital, holding today's Shandong. Liu Yu of the Eastern Jin took Guanggu in 410 and ended the state."
+  ],
+  "Later Yan": [
+   "384–407 · capital Zhongshan (Dingzhou), later Longcheng",
+   "The Yan state rebuilt after the Fei River battle by Murong Chui, a Former Yan prince, in Hebei and Liaodong. The Northern Wei routed it at Canhe Slope in 395 and took Zhongshan two years later; the remnant withdrew to Longcheng. Its last ruler, Murong Xi, was killed in 407."
+  ],
+  "Later Qin": [
+   "384–417 · capital Chang'an",
+   "A Qiang state founded in Guanzhong by Yao Chang, who broke with Former Qin after the Fei River battle. It was strongest under his son Yao Xing, who brought the monk Kumarajiva to Chang'an in 401 to translate sutras. Liu Yu of the Eastern Jin destroyed it in 417."
+  ],
+  "Liu Song": [
+   "420–479 · capital Jiankang (Nanjing)",
+   "The dynasty Liu Yu founded in place of the Eastern Jin, the first and largest of the Southern Dynasties. Emperor Wen's reign, the Yuanjia era, was peaceful, but his northern campaigns failed and in 450 Northern Wei armies reached the Yangtze. The general Xiao Daocheng took the throne in 479."
+  ],
+  "Northern Yan": [
+   "407–436 · capital Longcheng (Chaoyang)",
+   "A small state in western Liaoning that followed Later Yan. In 407 Feng Ba, a Han Chinese, set up Gao Yun as ruler; after Gao Yun was killed two years later he took the throne. The Northern Wei attacked in 436, and the ruler Feng Hong fled to Goguryeo."
+  ],
+  "Xia (Helian)": [
+   "407–431 · capital Tongwan (Jingbian, Shaanxi)",
+   "A state founded in northern Shaanxi and the Ordos by Helian Bobo, chief of the Tiefu Xiongnu, who claimed descent from the ancient Xia. Its capital Tongwan was famously strong. Xia seized Chang'an in 418. The Northern Wei took Tongwan in 427 and the state ended in 431."
+  ],
+  "Ruanruan": [
+   "402–555 · court north of the Gobi",
+   "The nomad khaganate that ruled the Mongolian plateau in the 5th and 6th centuries. It fought long wars with the Northern Wei and sought allies against it in the Southern Dynasties. The Turks, once its iron-working subjects, defeated it in 552, and its remnants perished in 555."
+  ],
+  "Western Qin": [
+   "385–400 and 409–431 · capitals including Yuanchuan and Fuhan",
+   "A small state of the Qifu Xianbei in south-eastern Gansu. Qifu Guoren set it up in 385; it submitted to Later Qin in 400, was restored in 409 and reached its height on destroying Southern Liang in 414. Pressed by Xia and Northern Liang, it fell to Xia in 431."
+  ],
+  "Yamato": [
+   "c. 3rd century–late 7th century · court in the Nara basin",
+   "Japan's early kingship in the Nara basin, the Wa of Chinese histories. Its 5th-century kings sent envoys to the Southern Dynasties; Buddhism came from Baekje in the 6th century. From 645 the Taika reforms centralised it on the Tang model. In the late 7th century it took the name Japan."
+  ],
+  "Southern Qi": [
+   "479–502 · capital Jiankang (Nanjing)",
+   "The dynasty Xiao Daocheng founded in place of Liu Song, the second of the Southern Dynasties, which lasted only 23 years. Its first two emperors ruled frugally; after them the imperial house slaughtered its own. A kinsman, Xiao Yan, took Jiankang and in 502 replaced Qi with the Liang."
+  ],
+  "Gaochang": [
+   "460–640 · capital Gaochang (Turpan)",
+   "An oasis kingdom of the Turpan basin, peopled largely by descendants of Han and Wei garrison settlers. The Rouran made Kan Bozhou king in 460; from the early 6th century the Qu family ruled as clients of the Rouran and the Turks. The Tang conquered it in 640."
+  ],
+  "Eastern Wei": [
+   "534–550 · capital Ye",
+   "The eastern half of the divided Northern Wei, on the lower Yellow River. When Emperor Xiaowu fled to Chang'an in 534, the strongman Gao Huan enthroned Emperor Xiaojing, moved the capital to Ye and ruled from Jinyang. In 550 his son Gao Yang deposed the emperor and founded Northern Qi."
+  ],
+  "Liang (Xiao)": [
+   "502–557 · capital Jiankang (Nanjing)",
+   "The third of the Southern Dynasties, founded in place of Southern Qi by Xiao Yan, who reigned nearly fifty years as the devoutly Buddhist Emperor Wu. In 548 the Eastern Wei defector Hou Jing rebelled and sacked Jiankang, ruining the south. Chen Baxian replaced the Liang in 557."
+  ],
+  "Western Wei": [
+   "535–557 · capital Chang'an",
+   "The western half of the divided Northern Wei, in Guanzhong and Longyou. Its real ruler Yuwen Tai created the fubing army system, relied on the great north-western families and made a weak state strong. After his death his son Yuwen Jue replaced it with Northern Zhou in 557."
+  ],
+  "Northern Zhou": [
+   "557–581 · capital Chang'an",
+   "The dynasty of the Yuwen family, which replaced Western Wei. Emperor Wu removed the regent Yuwen Hu, suppressed Buddhism and Daoism and in 577 destroyed Northern Qi, reuniting the north. After his death the throne weakened, and in 581 the imperial in-law Yang Jian replaced Zhou with the Sui."
+  ],
+  "Northern Qi": [
+   "550–577 · capital Ye",
+   "The dynasty founded by Gao Yang, son of Gao Huan, replacing Eastern Wei, at first stronger than Northern Zhou. The Gao were Han Chinese with Xianbei ways, and Xianbei and Han factions split the court. Its later emperors were cruel and incompetent, and Northern Zhou conquered it in 577."
+  ],
+  "Göktürks": [
+   "552–630 and 682–744 · court at Ötüken",
+   "The steppe empire of the Turks. Bumin overthrew the Rouran in 552 and became khagan; within years his heirs ruled from Manchuria to Central Asia. It split in two around 583, and the Tang destroyed both halves. A khaganate restored in 682 lasted until the Uyghurs replaced it in 744."
+  ],
+  "Chen": [
+   "557–589 · capital Jiankang (Nanjing)",
+   "The last of the Southern Dynasties, founded by Chen Baxian, replacing the Liang. Sichuan and the lands north of the Yangtze were lost after Hou Jing's rebellion, so Chen was the smallest of the four. Sui armies crossed the river in 589, took Jiankang and captured its last emperor."
+  ],
+  "Eastern Turkic Khaganate": [
+   "583–630 · court on the Mongolian plateau",
+   "The eastern half of the divided Turkic Khaganate, on the Mongolian plateau. Weakened by civil war, it at first submitted to the Sui. As the Sui collapsed Shibi Khagan grew powerful, and north China's warlords acknowledged him. In 630 the Tang general Li Jing defeated and captured Illig Khagan."
+  ],
+  "Western Gokturk Khaganate": [
+   "583–657 · courts near Suyab",
+   "The western half of the Turkic Khaganate, ruling the steppe and oasis cities from the Altai to the Caspian and controlling the Silk Road trade. It peaked under Tong Yabghu Khagan in the early 7th century. The Tang general Su Dingfang defeated its last khagan, Ashina Helu, in 657."
+  ],
+  "Sui Empire": [
+   "581–618 · capital Daxing (Xi'an)",
+   "The dynasty Yang Jian founded in place of Northern Zhou, which conquered Chen in 589 and ended nearly three centuries of division. It began the examination system and dug the Grand Canal. Emperor Yang's three failed wars on Goguryeo brought widespread revolt, and he was killed at Jiangdu in 618."
+  ],
+  "Tibetan Empire": [
+   "early 7th century–842 · capital Rasa (Lhasa)",
+   "The empire Songtsen Gampo created by uniting the Tibetan plateau, ruled by a tsenpo. He married the Tang princess Wencheng in 641. Tibet then fought the Tang for the Western Regions, Qinghai and Hexi, briefly taking Chang'an in 763. It broke up after Langdarma was assassinated in 842."
+  ],
+  "Tang Empire": [
+   "618–907 · capital Chang'an",
+   "The dynasty founded by Li Yuan. The early Tang destroyed both Turkic khaganates and Goguryeo and peaked in the Kaiyuan era, when Chang'an was among the world's largest cities. After the An Lushan rebellion of 755 regional governors went their own way, and Zhu Wen ended the dynasty in 907."
+  ],
+  "Balhae": [
+   "698–926 · capital Sanggyeong (Ning'an, Heilongjiang)",
+   "A kingdom Dae Joyeong founded in eastern Manchuria with Mohe people and Goguryeo survivors; the Tang made him Prince of Bohai in 713. Modelled on the Tang, with five capitals and Chinese writing, it was praised as the flourishing land east of the sea. The Khitans destroyed it in 926."
+  ],
+  "Nanzhao": [
+   "738–902 · capital Taihe, later Yangjumie (Dali)",
+   "A kingdom created when Mengshe, one of six states around Erhai Lake, united the rest with Tang support. It twice crushed Tang armies in the mid-8th century and sided with Tibet until 794; later it raided Tang Sichuan and Annam. The minister Zheng Maisi usurped the throne in 902."
+  ],
+  "Japan": [
+   "called Japan from the late 7th century · capitals Heijō-kyō (Nara), then Heian-kyō (Kyoto)",
+   "An island country east of China, named Japan from the late 7th century, under emperors (tennō). In Nara and Heian times its Tang missions brought back law codes, Buddhism and Chinese writing. From the late 12th century until 1868 power lay mostly with shogunates, the emperors remaining in Kyoto."
+  ],
+  "Uyghurs": [
+   "744–840 · court at Ordu-Baliq on the Orkhon",
+   "The steppe khaganate of the Uyghurs (Huihe, later Huihu, in Chinese), who replaced the Turks. It twice helped the Tang against the An Lushan rebellion, traded horses for Tang silk and adopted Manichaeism. In 840 the Kyrgyz sacked its capital, and its people moved west to Hexi and Gaochang."
+  ],
+  "Tibet|fragments": [
+   "842–mid-13th century",
+   "The local powers of the Tibetan plateau after the empire's collapse, including Guge in the west and Tsongkha on the upper Yellow River. Buddhism revived from the late 10th century, and schools such as the Sakya and Kagyu took shape. In the mid-13th century they submitted to the Mongols."
+  ],
+  "Khitans": [
+   "4th century–916",
+   "A nomadic people of the Xar Moron and Laoha rivers, descended from the Xianbei. In Tang times their tribal confederation was subject by turns to the Tang, Turks and Uyghurs. Abaoji became their khagan in 907 and in 916 proclaimed himself emperor of the state later called the Liao."
+  ],
+  "Tatar tribes": [
+   "c. 9th–12th century",
+   "The nomad tribes of the Mongolian plateau after the Uyghur Khaganate fell, mostly Shiwei peoples from the east. Tang and Song writers called them Tatars, the Liao called them Zubu. They paid tribute to the Liao at times and rebelled at others. Genghis Khan later united their descendants."
+  ],
+  "Kingdom of Qocho": [
+   "mid-9th century–13th century · capital Qocho (Turpan), summer capital Beshbalik",
+   "A kingdom founded in the eastern Tianshan by Uyghurs who moved west after their khaganate fell, holding Turpan and Beshbalik. They turned from herding to settled life and from Manichaeism mostly to Buddhism. A vassal of Qara Khitai in the 12th century, Qocho submitted to Genghis Khan in 1209."
+  ],
+  "Former Shu": [
+   "907–925 · capital Chengdu",
+   "One of the Ten Kingdoms. The late Tang general Wang Jian seized Sichuan and proclaimed himself emperor when the Tang fell in 907. Rich and peaceful, Shu sheltered many writers from the north. His son Wang Yan neglected government, and Later Tang conquered the state in seventy days in 925."
+  ],
+  "Southern Han": [
+   "917–971 · capital Xingwangfu (Guangzhou)",
+   "One of the Ten Kingdoms, in Guangdong and Guangxi. Liu Yin was Tang military governor there; in 917 his brother Liu Yan became emperor of Great Yue, renamed Han the next year. Rich from sea trade, it was harsh and relied on eunuchs. The Northern Song conquered it in 971."
+  ],
+  "Later Liang": [
+   "907–923 · capital Kaifeng",
+   "The first of the Five Dynasties. Zhu Wen, a former officer of the rebel Huang Chao, became the strongest Tang governor and in 907 deposed the last Tang emperor. It held only the Yellow River plain and constantly fought Jin in Hedong. Li Cunxu's Later Tang destroyed it in 923."
+  ],
+  "Wuyue": [
+   "907–978 · capital Hangzhou",
+   "One of the Ten Kingdoms, in Zhejiang and southern Jiangsu. Qian Liu was made King of Wuyue in 907; his heirs acknowledged each northern dynasty while building sea walls and waterworks, and Hangzhou prospered. In 978 the last king, Qian Chu, surrendered his lands peacefully to the Northern Song."
+  ],
+  "Wu (Yang)": [
+   "902–937 · capital Yangzhou",
+   "One of the Ten Kingdoms, in the Huai–Yangtze region and Jiangxi. Yang Xingmi took Huainan late in the Tang and became Prince of Wu in 902. After him Xu Wen's family held power, the Yang rulers being puppets. Xu Wen's adopted son Xu Zhigao took the throne in 937."
+  ],
+  "Dingnan": [
+   "881–1038 · seat at Xiazhou (Jingbian, Shaanxi)",
+   "A hereditary military province of the Tangut Tuoba clan in northern Shaanxi and the Ordos. For helping the Tang against Huang Chao its chief Tuoba Sigong was made governor and given the imperial surname Li; his heirs nominally served each northern dynasty. In 1038 Li Yuanhao proclaimed the Western Xia."
+  ],
+  "Jin (Hedong)": [
+   "907–923 · capital Taiyuan",
+   "The Hedong state of the Shatuo Turk Li Keyong, made Prince of Jin late in the Tang. After 907 it kept the Tang calendar and fought Later Liang. His son Li Cunxu succeeded in 908 and took Hebei; in 923 he became emperor of Tang and destroyed Later Liang."
+  ],
+  "Ma Chu": [
+   "907–951 · capital Tanzhou (Changsha)",
+   "One of the Ten Kingdoms, in Hunan. Ma Yin seized it late in the Tang; Later Liang made him Prince of Chu in 907. Chu acknowledged the northern dynasties and grew rich on tea and trade. His sons fought over the succession, and Southern Tang conquered it in 951."
+  ],
+  "Min": [
+   "909–945 · capital Fuzhou",
+   "One of the Ten Kingdoms, in Fujian. The brothers Wang Chao and Wang Shenzhi brought an army from Henan late in the Tang; Later Liang made Shenzhi Prince of Min in 909. He kept taxes light and fostered sea trade. Family feuds followed, and Southern Tang conquered Min in 945."
+  ],
+  "Later Tang": [
+   "923–936 · capital Luoyang",
+   "The second and largest of the Five Dynasties, founded by the Shatuo Turk Li Cunxu as heir to the Tang. It destroyed Later Liang in 923 and Former Shu in 925. He died in a mutiny in 926; Shi Jingtang, with Khitan troops, ended it in 936."
+  ],
+  "Jurchens": [
+   "c. 10th century–1635",
+   "Hunting and fishing peoples of Manchuria, descendants of the Mohe, called Jurchen from Liao times. Their Wanyan tribe founded the Jin in 1115. In Ming times they formed the Jianzhou, Haixi and Wild Jurchens. Nurhaci founded the Later Jin in 1616, and the people were renamed Manchu in 1635."
+  ],
+  "Liao": [
+   "916–1125 · capital Shangjing (Bairin Left Banner, Inner Mongolia)",
+   "The dynasty of the Khitans. Abaoji became emperor in 916 and destroyed Balhae in 926; the state gained the Sixteen Prefectures in 938 and took the name Liao in 947. It made the Treaty of Chanyuan with the Northern Song in 1005. The Jurchen Jin destroyed it in 1125."
+  ],
+  "Goryeo": [
+   "918–1392 · capital Kaegyong (Kaesong)",
+   "The dynasty founded by Wang Geon, which unified Korea in 936. It held off the Khitans and Jurchens, traded with the Song and printed the Buddhist canon. After long resistance it submitted to the Mongols in the 13th century as a Yuan vassal. Yi Seong-gye replaced it in 1392."
+  ],
+  "Later Jin": [
+   "936–947 · capital Kaifeng",
+   "The third of the Five Dynasties. The Shatuo Turk Shi Jingtang destroyed Later Tang with Khitan troops, in return calling himself the Khitan emperor's subject and son and ceding the Sixteen Prefectures. His successor Shi Chonggui refused this submission; the Khitans invaded and took Kaifeng early in 947, ending it."
+  ],
+  "Later Shu": [
+   "934–965 · capital Chengdu",
+   "One of the Ten Kingdoms. Meng Zhixiang, the general Later Tang posted to Sichuan after conquering Former Shu, made himself emperor in 934 and died that year. His son Meng Chang reigned thirty years over a peaceful Shu rich in literature and painting. The Northern Song conquered it in 965."
+  ],
+  "Dali": [
+   "937–1253 · capital Yangjumie (Dali)",
+   "A kingdom founded by Duan Siping in the old Nanzhao lands of Yunnan and south-western Sichuan. Devoutly Buddhist, it saw several kings abdicate to become monks; later, real power lay with the Gao family of chief ministers. It sold horses to the Song. Mongols under Kublai conquered it in 1253."
+  ],
+  "Southern Tang|qi": [
+   "937–939 · capital Jinling (Nanjing)",
+   "The first name of Southern Tang. Xu Zhigao, adopted son of the Wu strongman Xu Wen, accepted the Wu emperor's abdication at Jinling in 937 and called his state Qi. In 939 he resumed his birth surname as Li Bian, claimed Tang descent and renamed the state Tang."
+  ],
+  "Southern Tang": [
+   "937–975 · capital Jinling (Nanjing)",
+   "One of the Ten Kingdoms, founded by Li Bian, replacing Wu, and named Tang from 939. The strongest southern state, it conquered Min and Chu but in 958 lost its northern lands to Later Zhou. The Northern Song took it from its last ruler, the poet Li Yu, in 975."
+  ],
+  "Later Han": [
+   "947–950 · capital Kaifeng",
+   "The fourth and shortest of the Five Dynasties. When the Khitans withdrew after destroying Later Jin, the Shatuo Turk Liu Zhiyuan, governor of Hedong, became emperor and took Kaifeng, dying the next year. Late in 950 the general Guo Wei took Kaifeng and Liu's son, Emperor Yin, was killed."
+  ],
+  "Northern Han": [
+   "951–979 · capital Taiyuan",
+   "The only one of the Ten Kingdoms in the north. When Later Han fell, Liu Zhiyuan's brother Liu Chong kept the name Han as emperor at Taiyuan, holding a dozen prefectures in Shanxi and relying on Liao help against Later Zhou and the Northern Song, which conquered it in 979."
+  ],
+  "Later Zhou": [
+   "951–960 · capital Kaifeng",
+   "The last of the Five Dynasties, founded by Guo Wei. His successor Chai Rong, Emperor Shizong, reformed army and government, took Southern Tang's northern lands and recovered three passes from the Liao, preparing reunification. A child succeeded him, and in 960 Zhao Kuangyin seized the throne and founded the Song."
+  ],
+  "Song Empire": [
+   "960–1127 · capital Kaifeng",
+   "The dynasty founded by Zhao Kuangyin, which reunited the Central Plains and the south but never recovered the Sixteen Prefectures and long faced the Liao and Western Xia. Examinations and commerce flourished, and printing, gunpowder and the compass all advanced. The Jurchen Jin took Kaifeng in 1127, ending the dynasty."
+  ],
+  "Đại Cồ Việt": [
+   "968–1054 · capital Hoa Lư, later Thăng Long (Hanoi)",
+   "The first name of independent Vietnam. Dinh Bo Linh put down twelve warlords and in 968 became emperor of Đại Cồ Việt. The Early Le beat off a Song invasion in 981. The Ly dynasty, founded in 1009, moved to Thăng Long and in 1054 renamed the country Đại Việt."
+  ],
+  "Đại Việt": [
+   "1054–1804, with interruptions · capital Thăng Long (Hanoi)",
+   "Vietnam's name under the Ly, Tran and Later Le dynasties. Its rulers paid tribute to China as kings but were emperors at home. It repelled three Mongol–Yuan invasions in the 13th century, and Le Loi drove out the Ming in 1428. In 1804 it was renamed Việt Nam."
+  ],
+  "Mongols": [
+   "",
+   "The nomad tribes of the Mongolian plateau. Under the Liao and Jin they included the warring Mongols proper, Tatars, Kereit, Naiman and Merkit. Temujin united them in 1206 as Genghis Khan. After the Yuan lost China the steppe tribes again went their own ways."
+  ],
+  "Xixia": [
+   "1038–1227 · capital Xingqing (Yinchuan)",
+   "The dynasty of the Tanguts, in Ningxia, Gansu and northern Shaanxi. Li Yuanhao proclaimed himself emperor in 1038, had a Tangut script devised and beat Song armies repeatedly. The state then balanced between Song, Liao and Jin, and was devoutly Buddhist. The Mongols destroyed it in 1227."
+  ],
+  "Song Empire|southern": [
+   "1127–1279 · capital Lin'an (Hangzhou)",
+   "The Song dynasty as rebuilt in the south by Emperor Gaozong after the Northern Song fell. Peace with Jin in 1141 fixed the border roughly on the Huai River. Trade flourished and Neo-Confucianism took shape. It resisted the Mongols for over forty years and fell at Yamen in 1279."
+  ],
+  "Nepal": [
+   "unified 1768 · capital Kathmandu",
+   "A country on the southern slopes of the Himalayas. The Malla dynasty ruled the Kathmandu valley from the 13th century until the Gorkha kingdom conquered it in 1768, unifying Nepal. The Gorkhas twice invaded Tibet; driven back by Qing forces in 1792, Nepal then sent tribute to the Qing."
+  ],
+  "Kara Khitai Khaganate": [
+   "1124–1218 · capital Balasagun (near Tokmok, Kyrgyzstan)",
+   "A Central Asian dynasty founded by Yelü Dashi, a Liao prince who went west as the Liao fell; also called the Western Liao. After defeating the Seljuk sultan in 1141 it dominated Central Asia. The Naiman prince Kuchlug usurped the throne in 1211, and the Mongols destroyed it in 1218."
+  ],
+  "Jurchen Jin": [
+   "1115–1234 · capital Huining, later Zhongdu (Beijing) and Kaifeng",
+   "The Jurchen dynasty. Wanyan Aguda became emperor in 1115; Jin destroyed the Liao in 1125 and the Northern Song in 1127 and held the north, taking tribute from the Southern Song. Under Mongol attack it moved to Kaifeng in 1214, and Mongol and Southern Song forces destroyed it in 1234."
+  ],
+  "Great Khanate": [
+   "1271–1368 · capital Dadu (Beijing)",
+   "The Mongol dynasty in China. Kublai, grandson of Genghis Khan, named his dynasty Yuan in 1271 and united China by destroying the Southern Song in 1279. It governed through provinces and was open to the outside world. Ming armies took Dadu in 1368 and the emperor withdrew to the steppe."
+  ],
+  "Chagatai Khanate": [
+   "c. 1225–mid-14th century · court near Almaliq",
+   "The khanate grown from the lands of Chagatai, second son of Genghis Khan, around the Tianshan and in Transoxiana. In the later 13th century it joined Kaidu, of Ögedei's line, in long wars against the Yuan. It split in two in the mid-14th century, and Timur later took the west."
+  ],
+  "Shogun Japan (Kamakura)": [
+   "1185–1333 · shogunate at Kamakura, emperor in Kyoto",
+   "Japan's first warrior government. Minamoto no Yoritomo, victor over the Taira, set up his headquarters at Kamakura and became shogun in 1192; after his death real power passed to the Hōjō regents. It beat off Yuan invasions in 1274 and 1281. Forces loyal to Emperor Go-Daigo destroyed it in 1333."
+  ],
+  "Tibet": [
+   "from the 13th century · centres at Sakya, Nêdong, Shigatse and Lhasa in turn",
+   "Tibet submitted to the Mongols in the mid-13th century, coming under the Yuan Bureau of Buddhist and Tibetan Affairs, with Sakya lamas ruling locally. The Phagmodrupa replaced them in the 14th century and took Ming titles. In 1642 the Khoshut Güshi Khan installed the Fifth Dalai Lama's Ganden Phodrang government."
+  ],
+  "Moghulistan": [
+   "1347–16th century · courts at Almaliq, Ilibalik and elsewhere",
+   "The eastern half of the divided Chagatai Khanate, around the Tianshan. Tughlugh Timur was raised as khan in 1347 and led his Mongol followers into Islam. The Ming called it Beshbalik, later Ilibalik. In the 16th century it gave way to the Yarkent Khanate and the rulers of Turpan."
+  ],
+  "Northern Yuan": [
+   "1368–1635 · court on the Mongolian steppe, with no fixed seat",
+   "The Yuan court after its retreat to the steppe, called Tatars by the Ming. A Ming victory at Buir Lake in 1388 broke the great khans' authority. Dayan Khan reunited the tribes in the late 15th century. In 1635 the last great khan's son submitted to the Later Jin."
+  ],
+  "Đại Ngu": [
+   "1400–1407 · capital Tây Đô (Thanh Hóa, Vietnam)",
+   "Vietnam's name under the Ho dynasty. Ho Quy Ly, the minister who had introduced paper money, deposed the last Tran ruler in 1400 and took the throne. The Yongle emperor invaded in the name of the Tran, captured Ho and his son in 1407 and annexed it as Jiaozhi."
+  ],
+  "Ming Chinese Empire": [
+   "1368–1644 · capital Nanjing, Beijing from 1421",
+   "The dynasty Zhu Yuanzhang founded after expelling the Yuan. The Yongle emperor moved to Beijing and sent Zheng He on seven voyages; later the Great Wall was rebuilt against the Mongols. Late Ming commerce boomed on imported silver. In 1644 Li Zicheng took Beijing and the last emperor hanged himself."
+  ],
+  "Korea": [
+   "1392–1897 · capital Hanseong (Seoul)",
+   "The dynasty Yi Seong-gye founded in place of Goryeo, a Ming tributary. King Sejong introduced the Korean alphabet. With Ming help it beat off the Japanese invasion of 1592–1598; in 1637 the Qing forced it to change allegiance. In 1897 it became the Korean Empire."
+  ],
+  "Oirat Confederation": [
+   "late 14th century–early 17th century",
+   "The western Mongols. Their leader Esen briefly united all the Mongols in the mid-15th century and captured the Zhengtong Emperor of Ming at Tumu in 1449. The Oirats later fell back westwards and formed four tribes: the Dzungars, Khoshuts, Dörbets and Torghuts."
+  ],
+  "Tsardom of Muscovy": [
+   "1547–1721 · capital Moscow",
+   "Russia from Ivan IV's coronation as tsar in 1547. From the late 16th century Russians crossed the Urals and within decades had crossed Siberia to the Amur, where they fought Qing forces before the Treaty of Nerchinsk in 1689. It became the Russian Empire in 1721."
+  ],
+  "Yarkent Khanate": [
+   "1514–1680 · capital Yarkent (Shache)",
+   "A khanate founded in the Tarim basin by Sultan Said Khan, a descendant of the khans of Moghulistan, over a Turkic-speaking Muslim population. In its later years two rival factions of Khoja religious leaders, the White and Black Mountain, fought for power. Galdan of the Dzungars conquered it in 1680."
+  ],
+  "Japan (Warring States)": [
+   "1467–1603 · emperor in Kyoto",
+   "After the Ōnin War of 1467 the Muromachi shogunate lost its authority and the daimyo, regional lords, fought for over a century. Building on Oda Nobunaga's conquests, Toyotomi Hideyoshi united the country in 1590 and twice invaded Korea. Tokugawa Ieyasu founded the Edo shogunate in 1603."
+  ],
+  "Dzungar Khanate": [
+   "c. 1634–1757 · court in the Ili valley",
+   "The khanate of the Dzungars, an Oirat people, around the Tianshan. Under Galdan it conquered the Yarkent Khanate and invaded Khalkha, but the Kangxi emperor defeated him; it went on contesting Tibet and Mongolia with the Qing. Qing armies entered Ili in 1755 and ended the khanate two years later."
+  ],
+  "Post-Ming Warlords": [
+   "1644–1662 · capitals in turn at Nanjing, Fuzhou, Zhaoqing and elsewhere",
+   "The regimes Ming princes set up in the south after Beijing fell, among them the Hongguang court at Nanjing, the Longwu at Fuzhou and the Yongli at Zhaoqing. Divided, they fell to the Qing one by one. The Yongli emperor fled to Burma and was executed at Kunming in 1662."
+  ],
+  "Khoshut Khanate": [
+   "1642–1717 · base in Qinghai, khan resident at Lhasa",
+   "The khanate of the Khoshuts, an Oirat people. Güshi Khan entered Qinghai in 1637, overthrew the Tsangpa ruler of Tibet in 1642 and raised up the Fifth Dalai Lama; his line kept military power there as Qing tributaries. In 1717 a Dzungar army took Lhasa and killed Lhazang Khan."
+  ],
+  "Khalkha": [
+   "16th century–1691",
+   "The Mongols north of the Gobi, led by descendants of Dayan Khan. In the 17th century they formed three khanates: Tüsheet, Setsen and Zasagt. Attacked by Galdan of the Dzungars in 1688, they fled south to the Qing and formally submitted at the Dolon Nor assembly of 1691."
+  ],
+  "Tokugawa shogunate": [
+   "1603–1868 · shogunate at Edo (Tokyo), emperor in Kyoto",
+   "The warrior government founded by Tokugawa Ieyasu, ruling key areas directly and the rest through daimyo. From the 1630s it closed the country, letting only Chinese and Dutch ships trade at Nagasaki. The United States forced Japan open from 1853, and the last shogun handed back power in 1867."
+  ],
+  "Qing Empire": [
+   "1636–1912 · capital Shengjing (Mukden), Beijing from 1644",
+   "The Manchu dynasty. Hong Taiji named his state Qing in 1636, and in 1644 it made Beijing its capital. By the mid-18th century it had taken Taiwan and destroyed the Dzungars, fixing the outline of modern China. Crises multiplied after the Opium War, and the last emperor abdicated in 1912."
+  ],
+  "Dutch Formosa": [
+   "1624–1662 · seat at Fort Zeelandia (Anping, Tainan)",
+   "The Dutch East India Company's colony in south-western Taiwan. The Dutch built Fort Zeelandia at Tayouan in 1624, brought in settlers from southern Fujian to farm, and traded in deerskins and sugar. Zheng Chenggong crossed the strait and besieged the fort in 1661, and the Dutch surrendered the next year."
+  ],
+  "Russian Empire": [
+   "1721–1917 · capital St Petersburg",
+   "Russia from 1721, when Peter I took the title of emperor. In 1858 and 1860 it forced the Qing to cede the lands north of the Amur and east of the Ussuri, then annexed the Central Asian khanates and built the Trans-Siberian Railway. Revolution overthrew it in 1917."
+  ],
+  "Burma": [
+   "Konbaung dynasty 1752–1885 · capitals including Ava and Amarapura",
+   "Burma under its last dynasty, the Konbaung. Alaungpaya rose in 1752 and reunited the country. It beat off four Qing invasions in 1765–1769 but later sent the Qing tribute. Defeated by Britain in three 19th-century wars, the kingdom ended in 1885 and was joined to British India."
+  ],
+  "Korea|empire": [
+   "1897–1910 · capital Hanseong (Seoul)",
+   "The name the Joseon state took in 1897. After the Sino-Japanese War of 1894–1895 ended Korea's tributary tie to the Qing, King Gojong declared himself emperor and began limited modernising reforms. Korea became a Japanese protectorate in 1905 and was annexed by Japan in 1910."
+  ],
+  "Imperial Japan": [
+   "1868–1947 · capital Tokyo",
+   "Japan after the Meiji Restoration, styled the Empire of Great Japan in its 1889 constitution. It industrialised quickly and expanded abroad, taking Taiwan after the war of 1894–1895, annexing Korea in 1910 and invading China from 1931. It surrendered in 1945."
+  ],
+  "French Indochina": [
+   "1887–1954 · capital Saigon, Hanoi from 1902",
+   "France's colonial federation in mainland South-East Asia. After the Sino-French War the Qing recognised the French protectorate over Vietnam in 1885. In 1887 France joined Vietnam and Cambodia into the Indochinese Union, later adding Laos. It ended with the Geneva Accords of 1954."
+  ],
+  "British Raj": [
+   "1858–1947 · capital Calcutta, later Delhi",
+   "India under direct rule by the British Crown. After the great rising of 1857 the British government took India over from the East India Company. From India Britain annexed Burma and in 1904 sent troops into Tibet. British rule ended in 1947 with independence and partition into India and Pakistan."
+  ],
+  "Wu Sangui (Zhou)": [
+   "1673–1681 · capitals Hengzhou and Kunming",
+   "Wu Sangui, a Ming general who went over to the Qing, ruled Yunnan as Prince Pingxi. He rebelled in 1673 and declared himself emperor of Zhou at Hengzhou in 1678, dying that year. Kunming fell in 1681 and his grandson Wu Shifan killed himself."
+  ],
+  "Geng Jingzhong": [
+   "1674–1676 · seat Fuzhou",
+   "Geng Jingzhong, Prince Jingnan, governed Fujian. He joined Wu Sangui's revolt in 1674 and invaded Zhejiang and Jiangxi. Pressed by Qing armies and by Zheng Jing, he surrendered in 1676 and was executed in 1682."
+  ],
+  "Shang Zhixin": [
+   "1676–1677 · seat Guangzhou",
+   "Son of Shang Kexi, Prince Pingnan. In 1676 he took over his father's command and brought Guangdong into Wu Sangui's revolt, then surrendered early the next year. The Kangxi emperor ordered him to kill himself in 1680."
+  ],
+  "Kingdom of Tungning": [
+   "1662–1683 · capital Chengtian (Tainan)",
+   "Zheng Chenggong (Koxinga) took Taiwan from the Dutch in 1662. His son Zheng Jing kept the Southern Ming calendar, ruled the island as Tungning, settled soldiers on the land and lived by sea trade. In 1683 Shi Lang beat the Zheng fleet off Penghu and Zheng Keshuang surrendered."
   ]
  },
  "presets": {
@@ -820,7 +1447,11 @@
   "Manipur": "Manipur",
   "Ladakh": "Ladakh",
   "Kashmir Sultanate": "Kashmir Sultanate",
-  "Kumul Khanate": "Kumul Khanate"
+  "Kumul Khanate": "Kumul Khanate",
+  "Wu Sangui (Zhou)": "Wu Sangui (Zhou)",
+  "Geng Jingzhong": "Geng Jingzhong",
+  "Shang Zhixin": "Shang Zhixin",
+  "Kingdom of Tungning": "Tungning (Zheng)"
  },
  "short": {
   "China": "China",
@@ -4368,7 +4999,7 @@
     ],
     [
      "The Three Feudatories and Taiwan",
-     "In 1673 the Kangxi emperor decided to abolish the three great fiefs of the south. Wu Sangui rose in Yunnan, Geng Jingzhong and Shang Zhixin followed, and war engulfed southern China for eight years, until Kunming fell in 1681. In 1683 Shi Lang destroyed the Zheng fleet off Penghu and Zheng Keshuang surrendered Taiwan. The map still shows 1650; its Southern Ming and Dutch Formosa were long gone.",
+     "In 1673 the Kangxi emperor decided to abolish the three great fiefs of the south. Wu Sangui rose in Yunnan, Geng Jingzhong and Shang Zhixin followed, and war engulfed southern China for eight years, until Kunming fell in 1681. In 1683 Shi Lang destroyed the Zheng fleet off Penghu and Zheng Keshuang surrendered Taiwan. The map shows 1676, with the revolt at its widest: Wu Sangui holds the south-west and Hunan, Geng Jingzhong Fujian and Shang Zhixin Guangdong, and Zheng Jing holds the coast of Fujian and Guangdong as well as Taiwan.",
      {
       "p": [
        "The early Qing had conquered the south with Chinese generals who had changed sides. Wu Sangui held Yunnan, Shang Kexi Guangdong and Geng Jingzhong Fujian. These Three Feudatories kept large armies, appointed their own officials and raised their own taxes, yet drew huge subsidies from the court; it was said that half the empire's revenue went to them. In 1673 the ageing Shang Kexi asked to retire to Liaodong and leave his son in command. The 19-year-old Kangxi seized the chance and ordered all three fiefs disbanded. Most ministers warned of revolt; Kangxi reckoned it would come sooner or later anyway.",
@@ -4950,7 +5581,7 @@
   {
    "h": "Maps",
    "p": [
-    "Borders start from the historical base maps of aourednik/historical-basemaps (GPL-3.0). That data is coarse for China, and all 53 snapshots are revised for this atlas: the extent of the Xia, Shang and Western Zhou, and the borders between the states of the Spring and Autumn and Warring States, the Northern and Southern dynasties, the Five Dynasties and other periods of division, are rough outlines after the standard historical atlases (chiefly the picture given by Tan Qixiang's Historical Atlas of China), not traced from them. Read them as sketches. In November 2026 an AI assistant also checked every snapshot against the histories, polity by polity, and corrected those the source puts in the wrong place, under the wrong name or far beyond their real extent (Nanzhao drawn in Burma, for one); the corrections too are rough outlines.",
+    "Borders start from the historical base maps of aourednik/historical-basemaps (GPL-3.0). That data is coarse for China, and all 54 snapshots are revised for this atlas: the extent of the Xia, Shang and Western Zhou, and the borders between the states of the Spring and Autumn and Warring States, the Northern and Southern dynasties, the Five Dynasties and other periods of division, are rough outlines after the standard historical atlases (chiefly the picture given by Tan Qixiang's Historical Atlas of China), not traced from them. Read them as sketches. In November 2026 an AI assistant also checked every snapshot against the histories, polity by polity, and corrected those the source puts in the wrong place, under the wrong name or far beyond their real extent (Nanzhao drawn in Burma, for one); the corrections too are rough outlines.",
     "Where the histories put a border on the Huai, the Yangtze or the Yellow River between Shanxi and Shaanxi, it follows the river as drawn by Natural Earth (public domain). Rivers and coastlines are today's; their changes over time are not shown. Areas are approximate and cover only the map window."
    ],
    "items": [

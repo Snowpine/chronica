@@ -14,12 +14,12 @@ from shapely.ops import substring
 
 # the snapshots used; negative years are BC (-500 = 500 BC, file world_bc500.geojson).
 # Redrawn: -1750, -1500, -1250, -1000, -800, -700, -650, -600, -500, -453, -350, -300, -260, -221, 262, 280, 320, 360, 383, 400, 420, 439, 500, 540, 560, 580, 589, 742, 910, 926, 938,
-# 950, 958, 970, 1142, 1279, 1400, 1500, 1600, 1650 (and 1949).
+# 950, 958, 970, 1142, 1279, 1400, 1500, 1600, 1650, 1676 (and 1949).
 # Left out: 1200 (Liao still stands, no Jin;
 # 1142 replaces it), 1300 (= 1279), 1530 (= 1600), 1700 (keeps the Southern Ming, which ended in 1662), 1880 (= 1900).
 YEARS = [-1750, -1500, -1250, -1000, -800, -700, -650, -600, -500, -453, -350, -300, -260, -221, -200, -100, -1, 100, 200, 262, 280, 320, 360, 383, 400, 420, 439, 500, 540, 560, 580,
          589, 700, 742, 800, 900, 910,
-         926, 938, 950, 958, 970, 1000, 1100, 1142, 1279, 1400, 1500, 1600, 1650, 1715, 1800, 1900, 1914, 1920, 1930, 1938, 1945, 1949, 1960,
+         926, 938, 950, 958, 970, 1000, 1100, 1142, 1279, 1400, 1500, 1600, 1650, 1676, 1715, 1800, 1900, 1914, 1920, 1930, 1938, 1945, 1949, 1960,
          2000]
 # For now the timeline ends with the Qing (region.json "end"); the later snapshots stay listed above for when it is
 # extended, and 2000 gives the "today's borders" layer.
@@ -29,7 +29,7 @@ MODERN = 2000
 BASE = {-1750: -1000, -1500: -1000, -1250: -1000, -800: -1000, -650: -500, -600: -500, -453: -400, -350: -400, -260: -300, -221: -200, 262: 200, 280: 300, 320: 300, 360: 300, 383: 400, 420: 400, 439: 500, 540: 600, 560: 600, 580: 600,
         589: 600,
         742: 700, 910: 1000, 926: 1000, 938: 1000, 950: 1000, 958: 1000, 970: 1000,
-        1142: 1200, 1949: 1960}
+        1142: 1200, 1676: 1650, 1949: 1960}
 
 
 # Lineage = a colour family that persists across renamings (and drives the timeline lanes). Dependencies whose overlord
@@ -136,7 +136,9 @@ RENAMES = {
     "Shogun Japan (Kamakura)": [(lambda y: y > 1336, "Japan (Muromachi)")],
     "Pagan": [(lambda y: y > 1300, "Ava")],
     "central Asian khanates": [(lambda y: y == 1600, "Oirat Confederation"),
-                               (lambda y: y in (1650, 1715), "Dzungar Khanate")],
+                               (lambda y: y in (1650, 1676, 1715), "Dzungar Khanate")],
+    # the Southern Ming of the 1650 layer was gone by 1662: in 1676 its lands are Qing, less what the Three Feudatories hold (CUT)
+    "Post-Ming Warlords": [(lambda y: y == 1676, "Qing Empire")],
     "Taiwan": [(lambda y: y < 1624, "Taiwanese Tribes"), (lambda y: 1683 < y < 1895, "Qing Empire"),
                (lambda y: y == 1945, "Republic of China")],  # a Qing prefecture from 1684; returned to China in 1945
     "Manchu Empire": [(lambda y: y < 1912, "Qing Empire"), (always, "Republic of China")],
@@ -577,9 +579,9 @@ CUT = [
     ((1600,), "Oirat Confederation", WESTERN_REGIONS, "Yarkent Khanate"),
     ((1600,), "Oirat Confederation", MANCHURIA, "Jurchens"),
     ((1600,), "Ming Chinese Empire", MANCHURIA, "Jurchens"),  # the 1600 layer stretches the Ming over the Jurchens
-    ((1650,), "Dzungar Khanate", MONGOLIA, "Khalkha"),
-    ((1650,), "Dzungar Khanate", WESTERN_REGIONS, "Yarkent Khanate"),
-    ((1650,), "Dzungar Khanate", MANCHURIA, "Qing Empire"),
+    ((1650, 1676), "Dzungar Khanate", MONGOLIA, "Khalkha"),
+    ((1650, 1676), "Dzungar Khanate", WESTERN_REGIONS, "Yarkent Khanate"),
+    ((1650, 1676), "Dzungar Khanate", MANCHURIA, "Qing Empire"),
 ]
 # SPLIT: (years, NAME, border lines, {NAME: [seed points]}): NAME is cut along the lines; each piece goes to the name
 # whose seed it holds, a piece without a seed (an island) to the piece nearest to it
@@ -846,6 +848,23 @@ JIUQUAN = [(97.6, 38.8), (97.6, 40.6), (100.2, 40.2), (100.2, 38.8)]
 KOKONOR = [(90.0, 35.5), (90.5, 38.6), (93.5, 39.4), (96.5, 39.2), (98.5, 38.8), (100.5, 38.0), (101.4, 37.0), (101.6, 35.5), (100.8, 34.2),
            (98.0, 33.8), (94.5, 34.0), (91.5, 34.5)]
 DZUNGAR_EAST_1715 = [(92.6, 37.0), (92.6, 43.0), (93.0, 44.6), (95.0, 46.0), (95.0, 51.0), (106.0, 51.0), (106.0, 37.0)]
+# 1676: the mainland coast the Zheng held (Zhangzhou, Quanzhou, Tingzhou, Chaozhou and Huizhou, with Xiamen and Jinmen)
+TUNGNING_COAST_1676 = [(114.0, 22.0), (114.0, 23.2), (114.4, 23.9), (115.0, 24.5), (115.6, 24.6), (116.0, 24.9), (115.85, 25.5), (116.05, 26.25),
+                       (116.9, 26.3), (117.3, 25.8), (117.9, 25.65), (118.6, 25.6), (118.95, 25.15), (119.6, 24.6), (118.6, 23.4), (116.5, 22.2)]
+TUNGNING_TAIWAN = [(120.0, 22.4), (120.75, 22.5), (120.95, 23.5), (120.85, 24.35), (120.35, 24.35), (119.95, 23.3)]
+# Geng Jingzhong: Fujian north of the Zheng, along the Wuyi range, and Wenzhou
+GENG_1676 = [(116.5, 26.3), (116.6, 26.8), (116.9, 27.1), (117.1, 27.4), (117.3, 27.8), (117.8, 28.0), (118.5, 28.3), (119.0, 27.75), (119.6, 27.6),
+             (119.9, 28.1), (120.4, 28.5), (121.3, 28.5), (121.0, 26.5), (120.0, 24.8), (118.5, 25.0), (117.3, 25.8), (116.9, 26.2)]
+# Shang Zhixin: Guangdong with Leizhou, Lianzhou and Hainan, up to the Nanling and the Jiangxi border
+SHANG_1676 = [(107.9, 21.4), (108.0, 22.0), (108.9, 22.35), (109.8, 22.25), (110.3, 22.2), (110.6, 22.45), (111.2, 22.6), (111.5, 23.3), (111.7, 23.9),
+              (112.0, 24.3), (111.9, 25.0), (112.7, 25.2), (113.3, 25.45), (114.4, 25.5), (114.75, 25.2), (114.7, 24.75), (115.1, 24.6), (116.0, 24.0),
+              (117.5, 23.0), (115.0, 21.5), (112.0, 20.0), (111.5, 17.5), (108.0, 17.8), (108.0, 20.0)]
+# Wu Sangui: Yunnan, Guizhou, Guangxi, Sichuan, Hanzhong and Hunan; the front runs along the Qinling, the Yangtze below the
+# gorges and Lake Dongting to Yuezhou, with a salient through Yuanzhou to Ji'an in Jiangxi. South and west it is drawn wide.
+ZHOU_1676 = [(102.0, 32.9), (104.2, 33.0), (105.2, 32.7), (106.0, 33.3), (106.5, 33.9), (107.5, 33.9), (108.5, 33.6), (109.3, 33.5), (110.0, 33.2),
+             (110.1, 32.4), (109.6, 31.7), (110.3, 31.2), (110.6, 30.7), (111.2, 30.3), (111.7, 30.0), (112.2, 29.85), (112.75, 29.7), (113.25, 29.6),
+             (113.75, 29.3), (114.0, 28.8), (114.25, 28.3), (114.95, 27.95), (115.3, 27.5), (115.3, 27.0), (115.0, 26.7), (114.2, 26.6), (114.0, 26.2),
+             (113.95, 25.6), (113.4, 25.5), (112.0, 21.0), (106.0, 20.5), (100.0, 20.5), (97.0, 23.5), (97.5, 28.5), (99.5, 30.5), (101.0, 32.0)]
 # the whole island with Green and Orchid Islands: Taiwan Prefecture of Fujian from 1684 (the Qing settled the western plains;
 # the mountains and the east coast were left to the indigenous peoples until 1875, but lay within the prefecture)
 TAIWAN = [(120.55, 21.6), (119.95, 22.5), (119.9, 23.4), (120.4, 25.0), (121.4, 25.5), (122.15, 25.15), (121.95, 24.0), (121.75, 22.0),
@@ -906,14 +925,20 @@ CUT += [
     ((1500,), "Moghulistan", rect(110, 40.5, 125, 44), "Northern Yuan"),
     ((1600,), "Oirat Confederation", rect(100, 52, 145, 60), "Siberians"),
     ((1600,), "Oirat Confederation", rect(100, 40, 145, 52), "Northern Yuan"),
-    ((1650,), "Dzungar Khanate", rect(100, 52.5, 145, 60), "Siberians"),
-    ((1650,), "Dzungar Khanate", rect(100, 40, 145, 52.5), "Khalkha"),
+    ((1650, 1676), "Dzungar Khanate", rect(100, 52.5, 145, 60), "Siberians"),
+    ((1650, 1676), "Dzungar Khanate", rect(100, 40, 145, 52.5), "Khalkha"),
     ((1600,), "Ming Chinese Empire", rect(124, 53.5, 132, 58), "Jurchens"),  # the Ming never held the upper Zeya
     ((1600,), "Tsardom of Muscovy", rect(60, 40, 75, 55.8), "Quazaq Khanate"),  # Russia's frontier was the Tara–Narym line
     ((1600,), "Tsardom of Muscovy", rect(75, 40, 92, 55.8), "Oirat Confederation"),
     ((1600,), "Tsardom of Muscovy", rect(92, 40, 150, 55.8), "Siberians"),
-    ((1650,), "Tsardom of Muscovy", rect(85, 45, 100, 53.5), "Dzungar Khanate"),
-    ((1650,), "Tsardom of Muscovy", rect(100, 45, 125, 53.5), "Khalkha"),
+    ((1650, 1676), "Tsardom of Muscovy", rect(85, 45, 100, 53.5), "Dzungar Khanate"),
+    ((1650, 1676), "Tsardom of Muscovy", rect(100, 45, 125, 53.5), "Khalkha"),
+    # 1676, the Revolt of the Three Feudatories at its widest (summer): the Zheng on the coast first, then Geng Jingzhong
+    # and Shang Zhixin, so that Wu Sangui's wide outline takes only what is left of the Qing south and west
+    ((1676,), "Qing Empire", TUNGNING_COAST_1676, "Kingdom of Tungning"),
+    ((1676,), "Qing Empire", GENG_1676, "Geng Jingzhong"),
+    ((1676,), "Qing Empire", SHANG_1676, "Shang Zhixin"),
+    ((1676,), "Qing Empire", ZHOU_1676, "Wu Sangui (Zhou)"),
     ((1715,), "Dzungar Khanate", DZUNGAR_EAST_1715, "Qing Empire"),  # Hami, Barkol, Hexi, Alxa and Khalkha were Qing
     ((1800,), "central Asian khanates", rect(74, 36, 80, 42), "Qing Empire"),  # Kashgar was Qing from 1759
     ((1600,), "Laos", rect(98.8, 20.5, 100.3, 22), "Burmese kingdoms"),  # Kengtung
@@ -1050,16 +1075,19 @@ ASSIGN += [
     ((1400, 1500), YANBIAN, "Jurchens", ()),
     ((1500,), TUMEN_S, "Korea", ()),
     ((1400, 1500, 1600), JIUQUAN, "Ming Chinese Empire", ()),
-    ((1650, 1715), JIUQUAN, "Qing Empire", ()),
+    ((1650, 1676, 1715), JIUQUAN, "Qing Empire", ()),
     ((1500,), ORDOS_1500, "Northern Yuan", ()),
     ((1600,), MING_WALL_N, "Northern Yuan", {"Jurchens", "Korea"}),
     ((1500, 1600), HAINAN_ISLAND, "Ming Chinese Empire", ()),
     ((1600,), KOKONOR, "Northern Yuan", {"Ming Chinese Empire"}),  # the Tümed in Kokonor
-    ((1650, 1715), KOKONOR, "Khoshut Khanate", {"Qing Empire"}),
+    ((1650, 1676, 1715), KOKONOR, "Khoshut Khanate", {"Qing Empire"}),
     ((1650,), SICHUAN_S_1650, "Post-Ming Warlords", ()),
     ((1650,), LIJIANG, "Post-Ming Warlords", ()),
     ((1715, 1800), TAIWAN, "Qing Empire", ()),
-    ((1500, 1600, 1650, 1715, 1800), RYUKYU, "Ryukyu Kingdom", ()),
+    ((1500, 1600, 1650, 1676, 1715, 1800), RYUKYU, "Ryukyu Kingdom", ()),
+    # the Zheng kingdom of Tungning (1662–1683) held the western plain of Taiwan; the rest of the island was indigenous land
+    ((1676,), TAIWAN, None, ()),
+    ((1676,), TUNGNING_TAIWAN, "Kingdom of Tungning", ()),
     ((1900,), RYUKYU, "Imperial Japan", ()),
     ((1900,), rect(120.9, 38.6, 122.3, 39.5), "Kwantung Leased Territory", ()),
     ((1900,), rect(119.9, 35.85, 120.6, 36.4), "Kiautschou Bay", ()),
@@ -1135,7 +1163,7 @@ CUT += [
     ((1400,), "Sultanate of Delhi", rect(87.8, 21.5, 92.6, 27), "Bengal"),
     ((1400,), "Ava", WEST_OF_PATKAI, None),
     ((1500,), "Burmese kingdoms", WEST_OF_PATKAI, None),
-    *[((y,), "Shan states", WEST_OF_PATKAI, None) for y in (1600, 1650, 1715)],
+    *[((y,), "Shan states", WEST_OF_PATKAI, None) for y in (1600, 1650, 1676, 1715)],
     ((1800,), "Burma", WEST_OF_PATKAI, None),  # Burma invaded Assam in 1817 and Manipur in 1819
 ]
 
@@ -1146,8 +1174,8 @@ ASSIGN += [
         (NORTH_EARLY, "Northern Zone cultures"), (EAST_OF_LIAO, "Northeastern cultures"),
         (rect(100, 18, 124, 29.6), "Proto-Baiyue"), (rect(117.5, 29.6, 123, 31.9), "Proto-Baiyue"))],
     ((-500,), PENGCHENG, "Song", ()),  # Pengcheng was Song's
-    *[((y,), NEPAL, "Nepal", ()) for y in (1400, 1500, 1600, 1650, 1715)],  # the Malla kingdoms
-    *[((y,), LADAKH, "Ladakh", ()) for y in (1500, 1600, 1650, 1715, 1800)],  # the Namgyal kingdom, independent until 1834
+    *[((y,), NEPAL, "Nepal", ()) for y in (1400, 1500, 1600, 1650, 1676, 1715)],  # the Malla kingdoms
+    *[((y,), LADAKH, "Ladakh", ()) for y in (1500, 1600, 1650, 1676, 1715, 1800)],  # the Namgyal kingdom, independent until 1834
     ((1500,), KASHMIR, "Kashmir Sultanate", ()),
     ((1800,), KASHMIR, "Afghanistan", ()),  # Durrani Kashmir; the Sikhs took it in 1819
     ((1400,), AS_UP, "Ahom kingdom", ()),
@@ -1155,10 +1183,12 @@ ASSIGN += [
     *[((1500,), a, "Ahom kingdom", ()) for a in (AS_UP, AS_MID)],
     ((1500,), AS_KAMRUP, "Bengal", ()),  # Husain Shah took Kamata in 1498
     *[((1600, 1650), a, "Ahom kingdom", ()) for a in (AS_UP, AS_MID)],
+    *[((1676,), a, "Ahom kingdom", ()) for a in (AS_UP, AS_MID, AS_KAMRUP)],  # the Ahoms held Kamrup from 1667 to 1679
+    ((1676,), AS_GOALPARA, "Mughal Empire", ()),
     *[((1600,), a, "Koch kingdom", ()) for a in (AS_KAMRUP, AS_GOALPARA)],
     *[((1650,), a, "Mughal Empire", ()) for a in (AS_KAMRUP, AS_GOALPARA)],  # Mughal Kamrup, 1639–1658
     *[((1715, 1800), a, "Ahom kingdom", ()) for a in (AS_UP, AS_MID, AS_KAMRUP)],
     ((1715,), AS_GOALPARA, "Mughal Empire", ()),
-    *[((y,), MANIPUR, "Manipur", ()) for y in (1400, 1500, 1600, 1650, 1715, 1800)],
+    *[((y,), MANIPUR, "Manipur", ()) for y in (1400, 1500, 1600, 1650, 1676, 1715, 1800)],
     ((1715,), KUMUL, "Kumul Khanate", ()),
 ]
