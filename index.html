@@ -209,7 +209,10 @@ aside { grid-area: side; min-height: 0; overflow: auto; display: flex; flex-dire
 aside h2 { margin: 0 0 4px; font-size: 13px; font-weight: 500; color: var(--ink); display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 aside h2 span { font: 400 12px var(--f-num); color: var(--faint); font-variant-numeric: tabular-nums; }
 aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--muted); }
-.note { margin: 4px 0 6px; font-size: 12px; color: var(--muted); background: var(--accent-soft); border-radius: 6px; padding: 6px 8px; }
+.note { margin: 4px 0 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
+.fold { display: inline-flex; align-items: center; gap: 7px; padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.fold::before { content: ""; width: 5px; height: 5px; margin-left: 2px; border: solid var(--muted); border-width: 0 1.5px 1.5px 0; transform: rotate(-45deg); }
+.fold[aria-expanded="true"]::before { transform: translateY(-2px) rotate(45deg); }
 .empty { margin: 6px 0; font-size: 13px; color: var(--muted); }
 .row {
   width: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; text-align: left;
@@ -233,6 +236,12 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 .card p { margin: 4px 0; font-size: 13px; }
 .card .en { color: var(--faint); font-size: 12px; margin-top: 0; }
 .card .meta { color: var(--muted); }
+.ov p { font-size: 14px; line-height: 1.75; }
+.ov-ids { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.idchip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px 3px 8px; border: 1px solid var(--rule); border-radius: 999px; background: none; color: var(--ink); font-size: 13px; cursor: pointer; }
+.idchip i { width: 10px; height: 10px; border-radius: 2px; border: 1px solid var(--border-poly); }
+.idchip:hover { border-color: var(--faint); }
+.idchip[aria-pressed="true"] { border-color: var(--ink); background: color-mix(in srgb, var(--rule) 45%, transparent); }
 .runs { list-style: none; margin: 4px 0 0; padding: 0; font-size: 13px; }
 .runs li { display: flex; justify-content: space-between; gap: 10px; padding: 3px 0; border-top: 1px dotted var(--rule); }
 .runs .yr { min-width: 0; font-size: 12px; }
@@ -600,12 +609,13 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     getJSON(`${RDIR}/events.json`),
     getJSON(`${RDIR}/stories.json`),
     getJSON(`${RDIR}/cities.json`),
+    getJSON(`${RDIR}/overviews.json`),
   ]);
   pData.catch(() => {}); // a failure surfaces where it is awaited below
   // A locale is the interface text with the region's content laid over it, section by section (the region's "ui"
   // adds its title). A region not yet translated into the language shows its English content.
   // sections a region may leave out: a missing name falls back to the source's English name, a missing text to its key
-  const SECTIONS = ["types", "regions", "lanes", "lineages", "notes", "presets", "names", "short", "cities", "rivers", "ranges", "events", "stories", "aliases"];
+  const SECTIONS = ["types", "regions", "lanes", "lineages", "notes", "overviews", "presets", "names", "short", "cities", "rivers", "ranges", "events", "stories", "aliases"];
   const complete = loc => {
     for (const k of SECTIONS) loc[k] = loc[k] || {};
     for (const k of ["eras", "erasShort", "periods"]) loc[k] = loc[k] || [];
@@ -654,7 +664,8 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     document.documentElement.classList.add("i18n");
   }
   applyText();
-  const [RC, data, phys, eventRows, storyRows, cityRows] = await pData; // RC: the region's region.json
+  // OVERVIEWS: the main powers of a snapshot, { year: [identity ids] }, which its overview (locale "overviews") lists
+  const [RC, data, phys, eventRows, storyRows, cityRows, OVERVIEWS] = await pData; // RC: the region's region.json
 
   const YEARS = data.years, LIN = data.lineages, IDENTS = data.idents, CHANGES = data.changes, topo = data.topo;
   // in year order whatever the file's order: "upcoming" and compare's "between" take the first ones
@@ -717,8 +728,8 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 
   const storedLanes = () => { try { return localStorage.getItem(LANES_KEY) === "1"; } catch (e) { return false; } };
   // lanes: the timeline's per-power lanes are open; chgAll: the side panel lists all of this snapshot's changes, not just the largest;
-  // reading: a story is open in the reading layout (its full text beside the map)
-  const state = { year: null, t: tf(START), snap: -1, sel: null, show: { chg: true, ev: true, modern: false, phys: false }, playing: false, mode: "explore", story: null, yearA: null, snapA: -1, lanes: storedLanes(), chgAll: false, reading: false };
+  // reading: a story is open in the reading layout (its full text beside the map); open: the side panel's folded sections
+  const state = { year: null, t: tf(START), snap: -1, sel: null, show: { chg: true, ev: true, modern: false, phys: false }, playing: false, mode: "explore", story: null, yearA: null, snapA: -1, lanes: storedLanes(), chgAll: false, reading: false, open: { chg: false, note: false } };
   const STORIES = storyRows.map(ch => ({
     id: ch.id, span: ch.span, chart: ch.chart, title: ch.id, lede: "",
     steps: ch.steps.map(st => ({ ...st, t: "", b: "", evIds: (st.ev || []).map(k => EVENTS.findIndex(e => e.key === k)).filter(i => i >= 0) })),
@@ -1490,6 +1501,31 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   const runsList = runs => `<ol class="runs">${runs.map(r =>
     `<li><span>${esc(pname(r[0]))}</span><span class="yr">${fyr(r[1], r[2])}</span></li>`).join("")}</ol>`;
 
+  // The chapter to read about a year: of the chapters whose span covers it, the step nearest the year (a later chapter
+  // wins a tie, so a year where two meet opens the one that starts there); failing that, a step within 25 years.
+  function storyFor(y) {
+    let best = null;
+    STORIES.forEach((c, i) => c.steps.forEach((st, s) => {
+      const d = Math.abs(st.y - y), covers = y >= c.span[0] && y <= c.span[1];
+      if ((covers || d <= 25) && (!best || covers > best.covers || (covers === best.covers && d <= best.d))) best = { i, s, d, covers, title: c.title };
+    }));
+    return best;
+  }
+  // Exploring, the panel opens with the snapshot's overview: what the map shows in a few sentences (locale "overviews":
+  // [title, text]), its main powers to pick out on the map (overviews.json) and the chapter that tells the story.
+  function overviewSec() {
+    const y = YEARS[state.snap], tx = LOC.overviews[y];
+    if (state.mode !== "explore" || !tx) return "";
+    const s = state.sel, ids = (OVERVIEWS[y] || []).map(id => {
+      const f = feats.filter(f => f.properties.i === id).sort((a, b) => b.properties.a - a.properties.a)[0];
+      return f ? `<button class="idchip" data-act="ov-id" data-id="${esc(id)}" aria-pressed="${!!s && s.kind === "ident" && s.id === id}"><i style="background:${linSwatch(id)}"></i>${esc(pname(f.properties.n))}</button>` : "";
+    }).join("");
+    const ch = storyFor(y);
+    return `<div class="card ov"><div class="card-top"><span class="tag">${esc(tr("overview", { y: fy(y) }))}</span></div>
+      <h4>${esc(tx[0])}</h4><p>${esc(tx[1])}</p>${ids ? `<div class="ov-ids">${ids}</div>` : ""}
+      ${ch ? `<button class="link" data-act="ov-story" data-i="${ch.i}" data-s="${ch.s}">${esc(tr("overview.story", { t: ch.title }))} →</button>` : ""}</div>`;
+  }
+
   function selCard() {
     const s = state.sel;
     if (!s) return "";
@@ -1529,17 +1565,29 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const boxes = RC.core ? (typeof RC.core[0][0] === "number" ? [RC.core] : RC.core) : [RC.window];
     const core = c => boxes.some(([[w, s], [e, n]]) => c.x > w && c.x < e && c.y > s && c.y < n);
     const cs = (CHANGES[y] || []).map((c, k) => ({ ...c, k })).sort((a, b) => core(b) - core(a) || b.a - a.a);
-    const noteText = LOC.notes[y];
-    const note = noteText ? `<p class="note">${esc(noteText)}</p>` : "";
+    const range = tr("snapRange", { a: fy(prev), b: fy(y) });
+    // the list is a detail of the map's hatched areas, so it stays folded until asked for
+    if (!state.open.chg) return `<section><h2>${foldBtn("chg", tr("changes"))} <span>${esc(range)}${cs.length ? ` · ${esc(tr("changes.count", { n: cs.length }))}` : ""}</span></h2></section>`;
+    // a state that is gone, most of its land now a state that is new, was replaced rather than robbed
+    const si = state.snap, from = c => IDENTS[c.from], to = c => IDENTS[c.to];
+    const replaced = c => from(c) && to(c) && !from(c).s[si] && !to(c).s[si - 1] && c.a >= .6 * from(c).s[si - 1];
     // the three largest first; the rest of the top ten one click away
     const shown = state.chgAll ? 10 : 3, hidden = Math.min(cs.length, 10) - shown;
     const rows = cs.slice(0, shown).map(c => `<button class="row" data-act="chg" data-k="${c.k}">
         <i class="sw" style="background:${linSwatch(c.to)}"></i>
-        <span>${tr("changeRow", { to: `<b>${esc(pname(c.toK))}</b>`, from: esc(pname(c.fromK)) })}<small>${esc(approx(c.a))}</small></span></button>`).join("");
+        <span>${tr(replaced(c) ? "changeRow.replaced" : "changeRow", { to: `<b>${esc(pname(c.toK))}</b>`, from: esc(pname(c.fromK)) })}<small>${esc(approx(c.a))}</small></span></button>`).join("");
     const more = hidden > 0 ? `<button class="link" data-act="chg-all">${esc(tr("changes.showAll", { n: hidden }))}</button>`
       : cs.length > 10 ? `<p class="more">${esc(tr("changes.more", { n: cs.length - 10 }))}</p>` : "";
     const off = state.show.chg ? "" : `<p class="more">${esc(tr("changes.off"))}</p>`;
-    return `<section><h2>${esc(tr("changes"))} <span>${esc(tr("snapRange", { a: fy(prev), b: fy(y) }))}</span></h2>${note}${rows || (noteText ? "" : `<p class="empty">${esc(tr("changes.none"))}</p>`)}${more}${off}</section>`;
+    return `<section><h2>${foldBtn("chg", tr("changes"))} <span>${esc(range)}</span></h2>${rows || `<p class="empty">${esc(tr("changes.none"))}</p>`}${more}${off}</section>`;
+  }
+  // a section heading that folds its section (state.open)
+  const foldBtn = (k, label) => `<button class="fold" data-act="fold" data-k="${k}" aria-expanded="${state.open[k]}">${esc(label)}</button>`;
+  // what this atlas changed in the source's snapshot (locale "notes"): for the curious, so folded away
+  function notesSec() {
+    const y = YEARS[state.snap], text = LOC.notes[y];
+    if (!text) return "";
+    return `<section><h2>${foldBtn("note", tr("mapNote"))} <span>${esc(tr("mapNote.snap", { y: fy(y) }))}</span></h2>${state.open.note ? `<p class="note">${esc(text)}</p>` : ""}</section>`;
   }
 
   function eventsSec() {
@@ -1737,14 +1785,14 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     if (state.reading) return renderReader();
     const rec = recentEvents(), up = upcomingEvents(), s = state.sel;
     const key = [state.snap, eraIndex(state.year), s && s.kind, s && s.id, s && s.side, rec.map(e => e.id).join(","), up.map(e => e.id).join(","),
-      state.show.chg, state.chgAll, state.mode, state.story ? `${state.story.ch}-${state.story.step}-${curStep().y === state.year}` : "",
+      state.show.chg, state.chgAll, state.open.chg, state.open.note, state.mode, state.story ? `${state.story.ch}-${state.story.step}-${curStep().y === state.year}` : "",
       comparing() ? `${state.yearA}-${state.year}` : ""].join("|");
     if (key !== sideKey || force) {
       if (sidePressed) sidePending = true; // rebuild once the button is released, so its click still lands
       else {
         sideKey = key;
         const a = document.activeElement, refocus = a !== side && side.contains(a) ? focusSel(a) : null;
-        side.innerHTML = storySec() + selCard() + (comparing() ? compareSec() : eventsSec() + changesSec()) + footer();
+        side.innerHTML = storySec() + overviewSec() + selCard() + (comparing() ? compareSec() : eventsSec() + changesSec() + notesSec()) + footer();
         fillCharts();
         if (refocus !== null) (refocus && side.querySelector(refocus) || side.querySelector("[data-act=snext]") || side).focus({ preventScroll: true });
       }
@@ -1800,6 +1848,9 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     else if (act === "sback") goStep(state.story.step);
     else if (act === "lineage") select({ kind: "lineage", id: b.dataset.id });
     else if (act === "ident") select({ kind: "ident", id: b.dataset.id });
+    else if (act === "ov-id") select(b.getAttribute("aria-pressed") === "true" ? null : { kind: "ident", id: b.dataset.id }); // a second press lets go
+    else if (act === "ov-story") openStory(+b.dataset.i, +b.dataset.s);
+    else if (act === "fold") { state.open[b.dataset.k] = !state.open[b.dataset.k]; renderSide(true); }
     else if (act === "locate") { const e = EVENTS[state.sel.id]; zoomToPoint(e.lon, e.lat); }
     else if (act === "about") openAbout();
     else if (act === "era") { stopPlay(); setYear(eraMap(...ERAS[+b.dataset.i])); }
@@ -1988,11 +2039,11 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     drawTimeline();
     renderSide(true);
   }
-  function openStory(ch) {
+  function openStory(ch, step = 0) {
     state.story = { ch, step: 0 };
     if (state.reading && !hasLong(STORIES[ch])) setReading(false);
     if (state.mode !== "story") setMode("story");
-    goStep(0);
+    goStep(step);
   }
   function closeStory() {
     if (state.reading) setReading(false);

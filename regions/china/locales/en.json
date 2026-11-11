@@ -121,6 +121,220 @@
   "1800": "Kashgar is Qing from 1759, and all of Taiwan is drawn as the Qing's Taiwan Prefecture (the east coast got Qing officials only in 1875). Ladakh and Assam are still independent (Burma invaded Assam only in 1817), and Kashmir is still Afghan (the Sikhs took it in 1819).",
   "1900": "The foreign leases are added: Port Arthur and Dalny (Russia), Kiautschou (Germany), Weihaiwei (Britain) and Kwangchowan (France). Tawang was still Tibetan."
  },
+ "overviews": {
+  "-1750": [
+   "Erlitou and the Xia",
+   "Erlitou on the middle Yellow River is one of East Asia's first Bronze Age capitals, and most scholars link it with the Xia of later texts. No writing survives from it, so the areas on the map are only the rough spread of archaeological cultures. Around it are the Dongyi, the forerunners of the Shang, and other bronze cultures of the north and the Yangtze."
+  ],
+  "-1500": [
+   "The rise of the Shang",
+   "Around 1600 BC Tang of Shang overthrew the Xia. The Shang capital now stands near modern Zhengzhou (the Erligang culture), and its bronzes reach as far as Panlongcheng on the middle Yangtze. Sanxingdui in the Sichuan basin and the Dongyi in the east lie beyond Shang power."
+  ],
+  "-1250": [
+   "Wu Ding at Yin",
+   "King Wu Ding rules from Yin (modern Anyang). The oracle bones begin in his reign, the earliest systematic Chinese writing; they record campaigns against the Guifang and the Qiang, some led by his consort Fu Hao. The Zhou in the west are still a minor people."
+  ],
+  "-1000": [
+   "The Zhou fiefs",
+   "Around 1046 BC King Wu of Zhou destroyed the Shang at Muye. By the reigns of Cheng and Kang the Duke of Zhou's eastern campaign is over, and the royal house has planted kinsmen and allies across the land as lords of Qi, Lu, Yan, Jin and other states. The kings rule from Haojing in Guanzhong, with Luoyi to watch the east. 'Zhou states' on the map is the sum of these fiefs."
+  ],
+  "-800": [
+   "King Xuan's revival",
+   "King Xuan reigns. After the revolt of 841 BC drove out King Li, the Gonghe regency governed for a time; exact Chinese chronology begins that year. Xuan campaigns against the Xianyun, the Huai Yi and Chu in the south, and his reign is remembered as a revival, but within thirty years King You is killed and the Western Zhou ends."
+  ],
+  "-700": [
+   "After the move east",
+   "In 770 BC King Ping moved east to Luoyi; from then on the Zhou king is overlord in name only. The most active ruler of the past decades was Duke Zhuang of Zheng, whose army beat the king's at Xuge in 707 BC; he died last year. Qi, Jin, Qin and Chu are growing on the four sides, and Rong and Di peoples still live among the Zhou states."
+  ],
+  "-650": [
+   "Duke Huan, first hegemon",
+   "Duke Huan of Qi, with Guan Zhong as minister, rallies the states to 'honour the king and repel the barbarians': he rescues Yan, restores Xing and Wey, leads the lords against Chu in 656 BC and presides at Kuiqiu in 651 BC as the first hegemon. Chu presses north, Jin under the late Duke Xian has swallowed its small neighbours, and Duke Mu of Qin begins to look east."
+  ],
+  "-600": [
+   "Jin against Chu",
+   "The contest between Jin and Chu is at its height. Duke Wen of Jin beat Chu at Chengpu in 632 BC and became hegemon. Now King Zhuang of Chu has paraded his army at Luoyi and asked the weight of the royal tripods (606 BC), and in 597 BC he will rout Jin at Bi. Zheng, Song and the other states between them change sides as each power advances."
+  ],
+  "-500": [
+   "Wu and Yue",
+   "Wu rises in the south-east: in 506 BC King Helü, with Wu Zixu and Sun Wu, takes the Chu capital Ying. Yue then rises behind Wu, and their struggle lasts over thirty years until Yue destroys Wu in 473 BC. In the central states power is passing to the great ministerial houses, the six ministers in Jin and the Three Huan in Lu, where Confucius now holds office."
+  ],
+  "-453": [
+   "The partition of Jin",
+   "In this year the houses of Han, Zhao and Wei destroy the Zhi clan beneath the walls of Jinyang and divide Jin among themselves, setting the pattern of the Warring States; the Zhou king recognises them as lords in 403 BC. In Qi the Tian clan already holds real power. Yue, having destroyed Wu, has moved north to Langya; Chu expands eastward and Qin is still a western outlier."
+  ],
+  "-350": [
+   "Shang Yang's reforms",
+   "Wei, the first state to reform, under Marquis Wen, is still the leading power, though Qi checked it at Guiling in 353 BC. In Qin, Duke Xiao has put Shang Yang in charge of reform: after the laws of 356 BC a second round comes this year, with the capital moved to Xianyang, counties across the land and rewards for farming and fighting. Qin's rise begins here."
+  ],
+  "-300": [
+   "Alliances for and against Qin",
+   "Qin annexed Ba and Shu in 316 BC and beat Chu at Danyang and Lantian, becoming the threat every other state must reckon with. Persuaders in the mould of Zhang Yi travel from court to court, urging 'vertical' alliances against Qin or 'horizontal' ones with it. King Wuling of Zhao adopts nomad dress and mounted archery in 307 BC and pushes north; Qi in the east is at its peak."
+  ],
+  "-260": [
+   "The battle of Changping",
+   "In this year the Qin general Bai Qi crushes Zhao at Changping; the Shiji says 400,000 men who had surrendered were buried alive. No eastern state can now face Qin alone. Chu lost its capital Ying to Bai Qi in 278 BC and moved east, and Qi never recovered from the five-state invasion of 284 BC. Four years from now Qin will end the Zhou royal house."
+  ],
+  "-221": [
+   "Qin unites the realm",
+   "Within ten years King Zheng of Qin has destroyed Han, Zhao, Wei, Chu, Yan and Qi; this year the realm is one and he takes the title First Emperor. Fiefs give way to commanderies and counties, and script, weights and measures and axle widths are made uniform. The Xiongnu in the north and the Baiyue in the south still lie outside; Qin armies take the Ordos and enter Lingnan a few years later."
+  ],
+  "-200": [
+   "The early Han and the Xiongnu",
+   "Qin fell under its second emperor, and after the war between Chu and Han, Liu Bang founded the Han in 202 BC. This year he marches against the Xiongnu and is trapped for seven days at Baideng by the chanyu Modu; afterwards the Han buys peace with marriage alliances. Modu has beaten the Donghu, driven back the Yuezhi and united the steppe. In the south Zhao Tuo holds Lingnan as king of Nanyue."
+  ],
+  "-100": [
+   "Emperor Wu's empire",
+   "Emperor Wu has reigned for forty years. Wei Qing and Huo Qubing have driven the Xiongnu north of the Gobi, the Han holds the Hexi corridor with four commanderies, and Zhang Qian's missions have opened the road to Central Asia. Nanyue, Minyue, Korea and the south-western peoples are now commanderies. Li Guangli's expedition to Dayuan succeeded in 101 BC, but the endless wars have drained the treasury."
+  ],
+  "-1": [
+   "The last years of Western Han",
+   "The Xiongnu split in the mid-first century BC; the chanyu Huhanye submitted to the Han, Wang Zhaojun went north as his bride in 33 BC, and the frontier has been quiet for decades. Since 60 BC a Protector-General has overseen the oasis states on both sides of the Tianshan. This year Emperor Ai dies and Wang Mang returns to power; nine years on he will take the throne and found the Xin dynasty."
+  ],
+  "100": [
+   "The Eastern Han at its height",
+   "Liu Xiu, Emperor Guangwu, restored the Han in AD 25 with his capital at Luoyang. Under Emperor He, Ban Chao has spent nearly thirty years in the Western Regions, where he re-established the Protectorate and three years ago sent Gan Ying towards Rome as far as the Persian Gulf. Dou Xian broke the Northern Xiongnu in 89–91, and the Xianbei have taken over the Mongolian steppe. The Southern Xiongnu live along the frontier as Han dependants."
+  ],
+  "200": [
+   "The battle of Guandu",
+   "Since the Yellow Turban rising of 184 the Eastern Han has been an empire in name, its provinces held by governors and generals. This year Cao Cao defeats the much larger army of Yuan Shao at Guandu and goes on to unite the north. Sun Ce has just died, leaving the lower Yangtze to Sun Quan; Liu Bei is still a guest in other men's camps. Emperor Xian is in Cao Cao's hands, a figurehead."
+  ],
+  "262": [
+   "The Three Kingdoms near their end",
+   "Wei, Shu and Wu have stood side by side for forty years. In Wei real power belongs to the Sima family; Shu Han, since Zhuge Liang's death, has worn itself out in Jiang Wei's northern campaigns. Next year Wei armies invade, Deng Ai slips through the Yinping trail and Shu falls; two years after that Sima Yan replaces Wei with the Jin dynasty."
+  ],
+  "280": [
+   "Jin reunites China",
+   "This year six Jin armies invade Wu; Wang Jun's fleet sails down the Yangtze into Jianye and Sun Hao surrenders, ending nearly a century of division since the Yellow Turbans. Unity is brief. Emperor Wu hands out princedoms to his kinsmen, who will fight the War of the Eight Princes after his death, and Xiongnu, Jie, Di, Qiang and Xianbei settlers already fill the north. The Western Jin falls some thirty-five years from now."
+  ],
+  "320": [
+   "The Jin court moves south",
+   "The Xiongnu state of Han Zhao sacked Luoyang in 311 and took Chang'an in 316, ending the Western Jin. In 317 Sima Rui, Prince of Langya, revived the dynasty at Jiankang as the Eastern Jin, and northern gentry families streamed south. In the north Liu Yao's Han Zhao faces Shi Le's Later Zhao, while the Zhang family in Liangzhou, the Murong Xianbei in Liaodong and Cheng Han in Sichuan each hold their own."
+  ],
+  "360": [
+   "Former Yan and Former Qin",
+   "Later Zhao collapsed around 350, and Ran Min's Wei lasted little more than two years. The Murong Xianbei state of Former Yan has moved into the central plain with its capital at Ye, and the Di house of Fu has founded Former Qin in Guanzhong, where Fu Jian took the throne three years ago and Wang Meng is putting the government in order. For the Eastern Jin, Huan Wen destroyed Cheng Han in 347 and has twice marched north, recovering Luoyang in 356."
+  ],
+  "383": [
+   "The battle of the Fei River",
+   "Fu Jian destroyed Former Yan in 370 and Former Liang and Dai in 376, uniting the north. This year he leads a vast army south and is beaten at the Fei River by the Eastern Jin's Northern Headquarters troops under Xie Xuan. Former Qin falls apart at once: Murong Chui, Yao Chang, Tuoba Gui and others set up states of their own, and the north is divided again."
+  ],
+  "400": [
+   "The north divided again",
+   "Seventeen years after the Fei River the north is again a field of rivals. The Qiang house of Yao rules Guanzhong as Later Qin; Tuoba Gui's Northern Wei crushed Later Yan at Canhe Slope in 395 and took Hebei, leaving the Yan state split in two; several 'Liang' states share the Hexi corridor. On the steppe the Rouran are rising. In the Eastern Jin, Sun En's rebellion rages and Huan Xuan is gathering power."
+  ],
+  "420": [
+   "Liu Yu founds the Song",
+   "Liu Yu, a soldier of the Northern Headquarters army, put down Huan Xuan and the rebels Sun En and Lu Xun, then marched north to destroy Southern Yan and Later Qin and for a time held Chang'an. This year he deposes the last Jin emperor and founds the Song, the first of the Southern Dynasties. In the north only Northern Wei and a few smaller states remain, among them Helian Bobo's Xia, Northern Liang, Northern Yan and Western Qin; over the next twenty years Wei will absorb most of them."
+  ],
+  "439": [
+   "Northern Wei unites the north",
+   "Emperor Taiwu of Northern Wei took the Xia capital Tongwan in 427 (Xia ended in 431) and destroyed Northern Yan in 436; this year he takes Guzang and ends Northern Liang. The age of the Sixteen Kingdoms is over, and north and south now face each other. Beyond Wei's northern frontier are the Rouran, whom Taiwu attacks again and again; to the south the Liu Song enjoys the Yuanjia era. Eleven years on the two will fight a great war."
+  ],
+  "500": [
+   "After Xiaowen's reforms",
+   "Emperor Xiaowen of Northern Wei moved his capital from Pingcheng to Luoyang in 494 and had his Xianbei nobles take Chinese surnames, dress and speech; he died last year. In the south the Song gave way to Xiao Daocheng's Qi in 479. Its ruler now is the Marquis of Donghun, whom Xiao Yan will replace in two years, founding the Liang. The Rouran still rule the steppe."
+  ],
+  "540": [
+   "Eastern and Western Wei",
+   "After the revolt of the Six Garrisons the Northern Wei split: Gao Huan set up Eastern Wei at Ye in 534 and Yuwen Tai Western Wei at Chang'an the next year, each with a puppet emperor, and the two fight year after year along the Yellow River. In the south Emperor Wu of Liang, Xiao Yan, has reigned almost forty years, a devout Buddhist over a realm that seems secure. Eight years from now the defector Hou Jing will rebel and lay the south waste."
+  ],
+  "560": [
+   "Zhou, Qi and Chen",
+   "The Gao family replaced Eastern Wei with Northern Qi in 550, and the Yuwen replaced Western Wei with Northern Zhou in 557. The Liang collapsed after Hou Jing's rebellion, and in that same year Chen Baxian founded the Chen, which holds little beyond the lands south of the Yangtze. The steppe has new masters: the Türks overthrew the Rouran in 552 and within a few years built a khaganate from Manchuria to Central Asia, courted by both Zhou and Qi."
+  ],
+  "580": [
+   "Yang Jian takes power",
+   "Emperor Wu of Northern Zhou destroyed Northern Qi in 577 and united the north, then died the next year on his way to fight the Türks. His heir Emperor Xuan ruled badly and died young; this year Yang Jian, father of the empress, takes charge as regent and crushes the resistance of Yuchi Jiong and others. Next year he will replace the Zhou with his own Sui dynasty. The Chen holds only the lands south of the Yangtze."
+  ],
+  "589": [
+   "Sui reunites north and south",
+   "This year Sui armies cross the Yangtze and enter Jiankang; the last Chen ruler is taken, and more than 270 years of division since the fall of the Western Jin are over. Emperor Wen governs through the Three Departments and Six Ministries, keeps the equal-field system and abolishes the Nine Ranks system of appointment. The Türks split into eastern and western khaganates around 583, and the eastern one acknowledges Sui overlordship. Koguryo in the north-east is the next opponent."
+  ],
+  "700": [
+   "Wu Zetian's Zhou",
+   "The Tang destroyed the Eastern Türks in 630, the Western Türks in 657 and Koguryo in 668, reaching its greatest extent. Wu Zetian has now been emperor in her own right for ten years, her dynasty called Zhou and her capital Luoyang. Tibet contests the Western Regions and Qinghai, and the Tang recovered the Four Garrisons of Anxi in 692; the Türks restored their khaganate in 682 and hold the steppe again; and in the north-east Dae Joyeong founded Balhae two years ago."
+  ],
+  "742": [
+   "The Tang at its height",
+   "The Kaiyuan era of Emperor Xuanzong was the Tang's golden age; this year the reign title changes to Tianbao. Tang power reaches the Pamirs, and Chang'an is one of the largest cities in the world. To the north the Türk khaganate will fall to the Uyghurs in two years; in the south-west Tibet contests the Western Regions, and Nanzhao has just united the Erhai basin. The An Lushan rebellion is 13 years away."
+  ],
+  "800": [
+   "After An Lushan",
+   "The An Lushan rebellion (755–763) broke the Tang's strength: the governors of Hebei rule as they please, and the court lives on the taxes of the south. Tibet seized Hexi and Longyou and briefly entered Chang'an in 763. The Tang garrisons of the Western Regions have been cut off for years; Beiting fell in 790, and the region is now fought over by Tibet and the Uyghurs. The Uyghur khaganate, which helped put down the rebellion, dominates the steppe; Nanzhao, after siding with Tibet, returned to the Tang alliance in 794."
+  ],
+  "900": [
+   "The last years of Tang",
+   "After Huang Chao's rebellion (875–884) the Tang court controls little beyond Chang'an, while Zhu Wen, Li Keyong and other governors fight each other; in seven years Zhu Wen will end the dynasty. The neighbouring empires have fallen apart too: the Kyrgyz destroyed the Uyghur khaganate in 840, its remnants moving west to Ganzhou and Qocho, and the Tibetan empire broke up after 842. In the north-east the Khitan leader Abaoji is on the rise."
+  ],
+  "910": [
+   "The Five Dynasties begin",
+   "In 907 Zhu Wen deposed the last Tang emperor and founded the Later Liang at Kaifeng, opening the age of the Five Dynasties and Ten Kingdoms. In Hedong Li Cunxu, who succeeded his father Li Keyong as Prince of Jin in 908, fights on against Liang; Wu, Wuyue, Chu, Min and Southern Han in the south and Former Shu in Sichuan are states of their own. Also in 907, Abaoji became khagan of the Khitans. In Korea, Silla has declined and the Later Three Kingdoms have begun."
+  ],
+  "926": [
+   "Later Tang and the Khitans",
+   "Li Cunxu destroyed the Later Liang in 923 and founded the Later Tang, then took Former Shu in 925, giving the largest realm of the Five Dynasties. This year he is killed in a mutiny and Li Siyuan succeeds him. In the same year the Khitan ruler Abaoji conquers Balhae and dies soon after. Korea is divided between Wang Geon's Goryeo, Gyeon Hwon's Later Baekje and what is left of Silla."
+  ],
+  "938": [
+   "The Sixteen Prefectures",
+   "In 936 Shi Jingtang destroyed the Later Tang with Khitan troops and founded the Later Jin, at the price of becoming the Khitan emperor's vassal and calling him father; this year he formally cedes the Sixteen Prefectures of Yan and Yun. The central plain loses the line of the Great Wall and will not regain it for more than four centuries. In Sichuan Meng Zhixiang has founded Later Shu, on the Yangtze Xu Zhigao has replaced Wu with the state soon to be called Southern Tang, and in Yunnan Duan Siping founded Dali in 937."
+  ],
+  "950": [
+   "The last year of Later Han",
+   "In early 947 the Khitans entered Kaifeng and ended the Later Jin; their ruler Yelü Deguang named his state Liao but soon withdrew north. Liu Zhiyuan seized the moment to found the Later Han, which lasts only four years: at the end of this year the general Guo Wei rebels, and next year he founds the Later Zhou while a branch of the Liu family holds out at Taiyuan as Northern Han. In the south, Southern Tang is the strongest state, having destroyed Min; next year it takes Chu."
+  ],
+  "958": [
+   "Shizong of Later Zhou",
+   "Chai Rong, Emperor Shizong of Later Zhou, is the ablest ruler of the Five Dynasties. He has reformed the army and the finances, beaten Northern Han and Liao at Gaoping in 954 and campaigned three times against Southern Tang, which this year cedes its fourteen prefectures north of the Yangtze and gives up the imperial title to become a Zhou vassal. Next year he will march on Liao and retake three passes, fall ill on campaign and die; half a year later Zhao Kuangyin is acclaimed emperor at Chenqiao."
+  ],
+  "970": [
+   "The Song conquests",
+   "Zhao Kuangyin founded the Song in 960 and is taking the separate states one at a time, south before north: Jingnan and Hunan in 963, Later Shu in 965. Southern Han, Southern Tang, Wuyue and Northern Han still stand; Southern Han falls next year, Southern Tang in 975 and Northern Han in 979. Taizu has also talked his generals into giving up their commands over a cup of wine."
+  ],
+  "1000": [
+   "Song and Liao",
+   "The Song has united the central plain and the south, but Emperor Taizong's two northern campaigns were beaten by the Liao, which still holds the Sixteen Prefectures. Liao armies raid south year after year; in 1004 Emperor Shengzong and Empress Dowager Xiao invade in force, Emperor Zhenzong goes to the front at Chanzhou, and the Treaty of Chanyuan gives over a century of peace. In the north-west the Tangut leader Li Jiqian is breaking away from the Song."
+  ],
+  "1100": [
+   "The late Northern Song",
+   "Song, Liao and Western Xia have long shared the land between them. The Northern Song is at its height in wealth and culture, with over a million people in Kaifeng, though the court has been split between reformers and conservatives ever since Wang Anshi's New Policies; this year Emperor Zhezong dies and Huizong succeeds him. The Jurchens of the north-east are still Liao subjects. In fifteen years Aguda will found the Jin, which destroys the Liao and then the Northern Song within twelve."
+  ],
+  "1142": [
+   "The Shaoxing peace",
+   "In 1127 Jin armies took Kaifeng and carried off Emperors Huizong and Qinzong, ending the Northern Song; Gaozong rebuilt the dynasty in the south with his capital at Lin'an. Yue Fei's counter-offensive came close to Kaifeng, but Gaozong and Qin Hui were set on peace and had him put to death as the treaty was concluded. Under the Shaoxing peace, in force this year, the Song pays tribute as Jin's vassal and the border runs along the Huai River and the Dasan Pass. Far to the west the Liao prince Yelü Dashi has founded the Western Liao."
+  ],
+  "1279": [
+   "The Yuan conquers the Song",
+   "Chinggis Khan united the Mongols in 1206; he and his heirs destroyed Western Xia (1227), Jin (1234) and Dali (1253). Khubilai named his dynasty Yuan in 1271 and took Lin'an in 1276. This year the last Song fleet is destroyed at Yamen, Lu Xiufu leaps into the sea with the boy emperor on his back, and the Southern Song is no more. The Yuan rules all China, but the Mongol empire itself has split into the Yuan and several khanates."
+  ],
+  "1400": [
+   "The Jingnan war",
+   "Zhu Yuanzhang founded the Ming in 1368 and drove the last Yuan emperor back to the steppe, where the Northern Yuan still confronts the Ming. After his death the Jianwen emperor moved against the princes, and the Prince of Yan, Zhu Di, has now been in revolt for a year. In two years he will take Nanjing and reign as the Yongle emperor, later moving the capital to Beijing and sending Zheng He's fleets overseas. In Korea the Joseon dynasty replaced Goryeo in 1392."
+  ],
+  "1500": [
+   "The mid-Ming",
+   "The Ming is a hundred and thirty years old and steady under the Hongzhi emperor. Since the Tumu disaster of 1449 it has stood on the defensive against the Mongols and begun the great rebuilding of the Wall; Dayan Khan is reuniting the Mongol tribes, and the Ordos is in Mongol hands. In the west Turfan disputes Hami with the Ming. At sea the Portuguese reached India round the Cape two years ago."
+  ],
+  "1600": [
+   "The Wanli years",
+   "The Wanli emperor has reigned for nearly thirty years. From 1592 to 1598 Ming armies helped Korea beat off Toyotomi Hideyoshi's invasion, at great cost. In Liaodong the Jurchen chief Nurhaci has united the Jianzhou tribes and is now absorbing the Haixi Jurchens; in sixteen years he will found the Later Jin. The Mongol tribes are divided, and the heirs of Altan Khan trade peacefully with the Ming. Next year Matteo Ricci reaches Beijing with Western astronomy and maps."
+  ],
+  "1650": [
+   "From Ming to Qing",
+   "In 1644 Li Zicheng took Beijing, the Chongzhen emperor hanged himself, and Wu Sangui let the Qing army through the Wall; the Qing made Beijing its capital. It now holds most of China. The regent Dorgon dies at the end of this year, and the Shunzhi emperor then begins to rule in person. The Southern Ming court of the Yongli emperor has fallen back to the south-west, Zheng Chenggong holds Xiamen and Jinmen, and the Dutch have a base in south-west Taiwan. In the west two Oirat peoples, the Dzungars and the Khoshuts, have khanates of their own."
+  ],
+  "1715": [
+   "The late Kangxi reign",
+   "The Kangxi emperor is in the fifty-fourth year of his reign. He has put down the Three Feudatories (1681), taken Taiwan (1683), driven the Russians from Albazin and signed the Treaty of Nerchinsk (1689), and led three campaigns that broke Galdan of the Dzungars and brought the Khalkha Mongols under the Qing. The Dzungar khanate still holds both sides of the Tianshan and remains the Qing's great rival in the north-west; their wars have forty years still to run."
+  ],
+  "1800": [
+   "The Qing past its peak",
+   "In the 1750s the Qianlong emperor destroyed the Dzungars and subdued the Muslim south of Xinjiang, taking the Qing to its greatest extent: west to Lake Balkhash and the Pamirs, north to the Stanovoy range. He died last year, and the Jiaqing emperor at once put the favourite Heshen to death. The population has passed three hundred million, and the White Lotus rebellion is spreading through Sichuan and Hubei. In 1793 the British envoy Macartney asked for wider trade and was refused."
+  ],
+  "1900": [
+   "The Boxer year",
+   "After two Opium Wars, the Taiping war and defeat by Japan, the Qing has lost Hong Kong, Outer Manchuria and Taiwan, and the powers have carved leases and spheres of influence along the coast. This year the Boxers enter Beijing, the Eight-Nation Alliance takes the capital, and the Empress Dowager Cixi flees to Xi'an with the Guangxu emperor, while Russia occupies Manchuria. The Boxer Protocol follows next year; eleven years from now the 1911 Revolution breaks out and the dynasty falls."
+  ]
+ },
  "presets": {
   "-1250--1000": "From Shang to Zhou",
   "-800--700": "The Zhou move east",

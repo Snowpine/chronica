@@ -68,6 +68,7 @@ chronica/
       events.json            事件：[键, 年份, 纬度, 经度, 类型]
       stories.json           故事章节：每一步的年份、地图范围、高亮的政权、引用的事件；可选的并立图
       cities.json            城市：[纬度, 经度, 级别, [[起始年份, 名称键], …]]
+      overviews.json         每份快照的主要政权，供概述卡片使用：{年份: [政权 id, …]}
       locales/
         en.json  zh.json     该地区的内容：各类名称、时代、事件、故事、搜索别名
       polities.py            怎样读边界数据源：用哪些快照、谱系、数据修正
@@ -132,7 +133,8 @@ chronica/
 - `periods`：`region.json` 里每个时期的名称。
 - `lanes`：时间轴泳道的短名，用 `/` 分隔几个说法，窄屏只显示最后一个。
 - `lineages`：谱系全名。
-- `notes`：个别快照的数据说明，按年份为键。
+- `notes`：个别快照的数据说明，按年份为键，写本图对原始数据的地图改了什么。侧栏把它折叠在“关于这张图”里。
+- `overviews`：`{年份: [标题, 正文]}`，用几句话说明这份快照的地图上是什么局面。在“探索”里，侧栏最上面就是它，下面是这份快照主要政权的按钮（`overviews.json`），以及讲到这一年的故事章节的入口。没有概述的地区，侧栏仍从事件列表开始。
 - `presets`：对比预设的说明，键是 `"<左>-<右>"`。
 - `names`、`cities`、`rivers`、`ranges`：各类地名，按名称键（见下文）。
 - `short`（可选）：地图标注用的简称，全名放不下时才用，例如 `Polish–Lithuanian Commonwealth` → “波兰立陶宛”。名称末尾的括号注释（如“（法属）”）会自动去掉，不必另列。
@@ -203,7 +205,7 @@ chronica/
    python3 scripts/make_data.py <id> physical <natural-earth-vector>/geojson
    ```
    生成时会打印每期最大的几处变化。如果有明显不合理的，通常是原始数据的标注需要在 `polities.py` 里修正。
-4. **写内容。** 加上 `events.json`、`stories.json`、`cities.json`，开始时都可以是 `[]`。再写 `locales/en.json`，至少要有 `ui`、`eras`、`lanes`、`lineages`。其他语言可以以后再加。
+4. **写内容。** 加上 `events.json`、`stories.json`、`cities.json`，开始时都可以是 `[]`；再加上 `overviews.json`，开始时可以是 `{}`。再写 `locales/en.json`，至少要有 `ui`、`eras`、`lanes`、`lineages`。其他语言可以以后再加。
    多国并立时期的章节可以加一个 `chart`（并立图）：每个政权一条色带，写成 `[名称键, 起, 止, 行]`。前后相继的政权放在同一行，每一行就是一条承续线（见 `regions/china/stories.json` 的 `five-dynasties` 一章）。并立图显示在故事步骤的按钮下方和阅读视图的开头，颜色与地图一致，并标出当前步骤的年份。
 5. **登记地区。** 把 id 加进 `index.html` 的 `REGIONS`，再在每个界面语言文件（`locales/<语言>.json`）的 `regions` 里写上它的名称和副标题，标题下的地区菜单会显示它们。打开 `http://localhost:8000/?region=<id>` 查看。列表里的第一个地区是默认地区。
    地区在上线前，还要把 id 加进 `UNPUBLISHED`，并在 `.assetsignore` 里加一行 `/regions/<id>/`。这样本地预览照常显示它，部署时不上传它的文件夹，线上版本也不列出、不打开它。两处不一致时 `check.py` 会报错。

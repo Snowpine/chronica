@@ -62,7 +62,7 @@ def check_region(rid, langs, types):
     if missing:
         errors.append(f"{where}/region.json: no {missing}")
         return
-    absent = [f"{name}.json" for name in ("borders", "events", "stories", "cities") if not os.path.exists(f"{rdir}/{name}.json")]
+    absent = [f"{name}.json" for name in ("borders", "events", "stories", "cities", "overviews") if not os.path.exists(f"{rdir}/{name}.json")]
     if absent:
         errors.append(f"{where}: missing {absent} (borders.json is built with scripts/make_data.py)")
         return
@@ -74,6 +74,16 @@ def check_region(rid, langs, types):
     y0 = min(y0, rc["eras"][0])  # the timeline starts with the first era, which may come before the first snapshot
     if not (rc["scale"][0][0] <= y0 and rc["scale"][-1] == [yn, 1] and rc["scale"][0][1] == 0):
         errors.append(f"{where}/region.json scale: should run from [{y0} or earlier, 0] to [{yn}, 1]")
+    # overviews.json: the main powers of a snapshot, by identity id, for the overview's buttons
+    overviews = load(f"{rdir}/overviews.json")
+    for k, ids in overviews.items():
+        if not k.lstrip("-").isdigit() or int(k) not in years:
+            errors.append(f"{where}/overviews.json: {k} is not a snapshot year")
+            continue
+        here = {(g.get("properties") or {}).get("i") for g in borders["topo"]["objects"][f"s{k}"]["geometries"]}
+        gone = [i for i in ids if i not in here]
+        if gone:
+            errors.append(f"{where}/overviews.json {k}: {gone} are not on that snapshot")
     periods = rc.get("periods", [])
     if periods and (periods[0] != rc["eras"][0] or periods[-1] != rc["eras"][-1] or not set(periods) <= set(rc["eras"])):
         errors.append(f"{where}/region.json periods: should run from the first to the last era boundary, using only era boundaries")
@@ -165,6 +175,17 @@ def check_region(rid, langs, types):
                 long = st[2] if len(st) > 2 else None
                 if long is not None and not (isinstance(long.get("p"), list) and all(len(f) == 2 for f in long.get("facts", []))):
                     errors.append(f"{tag} stories.{ch['id']} step {i + 1}: full text should be {{\"p\": [...], \"facts\": [[k, v], ...]}}")
+        ov = sec("overviews")
+        odd = sorted(k for k in ov if not k.lstrip("-").isdigit() or int(k) not in years)
+        if odd:
+            errors.append(f"{tag} overviews: {odd} are not snapshot years")
+        odd = sorted(k for k, v in ov.items() if not (isinstance(v, list) and len(v) == 2 and all(isinstance(t, str) and t for t in v)))
+        if odd:
+            errors.append(f"{tag} overviews: {odd} should be [title, text]")
+        if ov:  # once a region has overviews, a snapshot without one opens on a bare list of events
+            missing = [y for y in years if str(y) not in ov]
+            if missing:
+                warnings.append(f"{tag} overviews: none for {missing}")
         odd = sorted(k for k in sec("notes") if not k.lstrip("-").isdigit() or int(k) not in years)
         if odd:
             warnings.append(f"{tag} notes: {odd} are not snapshot years")

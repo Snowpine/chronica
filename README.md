@@ -61,6 +61,7 @@ chronica/
       events.json            events: [key, year, latitude, longitude, type]
       stories.json           story chapters: per step a year, a map box, highlighted states, events; optionally a chart
       cities.json            cities: [latitude, longitude, rank, [[from year, name key], …]]
+      overviews.json         the main powers of each snapshot, for its overview: {year: [identity id, …]}
       locales/
         en.json  zh.json     the region's content: names, eras, events, stories, search aliases
       polities.py            how to read the border source: snapshots, lineages, corrections
@@ -121,7 +122,8 @@ The page combines two files per language: `locales/<lang>.json`, which holds the
 - `periods`: one name per period in `region.json`.
 - `lanes`: short names for the timeline lanes. A `/` separates alternatives; narrow screens show the last one.
 - `lineages`: full names of the lineages.
-- `notes`: remarks on individual snapshots, keyed by year.
+- `notes`: remarks on individual snapshots, keyed by year: what this atlas changed in the source's map. The side panel keeps them folded under "About this map".
+- `overviews`: `{year: [title, text]}`, what the map of a snapshot shows, in a few sentences. Exploring, the side panel opens with it, followed by buttons for the snapshot's main powers (`overviews.json`) and a link to the story chapter that covers the year. A region without overviews opens on the list of events.
 - `presets`: labels for the compare presets, keyed `"<left>-<right>"`.
 - `names`, `cities`, `rivers`, `ranges`: place names, keyed by name key (see below).
 - `short` (optional): shorter map labels used when a full name doesn't fit, e.g. `Polish–Lithuanian Commonwealth` → `Poland–Lithuania`. A trailing parenthesis such as "(France)" is dropped automatically and needs no entry.
@@ -187,7 +189,7 @@ Ancient snapshots include many peoples and archaeological cultures (Celts, Urnfi
    python3 scripts/make_data.py <id> physical <natural-earth-vector>/geojson
    ```
    The build prints the largest changes in each snapshot. Implausible ones usually mean a source label needs a correction in `polities.py`.
-4. **Write the content.** Add `events.json`, `stories.json` and `cities.json` (each may start as `[]`), then `locales/en.json` with at least `ui`, `eras`, `lanes` and `lineages`. Add other languages when ready.
+4. **Write the content.** Add `events.json`, `stories.json` and `cities.json` (each may start as `[]`) and `overviews.json` (which may start as `{}`), then `locales/en.json` with at least `ui`, `eras`, `lanes` and `lineages`. Add other languages when ready.
    A chapter of a period with many states side by side can carry a `chart`: one bar per state, `[name key, from, to, lane]`. States that follow one another share a lane, so each lane reads as a line of succession (`regions/china/stories.json`, chapter `five-dynasties`). The chart shows below the step's buttons and at the head of the reading view, in the states' map colours, with the step's year marked.
 5. **List the region.** Add its id to `REGIONS` in `index.html`, and its name and subtitle to `regions` in each interface locale (`locales/<lang>.json`), which the region menu under the title shows. Open `http://localhost:8000/?region=<id>`. The first region in the list is the default.
    To work on a region before it goes live, also add its id to `UNPUBLISHED` and a `/regions/<id>/` line to `.assetsignore`. A local copy then shows it like the others, while the deployment leaves its folder out and the live site neither lists nor opens it. `check.py` reports it when the two lists disagree.

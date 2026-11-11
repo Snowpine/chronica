@@ -1,0 +1,468 @@
+{
+ "-1750": [
+  "Xia (Erlitou)",
+  "Proto-Shang",
+  "Dongyi",
+  "Lower Xiajiadian culture",
+  "Qijia culture"
+ ],
+ "-1500": [
+  "Shang",
+  "Dongyi",
+  "Ancient Shu",
+  "Lower Xiajiadian culture"
+ ],
+ "-1250": [
+  "Shang",
+  "Guifang",
+  "Qiang",
+  "Dongyi",
+  "Ancient Shu"
+ ],
+ "-1000": [
+  "Zhou states",
+  "Rong and Di",
+  "Ba and Shu",
+  "Baiyue",
+  "Sushen"
+ ],
+ "-800": [
+  "Zhou states",
+  "Rong and Di",
+  "Chu",
+  "Ba and Shu",
+  "Baiyue"
+ ],
+ "-700": [
+  "zhou",
+  "Zheng",
+  "Qi",
+  "Jin (Spring and Autumn)",
+  "qin",
+  "Chu",
+  "Lu",
+  "Song"
+ ],
+ "-650": [
+  "Qi",
+  "Jin (Spring and Autumn)",
+  "Chu",
+  "qin",
+  "Song",
+  "Zheng",
+  "Lu"
+ ],
+ "-600": [
+  "Chu",
+  "Jin (Spring and Autumn)",
+  "Qi",
+  "qin",
+  "Zheng",
+  "Song",
+  "Wu"
+ ],
+ "-500": [
+  "Wu",
+  "Yue",
+  "Chu",
+  "Jin (Spring and Autumn)",
+  "Qi",
+  "qin",
+  "Lu"
+ ],
+ "-453": [
+  "Zhao",
+  "Wei",
+  "Han (Warring States)",
+  "Qi",
+  "Chu",
+  "Yue",
+  "qin",
+  "Yan"
+ ],
+ "-350": [
+  "Wei",
+  "qin",
+  "Qi",
+  "Chu",
+  "Zhao",
+  "Han (Warring States)",
+  "Yan"
+ ],
+ "-300": [
+  "qin",
+  "Chu",
+  "Qi",
+  "Zhao",
+  "Wei",
+  "Han (Warring States)",
+  "Yan"
+ ],
+ "-260": [
+  "qin",
+  "Zhao",
+  "Chu",
+  "Qi",
+  "Wei",
+  "Han (Warring States)",
+  "Yan"
+ ],
+ "-221": [
+  "qin",
+  "Xiongnu",
+  "Donghu tribes",
+  "Yuezhi",
+  "Baiyue",
+  "Gojoseon"
+ ],
+ "-200": [
+  "Han",
+  "Xiongnu",
+  "Nan-Yue",
+  "Min-Yue",
+  "Yuezhi",
+  "Gojoseon"
+ ],
+ "-100": [
+  "Han",
+  "Xiongnu",
+  "Wusun",
+  "Yuezhi",
+  "Wuhuan",
+  "Buyeo"
+ ],
+ "-1": [
+  "Han",
+  "Xiongnu",
+  "Protectorate of the Western Regions",
+  "Wusun",
+  "Wuhuan",
+  "Buyeo",
+  "Koguryo"
+ ],
+ "100": [
+  "Han",
+  "Xianbei",
+  "Protectorate of the Western Regions",
+  "Southern Xiongnu",
+  "Kushan Empire",
+  "Buyeo",
+  "Koguryo"
+ ],
+ "200": [
+  "Han",
+  "Xianbei",
+  "Southern Xiongnu",
+  "Buyeo",
+  "Koguryo",
+  "Samhan"
+ ],
+ "262": [
+  "Cao Wei",
+  "Shu Han",
+  "Eastern Wu",
+  "Xianbei",
+  "Koguryo",
+  "Buyeo"
+ ],
+ "280": [
+  "Jin",
+  "Xianbei",
+  "Koguryo",
+  "Buyeo",
+  "Samhan"
+ ],
+ "320": [
+  "Jin",
+  "Han Zhao",
+  "Later Zhao",
+  "Cheng Han",
+  "Former Liang (Zhang)",
+  "Murong",
+  "Dai",
+  "Koguryo"
+ ],
+ "360": [
+  "Jin",
+  "Former Yan",
+  "Former Qin",
+  "Former Liang (Zhang)",
+  "Dai",
+  "Tuyuhun",
+  "Koguryo"
+ ],
+ "383": [
+  "Former Qin",
+  "Jin",
+  "Rouran tribes",
+  "Tuyuhun",
+  "Koguryo"
+ ],
+ "400": [
+  "Jin",
+  "Later Qin",
+  "Toba Wei",
+  "Later Yan",
+  "Southern Yan",
+  "Northern Liang",
+  "Rouran tribes",
+  "Koguryo"
+ ],
+ "420": [
+  "Liu Song",
+  "Toba Wei",
+  "Xia (Helian)",
+  "Northern Liang",
+  "Northern Yan",
+  "Western Qin",
+  "Ruanruan",
+  "Koguryo"
+ ],
+ "439": [
+  "Toba Wei",
+  "Liu Song",
+  "Ruanruan",
+  "Tuyuhun",
+  "Koguryo"
+ ],
+ "500": [
+  "Toba Wei",
+  "Southern Qi",
+  "Ruanruan",
+  "Tuyuhun",
+  "Koguryo",
+  "Gaochang"
+ ],
+ "540": [
+  "Eastern Wei",
+  "Western Wei",
+  "Liang (Xiao)",
+  "Ruanruan",
+  "Tuyuhun",
+  "Koguryo"
+ ],
+ "560": [
+  "Northern Zhou",
+  "Northern Qi",
+  "Chen",
+  "Göktürks",
+  "Tuyuhun",
+  "Koguryo"
+ ],
+ "580": [
+  "Northern Zhou",
+  "Chen",
+  "Göktürks",
+  "Tuyuhun",
+  "Koguryo",
+  "korea"
+ ],
+ "589": [
+  "Sui Empire",
+  "Göktürks",
+  "Western Gokturk Khaganate",
+  "Tuyuhun",
+  "Koguryo",
+  "korea"
+ ],
+ "700": [
+  "Tang Empire",
+  "Tibetan Empire",
+  "Göktürks",
+  "Balhae",
+  "korea",
+  "japan"
+ ],
+ "742": [
+  "Tang Empire",
+  "Tibetan Empire",
+  "Göktürks",
+  "korea",
+  "Balhae",
+  "nanzhao",
+  "japan"
+ ],
+ "800": [
+  "Tang Empire",
+  "Tibetan Empire",
+  "Uyghurs",
+  "nanzhao",
+  "Balhae",
+  "korea",
+  "japan"
+ ],
+ "900": [
+  "Tang Empire",
+  "Tibet",
+  "liao",
+  "Balhae",
+  "nanzhao",
+  "Kingdom of Qocho",
+  "Tatar tribes",
+  "korea"
+ ],
+ "910": [
+  "Later Liang",
+  "Jin (Hedong)",
+  "Former Shu",
+  "Wu (Yang)",
+  "Wuyue",
+  "Ma Chu",
+  "Southern Han",
+  "liao"
+ ],
+ "926": [
+  "Later Tang",
+  "liao",
+  "Wu (Yang)",
+  "Wuyue",
+  "Ma Chu",
+  "Southern Han",
+  "Min",
+  "korea"
+ ],
+ "938": [
+  "Later Jin",
+  "liao",
+  "Later Shu",
+  "Southern Tang",
+  "Wuyue",
+  "Ma Chu",
+  "Southern Han",
+  "nanzhao"
+ ],
+ "950": [
+  "Later Han",
+  "liao",
+  "Southern Tang",
+  "Later Shu",
+  "Wuyue",
+  "Southern Han",
+  "Ma Chu",
+  "nanzhao"
+ ],
+ "958": [
+  "Later Zhou",
+  "liao",
+  "Southern Tang",
+  "Later Shu",
+  "Northern Han",
+  "Wuyue",
+  "Southern Han",
+  "nanzhao"
+ ],
+ "970": [
+  "Song Empire",
+  "liao",
+  "Southern Tang",
+  "Southern Han",
+  "Wuyue",
+  "Northern Han",
+  "nanzhao",
+  "korea"
+ ],
+ "1000": [
+  "Song Empire",
+  "liao",
+  "xia",
+  "nanzhao",
+  "korea",
+  "Tibet",
+  "vietnam",
+  "Kingdom of Qocho"
+ ],
+ "1100": [
+  "Song Empire",
+  "liao",
+  "xia",
+  "nanzhao",
+  "Tibet",
+  "korea",
+  "Jurchens",
+  "Mongols"
+ ],
+ "1142": [
+  "Jurchen Jin",
+  "Song Empire",
+  "xia",
+  "Kara Khitai Khaganate",
+  "Mongols",
+  "nanzhao",
+  "korea",
+  "Tibet"
+ ],
+ "1279": [
+  "yuan",
+  "chagatai",
+  "Tibet",
+  "korea",
+  "vietnam",
+  "japan"
+ ],
+ "1400": [
+  "Ming Chinese Empire",
+  "northern_yuan",
+  "oirats",
+  "chagatai",
+  "Tibet",
+  "Jurchens",
+  "korea",
+  "vietnam"
+ ],
+ "1500": [
+  "Ming Chinese Empire",
+  "northern_yuan",
+  "oirats",
+  "chagatai",
+  "Tibet",
+  "Jurchens",
+  "korea",
+  "vietnam"
+ ],
+ "1600": [
+  "Ming Chinese Empire",
+  "northern_yuan",
+  "Jurchens",
+  "oirats",
+  "Tibet",
+  "Yarkent Khanate",
+  "korea",
+  "japan"
+ ],
+ "1650": [
+  "qing",
+  "Post-Ming Warlords",
+  "northern_yuan",
+  "oirats",
+  "Khoshut Khanate",
+  "Tibet",
+  "Dutch Formosa",
+  "korea"
+ ],
+ "1715": [
+  "qing",
+  "oirats",
+  "russia",
+  "Tibet",
+  "Khoshut Khanate",
+  "korea",
+  "japan"
+ ],
+ "1800": [
+  "qing",
+  "russia",
+  "korea",
+  "japan",
+  "vietnam",
+  "Burma",
+  "Nepal"
+ ],
+ "1900": [
+  "qing",
+  "russia",
+  "japan",
+  "korea",
+  "British Raj",
+  "French Indochina"
+ ]
+}
