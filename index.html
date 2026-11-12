@@ -221,7 +221,11 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 .row:hover { background: color-mix(in srgb, var(--rule) 45%, transparent); }
 .row b { font-weight: 500; }
 .row small { display: block; color: var(--muted); font-size: 12px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-.row.later { opacity: .62; }
+.row.on { background: color-mix(in srgb, var(--accent) 9%, transparent); box-shadow: inset 3px 0 var(--accent); padding-left: 8px; }
+.row.on small { display: block; }
+.row.later { opacity: .62; grid-template-columns: auto minmax(0, 1fr) auto; }
+.row.later::after { content: "→"; color: var(--muted); font-size: 14px; }
+.row.later.on { opacity: 1; }
 .sw { width: 14px; height: 14px; border-radius: 3px; margin-top: 3px; border: 1px solid var(--border-poly); }
 .yr { font: 500 13px var(--f-num); color: var(--muted); font-variant-numeric: tabular-nums; min-width: 2.6em; padding-top: 1px; }
 .more { font-size: 12px; color: var(--faint); margin: 6px 0 0; }
@@ -1144,8 +1148,9 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const order = vis.filter(d => labelled.has(d.e.id))
       .sort((a, b) => (b.e.id === selId) - (a.e.id === selId) || storyIds.has(b.e.id) - storyIds.has(a.e.id) || a.age - b.age);
     const pos = new Map();
+    const label = d => d.e.id === selId ? `${fy(d.e.year)} · ${d.e.title}` : d.e.title; // the selected one says when
     for (const d of order) {
-      const w = textW(d.e.title, 12) + 4, x = d.x, y = d.y;
+      const w = textW(label(d), 12) + 4, x = d.x, y = d.y;
       const opts = [[x + 9, y - 8, x + 9 + w, y + 8, "start", 9, 0], [x - 9 - w, y - 8, x - 9, y + 8, "end", -9, 0],
         [x - w / 2, y - 26, x + w / 2, y - 10, "middle", 0, -18], [x - w / 2, y + 10, x + w / 2, y + 26, "middle", 0, 18]];
       const inside = b => b[0] >= 2 && b[2] <= W - 2 && b[1] >= 2 && b[3] <= H - 2;
@@ -1156,7 +1161,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
       pos.set(d.e.id, o);
     }
     g.select("text")
-      .text(d => pos.has(d.e.id) ? d.e.title : "")
+      .text(d => pos.has(d.e.id) ? label(d) : "")
       .attr("x", d => pos.has(d.e.id) ? pos.get(d.e.id)[5] : 9)
       .attr("y", d => pos.has(d.e.id) ? pos.get(d.e.id)[6] : 0)
       .attr("text-anchor", d => pos.has(d.e.id) ? pos.get(d.e.id)[4] : "start");
@@ -1271,6 +1276,18 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const [[x0, y0], [x1, y1]] = path.bounds(f);
     const k = Math.max(.5, Math.min(6, .7 / Math.max((x1 - x0) / W, (y1 - y0) / H)));
     aim(d3.zoomIdentity.translate(W / 2 - k * (x0 + x1) / 2, H / 2 - k * (y0 + y1) / 2).scale(k), 700, () => zoomToFeature(f));
+  }
+  // Bring a point into view at the current zoom, and only if it is out of sight: a selected event should not take the
+  // reader away from the map they were reading.
+  function reveal(px, py, again) { // px, py: projected coordinates
+    const [x, y] = zt.apply([px, py]), m = 40;
+    if (x >= m && x <= W - m && y >= m && y <= H - m) return;
+    aim(d3.zoomIdentity.translate(W / 2 - zt.k * px, H / 2 - zt.k * py).scale(zt.k), 500, again);
+  }
+  const revealPoint = (lon, lat) => reveal(...proj([lon, lat]), () => revealPoint(lon, lat));
+  function revealFeature(f) { // the middle of a state or of a changed area
+    const [[x0, y0], [x1, y1]] = path.bounds(f);
+    reveal((x0 + x1) / 2, (y0 + y1) / 2, () => revealFeature(f));
   }
   function zoomToPoint(lon, lat, forSel) {
     if (forSel) keepView();
@@ -1492,10 +1509,19 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
   const side = $("#side");
   let sideKey = "";
 
-  function recentEvents() { // the latest eight in the window, oldest first, so the list runs on into the upcoming ones
-    const Y = state.year;
-    return EVENTS.filter(e => e.year <= Y && e.year > Y - windowAt(Y)).sort((a, b) => b.year - a.year || b.id - a.id).slice(0, 8).reverse();
+  // the latest eight in the window, and the selected event if it is an older one of the window; oldest first, so the
+  // list runs on into the upcoming ones
+  function recentEvents() {
+    const Y = state.year, sel = state.sel && state.sel.kind === "event" ? state.sel.id : -1;
+    return EVENTS.filter(e => e.year <= Y && e.year > Y - windowAt(Y)).sort((a, b) => b.year - a.year || b.id - a.id)
+      .filter((e, i) => i < 8 || e.id === sel).reverse();
   }
+  // an event's row in the panel; the selected one is marked (a second press lets go of it)
+  const evRow = (e, cls = "") => {
+    const on = !!state.sel && state.sel.kind === "event" && state.sel.id === e.id;
+    return `<button class="row ${cls}${on ? " on" : ""}" data-act="ev" data-id="${e.id}" aria-pressed="${on}"><span class="yr">${fy(e.year)}</span>
+      <span><b>${esc(e.title)}</b><small>${esc(typeName(e.type))} · ${esc(e.note)}</small></span></button>`;
+  };
   const recentRange = Y => { const a = Math.max(Y0, Y - windowAt(Y) + 1); return fyr(a || 1, Y); };
   function upcomingEvents() { return EVENTS.filter(e => e.year > state.year).slice(0, 2); }
   const linSwatch = id => {
@@ -1534,43 +1560,31 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     }));
     return best;
   }
-  // The chapter that tells a state's story: of the steps that highlight it, the one nearest the snapshot's year.
-  function storyOf(id) {
-    const y = YEARS[state.snap];
-    let best = null;
-    STORIES.forEach((c, i) => c.steps.forEach((st, s) => {
-      const d = Math.abs(st.y - y);
-      if ((st.hl || []).includes(id) && (!best || d < best.d)) best = { i, s, d, title: c.title };
-    }));
-    return best;
-  }
   // Exploring, the panel opens with the snapshot's overview: what the map shows in a few sentences (locale "overviews":
   // [title, text]), its main powers to pick out on the map (overviews.json) and the chapter that tells the story.
   function overviewSec() {
     const y = YEARS[state.snap], tx = LOC.overviews[y];
     if (state.mode !== "explore" || !tx) return "";
+    const head = `<div class="card-top"><span class="tag">${esc(tr("overview", { y: fy(y) }))}</span></div><h4>${esc(tx[0])}</h4>`;
+    if (state.playing) return `<div class="card ov">${head}</div>`; // a caption while the map plays
     const s = state.sel, ids = (OVERVIEWS[y] || []).map(id => {
       const f = feats.filter(f => f.properties.i === id).sort((a, b) => b.properties.a - a.properties.a)[0];
       return f ? `<button class="idchip" data-act="ov-id" data-id="${esc(id)}" aria-pressed="${!!s && s.kind === "ident" && s.id === id}"><i style="background:${linSwatch(id)}"></i>${esc(pname(f.properties.n))}</button>` : "";
     }).join("");
     const ch = storyFor(y);
-    return `<div class="card ov"><div class="card-top"><span class="tag">${esc(tr("overview", { y: fy(y) }))}</span></div>
-      <h4>${esc(tx[0])}</h4><p>${esc(tx[1])}</p>${ids ? `<div class="ov-ids">${ids}</div>` : ""}
+    return `<div class="card ov">${head}<p>${esc(tx[1])}</p>${ids ? `<div class="ov-ids">${ids}</div>` : ""}
       ${ch ? `<button class="link" data-act="ov-story" data-i="${ch.i}" data-s="${ch.s}">${esc(tr("overview.story", { t: ch.title }))} →</button>` : ""}</div>`;
   }
 
-  function selCard() {
+  // body: the rest of the panel. An event whose row is listed there is shown by that row, marked, with no card.
+  function selCard(body) {
     const s = state.sel;
     if (!s) return "";
     const top = tag => `<div class="card-top"><span class="tag">${esc(tag)}</span><button class="x" data-act="close" aria-label="${esc(tr("close"))}">×</button></div>`;
     if (s.kind === "event") {
       const e = EVENTS[s.id];
-      // exploring, the map may be of a later time than the event: say so, with a way to the event's year
-      const off = state.mode === "explore" && snapIndexFor(e.year) !== state.snap;
-      return `<div class="card">${top(typeName(e.type))}<div class="cy">${fy(e.year)}</div><h4>${esc(e.title)}</h4><p>${esc(e.note)}</p>
-        ${off ? `<p class="meta">${esc(tr("ev.mapOf", { y: fy(YEARS[state.snap]) }))}</p>` : ""}
-        <button class="link" data-act="locate">${esc(tr("locate"))}</button>
-        ${off ? `<button class="link" data-act="ev-go">${esc(tr("ev.goto", { y: fy(e.year) }))}</button>` : ""}</div>`;
+      if (body.includes(`data-act="ev" data-id="${e.id}"`)) return "";
+      return `<div class="card">${top(`${typeName(e.type)} · ${fy(e.year)}`)}<h4>${esc(e.title)}</h4><p>${esc(e.note)}</p></div>`;
     }
     // compare mode describes both snapshots, left year first
     const snaps = comparing() ? [[state.snapA, featsA], [state.snap, feats]] : [[state.snap, feats]];
@@ -1589,13 +1603,12 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const name = pname(key), en = enName(key), color = info.l ? `var(--lin-${info.l})` : "var(--faint)";
     const metas = per.map(o => `<p class="meta">${esc(o.p ? tr("stateMeta", { y: fy(o.y), area: fmtArea(o.p.a) }) : tr("absent", { y: fy(o.y) }))}</p>`).join("");
     // a state with a profile (locale "profiles": [dates and capital, text]) leads with it and folds the figures away
-    const prof = LOC.profiles[key] ?? LOC.profiles[srcName(key)], ch = state.mode === "explore" && storyOf(s.id);
+    const prof = LOC.profiles[key] ?? LOC.profiles[srcName(key)];
     const stats = `${spark(info.s, color)}<h3>${esc(tr("nameHistory"))}</h3>${runsList(info.names)}`;
     return `<div class="card">${top(tr("tag.state"))}<h4>${esc(name)}</h4>${LOC.meta.code !== "en" && en !== name ? `<p class="en">${esc(en)}</p>` : ""}
       ${prof ? `${prof[0] ? `<p class="when">${esc(prof[0])}</p>` : ""}<p class="prof">${esc(prof[1])}</p>` : ""}
       ${p && p.o ? `<p>${esc(tr("overlord", { name: pname(p.o) }))}</p>` : ""}
       ${metas}
-      ${ch ? `<button class="link" data-act="ov-story" data-i="${ch.i}" data-s="${ch.s}">${esc(tr("overview.story", { t: ch.title }))} →</button>` : ""}
       ${prof ? `<h3>${foldBtn("stat", tr("card.stats"))}</h3>${state.open.stat ? stats : ""}` : stats}
       ${info.l ? `<button class="link" data-act="lineage" data-id="${info.l}"><i style="background:var(--lin-${info.l})"></i>${esc(tr("viewLineage", { name: LOC.lineages[info.l] || info.l }))}</button>` : ""}</div>`;
   }
@@ -1634,8 +1647,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
 
   function eventsSec() {
     const Y = state.year, rec = recentEvents(), up = upcomingEvents();
-    const row = (e, cls) => `<button class="row ${cls}" data-act="ev" data-id="${e.id}"><span class="yr">${fy(e.year)}</span>
-      <span><b>${esc(e.title)}</b><small>${esc(typeName(e.type))} · ${esc(e.note)}</small></span></button>`;
+    const row = evRow;
     // exploring, the list ends with the eras either side, so the next one is a click away from the reading
     const ei = eraIndex(Y), eraBtn = (i, dir) => i < 0 || i >= ERAS.length ? "<span></span>"
       : `<button class="era-nav ${dir}" data-act="era" data-i="${i}"><small>${esc(tr(`era.${dir}`))}</small><b>${dir === "prev" ? "‹ " : ""}${esc(LOC.eras[i])}${dir === "next" ? " ›" : ""}</b></button>`;
@@ -1827,14 +1839,16 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     if (state.reading) return renderReader();
     const rec = recentEvents(), up = upcomingEvents(), s = state.sel;
     const key = [state.snap, eraIndex(state.year), s && s.kind, s && s.id, s && s.side, rec.map(e => e.id).join(","), up.map(e => e.id).join(","),
-      state.show.chg, state.chgAll, state.open.chg, state.open.note, state.open.stat, state.mode, state.story ? `${state.story.ch}-${state.story.step}-${curStep().y === state.year}` : "",
+      state.show.chg, state.chgAll, state.open.chg, state.open.note, state.open.stat, state.playing, oneColumn.matches, state.mode, state.story ? `${state.story.ch}-${state.story.step}-${curStep().y === state.year}` : "",
       comparing() ? `${state.yearA}-${state.year}` : ""].join("|");
     if (key !== sideKey || force) {
       if (sidePressed) sidePending = true; // rebuild once the button is released, so its click still lands
       else {
         sideKey = key;
         const a = document.activeElement, refocus = a !== side && side.contains(a) ? focusSel(a) : null;
-        side.innerHTML = storySec() + overviewSec() + selCard() + (comparing() ? compareSec() : eventsSec() + changesSec() + notesSec()) + footer();
+        const body = comparing() ? compareSec() : eventsSec() + changesSec() + notesSec();
+        const ov = overviewSec(), card = selCard(body);
+        side.innerHTML = storySec() + (oneColumn.matches ? card + ov : ov + card) + body + footer();
         fillCharts();
         if (refocus !== null) (refocus && side.querySelector(refocus) || side.querySelector("[data-act=snext]") || side).focus({ preventScroll: true });
       }
@@ -1880,7 +1894,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
       select({ kind: "ident", id: b.dataset.id });
       const fs = feats.filter(f => f.properties.i === b.dataset.id);
       const pool = fs.length ? fs : featsA.filter(f => f.properties.i === b.dataset.id);
-      if (pool.length) zoomToFeature({ type: "FeatureCollection", features: pool }, true);
+      if (pool.length) revealFeature({ type: "FeatureCollection", features: pool });
     }
     else if (act === "chapter") openStory(+b.dataset.i);
     else if (act === "chapters") closeStory();
@@ -1893,19 +1907,18 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     else if (act === "ov-id") select(b.getAttribute("aria-pressed") === "true" ? null : { kind: "ident", id: b.dataset.id }); // a second press lets go
     else if (act === "ov-story") openStory(+b.dataset.i, +b.dataset.s);
     else if (act === "fold") { state.open[b.dataset.k] = !state.open[b.dataset.k]; renderSide(true); }
-    else if (act === "locate") { const e = EVENTS[state.sel.id]; zoomToPoint(e.lon, e.lat, true); }
-    else if (act === "ev-go") { stopPlay(); setYear(EVENTS[state.sel.id].year); }
     else if (act === "about") openAbout();
     else if (act === "era") { stopPlay(); setYear(eraMap(...ERAS[+b.dataset.i])); }
     else if (act === "ev") {
       const e = EVENTS[+b.dataset.id];
-      if (e.year > state.year && !comparing()) setYear(e.year);
+      if (b.getAttribute("aria-pressed") === "true") return select(null);
+      if (e.year > state.year && !comparing()) setYear(e.year); // a "coming up" event: go on to its year
       select({ kind: "event", id: e.id });
-      zoomToPoint(e.lon, e.lat, true);
+      revealPoint(e.lon, e.lat);
     } else if (act === "chg") {
       const f = changesOf(YEARS[state.snap]).find(c => c.properties.k === +b.dataset.k);
       if (!f) return;
-      zoomToFeature(f);
+      revealFeature(f);
       gPulse.selectAll("path").remove();
       gPulse.append("path").datum(f).attr("class", "pulse").attr("d", path);
     }
@@ -1924,12 +1937,18 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     if (y === state.year) return;
     state.year = y;
     const i = snapIndexFor(y), forward = i === state.snap + 1;
+    // Exploring, a selection that the new year no longer shows is let go, or its card would stay over a map that has
+    // nothing to do with it: an event that has left the list of recent events, a state that is not on the snapshot.
+    const s = state.mode === "explore" && state.sel, e = s && s.kind === "event" && EVENTS[s.id];
+    const stale = s && (e ? !(e.year <= y && e.year > y - windowAt(y)) : s.kind === "ident" && !(IDENTS[s.id] && IDENTS[s.id].s[i]));
+    if (stale) state.sel = viewBack = null;
     if (i !== state.snap) {
       if (state.snap >= 0) crossfade();
       state.snap = i;
       state.chgAll = false;
       renderSnapshot(forward && state.show.chg);
-    } else renderCities();
+    } else if (stale) applySelection();
+    else renderCities();
     renderEvents();
     updateClock();
     movePlayhead();
@@ -1943,6 +1962,9 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     renderEvents();
     drawTimeline();
     renderSide(true);
+    // an event picked on the map: bring its row into view in the panel (on a phone the panel is below the map; stay put)
+    const row = s && s.kind === "event" && !oneColumn.matches && side.querySelector(".row.on");
+    if (row) row.scrollIntoView({ block: "nearest" });
   }
 
   // the next or previous snapshot year; from a year between snapshots, "previous" is the snapshot it shows
@@ -1981,7 +2003,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     state.playing = false;
     $("#playicon").innerHTML = '<path d="M7 4.5v15l12-7.5z"/>';
     $("#play").setAttribute("aria-label", tr("play"));
-    syncHash();
+    renderSide(); // the overview in full again
   }
   const togglePlay = () => state.playing ? stopPlay() : startPlay();
 
@@ -2225,8 +2247,6 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const losses = rows.filter(r => r.d < 0).sort((x, y) => x.d - y.d).slice(0, 6);
     const lo = Math.min(A, B), hi = Math.max(A, B);
     const between = EVENTS.filter(e => e.year > lo && e.year <= hi);
-    const evRow = e => `<button class="row" data-act="ev" data-id="${e.id}"><span class="yr">${fy(e.year)}</span>
-      <span><b>${esc(e.title)}</b><small>${esc(typeName(e.type))} · ${esc(e.note)}</small></span></button>`;
     const same = ia === ib;
     const arrow = d => `<svg viewBox="0 0 24 24"><path d="${d < 0 ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"}"/></svg>`;
     const stepper = (act, side, y) => `<span class="cmp-step"><span>${T(side)}</span>${[-1, 1].map(d =>
@@ -2239,7 +2259,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
         ${same ? `<p class="empty">${T("cmp.same", { y: fy(YEARS[ib]) })}</p>` : gains.map(row).join("") || `<p class="empty">${T("cmp.noGains")}</p>`}</section>
       ${same ? "" : `<section><h2>${T("cmp.losses", { a: FA, b: FB })}</h2>${losses.map(row).join("") || `<p class="empty">${T("cmp.noLosses")}</p>`}</section>`}
       <section><h2>${T("cmp.events")} <span>${T("cmp.eventsCount", { n: between.length })}</span></h2>
-        ${between.slice(0, 10).map(evRow).join("") || `<p class="empty">${T("cmp.noEvents")}</p>`}
+        ${between.slice(0, 10).map(e => evRow(e)).join("") || `<p class="empty">${T("cmp.noEvents")}</p>`}
         ${between.length > 10 ? `<p class="more">${T("cmp.moreEvents", { n: between.length - 10 })}</p>` : ""}</section>`;
   }
 
@@ -2406,7 +2426,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     } else if (r.kind === "event") {
       setYear(r.e.year);
       select({ kind: "event", id: r.e.id });
-      zoomToPoint(r.e.lon, r.e.lat, true);
+      revealPoint(r.e.lon, r.e.lat);
     }
   }
   // a ring that draws the eye to a searched city once the map has flown there
@@ -2520,7 +2540,7 @@ aside h3 { margin: 10px 0 2px; font-size: 12px; font-weight: 500; color: var(--m
     const m = tail.match(/^(state|lineage|event):(.+)$/), id = m && decode(m[2]);
     if (m && m[1] === "event") {
       const e = EVENTS.find(e => e.key === id);
-      if (e) { select({ kind: "event", id: e.id }); zoomToPoint(e.lon, e.lat); }
+      if (e) { select({ kind: "event", id: e.id }); revealPoint(e.lon, e.lat); }
     } else if (m && (m[1] === "state" ? IDENTS[id] : LIN[id])) {
       const kind = m[1] === "state" ? "ident" : "lineage", hit = kind === "ident" ? p => p.i === id : p => p.l === id;
       select({ kind, id });
